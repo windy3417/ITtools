@@ -68,6 +68,7 @@
             this.cmb_dataBaseList.Name = "cmb_dataBaseList";
             this.cmb_dataBaseList.Size = new System.Drawing.Size(121, 20);
             this.cmb_dataBaseList.TabIndex = 1;
+            this.cmb_dataBaseList.SelectedValueChanged += new System.EventHandler(this.cmb_dataBaseList_SelectedValueChanged);
             // 
             // lbl_dataBase
             // 

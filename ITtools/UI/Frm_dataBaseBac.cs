@@ -16,7 +16,7 @@ namespace ITtools.UI
 {
     public partial class Frm_dataBaseBac : Form
     {
-
+        string directory;
 
         public Frm_dataBaseBac()
         {
@@ -50,7 +50,9 @@ namespace ITtools.UI
         {
             if (DialogResult.OK == folderBrowserDialog1.ShowDialog())
             {
-                txt_directory.Text = folderBrowserDialog1.SelectedPath + "\\"+cmb_dataBaseList.Text+DateTime.Now.Date.ToString("yyyyMMdd")+".bak";
+                directory = folderBrowserDialog1.SelectedPath;
+                txt_directory.Text = directory + "\\"+cmb_dataBaseList.Text + ".bak";
+                
             } 
 
         }
@@ -59,19 +61,32 @@ namespace ITtools.UI
         {
             SqlParameter[] sqlParameters = {new SqlParameter("@dataBase",cmb_dataBaseList.Text),
                                                 new SqlParameter("@directory",txt_directory.Text),
-           new SqlParameter("@name",cmb_dataBaseList.Text+"FullBacup") };
-            String sql = "BACKUP DATABASE @dataBase TO  DISK =@directory WITH NOFORMAT, NOINIT,  NAME =@name, SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+           new SqlParameter("@name",cmb_dataBaseList.Text+DateTime.Now.Date.ToString("yyyyMMdd")+ DateTime.Now.TimeOfDay.ToString("hhmmss")+"FullBacup") };
+
+            String sql = "BACKUP DATABASE @dataBase TO  DISK =@directory WITH  RETAINDAYS = 7, NOFORMAT, NOINIT,  NAME =@name, NOSKIP, NOREWIND, NOUNLOAD,  STATS = 10";
             try
             {
                 Sqlhelper.UpdateWithparameters(sql, sqlParameters);
-                MessageBox.Show("数据备份成功", "数据库备份提示");
-            }
+                MessageBox.Show("数据备份成功", "数据库备份提示");            }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message + ex.InnerException, "数据库备份提示");
             }
             
+        }
+
+        private void cmb_dataBaseList_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_dataBaseList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (txt_directory.Text != "")
+            {
+                txt_directory.Text = directory + "\\" + cmb_dataBaseList.Text + ".bak";
+            }
         }
     }
 }
