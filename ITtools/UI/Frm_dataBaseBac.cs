@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
+using Newtonsoft;
+using Newtonsoft.Json;
 using Utility.Sql;
 using ITtools.Services;
+using ITtools.DAL;
+using ITtools.Modle;
 
 namespace ITtools.UI
 {
@@ -27,13 +30,30 @@ namespace ITtools.UI
             
         }
 
+        /// <summary>
+        /// 初始化控件数据源
+        /// </summary>
         void initializeControlDataSource()
         {
-
+            //初始化数据库数据源
             var query = from q in new DataBaseListService().dataBaseList().AsEnumerable()
                         select new { name=q.Field<String>(0)}; 
             cmb_dataBaseList.DataSource = query.ToList();
             cmb_dataBaseList.DisplayMember = "name";
+
+            //初始化常备分设备
+            DiretoryModle diretoryModle = new DiretoryModle();
+            List<DiretoryModle> diretoryList=new List<DiretoryModle>();
+            JsonReader jsonReader = new DiretoryService().getDiretory();
+            while (jsonReader.Read())
+            {
+                diretoryModle.diretory = jsonReader.Value.ToString();
+                diretoryList.Add(diretoryModle);
+                cmb_devices.DataSource = diretoryList;
+            }
+
+            
+            
             
         }
         private void toolStripButton1_Click(object sender, EventArgs e)

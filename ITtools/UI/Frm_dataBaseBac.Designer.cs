@@ -38,6 +38,7 @@
             this.txt_directory = new System.Windows.Forms.TextBox();
             this.btn_open = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.cmb_devices = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,11 +120,20 @@
             this.btn_open.UseVisualStyleBackColor = true;
             this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
+            // cmb_devices
+            // 
+            this.cmb_devices.FormattingEnabled = true;
+            this.cmb_devices.Location = new System.Drawing.Point(371, 205);
+            this.cmb_devices.Name = "cmb_devices";
+            this.cmb_devices.Size = new System.Drawing.Size(213, 20);
+            this.cmb_devices.TabIndex = 7;
+            // 
             // Frm_dataBaseBac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmb_devices);
             this.Controls.Add(this.btn_open);
             this.Controls.Add(this.txt_directory);
             this.Controls.Add(this.btn_bacup);
@@ -152,5 +162,6 @@
         private System.Windows.Forms.TextBox txt_directory;
         private System.Windows.Forms.Button btn_open;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ComboBox cmb_devices;
     }
 }
