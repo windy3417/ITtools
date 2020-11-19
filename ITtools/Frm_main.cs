@@ -45,5 +45,17 @@ namespace ITtools
             Frm_config frm_Config = new Frm_config();
             embedForm(frm_Config);
         }
+
+        private void 常用备份路径ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_directoryBac frm_DirectoryBac = new Frm_directoryBac();
+            embedForm(frm_DirectoryBac);
+        }
+
+        private void 互联网资源ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_resources f = new Frm_resources();
+            embedForm(f);
+        }
     }
 }

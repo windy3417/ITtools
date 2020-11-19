@@ -16,14 +16,25 @@ namespace ITtools.DAL
     class DiretoryService
 
     {
-        public JsonReader getDiretory(){
-          FileStream fileStream =  File.OpenRead("F:\\code\\ITtools\\ITtools\\DAL\\DirectoryItem.json");
+        public JsonReader getDiretory()
+        {
+            String path = Environment.CurrentDirectory + "\\";
+            FileStream fileStream = File.OpenRead(path + "DAL\\DirectoryItem.json");
+            String jsonString = File.ReadAllText(path + "DAL\\DirectoryItem.json");
             //String jsonString = fileStream.ToString();
-            return  new JsonTextReader(new StreamReader(fileStream));
-            
-            
+            return new JsonTextReader(new StreamReader(fileStream));
 
 
-}
+
+
+        }
+
+        public String getDiretoryItem()
+        {
+            String path = Environment.CurrentDirectory + "\\";
+            FileStream fileStream = File.OpenRead(path + "DAL\\DirectoryItem.json");
+           return  File.ReadAllText(path + "DAL\\DirectoryItem.json");
+          
+        }
     }
 }

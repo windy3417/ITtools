@@ -42,19 +42,24 @@ namespace ITtools.UI
             cmb_dataBaseList.DisplayMember = "name";
 
             //初始化常备分设备
-            DiretoryModle diretoryModle = new DiretoryModle();
-            List<DiretoryModle> diretoryList=new List<DiretoryModle>();
-            JsonReader jsonReader = new DiretoryService().getDiretory();
-            while (jsonReader.Read())
-            {
-                diretoryModle.diretory = jsonReader.Value.ToString();
-                diretoryList.Add(diretoryModle);
-                cmb_devices.DataSource = diretoryList;
-            }
+            //DiretoryModle diretoryModle = new DiretoryModle();
+            //List<DiretoryModle> diretoryList=new List<DiretoryModle>();
+            string  jsonString = new DiretoryService().getDiretoryItem();
 
-            
-            
-            
+            string jstring = @"{direcoty:'D:\temp'}";
+            //List<DiretoryItemModle> diretoryList = JsonConvert.DeserializeObject<List<DiretoryItemModle>>(jsonString);
+            List<DiretoryModle> diretoryList = JsonConvert.DeserializeObject<List<DiretoryModle>>(jstring);
+            cmb_devices.DataSource = diretoryList;
+            //while (jsonReader.Read())
+            //{
+            //    diretoryModle.diretory = jsonReader.Value.ToString();
+            //    diretoryList.Add(diretoryModle);
+            //    cmb_devices.DataSource = diretoryList;
+            //}
+
+
+
+
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
