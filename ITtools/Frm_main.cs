@@ -42,8 +42,8 @@ namespace ITtools
 
         private void 数据库设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_config frm_Config = new Frm_config();
-            embedForm(frm_Config);
+            Frm_itConfig f = new Frm_itConfig();
+            embedForm(f);
         }
 
         private void 常用备份路径ToolStripMenuItem_Click(object sender, EventArgs e)

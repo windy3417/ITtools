@@ -140,6 +140,7 @@
     <Compile Include="UI\Frm_directoryBac.Designer.cs">
       <DependentUpon>Frm_directoryBac.cs</DependentUpon>
     </Compile>
+    <Content Include="程序说明.txt" />
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
     </EmbeddedResource>
