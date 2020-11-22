@@ -30,13 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_resources));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_resources));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.dgv_list = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lbl_customer = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlp_record = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_url = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_cusCode = new System.Windows.Forms.TextBox();
@@ -51,14 +55,10 @@
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlp_record.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.lbl_voucherStatus);
             this.panel1.Controls.Add(this.dgv_list);
             this.panel1.Controls.Add(this.lbl_customer);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.tlp_record);
             this.panel1.Location = new System.Drawing.Point(27, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(744, 410);
@@ -117,8 +117,45 @@
             this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_list.Size = new System.Drawing.Size(738, 150);
             this.dgv_list.TabIndex = 2;
-            this.dgv_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgv_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
             this.dgv_list.SelectionChanged += new System.EventHandler(this.DataGridView1_SelectionChanged);
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.FillWeight = 50.76142F;
+            this.id.Frozen = true;
+            this.id.HeaderText = "资源编码";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // introduction
+            // 
+            this.introduction.DataPropertyName = "introduction";
+            this.introduction.FillWeight = 149.2386F;
+            this.introduction.HeaderText = "网页内容";
+            this.introduction.Name = "introduction";
+            this.introduction.ReadOnly = true;
+            // 
+            // 网络地址
+            // 
+            this.网络地址.DataPropertyName = "url";
+            this.网络地址.HeaderText = "网络地址";
+            this.网络地址.Name = "网络地址";
+            this.网络地址.ReadOnly = true;
+            // 
+            // navigate
+            // 
+            this.navigate.HeaderText = "阅览";
+            this.navigate.Name = "navigate";
+            this.navigate.ReadOnly = true;
+            this.navigate.Text = "阅览";
+            this.navigate.UseColumnTextForButtonValue = true;
             // 
             // lbl_customer
             // 
@@ -130,26 +167,26 @@
             this.lbl_customer.TabIndex = 1;
             this.lbl_customer.Text = "互联网资源";
             // 
-            // tableLayoutPanel1
+            // tlp_record
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
-            this.tableLayoutPanel1.Controls.Add(this.lbl_url, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txt_cusCode, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txt_url, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lbl_content, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txt_content, 3, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 70);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(738, 122);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlp_record.ColumnCount = 4;
+            this.tlp_record.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
+            this.tlp_record.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
+            this.tlp_record.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tlp_record.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
+            this.tlp_record.Controls.Add(this.lbl_url, 0, 1);
+            this.tlp_record.Controls.Add(this.label2, 0, 0);
+            this.tlp_record.Controls.Add(this.txt_cusCode, 1, 0);
+            this.tlp_record.Controls.Add(this.txt_url, 1, 1);
+            this.tlp_record.Controls.Add(this.lbl_content, 2, 0);
+            this.tlp_record.Controls.Add(this.txt_content, 3, 0);
+            this.tlp_record.Location = new System.Drawing.Point(3, 70);
+            this.tlp_record.Name = "tlp_record";
+            this.tlp_record.RowCount = 2;
+            this.tlp_record.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_record.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlp_record.Size = new System.Drawing.Size(738, 122);
+            this.tlp_record.TabIndex = 0;
             // 
             // lbl_url
             // 
@@ -293,42 +330,6 @@
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.FillWeight = 50.76142F;
-            this.id.Frozen = true;
-            this.id.HeaderText = "资源编码";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // introduction
-            // 
-            this.introduction.DataPropertyName = "introduction";
-            this.introduction.FillWeight = 149.2386F;
-            this.introduction.HeaderText = "网页内容";
-            this.introduction.Name = "introduction";
-            this.introduction.ReadOnly = true;
-            // 
-            // 网络地址
-            // 
-            this.网络地址.DataPropertyName = "url";
-            this.网络地址.HeaderText = "网络地址";
-            this.网络地址.Name = "网络地址";
-            this.网络地址.ReadOnly = true;
-            // 
-            // navigate
-            // 
-            this.navigate.HeaderText = "阅览";
-            this.navigate.Name = "navigate";
-            this.navigate.ReadOnly = true;
-            this.navigate.Text = "阅览";
-            this.navigate.UseColumnTextForButtonValue = true;
-            // 
             // webURLServiceBindingSource
             // 
             this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
@@ -348,8 +349,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tlp_record.ResumeLayout(false);
+            this.tlp_record.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
@@ -362,7 +363,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_customer;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlp_record;
         private System.Windows.Forms.Label lbl_url;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_cusCode;

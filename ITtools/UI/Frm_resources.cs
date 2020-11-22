@@ -60,7 +60,7 @@ namespace ITtools.UI
 
             
             this.dgv_list.AutoGenerateColumns = false;
-            this.tableLayoutPanel1.Enabled = false;
+            this.tlp_record.Enabled = false;
             lbl_voucherStatus.Visible = false;
 
             navigate.Width = 50;
@@ -96,7 +96,7 @@ namespace ITtools.UI
             //新增与查询功能中的dataGridView数据源不同，且该数据源标记通过功能键触发选择
             //tsb_query.Enabled = false;
             tsb_modify.Enabled = false;
-            this.tableLayoutPanel1.Enabled = true;
+            this.tlp_record.Enabled = true;
            
           
 
@@ -262,7 +262,7 @@ namespace ITtools.UI
         }
 
         /// <summary>
-        /// 修改客户档案
+        /// 修改资源信息
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -272,7 +272,7 @@ namespace ITtools.UI
             lbl_voucherStatus.Visible = true;
             tsb_add.Enabled = false;
 
-            tableLayoutPanel1.Enabled = true;
+            tlp_record.Enabled = true;
             //编码不能被修改
             txt_cusCode.Enabled = false;
             tsb_save.Enabled = true;
@@ -344,12 +344,12 @@ namespace ITtools.UI
         private bool inputVlidate()
         {
 
-            for (int i = 0; i < this.tableLayoutPanel1.Controls.Count;)
+            for (int i = 0; i < this.tlp_record.Controls.Count;)
             {
                
-                    if (this.tableLayoutPanel1.Controls[i].Text == "" || this.tableLayoutPanel1.Controls[i].Text == null)
+                    if (this.tlp_record.Controls[i].Text == "" || this.tlp_record.Controls[i].Text == null)
                     {
-                        MessageBox.Show(this.tableLayoutPanel1.Controls[i].Tag + "不能为空", "输入校验");
+                        MessageBox.Show(this.tlp_record.Controls[i].Tag + "不能为空", "输入校验");
                         return false;
                     }
                 
@@ -364,32 +364,21 @@ namespace ITtools.UI
         }
         #endregion
 
-               
-        #region 窗体操作
+              
+        
+        #region dataGridView数据处理与绑定
         /// <summary>
-        /// 关闭嵌入式窗体
+        /// 处理dataGridView中button列的单击事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tsb_close_Click(object sender, EventArgs e)
+        private void dgv_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Close();
+            if (e.RowIndex < 0 || e.ColumnIndex !=
+           dgv_list.Columns["navigate"].Index) return;
+            NetHelper.OpenBrowserUrl(dgv_list.SelectedRows[0].Cells[2].Value.ToString());
         }
 
-        /// <summary>
-        /// 关闭母窗体
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void closeParent(object sender, FormClosedEventArgs e)
-        {
-            this.Parent.Dispose();
-        }
-
-        #endregion
-
-
-        #region 数据处理与绑定
         /// <summary>
         /// 绑定dataGridView的数据源
         /// </summary>
@@ -422,7 +411,7 @@ namespace ITtools.UI
         /// </summary>
         private void clearDate()
         {
-            foreach (Control item in this.tableLayoutPanel1.Controls)
+            foreach (Control item in this.tlp_record.Controls)
             {
 
                 //if (item.Name.Substring(0, 3) != "lbl")
@@ -436,20 +425,35 @@ namespace ITtools.UI
             }
         }
 
-     
 
         /// <summary>
         /// 选择当前行数据进行处理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-    
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            clearDate();
+            if (e.RowIndex > -1)
+            {
+                this.txt_cusCode.Text = this.dgv_list.Rows[e.RowIndex].Cells[0].Value.ToString();
+                this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.txt_url.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
+               
+               
+
+            }
+
+
+
+
+        }
 
         #endregion
 
 
-       
-
+        
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             tsb_delete.Enabled = true;
@@ -469,13 +473,35 @@ namespace ITtools.UI
             tsb_add.Enabled = true;
             tsb_abandon.Enabled = false;
             clearDate();
-            tableLayoutPanel1.Enabled = false;
+            tlp_record.Enabled = false;
 
         }
 
-        
-        #region 事件处理
 
+        #region 主窗体事件处理
+
+        #region 窗体操作
+        /// <summary>
+        /// 关闭嵌入式窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Tsb_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// 关闭母窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void closeParent(object sender, FormClosedEventArgs e)
+        {
+            this.Parent.Dispose();
+        }
+
+        #endregion
 
         #region 快捷键
         /// <summary>
@@ -518,20 +544,10 @@ namespace ITtools.UI
 
         #endregion
 
-        /// <summary>
-        /// 处理dataGridView中button列的单击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex !=
-            dgv_list.Columns["navigate"].Index) return;
-            NetHelper.OpenBrowserUrl(dgv_list.SelectedRows[0].Cells[2].Value.ToString());
+      
 
-        }
         #endregion
 
-
+      
     }
 }

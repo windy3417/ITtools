@@ -15,7 +15,7 @@ namespace ITtools.Services
         public DataTable dataBaseList()
         {
             string sql = "SELECT Name from SysDatabases ORDER BY Name";
-            return Sqlhelper.GetDataTable(sql,Sqlhelper.dataSourceType.it);
+            return Sqlhelper.GetDataTable(sql,Sqlhelper.DataSourceType.it);
         }
 
     }

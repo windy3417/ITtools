@@ -42,7 +42,7 @@ namespace ITtools
 
         private void 数据库设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_itConfig f = new Frm_itConfig();
+            Frm_itDouble_DB_config f = new Frm_itDouble_DB_config();
             embedForm(f);
         }
 

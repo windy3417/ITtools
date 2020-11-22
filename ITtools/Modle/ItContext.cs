@@ -8,7 +8,7 @@
     {
        
         public ItContext()
-            : base(Utility.Sql.Sqlhelper.sqlConnection(),true)
+            : base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.business),true)
         {
         }
 
