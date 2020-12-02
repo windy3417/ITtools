@@ -201,5 +201,44 @@ namespace ITtools.Common
                 OpenDefaultBrowserUrl(url);
             }
         }
+
+        /// <summary>
+        /// 火狐浏览器打开网页
+        /// </summary>
+        /// <param name="url"></param>
+        public static void OpenEdge(string url)
+        {
+            try
+            {
+                // 64位注册表路径
+                var openKey = @"SOFTWARE\Microsoft\Edge";
+                if (IntPtr.Size == 4)
+                {
+                    // 32位注册表路径
+                    openKey = @"SOFTWARE\Microsoft\Edge";
+                }
+                RegistryKey appPath = Registry.LocalMachine.OpenSubKey(openKey);
+                if (appPath != null)
+                {
+                    var result = Process.Start("msedge.exe", url);
+                    if (result == null)
+                    {
+                        OpenIe(url);
+                    }
+                }
+                else
+                {
+                    var result = Process.Start("msedge.exe", url);
+                    if (result == null)
+                    {
+                        OpenDefaultBrowserUrl(url);
+                    }
+                }
+            }
+            catch
+            {
+                OpenDefaultBrowserUrl(url);
+            }
+        }
     }
 }

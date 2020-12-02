@@ -119,7 +119,7 @@
             this.dgv_list.TabIndex = 2;
             this.dgv_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
-            this.dgv_list.SelectionChanged += new System.EventHandler(this.DataGridView1_SelectionChanged);
+            this.dgv_list.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // id
             // 
