@@ -368,7 +368,7 @@ namespace ITtools.UI
         
         #region dataGridView数据处理与绑定
         /// <summary>
-        /// 处理dataGridView中button列的单击事件
+        /// 处理dataGridView中button列的单击事件,跳转到网页
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -376,7 +376,7 @@ namespace ITtools.UI
         {
             if (e.RowIndex < 0 || e.ColumnIndex !=
            dgv_list.Columns["navigate"].Index) return;
-            NetHelper.OpenBrowserUrl(dgv_list.SelectedRows[0].Cells[2].Value.ToString());
+            NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[2].Value.ToString());
         }
 
         /// <summary>
@@ -444,17 +444,15 @@ namespace ITtools.UI
                
 
             }
-
-
-
-
+            
+            
         }
 
         #endregion
 
 
         
-        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dgv_SelectionChanged(object sender, EventArgs e)
         {
             tsb_delete.Enabled = true;
         }

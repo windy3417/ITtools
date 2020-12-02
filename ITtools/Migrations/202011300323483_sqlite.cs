@@ -1,9 +1,9 @@
-namespace ITtools.Migrations
+﻿namespace ITtools.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class first : DbMigration
+    public partial class sqlite : DbMigration
     {
         public override void Up()
         {
