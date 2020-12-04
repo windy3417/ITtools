@@ -116,19 +116,21 @@
   <ItemGroup>
     <Compile Include="Common\NetHelper.cs" />
     <Compile Include="DAL\DiretoryService.cs" />
+    <Compile Include="DAL\EnumService.cs" />
     <Compile Include="Frm_main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_main.Designer.cs">
       <DependentUpon>Frm_main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011300323483_sqlite.cs" />
-    <Compile Include="Migrations\202011300323483_sqlite.designer.cs">
-      <DependentUpon>202011300323483_sqlite.cs</DependentUpon>
+    <Compile Include="Migrations\202012040558163_first.cs" />
+    <Compile Include="Migrations\202012040558163_first.designer.cs">
+      <DependentUpon>202012040558163_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modle\DiretoryItemModle.cs" />
     <Compile Include="Modle\DiretoryModle.cs" />
+    <Compile Include="Modle\EnumModle.cs" />
     <Compile Include="Modle\ItContext.cs" />
     <Compile Include="Modle\WebURLModle.cs" />
     <Compile Include="Program.cs" />
@@ -157,8 +159,8 @@
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011300323483_sqlite.resx">
-      <DependentUpon>202011300323483_sqlite.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012040558163_first.resx">
+      <DependentUpon>202012040558163_first.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

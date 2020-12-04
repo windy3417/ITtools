@@ -11,7 +11,7 @@
        
         public ItContext()
             //: base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.business),true)
-            : base("Data Source=E:\\OneDrive\\Resource\\itResource.db")
+            : base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.it), true)
         {
         }
 

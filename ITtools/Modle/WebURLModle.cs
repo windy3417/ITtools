@@ -14,5 +14,6 @@ namespace ITtools.Modle
         public string introduction { get; set; }
         
         public string url { get; set; }
+        public int ResourceClass{ get;set;}
     }
 }

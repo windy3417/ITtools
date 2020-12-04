@@ -47,6 +47,8 @@
             this.txt_url = new System.Windows.Forms.TextBox();
             this.lbl_content = new System.Windows.Forms.Label();
             this.txt_content = new System.Windows.Forms.TextBox();
+            this.lbl_class = new System.Windows.Forms.Label();
+            this.cmb_class = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_add = new System.Windows.Forms.ToolStripButton();
             this.tsb_abandon = new System.Windows.Forms.ToolStripButton();
@@ -178,8 +180,10 @@
             this.tlp_record.Controls.Add(this.label2, 0, 0);
             this.tlp_record.Controls.Add(this.txt_cusCode, 1, 0);
             this.tlp_record.Controls.Add(this.txt_url, 1, 1);
-            this.tlp_record.Controls.Add(this.lbl_content, 2, 0);
-            this.tlp_record.Controls.Add(this.txt_content, 3, 0);
+            this.tlp_record.Controls.Add(this.lbl_content, 2, 1);
+            this.tlp_record.Controls.Add(this.txt_content, 3, 1);
+            this.tlp_record.Controls.Add(this.lbl_class, 2, 0);
+            this.tlp_record.Controls.Add(this.cmb_class, 3, 0);
             this.tlp_record.Location = new System.Drawing.Point(3, 70);
             this.tlp_record.Name = "tlp_record";
             this.tlp_record.RowCount = 2;
@@ -233,7 +237,7 @@
             // 
             this.lbl_content.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_content.AutoSize = true;
-            this.lbl_content.Location = new System.Drawing.Point(381, 24);
+            this.lbl_content.Location = new System.Drawing.Point(381, 85);
             this.lbl_content.Name = "lbl_content";
             this.lbl_content.Size = new System.Drawing.Size(65, 12);
             this.lbl_content.TabIndex = 0;
@@ -243,12 +247,34 @@
             // txt_content
             // 
             this.txt_content.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_content.Location = new System.Drawing.Point(477, 20);
+            this.txt_content.Location = new System.Drawing.Point(477, 81);
             this.txt_content.Name = "txt_content";
             this.txt_content.Size = new System.Drawing.Size(252, 21);
             this.txt_content.TabIndex = 1;
             this.txt_content.Tag = "内容介绍";
             this.txt_content.Validating += new System.ComponentModel.CancelEventHandler(this.regValidating);
+            // 
+            // lbl_class
+            // 
+            this.lbl_class.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbl_class.AutoSize = true;
+            this.lbl_class.Location = new System.Drawing.Point(381, 24);
+            this.lbl_class.Name = "lbl_class";
+            this.lbl_class.Size = new System.Drawing.Size(41, 12);
+            this.lbl_class.TabIndex = 0;
+            this.lbl_class.Tag = "网页内容标签";
+            this.lbl_class.Text = "类型：";
+            // 
+            // cmb_class
+            // 
+            this.cmb_class.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cmb_class.FormattingEnabled = true;
+            this.cmb_class.Location = new System.Drawing.Point(477, 20);
+            this.cmb_class.Name = "cmb_class";
+            this.cmb_class.Size = new System.Drawing.Size(252, 20);
+            this.cmb_class.TabIndex = 3;
+            this.cmb_class.Tag = "资源类型";
+            this.cmb_class.SelectedIndexChanged += new System.EventHandler(this.cmb_class_SelectedIndexChanged);
             // 
             // toolStrip1
             // 
@@ -386,5 +412,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn introduction;
         private System.Windows.Forms.DataGridViewTextBoxColumn 网络地址;
         private System.Windows.Forms.DataGridViewButtonColumn navigate;
+        private System.Windows.Forms.Label lbl_class;
+        private System.Windows.Forms.ComboBox cmb_class;
     }
 }

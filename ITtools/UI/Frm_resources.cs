@@ -9,8 +9,9 @@ using ITtools.Modle;
 using System.Collections.Generic;
 using System.Configuration;
 using Utility;
-using ITtools.Common; 
-
+using ITtools.Common;
+using System.Collections;
+using ITtools.DAL;
 
 namespace ITtools.UI
 {
@@ -20,6 +21,7 @@ namespace ITtools.UI
         {
             InitializeComponent();
             this.initialize();
+            initializeControlDataSource();
 
         }
 
@@ -28,6 +30,9 @@ namespace ITtools.UI
         List<WebURLModle> customerList = new List<WebURLModle>();
         //最大客户编号
         int maxCusCode;
+
+        int resourceClass;
+
         //dataGridView控件的数据来源，true为查询时绑定，
         //false为新增档案时的绑定
 
@@ -43,6 +48,7 @@ namespace ITtools.UI
 
         //bool saveOrChangeFlag = true;
         string saveOrModifQueryFlag;
+
         #endregion
 
 
@@ -58,12 +64,23 @@ namespace ITtools.UI
             this.tsb_delete.Enabled = false;
             tsb_abandon.Enabled = false;
 
-            
+
             this.dgv_list.AutoGenerateColumns = false;
             this.tlp_record.Enabled = false;
             lbl_voucherStatus.Visible = false;
 
             navigate.Width = 50;
+
+
+        }
+
+        void initializeControlDataSource()
+        {
+           
+            //不能直接绑定hashTable或dictinary因为会报错，
+            cmb_class.DataSource =new BindingSource( new EnumService().GetITenum(),null);
+            cmb_class.ValueMember = "key";
+            cmb_class.DisplayMember = "value";
 
 
         }
@@ -77,7 +94,7 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void Tsb_add_Click(object sender, EventArgs e)
         {
-            
+
             lbl_voucherStatus.Text = "档案状态：新增";
             lbl_voucherStatus.Visible = true;
 
@@ -97,8 +114,8 @@ namespace ITtools.UI
             //tsb_query.Enabled = false;
             tsb_modify.Enabled = false;
             this.tlp_record.Enabled = true;
-           
-          
+
+
 
             //取最大编号时速度太慢，三秒左右，同时最大号算法有误，取到第10号则不向上递增了???。
             using (var db = new ItContext())
@@ -108,7 +125,7 @@ namespace ITtools.UI
                 var custQuery = from r in db.WebURLs.AsNoTracking()
 
                                 select r.id;
-                if (custQuery.Count()==0)
+                if (custQuery.Count() == 0)
                 {
                     maxCusCode = 1;
                 }
@@ -116,7 +133,7 @@ namespace ITtools.UI
                 {
                     maxCusCode = Convert.ToInt32(custQuery.Max()) + 1;
                 }
-               
+
 
 
             }
@@ -127,7 +144,7 @@ namespace ITtools.UI
 
         }
 
-        
+
         /// <summary>
         /// 删除选择定行
         /// </summary>
@@ -145,8 +162,8 @@ namespace ITtools.UI
                     var db = new ItContext();
 
                     List<WebURLModle> d = (from del in db.WebURLs
-                                                  where del.id ==selected
-                                                  select del).ToList<WebURLModle>();
+                                           where del.id == selected
+                                           select del).ToList<WebURLModle>();
                     //移除数据库的数据
                     db.WebURLs.Remove(d[0]);
                     db.SaveChanges();
@@ -159,7 +176,7 @@ namespace ITtools.UI
                     if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
                     {
 
-                        List<WebURLModle> customer = customerList.Where(c => c.id ==selected).ToList<WebURLModle>();
+                        List<WebURLModle> customer = customerList.Where(c => c.id == selected).ToList<WebURLModle>();
                         customerList.Remove(customer[0]);
 
                     }
@@ -201,8 +218,9 @@ namespace ITtools.UI
                         m.id = Convert.ToInt32(txt_cusCode.Text);
                         m.introduction = txt_content.Text;
                         m.url = txt_url.Text;
-                        
-                      
+                        m.ResourceClass =(int) cmb_class.SelectedValue;
+
+
 
 
                         db.WebURLs.Add(m);
@@ -246,7 +264,7 @@ namespace ITtools.UI
                         m.url = this.txt_url.Text;
 
                         m.introduction = txt_content.Text;
-                     
+
                         db.SaveChanges();
                         this.bind_gv_dateSource();
 
@@ -280,23 +298,23 @@ namespace ITtools.UI
         }
 
         /// <summary>
-        /// 查询客户档案
+        /// 查询档案
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tsb_query_Click(object sender, EventArgs e)
         {
             clearDate();
-            lbl_voucherStatus.Text = "档案状态：查询";
+            lbl_voucherStatus.Text = "状态：查询";
             lbl_voucherStatus.Visible = true;
-            
+
             saveOrModifQueryFlag = saveOrChangeOrQueryMolde.query.ToString();
             this.tsb_save.Enabled = false;
             this.bind_gv_dateSource();
             this.tsb_modify.Enabled = true;
 
             this.tsb_delete.Enabled = true;
-            if (dgv_list.Rows.Count>0)
+            if (dgv_list.Rows.Count > 0)
             {
                 this.dgv_list.Rows[0].Selected = true;
             }
@@ -346,13 +364,13 @@ namespace ITtools.UI
 
             for (int i = 0; i < this.tlp_record.Controls.Count;)
             {
-               
-                    if (this.tlp_record.Controls[i].Text == "" || this.tlp_record.Controls[i].Text == null)
-                    {
-                        MessageBox.Show(this.tlp_record.Controls[i].Tag + "不能为空", "输入校验");
-                        return false;
-                    }
-                
+
+                if (this.tlp_record.Controls[i].Text == "" || this.tlp_record.Controls[i].Text == null)
+                {
+                    MessageBox.Show(this.tlp_record.Controls[i].Tag + "不能为空", "输入校验");
+                    return false;
+                }
+
 
                 i++;
 
@@ -364,8 +382,8 @@ namespace ITtools.UI
         }
         #endregion
 
-              
-        
+ 
+
         #region dataGridView数据处理与绑定
         /// <summary>
         /// 处理dataGridView中button列的单击事件,跳转到网页
@@ -398,11 +416,8 @@ namespace ITtools.UI
             }
 
 
-            //以下为直接使用ADO.NET 连接
-            // CustomerService customerService = new CustomerService();
-            //customerList= customerService.getCustomerList();
-            // this.dataGridView1.DataSource = null;
-            // this.dataGridView1.DataSource = customerList;
+            //cmb_class.ValueMember
+
 
         }
 
@@ -417,7 +432,7 @@ namespace ITtools.UI
                 //if (item.Name.Substring(0, 3) != "lbl")
                 if (item.GetType() != typeof(Label))
                 {
-                    item.Text ="" ;
+                    item.Text = "";
                 }
 
 
@@ -440,18 +455,18 @@ namespace ITtools.UI
                 this.txt_cusCode.Text = this.dgv_list.Rows[e.RowIndex].Cells[0].Value.ToString();
                 this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
                 this.txt_url.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
-               
-               
+
+
 
             }
-            
-            
+
+
         }
 
         #endregion
 
 
-        
+
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
             tsb_delete.Enabled = true;
@@ -540,12 +555,28 @@ namespace ITtools.UI
 
 
 
+
+
+
         #endregion
 
-      
-
         #endregion
 
-      
+        private void cmb_class_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmb_class.SelectedItem.ToString())
+            {
+                //case EnumModle.TIenum.Sharp通用.ToString():
+                //    resourceClass = 0;
+                //    break;
+                //default:
+                //    break;
+            }
+
+
+            //    resourceClass = SwitchCase  cmb_class.SelectedItem.ToString();
+            //    string v1 = cmb_class.SelectedValue.ToString();
+            //}
+        }
     }
 }

@@ -7,13 +7,13 @@ namespace ITtools.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class sqlite : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sqlite));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011300323483_sqlite"; }
+            get { return "202012040558163_first"; }
         }
         
         string IMigrationMetadata.Source
