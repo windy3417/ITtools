@@ -12,6 +12,7 @@ using Utility;
 using ITtools.Common;
 using System.Collections;
 using ITtools.DAL;
+using ITtools.Services;
 
 namespace ITtools.UI
 {
@@ -76,9 +77,10 @@ namespace ITtools.UI
 
         void initializeControlDataSource()
         {
-           
-            //不能直接绑定hashTable或dictinary因为会报错，
-            cmb_class.DataSource =new BindingSource( new EnumService().GetITenum(),null);
+
+            //不能直接绑定hashTable或dictinary因为会报以下错误
+            //“复杂的 DataBinding 接受 IList 或 IListSource 作为数据源”
+            cmb_class.DataSource = new BindingSource(new EnumService().GetITenum(), null);
             cmb_class.ValueMember = "key";
             cmb_class.DisplayMember = "value";
 
@@ -218,7 +220,7 @@ namespace ITtools.UI
                         m.id = Convert.ToInt32(txt_cusCode.Text);
                         m.introduction = txt_content.Text;
                         m.url = txt_url.Text;
-                        m.ResourceClass =(int) cmb_class.SelectedValue;
+                        m.ResourceClass = (int)cmb_class.SelectedValue;
 
 
 
@@ -310,10 +312,12 @@ namespace ITtools.UI
 
             saveOrModifQueryFlag = saveOrChangeOrQueryMolde.query.ToString();
             this.tsb_save.Enabled = false;
-            this.bind_gv_dateSource();
             this.tsb_modify.Enabled = true;
-
             this.tsb_delete.Enabled = true;
+
+            this.bind_gv_dateSource();
+
+
             if (dgv_list.Rows.Count > 0)
             {
                 this.dgv_list.Rows[0].Selected = true;
@@ -382,7 +386,7 @@ namespace ITtools.UI
         }
         #endregion
 
- 
+
 
         #region dataGridView数据处理与绑定
         /// <summary>
@@ -407,7 +411,15 @@ namespace ITtools.UI
             //查询状态的数据源
             if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.query.ToString())
             {
-                this.dgv_list.DataSource = new ItContext().WebURLs.ToList<WebURLModle>();
+                //dictionary也支持linq 查询
+                var query = from q in new WebURLService().GetWebURLs()
+                            join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
+                            select new { q.id, q.url, q.introduction, d.Value };
+
+               
+
+                this.dgv_list.DataSource = query.ToList();
+
             }
             //新增状态的数据源
             else
@@ -458,19 +470,22 @@ namespace ITtools.UI
 
 
 
+
             }
 
 
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            tsb_delete.Enabled = true;
         }
 
         #endregion
 
 
 
-        private void dgv_SelectionChanged(object sender, EventArgs e)
-        {
-            tsb_delete.Enabled = true;
-        }
+
 
         /// <summary>
         /// 放弃新增
@@ -562,21 +577,5 @@ namespace ITtools.UI
 
         #endregion
 
-        private void cmb_class_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cmb_class.SelectedItem.ToString())
-            {
-                //case EnumModle.TIenum.Sharp通用.ToString():
-                //    resourceClass = 0;
-                //    break;
-                //default:
-                //    break;
-            }
-
-
-            //    resourceClass = SwitchCase  cmb_class.SelectedItem.ToString();
-            //    string v1 = cmb_class.SelectedValue.ToString();
-            //}
-        }
     }
 }

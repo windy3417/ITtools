@@ -30,15 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_resources));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.dgv_list = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_customer = new System.Windows.Forms.Label();
             this.tlp_record = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_url = new System.Windows.Forms.Label();
@@ -57,12 +54,16 @@
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resoucesType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.tlp_record.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,6 +109,7 @@
             this.dgv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.resoucesType,
             this.introduction,
             this.网络地址,
             this.navigate});
@@ -123,41 +125,9 @@
             this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
             this.dgv_list.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
-            // id
+            // webURLServiceBindingSource
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.FillWeight = 50.76142F;
-            this.id.Frozen = true;
-            this.id.HeaderText = "资源编码";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // introduction
-            // 
-            this.introduction.DataPropertyName = "introduction";
-            this.introduction.FillWeight = 149.2386F;
-            this.introduction.HeaderText = "网页内容";
-            this.introduction.Name = "introduction";
-            this.introduction.ReadOnly = true;
-            // 
-            // 网络地址
-            // 
-            this.网络地址.DataPropertyName = "url";
-            this.网络地址.HeaderText = "网络地址";
-            this.网络地址.Name = "网络地址";
-            this.网络地址.ReadOnly = true;
-            // 
-            // navigate
-            // 
-            this.navigate.HeaderText = "阅览";
-            this.navigate.Name = "navigate";
-            this.navigate.ReadOnly = true;
-            this.navigate.Text = "阅览";
-            this.navigate.UseColumnTextForButtonValue = true;
+            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
             // 
             // lbl_customer
             // 
@@ -274,7 +244,6 @@
             this.cmb_class.Size = new System.Drawing.Size(252, 20);
             this.cmb_class.TabIndex = 3;
             this.cmb_class.Tag = "资源类型";
-            this.cmb_class.SelectedIndexChanged += new System.EventHandler(this.cmb_class_SelectedIndexChanged);
             // 
             // toolStrip1
             // 
@@ -356,9 +325,48 @@
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
             // 
-            // webURLServiceBindingSource
+            // id
             // 
-            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.FillWeight = 50.76142F;
+            this.id.Frozen = true;
+            this.id.HeaderText = "资源编码";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // resoucesType
+            // 
+            this.resoucesType.DataPropertyName = "value";
+            this.resoucesType.HeaderText = "类型";
+            this.resoucesType.Name = "resoucesType";
+            this.resoucesType.ReadOnly = true;
+            // 
+            // introduction
+            // 
+            this.introduction.DataPropertyName = "introduction";
+            this.introduction.FillWeight = 149.2386F;
+            this.introduction.HeaderText = "网页内容";
+            this.introduction.Name = "introduction";
+            this.introduction.ReadOnly = true;
+            // 
+            // 网络地址
+            // 
+            this.网络地址.DataPropertyName = "url";
+            this.网络地址.HeaderText = "网络地址";
+            this.网络地址.Name = "网络地址";
+            this.网络地址.ReadOnly = true;
+            // 
+            // navigate
+            // 
+            this.navigate.HeaderText = "阅览";
+            this.navigate.Name = "navigate";
+            this.navigate.ReadOnly = true;
+            this.navigate.Text = "阅览";
+            this.navigate.UseColumnTextForButtonValue = true;
             // 
             // Frm_resources
             // 
@@ -375,11 +383,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
             this.tlp_record.ResumeLayout(false);
             this.tlp_record.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,11 +416,12 @@
         private System.Windows.Forms.TextBox txt_content;
 
         private System.Windows.Forms.BindingSource webURLServiceBindingSource;
+        private System.Windows.Forms.Label lbl_class;
+        private System.Windows.Forms.ComboBox cmb_class;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resoucesType;
         private System.Windows.Forms.DataGridViewTextBoxColumn introduction;
         private System.Windows.Forms.DataGridViewTextBoxColumn 网络地址;
         private System.Windows.Forms.DataGridViewButtonColumn navigate;
-        private System.Windows.Forms.Label lbl_class;
-        private System.Windows.Forms.ComboBox cmb_class;
     }
 }
