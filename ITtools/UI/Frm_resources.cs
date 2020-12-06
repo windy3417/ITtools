@@ -398,7 +398,7 @@ namespace ITtools.UI
         {
             if (e.RowIndex < 0 || e.ColumnIndex !=
            dgv_list.Columns["navigate"].Index) return;
-            NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[2].Value.ToString());
+            NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[3].Value.ToString());
         }
 
         /// <summary>
@@ -465,8 +465,9 @@ namespace ITtools.UI
             if (e.RowIndex > -1)
             {
                 this.txt_cusCode.Text = this.dgv_list.Rows[e.RowIndex].Cells[0].Value.ToString();
-                this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
-                this.txt_url.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
+                cmb_class.Text= dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
+                this.txt_url.Text = this.dgv_list.Rows[e.RowIndex].Cells[3].Value.ToString();
 
 
 
@@ -484,9 +485,7 @@ namespace ITtools.UI
         #endregion
 
 
-
-
-
+               
         /// <summary>
         /// 放弃新增
         /// </summary>
