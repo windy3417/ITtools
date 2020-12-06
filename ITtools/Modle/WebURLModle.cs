@@ -8,9 +8,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITtools.Modle
 {
+    [Table("resourceUrl")]
    public class WebURLModle
     {
         public int id { get; set; }
+        //public Nullable<int> id { get; set; }
+
         public string introduction { get; set; }
         
         public string url { get; set; }

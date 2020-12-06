@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,14 +9,16 @@ namespace ITtools
     static class Program
     {
         /// <summary>
-        /// åº”ç”¨ç¨‹åºçš„ä¸»å…¥å£ç‚¹ã€‚
+        /// Ó¦ÓÃ³ÌĞòµÄÖ÷Èë¿Úµã¡£
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {App_Start.EntityFrameworkProfilerBootstrapper.PreStart();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Frm_main());
         }
     }
 }
+

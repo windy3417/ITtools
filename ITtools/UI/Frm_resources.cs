@@ -119,7 +119,7 @@ namespace ITtools.UI
 
 
 
-            //取最大编号时速度太慢，三秒左右，同时最大号算法有误，取到第10号则不向上递增了???。
+            //取最大编号时速度太慢，三秒左右，同时最大号算法有误，取到第10号则不向上递增了 ???。
             using (var db = new ItContext())
             {
                 WebURLModle m = new WebURLModle();
@@ -414,8 +414,8 @@ namespace ITtools.UI
                 //dictionary也支持linq 查询
                 var query = from q in new WebURLService().GetWebURLs()
                             join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
-                            select new { q.id, q.url, q.introduction, d.Value };
-
+                            select new { q.id, q.url, q.introduction ,d.Key};
+                
                
 
                 this.dgv_list.DataSource = query.ToList();
