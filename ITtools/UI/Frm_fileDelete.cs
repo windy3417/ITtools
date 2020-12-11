@@ -145,7 +145,7 @@ namespace ITtools.UI
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             FilesOperate f = new FilesOperate();
-            int deleteFilesAmount = f.DeleteUserFile(e.Argument.ToString());
+            deleteFilesAmount = f.DeleteUserFile(e.Argument.ToString());
 
         }
 
