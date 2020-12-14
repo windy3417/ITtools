@@ -202,84 +202,7 @@ namespace ITtools.UI
 
         }
 
-        /// <summary>
-        /// 数据保存与修改
-        /// </summary>
-        private void saveOrChang()
-        {
-
-            if (inputVlidate())
-            {
-                //新增后保存
-                if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
-                {
-                    using (var db = new ItContext())
-                    {
-
-                        WebURLModle m = new WebURLModle();
-                        m.id = Convert.ToInt32(txt_cusCode.Text);
-                        m.introduction = txt_content.Text;
-                        m.url = txt_url.Text;
-                        m.ResourceClass = (int)cmb_class.SelectedValue;
-
-
-
-
-                        db.WebURLs.Add(m);
-                        try
-                        {
-                            db.SaveChanges();
-                        }
-                        catch (Exception e)
-                        {
-
-                            MessageBox.Show("数据保存错误:" + e.Message + e.InnerException, "数据保存提示");
-                            return;
-                        }
-
-                        customerList.Add(m);
-                        //this.dataGridView1.DataSource = null;
-                        //this.dataGridView1.DataSource = customerList;
-                        //MessageBox.Show("数据保存成功", "保存提示");
-                        this.bind_gv_dateSource();
-
-                        //清空填制记录
-                        //this.txt_cusCode.Text = null;
-                        //this.txt_cusName.Text = null;
-                        clearDate();
-
-                        //再次调用新增事件
-
-                        this.tsb_add.PerformClick();
-                    }
-                }
-
-                //查询之后修改并保存
-                if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.query.ToString())
-                {
-                    using (var db = new ItContext())
-                    {
-                        WebURLModle m = db.WebURLs.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
-
-                        m.id = System.Convert.ToInt32(txt_cusCode.Text);
-
-                        m.url = this.txt_url.Text;
-
-                        m.introduction = txt_content.Text;
-
-                        db.SaveChanges();
-                        this.bind_gv_dateSource();
-
-                        //清空修改记录
-                        clearDate();
-                    }
-                }
-            };
-
-
-
-
-        }
+        
 
         /// <summary>
         /// 修改资源信息
@@ -386,7 +309,86 @@ namespace ITtools.UI
         }
         #endregion
 
+        #region 内部方法
+        /// <summary>
+        /// 数据保存与修改
+        /// </summary>
+        private void saveOrChang()
+        {
 
+            if (inputVlidate())
+            {
+                //新增后保存
+                if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
+                {
+                    using (var db = new ItContext())
+                    {
+
+                        WebURLModle m = new WebURLModle();
+                        m.id = Convert.ToInt32(txt_cusCode.Text);
+                        m.introduction = txt_content.Text;
+                        m.url = txt_url.Text;
+                        m.ResourceClass = (int)cmb_class.SelectedValue;
+
+
+                        db.WebURLs.Add(m);
+                        try
+                        {
+                            db.SaveChanges();
+                        }
+                        catch (Exception e)
+                        {
+
+                            MessageBox.Show("数据保存错误:" + e.Message + e.InnerException, "数据保存提示");
+                            return;
+                        }
+
+                        customerList.Add(m);
+                        //this.dataGridView1.DataSource = null;
+                        //this.dataGridView1.DataSource = customerList;
+                        //MessageBox.Show("数据保存成功", "保存提示");
+                        this.bind_gv_dateSource();
+
+                        //清空填制记录
+                        //this.txt_cusCode.Text = null;
+                        //this.txt_cusName.Text = null;
+                        clearDate();
+
+                        //再次调用新增事件
+
+                        this.tsb_add.PerformClick();
+                    }
+                }
+
+                //查询之后修改并保存
+                if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.query.ToString())
+                {
+                    using (var db = new ItContext())
+                    {
+                        WebURLModle m = db.WebURLs.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
+
+                        m.id = System.Convert.ToInt32(txt_cusCode.Text);
+
+                        m.url = this.txt_url.Text;
+
+                        m.introduction = txt_content.Text;
+                        m.ResourceClass = (int)cmb_class.SelectedValue;
+
+                        db.SaveChanges();
+                        this.bind_gv_dateSource();
+
+                        //清空修改记录
+                        clearDate();
+                    }
+                }
+            };
+
+
+
+
+        }
+
+        #endregion
 
         #region dataGridView数据处理与绑定
         /// <summary>

@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -110,7 +110,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Utinity\bin\Debug\Utility.dll</HintPath>
+      <HintPath>..\..\..\..\code\Utility\bin\Debug\Utility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +143,12 @@
     <Compile Include="UI\Frm_fileDelete.Designer.cs">
       <DependentUpon>Frm_fileDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Frm_resourcesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Frm_resourcesList.designer.cs">
+      <DependentUpon>Frm_resourcesList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Frm_resources.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,8 @@
     <Compile Include="UI\Frm_directoryBac.Designer.cs">
       <DependentUpon>Frm_directoryBac.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\预览.jpg" />
+    <None Include="Resources\export.gif" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="Frm_main.resx">
       <DependentUpon>Frm_main.cs</DependentUpon>
@@ -180,6 +188,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Frm_fileDelete.resx">
       <DependentUpon>Frm_fileDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Frm_resourcesList.resx">
+      <DependentUpon>Frm_resourcesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_resources.resx">
       <DependentUpon>Frm_resources.cs</DependentUpon>

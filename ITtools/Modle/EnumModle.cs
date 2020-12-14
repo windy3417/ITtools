@@ -10,8 +10,10 @@ namespace ITtools.Modle
     {
     public   enum ITenum
         {
-            Sharp通用,
-            VBA教程,
+            Sharp通用=0,
+            EF=1,
+            VBA教程=11,
+            Office=21,
             企业管理,
             
         }

@@ -63,5 +63,11 @@ namespace ITtools
             Frm_fileDelete f = new Frm_fileDelete();
             embedForm(f);
         }
+
+        private void 资源列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_resourcesList f = new Frm_resourcesList();
+            embedForm(f);
+        }
     }
 }

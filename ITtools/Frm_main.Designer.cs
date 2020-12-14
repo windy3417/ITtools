@@ -41,6 +41,7 @@
             this.常用备份路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.资源列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,28 +71,29 @@
             // 数据库备份ToolStripMenuItem
             // 
             this.数据库备份ToolStripMenuItem.Name = "数据库备份ToolStripMenuItem";
-            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.数据库备份ToolStripMenuItem.Text = "数据库备份";
             this.数据库备份ToolStripMenuItem.Click += new System.EventHandler(this.数据库备份ToolStripMenuItem_Click);
             // 
             // 文件夹备份ToolStripMenuItem
             // 
             this.文件夹备份ToolStripMenuItem.Name = "文件夹备份ToolStripMenuItem";
-            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.文件夹备份ToolStripMenuItem.Text = "文件夹备份";
             this.文件夹备份ToolStripMenuItem.Click += new System.EventHandler(this.文件夹备份ToolStripMenuItem_Click);
             // 
             // 删除文件ToolStripMenuItem
             // 
             this.删除文件ToolStripMenuItem.Name = "删除文件ToolStripMenuItem";
-            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.删除文件ToolStripMenuItem.Text = "删除文件";
             this.删除文件ToolStripMenuItem.Click += new System.EventHandler(this.删除文件ToolStripMenuItem_Click);
             // 
             // 资源搜索ToolStripMenuItem
             // 
             this.资源搜索ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.互联网资源ToolStripMenuItem});
+            this.互联网资源ToolStripMenuItem,
+            this.资源列表ToolStripMenuItem});
             this.资源搜索ToolStripMenuItem.Name = "资源搜索ToolStripMenuItem";
             this.资源搜索ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.资源搜索ToolStripMenuItem.Text = "资源搜索";
@@ -99,8 +101,8 @@
             // 互联网资源ToolStripMenuItem
             // 
             this.互联网资源ToolStripMenuItem.Name = "互联网资源ToolStripMenuItem";
-            this.互联网资源ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.互联网资源ToolStripMenuItem.Text = "互联网资源";
+            this.互联网资源ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.互联网资源ToolStripMenuItem.Text = "资源录入";
             this.互联网资源ToolStripMenuItem.Click += new System.EventHandler(this.互联网资源ToolStripMenuItem_Click);
             // 
             // 基础设置ToolStripMenuItem
@@ -144,6 +146,13 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
+            // 资源列表ToolStripMenuItem
+            // 
+            this.资源列表ToolStripMenuItem.Name = "资源列表ToolStripMenuItem";
+            this.资源列表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.资源列表ToolStripMenuItem.Text = "资源列表";
+            this.资源列表ToolStripMenuItem.Click += new System.EventHandler(this.资源列表ToolStripMenuItem_Click);
+            // 
             // Frm_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -177,6 +186,7 @@
         private System.Windows.Forms.ToolStripMenuItem 资源搜索ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 互联网资源ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 资源列表ToolStripMenuItem;
     }
 }
 
