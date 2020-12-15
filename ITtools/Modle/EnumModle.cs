@@ -12,10 +12,18 @@ namespace ITtools.Modle
         {
             Sharp通用=0,
             EF=1,
+            开源类库=9,
             VBA教程=11,
             Office=21,
-            企业管理,
+            用友=31,
+            企业管理=41,
             
+        }
+        public enum saveOrChangeOrQueryMolde
+        {
+            save,
+            change,
+            query
         }
 
     }

@@ -13,6 +13,7 @@ using ITtools.Common;
 using System.Collections;
 using ITtools.DAL;
 using ITtools.Services;
+using static ITtools.Modle.EnumModle;
 
 namespace ITtools.UI
 {
@@ -28,27 +29,17 @@ namespace ITtools.UI
 
         #region 变量
         //新增时,dataGridview绑定的数据源，以体现新增的结果
-        List<WebURLModle> customerList = new List<WebURLModle>();
+        List<WebURLModle> mList = new List<WebURLModle>();
         //最大客户编号
         int maxCusCode;
 
-        int resourceClass;
-
-        //dataGridView控件的数据来源，true为查询时绑定，
-        //false为新增档案时的绑定
-
-
-        enum saveOrChangeOrQueryMolde
-        {
-            save,
-            change,
-            query
-        }
+      
+                  
 
         //修改与新增的dbContext标记,true为新增dbContext，false为修改dbContext
 
         //bool saveOrChangeFlag = true;
-        string saveOrModifQueryFlag;
+      public  string saveOrModifQueryFlag;
 
         #endregion
 
@@ -65,6 +56,7 @@ namespace ITtools.UI
             this.tsb_delete.Enabled = false;
             tsb_abandon.Enabled = false;
 
+            
 
             this.dgv_list.AutoGenerateColumns = false;
             this.tlp_record.Enabled = false;
@@ -178,8 +170,8 @@ namespace ITtools.UI
                     if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
                     {
 
-                        List<WebURLModle> customer = customerList.Where(c => c.id == selected).ToList<WebURLModle>();
-                        customerList.Remove(customer[0]);
+                        List<WebURLModle> customer = mList.Where(c => c.id == selected).ToList<WebURLModle>();
+                        mList.Remove(customer[0]);
 
                     }
                     bind_gv_dateSource();
@@ -343,7 +335,7 @@ namespace ITtools.UI
                             return;
                         }
 
-                        customerList.Add(m);
+                        mList.Add(m);
                         //this.dataGridView1.DataSource = null;
                         //this.dataGridView1.DataSource = customerList;
                         //MessageBox.Show("数据保存成功", "保存提示");
@@ -388,6 +380,31 @@ namespace ITtools.UI
 
         }
 
+
+
+
+        #endregion
+
+        #region 供外部调用方法
+
+        /// <summary>
+        /// 响应列表的穿透查询
+        /// </summary>
+        /// <param name="resourceID"></param>
+        public void ResponThroughQuery(int resourceID)
+        {
+            var query = from q in new WebURLService().GetWebURLs().Where(q => q.id == resourceID)
+                        join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
+                        select new { q.id, q.url, q.introduction, d.Value };
+
+
+            this.dgv_list.DataSource = query.ToList();
+            dgv_list.SelectAll();
+
+
+
+        }
+
         #endregion
 
         #region dataGridView数据处理与绑定
@@ -426,7 +443,7 @@ namespace ITtools.UI
             //新增状态的数据源
             else
             {
-                this.dgv_list.DataSource = customerList;
+                this.dgv_list.DataSource = mList;
             }
 
 

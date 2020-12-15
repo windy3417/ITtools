@@ -9,6 +9,7 @@ using ITtools.Modle;
 using System.Collections.Generic;
 using System.Configuration;
 using Utility.Excel;
+using Utility.UI;
 using ITtools.Common;
 using System.Collections;
 using ITtools.DAL;
@@ -301,10 +302,8 @@ namespace ITtools.UI
 
         #endregion
 
-
-               
+                     
      
-
 
         #region 主窗体事件处理
 
@@ -378,6 +377,32 @@ namespace ITtools.UI
         {
             ExportExcel exprort = new ExportExcel();
             exprort.ExportExcelWithNPOI(dgv_list, "资源列表");
+        }
+
+        /// <summary>
+        /// 穿透查询到单据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_list_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            if (e.RowIndex > -1)
+            {
+
+                int resourceID = Convert.ToInt32(dgv_list.Rows[e.RowIndex].Cells[0].Value);
+                Frm_resources f = new Frm_resources();
+                EmbedForm embedForm = new EmbedForm();
+
+                embedForm.openForm(f, f.Text, (TabControl)this.Parent.Parent, (Panel)this.Parent.Parent.Parent);
+                f.ResponThroughQuery(resourceID);
+                f.tsb_modify.Enabled = true;
+                f.saveOrModifQueryFlag = saveOrChangeOrQueryMolde.query.ToString();
+                
+
+
+
+            }
         }
     }
 }

@@ -409,7 +409,9 @@
         private System.Windows.Forms.Label lbl_content;
         private System.Windows.Forms.ToolStripButton tsb_add;
         private System.Windows.Forms.DataGridView dgv_list;
-        private System.Windows.Forms.ToolStripButton tsb_modify;
+
+        public System.Windows.Forms.ToolStripButton tsb_modify;
+
         private System.Windows.Forms.ToolStripButton tsb_query;
         private System.Windows.Forms.ToolStripButton tsb_delete;
         private System.Windows.Forms.ToolStripButton tsb_abandon;
