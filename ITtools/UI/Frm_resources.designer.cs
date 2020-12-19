@@ -31,11 +31,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_resources));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_resources));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.dgv_list = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resoucesType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_customer = new System.Windows.Forms.Label();
             this.tlp_record = new System.Windows.Forms.TableLayoutPanel();
@@ -55,11 +60,6 @@
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resoucesType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
@@ -95,7 +95,7 @@
             // 
             this.dgv_list.AllowUserToAddRows = false;
             this.dgv_list.AllowUserToDeleteRows = false;
-            this.dgv_list.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dgv_list.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dgv_list.AutoGenerateColumns = false;
             this.dgv_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -125,6 +125,49 @@
             this.dgv_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
             this.dgv_list.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.FillWeight = 50.76142F;
+            this.id.Frozen = true;
+            this.id.HeaderText = "资源编码";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // resoucesType
+            // 
+            this.resoucesType.DataPropertyName = "value";
+            this.resoucesType.HeaderText = "类型";
+            this.resoucesType.Name = "resoucesType";
+            this.resoucesType.ReadOnly = true;
+            // 
+            // introduction
+            // 
+            this.introduction.DataPropertyName = "introduction";
+            this.introduction.FillWeight = 149.2386F;
+            this.introduction.HeaderText = "网页内容";
+            this.introduction.Name = "introduction";
+            this.introduction.ReadOnly = true;
+            // 
+            // 网络地址
+            // 
+            this.网络地址.DataPropertyName = "url";
+            this.网络地址.HeaderText = "网络地址";
+            this.网络地址.Name = "网络地址";
+            this.网络地址.ReadOnly = true;
+            // 
+            // navigate
+            // 
+            this.navigate.HeaderText = "阅览";
+            this.navigate.Name = "navigate";
+            this.navigate.ReadOnly = true;
+            this.navigate.Text = "阅览";
+            this.navigate.UseColumnTextForButtonValue = true;
             // 
             // webURLServiceBindingSource
             // 
@@ -201,7 +244,7 @@
             this.txt_url.Location = new System.Drawing.Point(111, 81);
             this.txt_url.Name = "txt_url";
             this.txt_url.Size = new System.Drawing.Size(252, 21);
-            this.txt_url.TabIndex = 2;
+            this.txt_url.TabIndex = 3;
             this.txt_url.Tag = "客户名称";
             // 
             // lbl_content
@@ -221,7 +264,7 @@
             this.txt_content.Location = new System.Drawing.Point(477, 81);
             this.txt_content.Name = "txt_content";
             this.txt_content.Size = new System.Drawing.Size(252, 21);
-            this.txt_content.TabIndex = 1;
+            this.txt_content.TabIndex = 4;
             this.txt_content.Tag = "内容介绍";
             this.txt_content.Validating += new System.ComponentModel.CancelEventHandler(this.regValidating);
             // 
@@ -243,7 +286,7 @@
             this.cmb_class.Location = new System.Drawing.Point(477, 20);
             this.cmb_class.Name = "cmb_class";
             this.cmb_class.Size = new System.Drawing.Size(252, 20);
-            this.cmb_class.TabIndex = 3;
+            this.cmb_class.TabIndex = 2;
             this.cmb_class.Tag = "资源类型";
             // 
             // toolStrip1
@@ -325,49 +368,6 @@
             this.tsb_close.Size = new System.Drawing.Size(52, 22);
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.id.FillWeight = 50.76142F;
-            this.id.Frozen = true;
-            this.id.HeaderText = "资源编码";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // resoucesType
-            // 
-            this.resoucesType.DataPropertyName = "value";
-            this.resoucesType.HeaderText = "类型";
-            this.resoucesType.Name = "resoucesType";
-            this.resoucesType.ReadOnly = true;
-            // 
-            // introduction
-            // 
-            this.introduction.DataPropertyName = "introduction";
-            this.introduction.FillWeight = 149.2386F;
-            this.introduction.HeaderText = "网页内容";
-            this.introduction.Name = "introduction";
-            this.introduction.ReadOnly = true;
-            // 
-            // 网络地址
-            // 
-            this.网络地址.DataPropertyName = "url";
-            this.网络地址.HeaderText = "网络地址";
-            this.网络地址.Name = "网络地址";
-            this.网络地址.ReadOnly = true;
-            // 
-            // navigate
-            // 
-            this.navigate.HeaderText = "阅览";
-            this.navigate.Name = "navigate";
-            this.navigate.ReadOnly = true;
-            this.navigate.Text = "阅览";
-            this.navigate.UseColumnTextForButtonValue = true;
             // 
             // Frm_resources
             // 

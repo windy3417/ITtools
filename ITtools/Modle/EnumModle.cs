@@ -12,6 +12,8 @@ namespace ITtools.Modle
         {
             Sharp通用=0,
             EF=1,
+            sql=7,
+            云存储=8,
             开源类库=9,
             VBA教程=11,
             Office=21,

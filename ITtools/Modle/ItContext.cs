@@ -11,7 +11,7 @@
        
         public ItContext()
             //: base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.business),true)
-            : base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.it), true)
+            : base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.business), true)
         {
         }
 
@@ -19,6 +19,8 @@
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<WebURLModle> WebURLs { get; set; }
+
+        public virtual DbSet<DiretoryModle> Diretory { get; set; }
     }
 
    

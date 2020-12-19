@@ -33,13 +33,13 @@ namespace ITtools.UI
         //最大客户编号
         int maxCusCode;
 
-      
-                  
+
+
 
         //修改与新增的dbContext标记,true为新增dbContext，false为修改dbContext
 
         //bool saveOrChangeFlag = true;
-      public  string saveOrModifQueryFlag;
+        public string saveOrModifQueryFlag;
 
         #endregion
 
@@ -56,7 +56,7 @@ namespace ITtools.UI
             this.tsb_delete.Enabled = false;
             tsb_abandon.Enabled = false;
 
-            
+
 
             this.dgv_list.AutoGenerateColumns = false;
             this.tlp_record.Enabled = false;
@@ -194,7 +194,7 @@ namespace ITtools.UI
 
         }
 
-        
+
 
         /// <summary>
         /// 修改资源信息
@@ -322,7 +322,6 @@ namespace ITtools.UI
                         m.url = txt_url.Text;
                         m.ResourceClass = (int)cmb_class.SelectedValue;
 
-
                         db.WebURLs.Add(m);
                         try
                         {
@@ -336,14 +335,11 @@ namespace ITtools.UI
                         }
 
                         mList.Add(m);
-                        //this.dataGridView1.DataSource = null;
-                        //this.dataGridView1.DataSource = customerList;
-                        //MessageBox.Show("数据保存成功", "保存提示");
+                     
                         this.bind_gv_dateSource();
 
                         //清空填制记录
-                        //this.txt_cusCode.Text = null;
-                        //this.txt_cusName.Text = null;
+                       
                         clearDate();
 
                         //再次调用新增事件
@@ -435,7 +431,7 @@ namespace ITtools.UI
                             join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
                             select new { q.id, q.url, q.introduction, d.Value };
 
-               
+
 
                 this.dgv_list.DataSource = query.ToList();
 
@@ -484,7 +480,7 @@ namespace ITtools.UI
             if (e.RowIndex > -1)
             {
                 this.txt_cusCode.Text = this.dgv_list.Rows[e.RowIndex].Cells[0].Value.ToString();
-                cmb_class.Text= dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cmb_class.Text = dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
                 this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
                 this.txt_url.Text = this.dgv_list.Rows[e.RowIndex].Cells[3].Value.ToString();
 
@@ -503,8 +499,7 @@ namespace ITtools.UI
 
         #endregion
 
-
-               
+        
         /// <summary>
         /// 放弃新增
         /// </summary>

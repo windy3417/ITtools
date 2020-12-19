@@ -117,29 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icon_voice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-voice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAM1Y227jNhB9L9B/EPTUAlkzl5c0kHeR2klhNDdEyfaZlsYOUYpUSSqwv20f+kn9hQ51FyXfsul24ReLHJ6ZOTOcGemfL38Hn1YJ915BaSbF2D8ZHfseiEjGTCzHfmYWH879Tx9//CG4ipOV97mSO7NyeFLosf9iTHpBiI5eIKF6lLBISS0XZhTJhNBYktPj41/IyQkBhPARy/OCx0wYlkD+gI8TKSJITUb5rYyB63Idd8Ic1bujCeiURjD2Z09GSq5HKMnB9y45o2hECHzhe1QIaahBEy+eNYRGSbEMU1yg/GmdAsotKNdQmn7RiO/rxfGp9YI0ByuoKNNGJgcCnpyVtBD3+JvI9WvakLgrJNisrdc5eWN/yhQYqdYlb67GiwlXVtoheNQ5duSVm0d1KmDG2N+RN8m4yRSMBWRGUX7kPWRzzqLfYf0k/wQxFhnnbQvRRtzrLODSg5IpKLN+hEVpd4wGRNaC2dT3SBeAuAj1+aHDhXuYFZjbvndLVzcgluYFs/703Peu2QriaqVMk2fB8CrgIaMyfLxDF+icQ71Pdiq3urdoxr97aW4rCkgT260R/wPmz483B8a7dej/iDaLDw+yPVO6IszZ6UCcWm6HGBH4DQQoaiB+oMaAwts6iyGnb1dMmcCiEmdRcUnfNa59ZZni/7mOR9AyUxFMONV6F4/7pyFWdEMZslyqmRm7AiszkIlYqstk1KXNXYsLxBCMU8l8r7Gg6AAjp8iR7UBFrusBnM7VGfK69q9pVaToVVVPIxuaWnBL0xRj2Wpy5YoXFh1u8iE8vP4nBQaJ9EAbqK2tNSFJdAnOLqpGS6+Z0mZKDZ1TG/NJnPTEmmhuILjS4wTMvf8N79UB+7/MmM1tyMVpKLxGrxK8ybmDUJvjdr/e+XzSoJyqbf1jInmWiJ1daRdekbouWLHaRwqI45rLIemR6JRPNyh7hay6Gm+PWPsKHR6vrac3sWsbQZvXfjPZerpT2js4nZ39EfP63QbKF/Y/79TmNpKz9Y3zplcFXZFae10NnaoXlBVo97zfK0mFiO8hWa8stuUoXGsDycgKjMK/+IQz9LcRuKWCLUCbYjLxsWKeO+8N388MT7SO+SGD/HcwUYtXqqIXqvoz9VcOzBXwTwld/dxGe6eh+JvPp8ym5c4J9EDWhkbSA5jbOnZ+Fc7gaJlT8I6DZX9i2W94LGe7XRNkUWwwNecSPShs7oj0iu+GKXOTvs7ukLaWgH7zLNqvtgFpf4MJpqDZsoGwX2QE5CnVgFYyM7GQVajRzbZFlYiTCbdgaIzxuVSGLWhkcDsCrfM3ms+UZyhylcwhnon7zKSZudQakjnvDEQB2a4/H7i7Ngf3qX3S7+ECmsnQBbgXv2aMx7Xd1wMJvAHCpmp579EqfKNDuOW6RrqTYk+gkr4ppCBs1XiCJOUIpu9FSF/hLbbhO9gNLGm0rprmZpDdgejSHkwZXSqa6BKjOW+/KxL7YfHjv0lDgHOKFAAA</value>
   </data>
-  <data name="预览" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\预览.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_quit.ICO;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="export" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\export.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>
