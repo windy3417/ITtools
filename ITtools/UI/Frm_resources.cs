@@ -79,6 +79,27 @@ namespace ITtools.UI
 
         }
 
+       
+
+        #region 菜单事件处理
+        /// <summary>
+        /// 放弃新增
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Tsb_abandon_Click(object sender, EventArgs e)
+        {
+            tsb_save.Enabled = false;
+            tsb_modify.Enabled = false;
+            tsb_delete.Enabled = false;
+            tsb_query.Enabled = true;
+            tsb_add.Enabled = true;
+            tsb_abandon.Enabled = false;
+            clearDate();
+            tlp_record.Enabled = false;
+
+        }
+
         #region 增删改查
 
         /// <summary>
@@ -244,6 +265,8 @@ namespace ITtools.UI
 
         #endregion
 
+        #endregion
+
         #region 输入校验
 
         /// <summary>
@@ -318,6 +341,7 @@ namespace ITtools.UI
 
                         WebURLModle m = new WebURLModle();
                         m.id = Convert.ToInt32(txt_cusCode.Text);
+                        
                         m.introduction = txt_content.Text;
                         m.url = txt_url.Text;
                         m.ResourceClass = (int)cmb_class.SelectedValue;
@@ -334,6 +358,7 @@ namespace ITtools.UI
                             return;
                         }
 
+                        //提供dataGridView的数据源
                         mList.Add(m);
                      
                         this.bind_gv_dateSource();
@@ -375,10 +400,8 @@ namespace ITtools.UI
 
 
         }
-
-
-
-
+        
+        
         #endregion
 
         #region 供外部调用方法
@@ -439,7 +462,10 @@ namespace ITtools.UI
             //新增状态的数据源
             else
             {
-                this.dgv_list.DataSource = mList;
+                var query = from q in mList
+                            join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
+                            select new { q.id, q.url, q.introduction, d.Value };
+                this.dgv_list.DataSource = query.ToList();
             }
 
 
@@ -499,26 +525,7 @@ namespace ITtools.UI
 
         #endregion
 
-        
-        /// <summary>
-        /// 放弃新增
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Tsb_abandon_Click(object sender, EventArgs e)
-        {
-            tsb_save.Enabled = false;
-            tsb_modify.Enabled = false;
-            tsb_delete.Enabled = false;
-            tsb_query.Enabled = true;
-            tsb_add.Enabled = true;
-            tsb_abandon.Enabled = false;
-            clearDate();
-            tlp_record.Enabled = false;
-
-        }
-
-
+              
         #region 主窗体事件处理
 
         #region 窗体操作

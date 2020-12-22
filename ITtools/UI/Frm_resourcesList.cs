@@ -86,12 +86,8 @@ namespace ITtools.UI
 
         #region 查询
 
- 
-             
-            
-
-
-
+                    
+                
         /// <summary>
         /// 查询列表
         /// </summary>
@@ -255,7 +251,32 @@ namespace ITtools.UI
             NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[3].Value.ToString());
         }
 
-   
+
+        /// <summary>
+        /// 穿透查询到单据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_list_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex > -1)
+            {
+
+                int resourceID = Convert.ToInt32(dgv_list.Rows[e.RowIndex].Cells[0].Value);
+                Frm_resources f = new Frm_resources();
+                EmbedForm embedForm = new EmbedForm();
+
+                embedForm.openForm(f, f.Text, (TabControl)this.Parent.Parent, (Panel)this.Parent.Parent.Parent);
+                f.ResponThroughQuery(resourceID);
+                f.tsb_modify.Enabled = true;
+                f.saveOrModifQueryFlag = saveOrChangeOrQueryMolde.query.ToString();
+
+
+
+
+            }
+        }
 
         /// <summary>
         /// 清除录入或查询出的数据
@@ -302,9 +323,8 @@ namespace ITtools.UI
 
         #endregion
 
-                     
+                  
      
-
         #region 主窗体事件处理
 
         #region 窗体操作
@@ -379,30 +399,6 @@ namespace ITtools.UI
             exprort.ExportExcelWithNPOI(dgv_list, "资源列表");
         }
 
-        /// <summary>
-        /// 穿透查询到单据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dgv_list_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-            if (e.RowIndex > -1)
-            {
-
-                int resourceID = Convert.ToInt32(dgv_list.Rows[e.RowIndex].Cells[0].Value);
-                Frm_resources f = new Frm_resources();
-                EmbedForm embedForm = new EmbedForm();
-
-                embedForm.openForm(f, f.Text, (TabControl)this.Parent.Parent, (Panel)this.Parent.Parent.Parent);
-                f.ResponThroughQuery(resourceID);
-                f.tsb_modify.Enabled = true;
-                f.saveOrModifQueryFlag = saveOrChangeOrQueryMolde.query.ToString();
-                
-
-
-
-            }
-        }
+        
     }
 }
