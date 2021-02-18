@@ -54,6 +54,7 @@ namespace ITtools.UI
 
         #endregion
 
+        #region 初始化控件
 
         /// <summary>
         /// 初始化控件状态
@@ -61,17 +62,20 @@ namespace ITtools.UI
         private void initialize()
         {
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
-         
+
 
 
             this.dgv_list.AutoGenerateColumns = false;
-         
+
 
             navigate.Width = 50;
 
 
         }
 
+        /// <summary>
+        /// 初始化控件数据源
+        /// </summary>
         void initializeControlDataSource()
         {
 
@@ -84,10 +88,27 @@ namespace ITtools.UI
 
         }
 
+
+        #endregion
+
+
+        #region 菜单事件处理
+
+        /// <summary>
+        /// 以EXCEL格式，导出数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_export_Click(object sender, EventArgs e)
+        {
+            ExportExcel exprort = new ExportExcel();
+            exprort.ExportExcelWithNPOI(dgv_list, "资源列表");
+        }
+
         #region 查询
 
-                    
-                
+
+
         /// <summary>
         /// 查询列表
         /// </summary>
@@ -95,7 +116,7 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void tsb_query_Click(object sender, EventArgs e)
         {
-                      
+
             this.bind_gv_dateSource();
 
 
@@ -110,36 +131,9 @@ namespace ITtools.UI
 
         #endregion
 
-        #region 输入校验
-
-    
-
-        /// <summary>
-        /// 为空校验
-        /// </summary>
-        private bool inputVlidate()
-        {
-
-            for (int i = 0; i < this.tlp_record.Controls.Count;)
-            {
-
-                if (this.tlp_record.Controls[i].Text == "" || this.tlp_record.Controls[i].Text == null)
-                {
-                    MessageBox.Show(this.tlp_record.Controls[i].Tag + "不能为空", "输入校验");
-                    return false;
-                }
-
-
-                i++;
-
-
-            }
-            return true;
-
-
-        }
         #endregion
 
+         
         #region 内部方法
         /// <summary>
         /// 数据保存与修改
@@ -222,7 +216,8 @@ namespace ITtools.UI
         {
                 //dictionary也支持linq 查询
                 var query = from q in new WebURLService().GetWebURLs()
-                            join d in new EnumService().GetITenum().Where(d =>d.Key==Convert.ToInt32(cmb_class.SelectedValue))
+                            join d in new EnumService().GetITenum().
+                            Where(d =>d.Key==Convert.ToInt32(cmb_class.SelectedValue))
                             on q.ResourceClass equals d.Key
                             
                             select new { q.id, q.url, q.introduction, d.Value };
@@ -235,6 +230,55 @@ namespace ITtools.UI
 
 
         }
+
+        /// <summary>
+        /// 清除录入或查询出的数据
+        /// </summary>
+        private void clearDate()
+        {
+            foreach (Control item in this.tlp_record.Controls)
+            {
+
+                //if (item.Name.Substring(0, 3) != "lbl")
+                if (item.GetType() != typeof(Label))
+                {
+                    item.Text = "";
+                }
+
+
+
+            }
+        }
+
+        #region 输入校验
+
+
+
+        /// <summary>
+        /// 为空校验
+        /// </summary>
+        private bool inputVlidate()
+        {
+
+            for (int i = 0; i < this.tlp_record.Controls.Count;)
+            {
+
+                if (this.tlp_record.Controls[i].Text == "" || this.tlp_record.Controls[i].Text == null)
+                {
+                    MessageBox.Show(this.tlp_record.Controls[i].Tag + "不能为空", "输入校验");
+                    return false;
+                }
+
+
+                i++;
+
+
+            }
+            return true;
+
+
+        }
+        #endregion
 
         #endregion
 
@@ -278,24 +322,7 @@ namespace ITtools.UI
             }
         }
 
-        /// <summary>
-        /// 清除录入或查询出的数据
-        /// </summary>
-        private void clearDate()
-        {
-            foreach (Control item in this.tlp_record.Controls)
-            {
-
-                //if (item.Name.Substring(0, 3) != "lbl")
-                if (item.GetType() != typeof(Label))
-                {
-                    item.Text = "";
-                }
-
-
-
-            }
-        }
+      
 
 
         /// <summary>
@@ -323,7 +350,7 @@ namespace ITtools.UI
 
         #endregion
 
-                  
+                 
      
         #region 主窗体事件处理
 
@@ -389,16 +416,30 @@ namespace ITtools.UI
 
 
 
-        #endregion
+
 
         #endregion
 
-        private void tsb_export_Click(object sender, EventArgs e)
+        #endregion
+
+        /// <summary>
+        /// 内容模糊查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_contentSerch_Click(object sender, EventArgs e)
         {
-            ExportExcel exprort = new ExportExcel();
-            exprort.ExportExcelWithNPOI(dgv_list, "资源列表");
-        }
+            var query = from q in new WebURLService().GetWebURLs().
+                Where(s => s.introduction.Contains(this.txt_content.Text))
+                        join d in new EnumService().GetITenum()
+                        
+                        on q.ResourceClass equals d.Key
 
-        
+                        select new { q.id, q.url, q.introduction, d.Value };
+                        
+            this.dgv_list.DataSource = query.ToList();
+
+            
+        }
     }
 }

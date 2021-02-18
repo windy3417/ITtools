@@ -40,6 +40,7 @@
             this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_customer = new System.Windows.Forms.Label();
             this.tlp_record = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_class = new System.Windows.Forms.Label();
@@ -50,12 +51,12 @@
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.tsb_export = new System.Windows.Forms.ToolStripButton();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsb_contentSerch = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.tlp_record.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,6 +151,10 @@
             this.navigate.Text = "阅览";
             this.navigate.UseColumnTextForButtonValue = true;
             // 
+            // webURLServiceBindingSource
+            // 
+            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            // 
             // lbl_customer
             // 
             this.lbl_customer.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -224,8 +229,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsb_query,
-            this.tsb_close,
-            this.tsb_export});
+            this.tsb_contentSerch,
+            this.tsb_export,
+            this.tsb_close});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(896, 25);
@@ -237,8 +243,8 @@
             this.tsb_query.Image = global::ITtools.Properties.Resources.预览;
             this.tsb_query.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_query.Name = "tsb_query";
-            this.tsb_query.Size = new System.Drawing.Size(52, 22);
-            this.tsb_query.Text = "查询";
+            this.tsb_query.Size = new System.Drawing.Size(76, 22);
+            this.tsb_query.Text = "类型查询";
             this.tsb_query.Click += new System.EventHandler(this.tsb_query_Click);
             // 
             // tsb_close
@@ -259,9 +265,14 @@
             this.tsb_export.Text = "导出";
             this.tsb_export.Click += new System.EventHandler(this.tsb_export_Click);
             // 
-            // webURLServiceBindingSource
+            // tsb_contentSerch
             // 
-            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            this.tsb_contentSerch.Image = global::ITtools.Properties.Resources.Search;
+            this.tsb_contentSerch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_contentSerch.Name = "tsb_contentSerch";
+            this.tsb_contentSerch.Size = new System.Drawing.Size(76, 22);
+            this.tsb_contentSerch.Text = "内容查询";
+            this.tsb_contentSerch.Click += new System.EventHandler(this.tsb_contentSerch_Click);
             // 
             // Frm_resourcesList
             // 
@@ -278,11 +289,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
             this.tlp_record.ResumeLayout(false);
             this.tlp_record.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +320,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 网络地址;
         private System.Windows.Forms.DataGridViewButtonColumn navigate;
         private System.Windows.Forms.ToolStripButton tsb_export;
+        private System.Windows.Forms.ToolStripButton tsb_contentSerch;
     }
 }
