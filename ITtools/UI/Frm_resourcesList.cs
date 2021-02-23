@@ -392,18 +392,18 @@ namespace ITtools.UI
         }
 
         /// <summary>
-        /// 删除功能快捷键
+        /// 查询功能快捷键
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Frm_customer_KeyDown(object sender, KeyEventArgs e)
+        private void Frm_resourceList_KeyDown(object sender, KeyEventArgs e)
         {
-            // if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.S)
-            if (e.KeyCode == Keys.S && e.Control)
+            if (e.KeyCode == Keys.Q && e.Control)
             {
-                   
+                tsb_contentSerch.PerformClick(); //执行单击button1的动作      
             }
           
+
 
         }
 

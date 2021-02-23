@@ -566,7 +566,7 @@ namespace ITtools.UI
         }
 
         /// <summary>
-        /// 删除功能快捷键
+        /// 删除\保存功能快捷键
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

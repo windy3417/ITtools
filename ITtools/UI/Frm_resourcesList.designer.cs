@@ -284,7 +284,7 @@
             this.KeyPreview = true;
             this.Name = "Frm_resourcesList";
             this.Text = "资源列表";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_customer_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Frm_resourceList_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Frm_customer_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
