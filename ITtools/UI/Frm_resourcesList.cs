@@ -430,7 +430,8 @@ namespace ITtools.UI
         private void tsb_contentSerch_Click(object sender, EventArgs e)
         {
             var query = from q in new WebURLService().GetWebURLs().
-                Where(s => s.introduction.Contains(this.txt_content.Text))
+                        //toLower后比较时可忽略大小写，因为是都转为小写后比较的
+                Where(s => s.introduction.ToLower().Contains(this.txt_content.Text.ToLower()))
                         join d in new EnumService().GetITenum()
                         
                         on q.ResourceClass equals d.Key
