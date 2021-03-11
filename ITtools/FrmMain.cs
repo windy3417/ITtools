@@ -13,9 +13,9 @@ using ITtools.UI;
 
 namespace ITtools
 {
-    public partial class Frm_main : Form
+    public partial class FrmMain : Form
     {
-        public Frm_main()
+        public FrmMain()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -67,6 +67,12 @@ namespace ITtools
         private void 资源列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_resourcesList f = new Frm_resourcesList();
+            embedForm(f);
+        }
+
+        private void TsmCompress_Click(object sender, EventArgs e)
+        {
+            FrmCompress f = new FrmCompress();
             embedForm(f);
         }
     }
