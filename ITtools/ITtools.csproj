@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -153,17 +153,23 @@
     <Compile Include="UI\FrmCompress.Designer.cs">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Frm_fileDelete.cs">
+    <Compile Include="UI\FrmDecrypt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Frm_fileDelete.Designer.cs">
-      <DependentUpon>Frm_fileDelete.cs</DependentUpon>
+    <Compile Include="UI\FrmDecrypt.Designer.cs">
+      <DependentUpon>FrmDecrypt.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Frm_resourcesList.cs">
+    <Compile Include="UI\FrmFileDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Frm_resourcesList.designer.cs">
-      <DependentUpon>Frm_resourcesList.cs</DependentUpon>
+    <Compile Include="UI\FrmFileDelete.Designer.cs">
+      <DependentUpon>FrmFileDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmResourcesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmResourcesList.designer.cs">
+      <DependentUpon>FrmResourcesList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Frm_resources.cs">
       <SubType>Form</SubType>
@@ -211,11 +217,14 @@
     <EmbeddedResource Include="UI\FrmCompress.resx">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Frm_fileDelete.resx">
-      <DependentUpon>Frm_fileDelete.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmDecrypt.resx">
+      <DependentUpon>FrmDecrypt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Frm_resourcesList.resx">
-      <DependentUpon>Frm_resourcesList.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmFileDelete.resx">
+      <DependentUpon>FrmFileDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmResourcesList.resx">
+      <DependentUpon>FrmResourcesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_resources.resx">
       <DependentUpon>Frm_resources.cs</DependentUpon>

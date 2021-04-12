@@ -17,7 +17,7 @@ using ITtools.Modle;
 
 namespace ITtools.UI
 {
-    public partial class Frm_fileDelete
+    public partial class FrmFileDelete
         : Form
     {
 
@@ -31,7 +31,7 @@ namespace ITtools.UI
         #endregion
 
 
-        public Frm_fileDelete()
+        public FrmFileDelete()
 
         {
             InitializeComponent();

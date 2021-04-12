@@ -1,6 +1,6 @@
 ﻿namespace ITtools.UI
 {
-    partial class Frm_fileDelete
+    partial class FrmFileDelete
 
     {
         /// <summary>

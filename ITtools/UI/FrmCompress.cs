@@ -26,6 +26,7 @@ namespace ITtools.UI
             string originalFileFullName =openFileDialog1.FileName ;
             
             folderBrowserDialog1.ShowDialog();
+            
 
             //压缩后的文件名
             string afterConversionFileFullName =folderBrowserDialog1.SelectedPath + @"E:\6.jpg";

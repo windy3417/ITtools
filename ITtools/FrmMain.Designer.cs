@@ -40,10 +40,11 @@
             this.资源搜索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.互联网资源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.资源列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompress = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,21 +98,21 @@
             // 数据库备份ToolStripMenuItem
             // 
             this.数据库备份ToolStripMenuItem.Name = "数据库备份ToolStripMenuItem";
-            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.数据库备份ToolStripMenuItem.Text = "数据库备份";
             this.数据库备份ToolStripMenuItem.Click += new System.EventHandler(this.数据库备份ToolStripMenuItem_Click);
             // 
             // 文件夹备份ToolStripMenuItem
             // 
             this.文件夹备份ToolStripMenuItem.Name = "文件夹备份ToolStripMenuItem";
-            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.文件夹备份ToolStripMenuItem.Text = "文件夹备份";
             this.文件夹备份ToolStripMenuItem.Click += new System.EventHandler(this.文件夹备份ToolStripMenuItem_Click);
             // 
             // 删除文件ToolStripMenuItem
             // 
             this.删除文件ToolStripMenuItem.Name = "删除文件ToolStripMenuItem";
-            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.删除文件ToolStripMenuItem.Text = "删除文件";
             this.删除文件ToolStripMenuItem.Click += new System.EventHandler(this.删除文件ToolStripMenuItem_Click);
             // 
@@ -127,16 +128,32 @@
             // 互联网资源ToolStripMenuItem
             // 
             this.互联网资源ToolStripMenuItem.Name = "互联网资源ToolStripMenuItem";
-            this.互联网资源ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.互联网资源ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.互联网资源ToolStripMenuItem.Text = "资源录入";
             this.互联网资源ToolStripMenuItem.Click += new System.EventHandler(this.互联网资源ToolStripMenuItem_Click);
             // 
             // 资源列表ToolStripMenuItem
             // 
             this.资源列表ToolStripMenuItem.Name = "资源列表ToolStripMenuItem";
-            this.资源列表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.资源列表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.资源列表ToolStripMenuItem.Text = "资源列表";
             this.资源列表ToolStripMenuItem.Click += new System.EventHandler(this.资源列表ToolStripMenuItem_Click);
+            // 
+            // 工具ToolStripMenuItem
+            // 
+            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmCompress,
+            this.TsbDecrypt});
+            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
+            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.工具ToolStripMenuItem.Text = "工具";
+            // 
+            // TsmCompress
+            // 
+            this.TsmCompress.Name = "TsmCompress";
+            this.TsmCompress.Size = new System.Drawing.Size(180, 22);
+            this.TsmCompress.Text = "图片压缩";
+            this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
             // 
             // panel1
             // 
@@ -156,20 +173,12 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // 工具ToolStripMenuItem
+            // TsbDecrypt
             // 
-            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmCompress});
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.工具ToolStripMenuItem.Text = "工具";
-            // 
-            // TsmCompress
-            // 
-            this.TsmCompress.Name = "TsmCompress";
-            this.TsmCompress.Size = new System.Drawing.Size(180, 22);
-            this.TsmCompress.Text = "图片压缩";
-            this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
+            this.TsbDecrypt.Name = "TsbDecrypt";
+            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
+            this.TsbDecrypt.Text = "解密";
+            this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
             // 
             // FrmMain
             // 
@@ -207,6 +216,7 @@
         private System.Windows.Forms.ToolStripMenuItem 资源列表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TsmCompress;
+        private System.Windows.Forms.ToolStripMenuItem TsbDecrypt;
     }
 }
 

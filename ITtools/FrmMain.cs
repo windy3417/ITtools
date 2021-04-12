@@ -42,7 +42,7 @@ namespace ITtools
 
         private void 数据库设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_itDouble_DB_config f = new Frm_itDouble_DB_config();
+            FrmItDoubleDbConfig f = new FrmItDoubleDbConfig();
             embedForm(f);
         }
 
@@ -60,19 +60,25 @@ namespace ITtools
 
         private void 删除文件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_fileDelete f = new Frm_fileDelete();
+            FrmFileDelete f = new FrmFileDelete();
             embedForm(f);
         }
 
         private void 资源列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_resourcesList f = new Frm_resourcesList();
+            FrmResourcesList f = new FrmResourcesList();
             embedForm(f);
         }
 
         private void TsmCompress_Click(object sender, EventArgs e)
         {
             FrmCompress f = new FrmCompress();
+            embedForm(f);
+        }
+
+        private void TsbDecrypt_Click(object sender, EventArgs e)
+        {
+            FrmDecrypt f = new FrmDecrypt();
             embedForm(f);
         }
     }

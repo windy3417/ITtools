@@ -17,9 +17,9 @@ using ITtools.Services;
 
 namespace ITtools.UI
 {
-    public partial class Frm_resourcesList : Form
+    public partial class FrmResourcesList : Form
     {
-        public Frm_resourcesList()
+        public FrmResourcesList()
         {
             
             InitializeComponent();
