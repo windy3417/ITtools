@@ -42,9 +42,10 @@
             this.资源列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompress = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmImportData = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +144,8 @@
             // 
             this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsmCompress,
-            this.TsbDecrypt});
+            this.TsbDecrypt,
+            this.TsmImportData});
             this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
             this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.工具ToolStripMenuItem.Text = "工具";
@@ -154,6 +156,13 @@
             this.TsmCompress.Size = new System.Drawing.Size(180, 22);
             this.TsmCompress.Text = "图片压缩";
             this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
+            // 
+            // TsbDecrypt
+            // 
+            this.TsbDecrypt.Name = "TsbDecrypt";
+            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
+            this.TsbDecrypt.Text = "解密";
+            this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
             // 
             // panel1
             // 
@@ -173,12 +182,12 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // TsbDecrypt
+            // TsmImportData
             // 
-            this.TsbDecrypt.Name = "TsbDecrypt";
-            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
-            this.TsbDecrypt.Text = "解密";
-            this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
+            this.TsmImportData.Name = "TsmImportData";
+            this.TsmImportData.Size = new System.Drawing.Size(180, 22);
+            this.TsmImportData.Text = "数据导入";
+            this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
             // FrmMain
             // 
@@ -217,6 +226,7 @@
         private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TsmCompress;
         private System.Windows.Forms.ToolStripMenuItem TsbDecrypt;
+        private System.Windows.Forms.ToolStripMenuItem TsmImportData;
     }
 }
 

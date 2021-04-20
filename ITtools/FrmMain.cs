@@ -42,7 +42,7 @@ namespace ITtools
 
         private void 数据库设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmItDoubleDbConfig f = new FrmItDoubleDbConfig();
+            FrmConfig f = new FrmConfig();
             embedForm(f);
         }
 
@@ -66,7 +66,7 @@ namespace ITtools
 
         private void 资源列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmResourcesList f = new FrmResourcesList();
+            FrmQueryResources f = new FrmQueryResources();
             embedForm(f);
         }
 
@@ -79,6 +79,12 @@ namespace ITtools
         private void TsbDecrypt_Click(object sender, EventArgs e)
         {
             FrmDecrypt f = new FrmDecrypt();
+            embedForm(f);
+        }
+
+        private void TsmImportData_Click(object sender, EventArgs e)
+        {
+            FrmImport f = new FrmImport();
             embedForm(f);
         }
     }

@@ -33,13 +33,15 @@
             this.TsbChoose = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.TsbClose = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsbChoose});
+            this.TsbChoose,
+            this.TsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -58,6 +60,15 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // TsbClose
+            // 
+            this.TsbClose.Image = global::ITtools.Properties.Resources.icon_quit;
+            this.TsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbClose.Name = "TsbClose";
+            this.TsbClose.Size = new System.Drawing.Size(52, 22);
+            this.TsbClose.Text = "关闭";
+            this.TsbClose.Click += new System.EventHandler(this.TsbClose_Click);
             // 
             // FrmCompress
             // 
@@ -80,5 +91,6 @@
         private System.Windows.Forms.ToolStripButton TsbChoose;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ToolStripButton TsbClose;
     }
 }

@@ -17,6 +17,12 @@ namespace ITtools.UI
         public FrmCompress()
         {
             InitializeComponent();
+            this.FormClosed += CloseParentForm;
+        }
+
+        private void CloseParentForm(object sender, FormClosedEventArgs e)
+        {
+            this.Parent.Dispose();
         }
 
         private void TsbChoose_Click(object sender, EventArgs e)
@@ -140,5 +146,9 @@ namespace ITtools.UI
             }
         }
 
+        private void TsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -142,6 +142,7 @@
     <Compile Include="Modle\DiretoryModle.cs" />
     <Compile Include="Modle\EnumModle.cs" />
     <Compile Include="Modle\ItContext.cs" />
+    <Compile Include="Modle\MaxKeyModel.cs" />
     <Compile Include="Modle\WebURLModle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +153,12 @@
     </Compile>
     <Compile Include="UI\FrmCompress.Designer.cs">
       <DependentUpon>FrmCompress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmConfig.Designer.cs">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmDecrypt.cs">
       <SubType>Form</SubType>
@@ -165,11 +172,17 @@
     <Compile Include="UI\FrmFileDelete.Designer.cs">
       <DependentUpon>FrmFileDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmResourcesList.cs">
+    <Compile Include="UI\FrmImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmResourcesList.designer.cs">
-      <DependentUpon>FrmResourcesList.cs</DependentUpon>
+    <Compile Include="UI\FrmImport.Designer.cs">
+      <DependentUpon>FrmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmQueryResources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmQueryResources.designer.cs">
+      <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Frm_resources.cs">
       <SubType>Form</SubType>
@@ -194,6 +207,8 @@
     <None Include="Resources\add.bmp" />
     <None Include="Resources\save.png" />
     <None Include="Resources\Search.gif" />
+    <None Include="Resources\importdir_wiz.gif" />
+    <None Include="Resources\exit.gif" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -217,14 +232,20 @@
     <EmbeddedResource Include="UI\FrmCompress.resx">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmConfig.resx">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmDecrypt.resx">
       <DependentUpon>FrmDecrypt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmFileDelete.resx">
       <DependentUpon>FrmFileDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmResourcesList.resx">
-      <DependentUpon>FrmResourcesList.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmImport.resx">
+      <DependentUpon>FrmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmQueryResources.resx">
+      <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_resources.resx">
       <DependentUpon>Frm_resources.cs</DependentUpon>

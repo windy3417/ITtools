@@ -73,6 +73,16 @@ namespace ITtools.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap exit {
+            get {
+                object obj = ResourceManager.GetObject("exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap export {
             get {
                 object obj = ResourceManager.GetObject("export", resourceCulture);
@@ -96,6 +106,16 @@ namespace ITtools.Properties {
         internal static System.Drawing.Bitmap icon_voice {
             get {
                 object obj = ResourceManager.GetObject("icon_voice", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap importdir_wiz {
+            get {
+                object obj = ResourceManager.GetObject("importdir_wiz", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
