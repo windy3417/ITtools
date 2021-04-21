@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITtools.Modle
+namespace ITtools.Model
 {
    public static class EnumModle
     {

@@ -137,6 +137,10 @@
     <Compile Include="Migrations\202012190432396_f1.designer.cs">
       <DependentUpon>202012190432396_f1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104210211066_m.cs" />
+    <Compile Include="Migrations\202104210211066_m.designer.cs">
+      <DependentUpon>202104210211066_m.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modle\DiretoryItemModle.cs" />
     <Compile Include="Modle\DiretoryModle.cs" />
@@ -177,6 +181,12 @@
     </Compile>
     <Compile Include="UI\FrmImport.Designer.cs">
       <DependentUpon>FrmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmImportMeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmImportMeta.Designer.cs">
+      <DependentUpon>FrmImportMeta.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmQueryResources.cs">
       <SubType>Form</SubType>
@@ -219,6 +229,9 @@
     <EmbeddedResource Include="Migrations\202012190432396_f1.resx">
       <DependentUpon>202012190432396_f1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104210211066_m.resx">
+      <DependentUpon>202104210211066_m.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -243,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmImport.resx">
       <DependentUpon>FrmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmImportMeta.resx">
+      <DependentUpon>FrmImportMeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmQueryResources.resx">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>

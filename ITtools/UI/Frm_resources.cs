@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Linq;
 using System.Linq.Expressions;
-using ITtools.Modle;
+using ITtools.Model;
 using System.Collections.Generic;
 using System.Configuration;
 using Utility;
@@ -13,7 +13,7 @@ using ITtools.Common;
 using System.Collections;
 using ITtools.DAL;
 using ITtools.Services;
-using static ITtools.Modle.EnumModle;
+using static ITtools.Model.EnumModle;
 
 namespace ITtools.UI
 {

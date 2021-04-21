@@ -1,4 +1,4 @@
-﻿namespace ITtools.Modle
+﻿namespace ITtools.Model
 {
     using System;
     using System.Data.Entity;
@@ -21,6 +21,8 @@
         public virtual DbSet<WebURLModle> WebURLs { get; set; }
 
         public virtual DbSet<DiretoryModle> Diretory { get; set; }
+
+        public virtual DbSet<MaxKeyModel> MaxKeys { get; set; }
     }
 
    

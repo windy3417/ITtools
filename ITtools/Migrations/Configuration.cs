@@ -5,14 +5,14 @@ namespace ITtools.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ITtools.Modle.ItContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ITtools.Model.ItContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ITtools.Modle.ItContext context)
+        protected override void Seed(ITtools.Model.ItContext context)
         {
             //  This method will be called after migrating to the latest version.
 

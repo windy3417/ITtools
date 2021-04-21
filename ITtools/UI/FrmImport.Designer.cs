@@ -33,7 +33,7 @@
             this.tsmChooseFile = new System.Windows.Forms.ToolStripButton();
             this.TsbSave = new System.Windows.Forms.ToolStripButton();
             this.TsbClose = new System.Windows.Forms.ToolStripButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbFileName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvImport)).BeginInit();
             this.TsImport.SuspendLayout();
@@ -41,6 +41,9 @@
             // 
             // DgvImport
             // 
+            this.DgvImport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvImport.Location = new System.Drawing.Point(12, 112);
             this.DgvImport.Name = "DgvImport";
@@ -76,6 +79,7 @@
             this.TsbSave.Name = "TsbSave";
             this.TsbSave.Size = new System.Drawing.Size(52, 22);
             this.TsbSave.Text = "保存";
+            this.TsbSave.Click += new System.EventHandler(this.TsbSave_Click);
             // 
             // TsbClose
             // 
@@ -84,14 +88,15 @@
             this.TsbClose.Name = "TsbClose";
             this.TsbClose.Size = new System.Drawing.Size(52, 22);
             this.TsbClose.Text = "关闭";
+            this.TsbClose.Click += new System.EventHandler(this.TsbClose_Click);
             // 
-            // comboBox1
+            // cmbFileName
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(71, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 2;
+            this.cmbFileName.FormattingEnabled = true;
+            this.cmbFileName.Location = new System.Drawing.Point(71, 59);
+            this.cmbFileName.Name = "cmbFileName";
+            this.cmbFileName.Size = new System.Drawing.Size(121, 20);
+            this.cmbFileName.TabIndex = 2;
             // 
             // label1
             // 
@@ -108,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbFileName);
             this.Controls.Add(this.TsImport);
             this.Controls.Add(this.DgvImport);
             this.Name = "FrmImport";
@@ -128,7 +133,7 @@
         private System.Windows.Forms.ToolStripButton tsmChooseFile;
         private System.Windows.Forms.ToolStripButton TsbSave;
         private System.Windows.Forms.ToolStripButton TsbClose;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbFileName;
         private System.Windows.Forms.Label label1;
     }
 }

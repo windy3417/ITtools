@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Linq;
 using System.Linq.Expressions;
-using ITtools.Modle;
+using ITtools.Model;
 using System.Collections.Generic;
 using System.Configuration;
 using Utility.Excel;

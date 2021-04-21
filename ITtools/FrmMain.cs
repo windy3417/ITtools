@@ -87,5 +87,11 @@ namespace ITtools
             FrmImport f = new FrmImport();
             embedForm(f);
         }
+
+        private void tsmImportDefinite_Click(object sender, EventArgs e)
+        {
+            FrmImportMeta f = new FrmImportMeta();
+            embedForm(f);
+        }
     }
 }

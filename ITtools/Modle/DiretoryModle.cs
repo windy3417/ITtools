@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace ITtools.Modle
+namespace ITtools.Model
 {
     [Serializable]
   public  class DiretoryModle
