@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITtools.Model
 {
+    [Table("MaxKeys")]
     public class MaxKeyModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

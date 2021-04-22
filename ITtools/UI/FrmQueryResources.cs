@@ -30,7 +30,7 @@ namespace ITtools.UI
 
         #region 变量
         //新增时,dataGridview绑定的数据源，以体现新增的结果
-        List<WebURLModle> customerList = new List<WebURLModle>();
+        List<WebURLModel> customerList = new List<WebURLModel>();
         //最大客户编号
         int maxCusCode;
 
@@ -149,7 +149,7 @@ namespace ITtools.UI
                     using (var db = new ItContext())
                     {
 
-                        WebURLModle m = new WebURLModle();
+                        WebURLModel m = new WebURLModel();
                   
                         m.introduction = txt_content.Text;
                        

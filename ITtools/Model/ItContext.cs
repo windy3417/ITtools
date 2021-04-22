@@ -18,7 +18,7 @@
        
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
-        public virtual DbSet<WebURLModle> WebURLs { get; set; }
+        public virtual DbSet<WebURLModel> WebURLs { get; set; }
 
         public virtual DbSet<DiretoryModle> Diretory { get; set; }
 

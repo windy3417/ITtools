@@ -8,7 +8,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITtools.Model
 {
-   public class WebURLModle
+    [Table("WebUrl")]
+   public class WebURLModel
     {
         public int id { get; set; }
         public string introduction { get; set; }

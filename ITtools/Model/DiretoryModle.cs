@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace ITtools.Model
 {
     [Serializable]
+    [Table("Directory")]
   public  class DiretoryModle
     {
         [Key]

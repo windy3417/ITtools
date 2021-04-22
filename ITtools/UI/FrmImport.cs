@@ -18,6 +18,13 @@ namespace ITtools.UI
             InitializeComponent();
             this.Load += FrmImport_Load;
             this.FormClosed += closeParentForm;
+            this.DgvImport.RowPostPaint += displayRowNo;
+        }
+
+        private void displayRowNo(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Utility.Style.StyleDataGridView styleDataGridView = new Utility.Style.StyleDataGridView();
+            styleDataGridView.DisplayRowNo(e, this.DgvImport);
         }
 
         private void closeParentForm(object sender, FormClosedEventArgs e)
@@ -44,12 +51,12 @@ namespace ITtools.UI
 
         void dataBinding()
         {
-            using (var db=new ItContext())
+            using (var db = new ItContext())
             {
                 var query = from s in db.MaxKeys
                             select s.VoucherName;
                 cmbFileName.DataSource = query.ToArray();
-            }  
+            }
         }
 
         private void TsbClose_Click(object sender, EventArgs e)
@@ -59,6 +66,85 @@ namespace ITtools.UI
 
         private void TsbSave_Click(object sender, EventArgs e)
         {
+            this.saveData(this.cmbFileName.Text);
+        }
+
+        void saveData(string tableName)
+        {
+            var itdb = new ItContext();
+            int maxID = 1000000;
+
+            try
+            {
+                using (var db = new U8Context())
+                {
+
+                    switch (tableName)
+                    {
+                        case "预算项目":
+                            //待变更实体
+                            var maxIDBudgetItem = itdb.MaxKeys.Where(s => s.VoucherName == "预算项目").FirstOrDefault();
+                            maxID = maxIDBudgetItem.CurrentKeyValue;
+                            for (int i = 0; i < DgvImport.Rows.Count - 1; i++)
+                            {
+                                U8CUSTDEF_0044_E002 budgetItem = new U8CUSTDEF_0044_E002();
+
+                                budgetItem.cNo = DgvImport.Rows[i].Cells[0].Value.ToString();
+                                budgetItem.cCardName = DgvImport.Rows[i].Cells[1].Value.ToString();
+                                budgetItem.cMaker = "demo";
+                                budgetItem.cMender = "demo";
+                                budgetItem.dMakeDate = DateTime.Now;
+                                budgetItem.dMakeDateEx = DateTime.Now;
+                                budgetItem.U8CUSTDEF_0043_E001_PK = 2;
+                                budgetItem.UAPRuntime_RowNO = i + 1;
+
+                                budgetItem.U8CUSTDEF_0044_E002_PK = maxID + i;
+
+                                db.U8CUSTDEF_0044_E002.Add(budgetItem);
+                                maxIDBudgetItem.CurrentKeyValue = maxID + i;
+
+                            }
+                            break;
+
+                        case "科目预算对照":
+                            //待变更实体
+                            var maxIDCodeContrast = itdb.MaxKeys.Where(s => s.VoucherName == "科目预算对照").FirstOrDefault();
+                            maxID = maxIDCodeContrast.CurrentKeyValue;
+                            for (int i = 0; i < DgvImport.Rows.Count - 1; i++)
+                            {
+                                U8CUSTDEF_0061_E002 codeContrasst = new U8CUSTDEF_0061_E002();
+
+                                codeContrasst.U8CUSTDEF_0061_E002_F000 = DgvImport.Rows[i].Cells[0].Value.ToString();
+                                codeContrasst.U8CUSTDEF_0061_E002_F002 = DgvImport.Rows[i].Cells[2].Value.ToString();
+
+                                codeContrasst.U8CUSTDEF_0061_E001_PK = 1;
+                                codeContrasst.UAPRuntime_RowNO = i + 1;
+
+                                codeContrasst.U8CUSTDEF_0061_E002_PK = maxID + i;
+
+                                db.U8CUSTDEF_0061_E002.Add(codeContrasst);
+                                maxIDCodeContrast.CurrentKeyValue = maxID + i;
+
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+
+
+                    db.SaveChanges();
+                    //存储最大ID号
+                    itdb.SaveChanges();
+
+                    MessageBox.Show("数据保存成功！");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message + ex.InnerException);
+            }
 
         }
     }

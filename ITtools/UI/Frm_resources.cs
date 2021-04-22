@@ -29,7 +29,7 @@ namespace ITtools.UI
 
         #region 变量
         //新增时,dataGridview绑定的数据源，以体现新增的结果
-        List<WebURLModle> mList = new List<WebURLModle>();
+        List<WebURLModel> mList = new List<WebURLModel>();
         //最大客户编号
         int maxCusCode;
 
@@ -135,7 +135,7 @@ namespace ITtools.UI
             //取最大编号时速度太慢，三秒左右，同时最大号算法有误，取到第10号则不向上递增了???。
             using (var db = new ItContext())
             {
-                WebURLModle m = new WebURLModle();
+                WebURLModel m = new WebURLModel();
 
                 var custQuery = from r in db.WebURLs.AsNoTracking()
 
@@ -176,9 +176,9 @@ namespace ITtools.UI
 
                     var db = new ItContext();
 
-                    List<WebURLModle> d = (from del in db.WebURLs
+                    List<WebURLModel> d = (from del in db.WebURLs
                                            where del.id == selected
-                                           select del).ToList<WebURLModle>();
+                                           select del).ToList<WebURLModel>();
                     //移除数据库的数据
                     db.WebURLs.Remove(d[0]);
                     db.SaveChanges();
@@ -191,7 +191,7 @@ namespace ITtools.UI
                     if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
                     {
 
-                        List<WebURLModle> customer = mList.Where(c => c.id == selected).ToList<WebURLModle>();
+                        List<WebURLModel> customer = mList.Where(c => c.id == selected).ToList<WebURLModel>();
                         mList.Remove(customer[0]);
 
                     }
@@ -339,7 +339,7 @@ namespace ITtools.UI
                     using (var db = new ItContext())
                     {
 
-                        WebURLModle m = new WebURLModle();
+                        WebURLModel m = new WebURLModel();
                         m.id = Convert.ToInt32(txt_cusCode.Text);
                         
                         m.introduction = txt_content.Text;
@@ -378,7 +378,7 @@ namespace ITtools.UI
                 {
                     using (var db = new ItContext())
                     {
-                        WebURLModle m = db.WebURLs.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
+                        WebURLModel m = db.WebURLs.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
 
                         m.id = System.Convert.ToInt32(txt_cusCode.Text);
 

@@ -9,7 +9,7 @@ namespace ITtools.Services
 {
    public class WebURLService
     {
-        public List<WebURLModle> GetWebURLs()
+        public List<WebURLModel> GetWebURLs()
         {
             using (var db =new ItContext())
             {
