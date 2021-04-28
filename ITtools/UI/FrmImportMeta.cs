@@ -17,6 +17,7 @@ namespace ITtools.UI
         {
             InitializeComponent();
             this.FormClosed += closeParentForm;
+            
         }
 
         private void closeParentForm(object sender, FormClosedEventArgs e)
@@ -61,6 +62,7 @@ namespace ITtools.UI
 
                             };
                 DgvList.DataSource = query.ToList();
+                this.DgvList.AutoResizeColumn(1);
             }
         }
 
@@ -72,6 +74,29 @@ namespace ITtools.UI
         private void tsbQuery_Click(object sender, EventArgs e)
         {
             this.dataBinding();
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var db = new ItContext())
+                {
+                    int currentID = Convert.ToInt32(this.DgvList.CurrentRow.Cells[0].Value);
+                    var m = db.MaxKeys.Where(s => s.id ==currentID ).FirstOrDefault();
+                    db.MaxKeys.Remove(m);
+                    db.SaveChanges();
+                    MessageBox.Show("数据删除成功！");
+                    this.dataBinding();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message + ex.InnerException);
+            }
+            
+           
         }
     }
 }

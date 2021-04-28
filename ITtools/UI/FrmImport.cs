@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITtools.Model;
+using ITtools.Model.U8;
 
 namespace ITtools.UI
 {
@@ -74,6 +75,8 @@ namespace ITtools.UI
             var itdb = new ItContext();
             int maxID = 1000000;
 
+            
+
             try
             {
                 using (var db = new U8Context())
@@ -113,9 +116,8 @@ namespace ITtools.UI
                             maxID = maxIDCodeContrast.CurrentKeyValue;
 
                             //外键PK
-                            var fpk = db.U8CUSTDEF_0061_E001.Select(s=>s.U8CUSTDEF_0061_E001_PK).Max();
+                           var  fpk = db.U8CUSTDEF_0061_E001.Select(s=>s.U8CUSTDEF_0061_E001_PK).Max();
                        
-
                             for (int i = 0; i < DgvImport.Rows.Count - 1; i++)
                             {
                                 U8CUSTDEF_0061_E002 codeContrasst = new U8CUSTDEF_0061_E002();
@@ -130,6 +132,34 @@ namespace ITtools.UI
 
                                 db.U8CUSTDEF_0061_E002.Add(codeContrasst);
                                 maxIDCodeContrast.CurrentKeyValue = maxID + i;
+
+                            }
+                            break;
+
+                        case "外发需返资产登记表":
+                            //待变更实体的最大PK值
+                            var maxIDloader = itdb.MaxKeys.Where(s => s.VoucherName == "外发需返资产登记表").FirstOrDefault();
+
+                            maxID = maxIDloader.CurrentKeyValue;
+
+                            //外键PK
+                            var fpkLoader = db.U8CUSTDEF_0058_E001.Select(s => s.U8CUSTDEF_0058_E001_PK).Max();
+
+                            for (int i = 0; i < DgvImport.Rows.Count - 1; i++)
+                            {
+                                U8CUSTDEF_0058_E002 m = new U8CUSTDEF_0058_E002();
+
+                                m.U8CUSTDEF_0058_E002_F001 = DgvImport.Rows[i].Cells[0].Value.ToString();
+                                m.U8CUSTDEF_0058_E002_F002 =Convert.ToDecimal( DgvImport.Rows[i].Cells[2].Value);
+
+                                m.U8CUSTDEF_0058_E001_PK = fpkLoader;
+                                m.UAPRuntime_RowNO = i + 1;
+
+                                m.U8CUSTDEF_0058_E002_PK = maxID + i;
+
+                                db.U8CUSTDEF_0058_E002.Add(m);
+                               
+                                maxIDloader.CurrentKeyValue = maxID + i;
 
                             }
                             break;

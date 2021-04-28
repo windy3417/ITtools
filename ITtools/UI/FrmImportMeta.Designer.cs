@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.TsbSave = new System.Windows.Forms.ToolStripButton();
-            this.tsbQuery = new System.Windows.Forms.ToolStripButton();
-            this.TsbClose = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtVoucherCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +37,10 @@
             this.txtMaxID = new System.Windows.Forms.TextBox();
             this.DgvList = new System.Windows.Forms.DataGridView();
             this.GbRecord = new System.Windows.Forms.GroupBox();
+            this.TsbSave = new System.Windows.Forms.ToolStripButton();
+            this.tsbQuery = new System.Windows.Forms.ToolStripButton();
+            this.TsbClose = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvList)).BeginInit();
             this.GbRecord.SuspendLayout();
@@ -50,39 +51,13 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbSave,
             this.tsbQuery,
+            this.tsbDelete,
             this.TsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // TsbSave
-            // 
-            this.TsbSave.Image = global::ITtools.Properties.Resources.save;
-            this.TsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbSave.Name = "TsbSave";
-            this.TsbSave.Size = new System.Drawing.Size(52, 22);
-            this.TsbSave.Text = "保存";
-            this.TsbSave.Click += new System.EventHandler(this.TsbSave_Click);
-            // 
-            // tsbQuery
-            // 
-            this.tsbQuery.Image = global::ITtools.Properties.Resources.Search;
-            this.tsbQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbQuery.Name = "tsbQuery";
-            this.tsbQuery.Size = new System.Drawing.Size(52, 22);
-            this.tsbQuery.Text = "查询";
-            this.tsbQuery.Click += new System.EventHandler(this.tsbQuery_Click);
-            // 
-            // TsbClose
-            // 
-            this.TsbClose.Image = global::ITtools.Properties.Resources.exit;
-            this.TsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbClose.Name = "TsbClose";
-            this.TsbClose.Size = new System.Drawing.Size(52, 22);
-            this.TsbClose.Text = "关闭";
-            this.TsbClose.Click += new System.EventHandler(this.TsbClose_Click);
             // 
             // label1
             // 
@@ -161,6 +136,42 @@
             this.GbRecord.TabStop = false;
             this.GbRecord.Text = "信息录入";
             // 
+            // TsbSave
+            // 
+            this.TsbSave.Image = global::ITtools.Properties.Resources.save;
+            this.TsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbSave.Name = "TsbSave";
+            this.TsbSave.Size = new System.Drawing.Size(52, 22);
+            this.TsbSave.Text = "保存";
+            this.TsbSave.Click += new System.EventHandler(this.TsbSave_Click);
+            // 
+            // tsbQuery
+            // 
+            this.tsbQuery.Image = global::ITtools.Properties.Resources.Search;
+            this.tsbQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbQuery.Name = "tsbQuery";
+            this.tsbQuery.Size = new System.Drawing.Size(52, 22);
+            this.tsbQuery.Text = "查询";
+            this.tsbQuery.Click += new System.EventHandler(this.tsbQuery_Click);
+            // 
+            // TsbClose
+            // 
+            this.TsbClose.Image = global::ITtools.Properties.Resources.exit;
+            this.TsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbClose.Name = "TsbClose";
+            this.TsbClose.Size = new System.Drawing.Size(52, 22);
+            this.TsbClose.Text = "关闭";
+            this.TsbClose.Click += new System.EventHandler(this.TsbClose_Click);
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.Image = global::ITtools.Properties.Resources.DeleteRow;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(52, 22);
+            this.tsbDelete.Text = "删行";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
+            // 
             // FrmImportMeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -195,5 +206,6 @@
         private System.Windows.Forms.DataGridView DgvList;
         private System.Windows.Forms.GroupBox GbRecord;
         private System.Windows.Forms.ToolStripButton tsbQuery;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
     }
 }
