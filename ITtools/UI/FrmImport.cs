@@ -107,9 +107,15 @@ namespace ITtools.UI
                             break;
 
                         case "科目预算对照":
-                            //待变更实体
+                            //待变更实体的最大PK值
                             var maxIDCodeContrast = itdb.MaxKeys.Where(s => s.VoucherName == "科目预算对照").FirstOrDefault();
+                            
                             maxID = maxIDCodeContrast.CurrentKeyValue;
+
+                            //外键PK
+                            var fpk = db.U8CUSTDEF_0061_E001.Select(s=>s.U8CUSTDEF_0061_E001_PK).Max();
+                       
+
                             for (int i = 0; i < DgvImport.Rows.Count - 1; i++)
                             {
                                 U8CUSTDEF_0061_E002 codeContrasst = new U8CUSTDEF_0061_E002();
@@ -117,7 +123,7 @@ namespace ITtools.UI
                                 codeContrasst.U8CUSTDEF_0061_E002_F000 = DgvImport.Rows[i].Cells[0].Value.ToString();
                                 codeContrasst.U8CUSTDEF_0061_E002_F002 = DgvImport.Rows[i].Cells[2].Value.ToString();
 
-                                codeContrasst.U8CUSTDEF_0061_E001_PK = 1;
+                                codeContrasst.U8CUSTDEF_0061_E001_PK = fpk;
                                 codeContrasst.UAPRuntime_RowNO = i + 1;
 
                                 codeContrasst.U8CUSTDEF_0061_E002_PK = maxID + i;
