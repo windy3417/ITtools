@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -192,6 +192,12 @@
     <Compile Include="UI\FrmQueryResources.designer.cs">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmVersion.Designer.cs">
+      <DependentUpon>FrmVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Frm_resources.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmQueryResources.resx">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmVersion.resx">
+      <DependentUpon>FrmVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_resources.resx">
       <DependentUpon>Frm_resources.cs</DependentUpon>

@@ -93,5 +93,11 @@ namespace ITtools
             FrmImportMeta f = new FrmImportMeta();
             embedForm(f);
         }
+
+        private void tsmVersionInformation_Click(object sender, EventArgs e)
+        {
+            FrmVersion f = new FrmVersion();
+            f.ShowDialog();
+        }
     }
 }

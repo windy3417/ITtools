@@ -145,17 +145,19 @@ namespace ITtools.UI
                             //外键PK
                             var fpkLoader = db.U8CUSTDEF_0058_E001.Select(s => s.U8CUSTDEF_0058_E001_PK).Max();
 
-                            for (int i = 0; i < DgvImport.Rows.Count - 1; i++)
+                            for (int i = 0; i < DgvImport.Rows.Count-1 ; i++)
                             {
                                 U8CUSTDEF_0058_E002 m = new U8CUSTDEF_0058_E002();
 
                                 m.U8CUSTDEF_0058_E002_F001 = DgvImport.Rows[i].Cells[0].Value.ToString();
                                 m.U8CUSTDEF_0058_E002_F002 =Convert.ToDecimal( DgvImport.Rows[i].Cells[2].Value);
+                                m.U8CUSTDEF_0058_E002_F003= Convert.ToDecimal(DgvImport.Rows[i].Cells[3].Value);
+                                m.U8CUSTDEF_0058_E002_F004 = Convert.ToDecimal(DgvImport.Rows[i].Cells[4].Value);
 
                                 m.U8CUSTDEF_0058_E001_PK = fpkLoader;
                                 m.UAPRuntime_RowNO = i + 1;
 
-                                m.U8CUSTDEF_0058_E002_PK = maxID + i;
+                                m.U8CUSTDEF_0058_E002_PK = maxID + i+1;
 
                                 db.U8CUSTDEF_0058_E002.Add(m);
                                
