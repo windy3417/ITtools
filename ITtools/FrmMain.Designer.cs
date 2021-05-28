@@ -48,6 +48,8 @@
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.程序文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
+            this.弱电管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
@@ -61,6 +63,7 @@
             this.数据备份ToolStripMenuItem,
             this.资源搜索ToolStripMenuItem,
             this.工具ToolStripMenuItem,
+            this.弱电管理ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -196,15 +199,30 @@
             // 程序文档ToolStripMenuItem
             // 
             this.程序文档ToolStripMenuItem.Name = "程序文档ToolStripMenuItem";
-            this.程序文档ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.程序文档ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.程序文档ToolStripMenuItem.Text = "程序文档";
             // 
             // tsmVersionInformation
             // 
             this.tsmVersionInformation.Name = "tsmVersionInformation";
-            this.tsmVersionInformation.Size = new System.Drawing.Size(180, 22);
+            this.tsmVersionInformation.Size = new System.Drawing.Size(124, 22);
             this.tsmVersionInformation.Text = "版本信息";
             this.tsmVersionInformation.Click += new System.EventHandler(this.tsmVersionInformation_Click);
+            // 
+            // 弱电管理ToolStripMenuItem
+            // 
+            this.弱电管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmProjectRegister});
+            this.弱电管理ToolStripMenuItem.Name = "弱电管理ToolStripMenuItem";
+            this.弱电管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.弱电管理ToolStripMenuItem.Text = "弱电管理";
+            // 
+            // tsmProjectRegister
+            // 
+            this.tsmProjectRegister.Name = "tsmProjectRegister";
+            this.tsmProjectRegister.Size = new System.Drawing.Size(180, 22);
+            this.tsmProjectRegister.Text = "工程登记";
+            this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
             // 
             // panel1
             // 
@@ -266,6 +284,8 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 程序文档ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmVersionInformation;
+        private System.Windows.Forms.ToolStripMenuItem 弱电管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmProjectRegister;
     }
 }
 

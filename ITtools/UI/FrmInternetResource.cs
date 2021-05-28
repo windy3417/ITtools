@@ -17,9 +17,9 @@ using static ITtools.Model.EnumModle;
 
 namespace ITtools.UI
 {
-    public partial class Frm_resources : Form
+    public partial class FrmInternetResource : Form
     {
-        public Frm_resources()
+        public FrmInternetResource()
         {
             InitializeComponent();
             this.initialize();

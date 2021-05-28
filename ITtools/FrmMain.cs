@@ -54,7 +54,7 @@ namespace ITtools
 
         private void 互联网资源ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_resources f = new Frm_resources();
+            FrmInternetResource f = new FrmInternetResource();
             embedForm(f);
         }
 
@@ -98,6 +98,12 @@ namespace ITtools
         {
             FrmVersion f = new FrmVersion();
             f.ShowDialog();
+        }
+
+        private void tsmProjectRegister_Click(object sender, EventArgs e)
+        {
+            FrmWeakCurrence f = new FrmWeakCurrence();
+            embedForm(f);
         }
     }
 }

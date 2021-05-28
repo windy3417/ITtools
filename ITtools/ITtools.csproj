@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>28</ApplicationRevision>
+    <ApplicationRevision>30</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -133,19 +133,24 @@
     <Compile Include="Migrations\202104210815496_m.designer.cs">
       <DependentUpon>202104210815496_m.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105270208219_m1.cs" />
+    <Compile Include="Migrations\202105270208219_m1.designer.cs">
+      <DependentUpon>202105270208219_m1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\DiretoryItemModle.cs" />
-    <Compile Include="Model\DiretoryModle.cs" />
-    <Compile Include="Model\EnumModle.cs" />
+    <Compile Include="Model\IT\DiretoryItemModle.cs" />
+    <Compile Include="Model\IT\DiretoryModle.cs" />
+    <Compile Include="Model\IT\EnumModle.cs" />
+    <Compile Include="Model\IT\PrWeakCurrentModel.cs" />
     <Compile Include="Model\U8Context.cs" />
     <Compile Include="Model\ItContext.cs" />
-    <Compile Include="Model\MaxKeyModel.cs" />
+    <Compile Include="Model\IT\MaxKeyModel.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0044_E002.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0058_E001.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0058_E002.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0061_E001.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0061_E002.cs" />
-    <Compile Include="Model\WebURLModel.cs" />
+    <Compile Include="Model\IT\WebURLModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataBaseListService.cs" />
@@ -198,11 +203,17 @@
     <Compile Include="UI\FrmVersion.Designer.cs">
       <DependentUpon>FrmVersion.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Frm_resources.cs">
+    <Compile Include="UI\FrmInternetResource.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Frm_resources.designer.cs">
-      <DependentUpon>Frm_resources.cs</DependentUpon>
+    <Compile Include="UI\FrmInternetResource.designer.cs">
+      <DependentUpon>FrmInternetResource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmWeakCurrence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmWeakCurrence.designer.cs">
+      <DependentUpon>FrmWeakCurrence.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Frm_dataBaseBac.cs">
       <SubType>Form</SubType>
@@ -230,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104210815496_m.resx">
       <DependentUpon>202104210815496_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270208219_m1.resx">
+      <DependentUpon>202105270208219_m1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -265,8 +279,11 @@
     <EmbeddedResource Include="UI\FrmVersion.resx">
       <DependentUpon>FrmVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Frm_resources.resx">
-      <DependentUpon>Frm_resources.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmInternetResource.resx">
+      <DependentUpon>FrmInternetResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmWeakCurrence.resx">
+      <DependentUpon>FrmWeakCurrence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_dataBaseBac.resx">
       <DependentUpon>Frm_dataBaseBac.cs</DependentUpon>

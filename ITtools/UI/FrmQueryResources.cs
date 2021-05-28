@@ -308,7 +308,7 @@ namespace ITtools.UI
             {
 
                 int resourceID = Convert.ToInt32(dgv_list.Rows[e.RowIndex].Cells[0].Value);
-                Frm_resources f = new Frm_resources();
+                FrmWeakCurrence f = new FrmWeakCurrence();
                 EmbedForm embedForm = new EmbedForm();
 
                 embedForm.openForm(f, f.Text, (TabControl)this.Parent.Parent, (Panel)this.Parent.Parent.Parent);
