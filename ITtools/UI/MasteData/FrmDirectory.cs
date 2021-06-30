@@ -13,9 +13,9 @@ using ITtools.Model;
 
 namespace ITtools.UI
 {
-    public partial class Frm_directory : Form
+    public partial class FrmDirectory : Form
     {
-        public Frm_directory()
+        public FrmDirectory()
         {
             InitializeComponent();
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
@@ -58,6 +58,7 @@ namespace ITtools.UI
                     DiretoryModle m = new DiretoryModle();
                     m.directoryID = txt_dierctoryID.Text;
                     m.diretory = txt_directory.Text;
+                    m.directoryType = cbType.Text;
                     db.Diretory.Add(m);
                     db.SaveChanges();
                     MessageBox.Show("数据保存成功！", "保存提示");

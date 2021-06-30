@@ -16,6 +16,9 @@ namespace ITtools.Model
     {
         [Key]
         public string directoryID { get; set; }
+
+        public string directoryType { get; set; }
+
         public string diretory { get; set; }
     }
 }

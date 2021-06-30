@@ -48,7 +48,7 @@ namespace ITtools
 
         private void 常用备份路径ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_directory frm_DirectoryBac = new Frm_directory();
+            FrmDirectory frm_DirectoryBac = new FrmDirectory();
             embedForm(frm_DirectoryBac);
         }
 

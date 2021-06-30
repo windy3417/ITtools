@@ -1,6 +1,6 @@
 ﻿namespace ITtools.UI
 {
-    partial class Frm_directory
+    partial class FrmDirectory
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_dierctoryID = new System.Windows.Forms.TextBox();
             this.txt_directory = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbType = new System.Windows.Forms.ComboBox();
             this.dgv_list = new System.Windows.Forms.DataGridView();
             this.lbl_titel = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -62,27 +64,31 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.73127F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.68132F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.58741F));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.42857F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.57143F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel1.Controls.Add(this.btn_openFileDirectory, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_item, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txt_dierctoryID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txt_directory, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(197, 112);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cbType, 4, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(102, 99);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(362, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(559, 100);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // btn_openFileDirectory
             // 
             this.btn_openFileDirectory.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_openFileDirectory.Location = new System.Drawing.Point(318, 64);
+            this.btn_openFileDirectory.Location = new System.Drawing.Point(323, 64);
             this.btn_openFileDirectory.Name = "btn_openFileDirectory";
             this.btn_openFileDirectory.Size = new System.Drawing.Size(35, 21);
             this.btn_openFileDirectory.TabIndex = 4;
@@ -113,7 +119,7 @@
             // txt_dierctoryID
             // 
             this.txt_dierctoryID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_dierctoryID.Location = new System.Drawing.Point(70, 14);
+            this.txt_dierctoryID.Location = new System.Drawing.Point(71, 14);
             this.txt_dierctoryID.Name = "txt_dierctoryID";
             this.txt_dierctoryID.Size = new System.Drawing.Size(242, 21);
             this.txt_dierctoryID.TabIndex = 1;
@@ -121,10 +127,32 @@
             // txt_directory
             // 
             this.txt_directory.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txt_directory.Location = new System.Drawing.Point(70, 64);
+            this.txt_directory.Location = new System.Drawing.Point(75, 64);
             this.txt_directory.Name = "txt_directory";
             this.txt_directory.Size = new System.Drawing.Size(242, 21);
             this.txt_directory.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(323, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "类型：";
+            // 
+            // cbType
+            // 
+            this.cbType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
+            "备份",
+            "删除"});
+            this.cbType.Location = new System.Drawing.Point(370, 15);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(183, 20);
+            this.cbType.TabIndex = 5;
             // 
             // dgv_list
             // 
@@ -134,11 +162,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_list.Location = new System.Drawing.Point(197, 231);
+            this.dgv_list.Location = new System.Drawing.Point(102, 231);
             this.dgv_list.Name = "dgv_list";
             this.dgv_list.ReadOnly = true;
             this.dgv_list.RowTemplate.Height = 23;
-            this.dgv_list.Size = new System.Drawing.Size(362, 150);
+            this.dgv_list.Size = new System.Drawing.Size(559, 150);
             this.dgv_list.TabIndex = 2;
             // 
             // lbl_titel
@@ -146,11 +174,11 @@
             this.lbl_titel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_titel.AutoSize = true;
             this.lbl_titel.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_titel.Location = new System.Drawing.Point(317, 50);
+            this.lbl_titel.Location = new System.Drawing.Point(285, 50);
             this.lbl_titel.Name = "lbl_titel";
             this.lbl_titel.Size = new System.Drawing.Size(184, 19);
             this.lbl_titel.TabIndex = 3;
-            this.lbl_titel.Text = "常 用 备 份 路 径";
+            this.lbl_titel.Text = "常 用 文 件 路 径";
             // 
             // tsb_close
             // 
@@ -188,7 +216,7 @@
             this.tsb_query.Text = "查询";
             this.tsb_query.Click += new System.EventHandler(this.tsb_query_Click);
             // 
-            // Frm_directory
+            // FrmDirectory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,8 +225,8 @@
             this.Controls.Add(this.dgv_list);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "Frm_directory";
-            this.Text = "常用备份路径";
+            this.Name = "FrmDirectory";
+            this.Text = "常用文件路径";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -225,5 +253,7 @@
         private System.Windows.Forms.ToolStripButton tsb_add;
         private System.Windows.Forms.ToolStripButton tsb_save;
         private System.Windows.Forms.ToolStripButton tsb_query;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbType;
     }
 }

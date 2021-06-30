@@ -45,11 +45,11 @@
             this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmImportDefinite = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmImportData = new System.Windows.Forms.ToolStripMenuItem();
+            this.弱电管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.程序文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
-            this.弱电管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
@@ -83,15 +83,15 @@
             // 数据库设置ToolStripMenuItem
             // 
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
             this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // 常用备份路径ToolStripMenuItem
             // 
             this.常用备份路径ToolStripMenuItem.Name = "常用备份路径ToolStripMenuItem";
-            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.常用备份路径ToolStripMenuItem.Text = "常用备份路径";
+            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.常用备份路径ToolStripMenuItem.Text = "常用文件路径";
             this.常用备份路径ToolStripMenuItem.Click += new System.EventHandler(this.常用备份路径ToolStripMenuItem_Click);
             // 
             // 数据备份ToolStripMenuItem
@@ -187,6 +187,21 @@
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
+            // 弱电管理ToolStripMenuItem
+            // 
+            this.弱电管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmProjectRegister});
+            this.弱电管理ToolStripMenuItem.Name = "弱电管理ToolStripMenuItem";
+            this.弱电管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.弱电管理ToolStripMenuItem.Text = "弱电管理";
+            // 
+            // tsmProjectRegister
+            // 
+            this.tsmProjectRegister.Name = "tsmProjectRegister";
+            this.tsmProjectRegister.Size = new System.Drawing.Size(124, 22);
+            this.tsmProjectRegister.Text = "工程登记";
+            this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
+            // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -208,21 +223,6 @@
             this.tsmVersionInformation.Size = new System.Drawing.Size(124, 22);
             this.tsmVersionInformation.Text = "版本信息";
             this.tsmVersionInformation.Click += new System.EventHandler(this.tsmVersionInformation_Click);
-            // 
-            // 弱电管理ToolStripMenuItem
-            // 
-            this.弱电管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmProjectRegister});
-            this.弱电管理ToolStripMenuItem.Name = "弱电管理ToolStripMenuItem";
-            this.弱电管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.弱电管理ToolStripMenuItem.Text = "弱电管理";
-            // 
-            // tsmProjectRegister
-            // 
-            this.tsmProjectRegister.Name = "tsmProjectRegister";
-            this.tsmProjectRegister.Size = new System.Drawing.Size(180, 22);
-            this.tsmProjectRegister.Text = "工程登记";
-            this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
             // 
             // panel1
             // 

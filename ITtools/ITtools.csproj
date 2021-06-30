@@ -137,6 +137,10 @@
     <Compile Include="Migrations\202105270208219_m1.designer.cs">
       <DependentUpon>202105270208219_m1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106300323149_m2.cs" />
+    <Compile Include="Migrations\202106300323149_m2.designer.cs">
+      <DependentUpon>202106300323149_m2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IT\DiretoryItemModle.cs" />
     <Compile Include="Model\IT\DiretoryModle.cs" />
@@ -191,10 +195,10 @@
     <Compile Include="UI\FrmImportMeta.Designer.cs">
       <DependentUpon>FrmImportMeta.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmQueryResources.cs">
+    <Compile Include="UI\InternetResource\FrmQueryResources.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmQueryResources.designer.cs">
+    <Compile Include="UI\InternetResource\FrmQueryResources.designer.cs">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmVersion.cs">
@@ -203,10 +207,10 @@
     <Compile Include="UI\FrmVersion.Designer.cs">
       <DependentUpon>FrmVersion.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmInternetResource.cs">
+    <Compile Include="UI\InternetResource\FrmInternetResource.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmInternetResource.designer.cs">
+    <Compile Include="UI\InternetResource\FrmInternetResource.designer.cs">
       <DependentUpon>FrmInternetResource.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmWeakCurrence.cs">
@@ -221,11 +225,11 @@
     <Compile Include="UI\Frm_dataBaseBac.Designer.cs">
       <DependentUpon>Frm_dataBaseBac.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Frm_directory.cs">
+    <Compile Include="UI\MasteData\FrmDirectory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Frm_directory.Designer.cs">
-      <DependentUpon>Frm_directory.cs</DependentUpon>
+    <Compile Include="UI\MasteData\FrmDirectory.Designer.cs">
+      <DependentUpon>FrmDirectory.cs</DependentUpon>
     </Compile>
     <None Include="Resources\预览.jpg" />
     <None Include="Resources\export.gif" />
@@ -244,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105270208219_m1.resx">
       <DependentUpon>202105270208219_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106300323149_m2.resx">
+      <DependentUpon>202106300323149_m2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -273,13 +280,13 @@
     <EmbeddedResource Include="UI\FrmImportMeta.resx">
       <DependentUpon>FrmImportMeta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmQueryResources.resx">
+    <EmbeddedResource Include="UI\InternetResource\FrmQueryResources.resx">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmVersion.resx">
       <DependentUpon>FrmVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmInternetResource.resx">
+    <EmbeddedResource Include="UI\InternetResource\FrmInternetResource.resx">
       <DependentUpon>FrmInternetResource.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmWeakCurrence.resx">
@@ -292,8 +299,8 @@
     <Content Include="DAL\DirectoryItem.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="UI\Frm_directory.resx">
-      <DependentUpon>Frm_directory.cs</DependentUpon>
+    <EmbeddedResource Include="UI\MasteData\FrmDirectory.resx">
+      <DependentUpon>FrmDirectory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ITtools_TemporaryKey.pfx" />
     <None Include="packages.config" />

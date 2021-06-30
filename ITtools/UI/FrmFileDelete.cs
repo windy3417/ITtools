@@ -53,7 +53,11 @@ namespace ITtools.UI
         /// </summary>
         void initializeControlDataSource()
         {
-          
+            using (var db =new ItContext())
+            {
+                var q = db.Diretory.Where(s => s.directoryType == "删除").Select(s =>s.diretory);
+                cmb_fileFolderDerectory.DataSource = q.ToArray();
+            }
                                  
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
