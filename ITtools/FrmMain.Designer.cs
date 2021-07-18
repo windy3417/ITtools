@@ -62,8 +62,8 @@
             this.基础设置ToolStripMenuItem,
             this.数据备份ToolStripMenuItem,
             this.资源搜索ToolStripMenuItem,
-            this.工具ToolStripMenuItem,
             this.弱电管理ToolStripMenuItem,
+            this.工具ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -83,14 +83,14 @@
             // 数据库设置ToolStripMenuItem
             // 
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
             this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // 常用备份路径ToolStripMenuItem
             // 
             this.常用备份路径ToolStripMenuItem.Name = "常用备份路径ToolStripMenuItem";
-            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.常用备份路径ToolStripMenuItem.Text = "常用文件路径";
             this.常用备份路径ToolStripMenuItem.Click += new System.EventHandler(this.常用备份路径ToolStripMenuItem_Click);
             // 
@@ -162,28 +162,28 @@
             // TsmCompress
             // 
             this.TsmCompress.Name = "TsmCompress";
-            this.TsmCompress.Size = new System.Drawing.Size(124, 22);
+            this.TsmCompress.Size = new System.Drawing.Size(180, 22);
             this.TsmCompress.Text = "图片压缩";
             this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
             // 
             // TsbDecrypt
             // 
             this.TsbDecrypt.Name = "TsbDecrypt";
-            this.TsbDecrypt.Size = new System.Drawing.Size(124, 22);
-            this.TsbDecrypt.Text = "解密";
+            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
+            this.TsbDecrypt.Text = "加密解密";
             this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
             // 
             // tsmImportDefinite
             // 
             this.tsmImportDefinite.Name = "tsmImportDefinite";
-            this.tsmImportDefinite.Size = new System.Drawing.Size(124, 22);
+            this.tsmImportDefinite.Size = new System.Drawing.Size(180, 22);
             this.tsmImportDefinite.Text = "导入定义";
             this.tsmImportDefinite.Click += new System.EventHandler(this.tsmImportDefinite_Click);
             // 
             // TsmImportData
             // 
             this.TsmImportData.Name = "TsmImportData";
-            this.TsmImportData.Size = new System.Drawing.Size(124, 22);
+            this.TsmImportData.Size = new System.Drawing.Size(180, 22);
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
@@ -198,7 +198,7 @@
             // tsmProjectRegister
             // 
             this.tsmProjectRegister.Name = "tsmProjectRegister";
-            this.tsmProjectRegister.Size = new System.Drawing.Size(124, 22);
+            this.tsmProjectRegister.Size = new System.Drawing.Size(180, 22);
             this.tsmProjectRegister.Text = "工程登记";
             this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
             // 
