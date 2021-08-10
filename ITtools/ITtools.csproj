@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>31</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -149,6 +149,8 @@
     <Compile Include="Model\U8Context.cs" />
     <Compile Include="Model\ItContext.cs" />
     <Compile Include="Model\IT\MaxKeyModel.cs" />
+    <Compile Include="Model\U8\code.cs" />
+    <Compile Include="Model\U8\GL_accvouch.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0044_E002.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0058_E001.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0058_E002.cs" />
@@ -231,6 +233,24 @@
     <Compile Include="UI\MasteData\FrmDirectory.Designer.cs">
       <DependentUpon>FrmDirectory.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\U8mantinance\FrmGlvouch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\U8mantinance\FrmGlvouch.Designer.cs">
+      <DependentUpon>FrmGlvouch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\U8mantinance\FrmGlvouchModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\U8mantinance\FrmGlvouchModify.Designer.cs">
+      <DependentUpon>FrmGlvouchModify.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\U8mantinance\FrmGlvouch.resx">
+      <DependentUpon>FrmGlvouch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\U8mantinance\FrmGlvouchModify.resx">
+      <DependentUpon>FrmGlvouchModify.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\预览.jpg" />
     <None Include="Resources\export.gif" />
     <None Include="Resources\add.bmp" />
@@ -241,6 +261,7 @@
     <None Include="Resources\DeleteRow.gif" />
     <None Include="Resources\LoginForm_password_hi.png" />
     <None Include="Resources\Key.png" />
+    <None Include="Resources\Modify.png" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -344,6 +365,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

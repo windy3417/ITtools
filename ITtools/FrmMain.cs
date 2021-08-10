@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Utility;
 using Utility.UI;
 using ITtools.UI;
+using ITtools.UI.U8mantinance;
 
 namespace ITtools
 {
@@ -103,6 +104,12 @@ namespace ITtools
         private void tsmProjectRegister_Click(object sender, EventArgs e)
         {
             FrmWeakCurrence f = new FrmWeakCurrence();
+            embedForm(f);
+        }
+
+        private void tsmVocherDigestModify_Click(object sender, EventArgs e)
+        {
+            FrmGlvouch f = new FrmGlvouch();
             embedForm(f);
         }
     }

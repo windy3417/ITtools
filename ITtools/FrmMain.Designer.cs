@@ -40,18 +40,20 @@
             this.资源搜索ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.互联网资源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.资源列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.弱电管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompress = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmImportDefinite = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmImportData = new System.Windows.Forms.ToolStripMenuItem();
-            this.弱电管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.程序文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.数据修正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVocherDigestModify = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +65,7 @@
             this.数据备份ToolStripMenuItem,
             this.资源搜索ToolStripMenuItem,
             this.弱电管理ToolStripMenuItem,
+            this.数据修正ToolStripMenuItem,
             this.工具ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -107,21 +110,21 @@
             // 数据库备份ToolStripMenuItem
             // 
             this.数据库备份ToolStripMenuItem.Name = "数据库备份ToolStripMenuItem";
-            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.数据库备份ToolStripMenuItem.Text = "数据库备份";
             this.数据库备份ToolStripMenuItem.Click += new System.EventHandler(this.数据库备份ToolStripMenuItem_Click);
             // 
             // 文件夹备份ToolStripMenuItem
             // 
             this.文件夹备份ToolStripMenuItem.Name = "文件夹备份ToolStripMenuItem";
-            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.文件夹备份ToolStripMenuItem.Text = "文件夹备份";
             this.文件夹备份ToolStripMenuItem.Click += new System.EventHandler(this.文件夹备份ToolStripMenuItem_Click);
             // 
             // 删除文件ToolStripMenuItem
             // 
             this.删除文件ToolStripMenuItem.Name = "删除文件ToolStripMenuItem";
-            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除文件ToolStripMenuItem.Text = "删除文件";
             this.删除文件ToolStripMenuItem.Click += new System.EventHandler(this.删除文件ToolStripMenuItem_Click);
             // 
@@ -147,6 +150,21 @@
             this.资源列表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.资源列表ToolStripMenuItem.Text = "资源列表";
             this.资源列表ToolStripMenuItem.Click += new System.EventHandler(this.资源列表ToolStripMenuItem_Click);
+            // 
+            // 弱电管理ToolStripMenuItem
+            // 
+            this.弱电管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmProjectRegister});
+            this.弱电管理ToolStripMenuItem.Name = "弱电管理ToolStripMenuItem";
+            this.弱电管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.弱电管理ToolStripMenuItem.Text = "弱电管理";
+            // 
+            // tsmProjectRegister
+            // 
+            this.tsmProjectRegister.Name = "tsmProjectRegister";
+            this.tsmProjectRegister.Size = new System.Drawing.Size(124, 22);
+            this.tsmProjectRegister.Text = "工程登记";
+            this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
             // 
             // 工具ToolStripMenuItem
             // 
@@ -187,21 +205,6 @@
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
-            // 弱电管理ToolStripMenuItem
-            // 
-            this.弱电管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmProjectRegister});
-            this.弱电管理ToolStripMenuItem.Name = "弱电管理ToolStripMenuItem";
-            this.弱电管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.弱电管理ToolStripMenuItem.Text = "弱电管理";
-            // 
-            // tsmProjectRegister
-            // 
-            this.tsmProjectRegister.Name = "tsmProjectRegister";
-            this.tsmProjectRegister.Size = new System.Drawing.Size(180, 22);
-            this.tsmProjectRegister.Text = "工程登记";
-            this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
-            // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -241,6 +244,21 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
+            // 
+            // 数据修正ToolStripMenuItem
+            // 
+            this.数据修正ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmVocherDigestModify});
+            this.数据修正ToolStripMenuItem.Name = "数据修正ToolStripMenuItem";
+            this.数据修正ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.数据修正ToolStripMenuItem.Text = "数据修正";
+            // 
+            // tsmVocherDigestModify
+            // 
+            this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
+            this.tsmVocherDigestModify.Size = new System.Drawing.Size(180, 22);
+            this.tsmVocherDigestModify.Text = "凭证摘要修改";
+            this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
             // 
             // FrmMain
             // 
@@ -286,6 +304,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmVersionInformation;
         private System.Windows.Forms.ToolStripMenuItem 弱电管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmProjectRegister;
+        private System.Windows.Forms.ToolStripMenuItem 数据修正ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmVocherDigestModify;
     }
 }
 

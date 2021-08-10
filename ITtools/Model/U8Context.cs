@@ -24,7 +24,11 @@
         public virtual DbSet<U8CUSTDEF_0058_E001> U8CUSTDEF_0058_E001 { get; set; }
         //外发需返子表
         public virtual DbSet<U8CUSTDEF_0058_E002> U8CUSTDEF_0058_E002 { get; set; }
+        //凭证表
+        public virtual DbSet<GL_accvouch> GL_accvouch { get; set; }
 
+        //科目表
+        public virtual DbSet<code> code { get; set; }
     }
 
    
