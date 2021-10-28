@@ -29,6 +29,13 @@
 
         //科目表
         public virtual DbSet<code> code { get; set; }
+
+        public virtual DbSet<PU_AppVouch> PU_AppVouch { get; set; }
+        public virtual DbSet<PU_AppVouchs> PU_AppVouchs { get; set; }
+
+        public virtual DbSet<Person> Person { get; set; }
+
+        public virtual DbSet<Inventory> Inventory { get; set; }
     }
 
    

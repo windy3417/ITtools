@@ -15,6 +15,7 @@ using ITtools.DAL;
 using ITtools.Services;
 using ITtools.Model.IT;
 using static ITtools.Model.EnumModle;
+using ITtools.UI.RefForm;
 
 namespace ITtools.UI
 {
@@ -598,12 +599,17 @@ namespace ITtools.UI
 
 
 
+
+
+
         #endregion
 
         #endregion
 
-
-
-
+        private void tsbRef_Click(object sender, EventArgs e)
+        {
+            FrmAppPurRef f = new FrmAppPurRef();
+            f.Show();
+        }
     }
 }

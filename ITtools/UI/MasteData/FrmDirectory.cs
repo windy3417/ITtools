@@ -50,8 +50,8 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void tsb_save_Click(object sender, EventArgs e)
         {
-            Validate validate = new Validate();
-            if (validate.inputVlidate(tableLayoutPanel1))
+            
+            if (Utility.Validate.Validate.inputVlidate(tableLayoutPanel1))
             {
                 using (var db = new ItContext())
                 {

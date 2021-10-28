@@ -43,6 +43,7 @@
             this.introduction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.网络地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.navigate = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_customer = new System.Windows.Forms.Label();
             this.tlp_record = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_url = new System.Windows.Forms.Label();
@@ -67,12 +68,12 @@
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsbRef = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.tlp_record.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -196,6 +197,10 @@
             this.navigate.ReadOnly = true;
             this.navigate.Text = "阅览";
             this.navigate.UseColumnTextForButtonValue = true;
+            // 
+            // webURLServiceBindingSource
+            // 
+            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
             // 
             // lbl_customer
             // 
@@ -393,7 +398,8 @@
             this.tsb_modify,
             this.tsb_query,
             this.tsb_delete,
-            this.tsb_close});
+            this.tsb_close,
+            this.tsbRef});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -464,9 +470,14 @@
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
             // 
-            // webURLServiceBindingSource
+            // tsbRef
             // 
-            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            this.tsbRef.Image = ((System.Drawing.Image)(resources.GetObject("tsbRef.Image")));
+            this.tsbRef.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRef.Name = "tsbRef";
+            this.tsbRef.Size = new System.Drawing.Size(52, 22);
+            this.tsbRef.Text = "参照";
+            this.tsbRef.Click += new System.EventHandler(this.tsbRef_Click);
             // 
             // FrmWeakCurrence
             // 
@@ -484,11 +495,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
             this.tlp_record.ResumeLayout(false);
             this.tlp_record.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,5 +543,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private Utility.UControl.txtBoxWithDate tbdSettleDate;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripButton tsbRef;
     }
 }
