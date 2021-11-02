@@ -11,12 +11,12 @@ namespace ITtools.Model.IT
     [Table("PrWeakCurrent")]
   public  class PrWeakCurrentModel
     {
-        public int id { get; set; }
+        [Key]
         public string PrVoucherNo { get; set; }
         public string projectContent { get; set; }
         public DateTime PrDate { get; set; }
         public string PrPerson { get; set; }
-        public bool isSettle { get; set; }
+        public Nullable<bool> isSettle { get; set; }
         public Nullable<DateTime> settleDate { get; set; }
 
     }

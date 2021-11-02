@@ -91,8 +91,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -103,8 +107,11 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -123,28 +130,26 @@
     <Compile Include="Common\NetHelper.cs" />
     <Compile Include="DAL\DiretoryService.cs" />
     <Compile Include="DAL\EnumService.cs" />
+    <Compile Include="DAL\Services\AppPurService.cs" />
+    <Compile Include="DAL\VModel\AppPurVmodel.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104210815496_m.cs" />
-    <Compile Include="Migrations\202104210815496_m.designer.cs">
-      <DependentUpon>202104210815496_m.cs</DependentUpon>
+    <Compile Include="Migrations\202111020630464_m.cs" />
+    <Compile Include="Migrations\202111020630464_m.designer.cs">
+      <DependentUpon>202111020630464_m.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105270208219_m1.cs" />
-    <Compile Include="Migrations\202105270208219_m1.designer.cs">
-      <DependentUpon>202105270208219_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106300323149_m2.cs" />
-    <Compile Include="Migrations\202106300323149_m2.designer.cs">
-      <DependentUpon>202106300323149_m2.cs</DependentUpon>
+    <Compile Include="Migrations\202111020712266_m1.cs" />
+    <Compile Include="Migrations\202111020712266_m1.designer.cs">
+      <DependentUpon>202111020712266_m1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\IT\DiretoryItemModle.cs" />
-    <Compile Include="Model\IT\DiretoryModle.cs" />
-    <Compile Include="Model\IT\EnumModle.cs" />
+    <Compile Include="Model\IT\DiretoryItemModel.cs" />
+    <Compile Include="Model\IT\DiretoryModel.cs" />
+    <Compile Include="Model\IT\EnumModel.cs" />
     <Compile Include="Model\IT\PrWeakCurrentModel.cs" />
     <Compile Include="Model\U8Context.cs" />
     <Compile Include="Model\ItContext.cs" />
@@ -256,6 +261,12 @@
     <Compile Include="UI\U8mantinance\FrmGlvouchModify.Designer.cs">
       <DependentUpon>FrmGlvouchModify.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202111020630464_m.resx">
+      <DependentUpon>202111020630464_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111020712266_m1.resx">
+      <DependentUpon>202111020712266_m1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\RefForm\FrmAppPurRef.resx">
       <DependentUpon>FrmAppPurRef.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,15 +291,6 @@
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104210815496_m.resx">
-      <DependentUpon>202104210815496_m.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105270208219_m1.resx">
-      <DependentUpon>202105270208219_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106300323149_m2.resx">
-      <DependentUpon>202106300323149_m2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

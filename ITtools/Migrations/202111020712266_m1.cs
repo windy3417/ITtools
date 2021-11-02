@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class m2 : DbMigration
+    public partial class m1 : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Directory", "directoryType", c => c.String());
+            AlterColumn("dbo.PrWeakCurrent", "isSettle", c => c.Boolean());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Directory", "directoryType");
+            AlterColumn("dbo.PrWeakCurrent", "isSettle", c => c.Boolean(nullable: false));
         }
     }
 }

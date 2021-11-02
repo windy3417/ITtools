@@ -30,8 +30,8 @@ namespace ITtools.UI.RefForm
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tsbCertain = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +46,15 @@ namespace ITtools.UI.RefForm
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tsbCertain
+            // 
+            this.tsbCertain.Image = global::ITtools.Properties.Resources.enable;
+            this.tsbCertain.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCertain.Name = "tsbCertain";
+            this.tsbCertain.Size = new System.Drawing.Size(52, 22);
+            this.tsbCertain.Text = "确定";
+            this.tsbCertain.Click += new System.EventHandler(this.tsbCertain_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -57,14 +66,6 @@ namespace ITtools.UI.RefForm
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(776, 398);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // tsbCertain
-            // 
-            this.tsbCertain.Image = global::ITtools.Properties.Resources.enable;
-            this.tsbCertain.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCertain.Name = "tsbCertain";
-            this.tsbCertain.Size = new System.Drawing.Size(52, 22);
-            this.tsbCertain.Text = "确定";
             // 
             // FrmAppPurRef
             // 

@@ -21,7 +21,7 @@
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<WebURLModel> WebURLs { get; set; }
 
-        public virtual DbSet<DiretoryModle> Diretory { get; set; }
+        public virtual DbSet<DiretoryModel> Diretory { get; set; }
 
         public virtual DbSet<MaxKeyModel> MaxKeys { get; set; }
         public virtual DbSet<PrWeakCurrentModel>  PrWeakCurrent {get;set;  }

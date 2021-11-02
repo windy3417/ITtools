@@ -16,6 +16,8 @@ using ITtools.Services;
 using ITtools.Model.IT;
 using static ITtools.Model.EnumModle;
 using ITtools.UI.RefForm;
+using ITtools.DAL.Services;
+using ITtools.DAL.VModel;
 
 namespace ITtools.UI
 {
@@ -25,23 +27,20 @@ namespace ITtools.UI
         {
             InitializeComponent();
             this.initialize();
-            initializeControlDataSource();
+          
 
         }
 
         #region 变量
         //新增时,dataGridview绑定的数据源，以体现新增的结果
         List<PrWeakCurrentModel> mList = new List<PrWeakCurrentModel>();
-        //最大客户编号
-        int maxCusCode;
-
-
+      
 
 
         //修改与新增的dbContext标记,true为新增dbContext，false为修改dbContext
 
         //bool saveOrChangeFlag = true;
-        public string saveOrModifQueryFlag;
+        public string saveOrModifQueryFlag=saveOrChangeOrQueryMolde.save.ToString();
 
         #endregion
 
@@ -52,33 +51,12 @@ namespace ITtools.UI
         private void initialize()
         {
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
-            tsb_modify.Enabled = false;
-            this.tsb_save.Enabled = false;
-            this.tsb_modify.Enabled = false;
-            this.tsb_delete.Enabled = false;
-            tsb_abandon.Enabled = false;
-
-
-
-            this.dgv_list.AutoGenerateColumns = false;
-            this.tlp_record.Enabled = false;
-            lbl_voucherStatus.Visible = false;
-
-            navigate.Width = 50;
-
-           
-            int loction = txtPrContent.Width;
+       
+      
 
 
         }
 
-        void initializeControlDataSource()
-        {
-
-          
-
-
-        }
 
        
         #region 菜单事件处理
@@ -93,10 +71,10 @@ namespace ITtools.UI
             tsb_modify.Enabled = false;
             tsb_delete.Enabled = false;
             tsb_query.Enabled = true;
-            tsb_add.Enabled = true;
+    
             tsb_abandon.Enabled = false;
             clearDate();
-            tlp_record.Enabled = false;
+        
 
         }
 
@@ -128,34 +106,9 @@ namespace ITtools.UI
             //新增与查询功能中的dataGridView数据源不同，且该数据源标记通过功能键触发选择
             //tsb_query.Enabled = false;
             tsb_modify.Enabled = false;
-            this.tlp_record.Enabled = true;
+          
 
 
-
-            //取最大编号时速度太慢，三秒左右，同时最大号算法有误，取到第10号则不向上递增了???。
-            using (var db = new ItContext())
-            {
-                WebURLModel m = new WebURLModel();
-
-                var custQuery = from r in db.WebURLs.AsNoTracking()
-
-                                select r.id;
-                if (custQuery.Count() == 0)
-                {
-                    maxCusCode = 1;
-                }
-                else
-                {
-                    maxCusCode = Convert.ToInt32(custQuery.Max()) + 1;
-                }
-
-
-
-            }
-            this.txt_cusCode.Text = maxCusCode.ToString();
-
-            this.txt_cusCode.Focus();
-            //表明当前dataGridView的数据源是内存集合数据
 
         }
 
@@ -170,17 +123,18 @@ namespace ITtools.UI
 
             if (dgv_list.Rows.Count > 0)
             {
-                Int32 selected = (Int32)this.dgv_list.SelectedRows[0].Cells[0].Value;
+                string selected =dgv_list.SelectedRows[0].Cells[0].Value.ToString();
                 if (DialogResult.Yes == MessageBox.Show("是否确定删除", "删除提醒", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                 {
 
                     var db = new ItContext();
 
-                    List<WebURLModel> d = (from del in db.WebURLs
-                                           where del.id == selected
-                                           select del).ToList<WebURLModel>();
+                    List<PrWeakCurrentModel> d = (from del in db.PrWeakCurrent
+                                           where del.PrVoucherNo == selected
+                                           select del).ToList<PrWeakCurrentModel>();
                     //移除数据库的数据
-                    db.WebURLs.Remove(d[0]);
+                    db.PrWeakCurrent
+                        .Remove(d[0]);
                     db.SaveChanges();
                     clearDate();
 
@@ -191,8 +145,8 @@ namespace ITtools.UI
                     if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
                     {
 
-                        List<PrWeakCurrentModel> customer = mList.Where(c => c.id == selected).ToList<PrWeakCurrentModel>();
-                        mList.Remove(customer[0]);
+                        List<PrWeakCurrentModel> m = mList.Where(c => c.PrVoucherNo == selected).ToList<PrWeakCurrentModel>();
+                        mList.Remove(m[0]);
 
                     }
                     bind_gv_dateSource();
@@ -211,7 +165,19 @@ namespace ITtools.UI
         private void Tsb_save_Click(object sender, EventArgs e)
         {
 
-            saveOrChang();
+            //新增后保存
+            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
+            {
+                save();
+            }
+
+
+
+            //修改数据
+            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.query.ToString())
+            {
+                update();
+            }
 
         }
 
@@ -226,11 +192,8 @@ namespace ITtools.UI
         {
             lbl_voucherStatus.Text = "档案状态：修改";
             lbl_voucherStatus.Visible = true;
-            tsb_add.Enabled = false;
+     
 
-            tlp_record.Enabled = true;
-            //编码不能被修改
-            txt_cusCode.Enabled = false;
             tsb_save.Enabled = true;
 
         }
@@ -278,129 +241,89 @@ namespace ITtools.UI
         {
             string pattern = "^-?[1-9]\\d*$";
             Regex regex = new Regex(pattern);
-            if (!regex.Match(txt_cusCode.Text).Success)
-            {
-
-                //为空时不做正则判断
-                if (this.txt_cusCode.TextLength == 0)
-                {
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("请输入数字作为编码", "输入验证", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.txt_cusCode.Text = "";
-                    this.txt_cusCode.Focus();
-                }
-
-
-            };
+         
 
         }
 
-        /// <summary>
-        /// 为空校验
-        /// </summary>
-        private bool inputVlidate()
-        {
-
-            for (int i = 0; i < this.tlp_record.Controls.Count;)
-            {
-
-                if (this.tlp_record.Controls[i].Text == "" || this.tlp_record.Controls[i].Text == null)
-                {
-                    MessageBox.Show(this.tlp_record.Controls[i].Tag + "不能为空", "输入校验");
-                    return false;
-                }
-
-
-                i++;
-
-
-            }
-            return true;
-
-
-        }
+   
         #endregion
 
         #region 内部方法
+ 
         /// <summary>
-        /// 数据保存与修改
+        /// 新增数据
         /// </summary>
-        private void saveOrChang()
+        void save()
         {
-
-            if (inputVlidate())
+            using (var db = new ItContext())
             {
-                //新增后保存
-                if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
+
+                PrWeakCurrentModel m = new PrWeakCurrentModel();
+
+
+                m.projectContent = txtPrContent.Text;
+                m.PrDate = dtpPrDate.Value;
+                m.PrPerson = txbPrPerson.Text;
+                m.PrVoucherNo = txtPrVoucherNo.Text;
+
+                db.PrWeakCurrent.Add(m);
+                try
                 {
-                    using (var db = new ItContext())
-                    {
+                    db.SaveChanges();
+                    MessageBox.Show("save success");
+                    this.tsb_save.Enabled = false;
+                }
+                catch (Exception e)
+                {
 
-                        PrWeakCurrentModel m = new PrWeakCurrentModel();
-                        m.id = Convert.ToInt32(txt_cusCode.Text);
-                        
-                        m.projectContent = txtPrContent.Text;
-                        m.PrDate = dtpPrDate.Value;
-                        m.PrPerson = txbPrPerson.Text;
-
-                        db.PrWeakCurrent.Add(m);
-                        try
-                        {
-                            db.SaveChanges();
-                        }
-                        catch (Exception e)
-                        {
-
-                            MessageBox.Show("数据保存错误:" + e.Message + e.InnerException, "数据保存提示");
-                            return;
-                        }
-
-                        //提供dataGridView的数据源
-                        mList.Add(m);
-                     
-                        this.bind_gv_dateSource();
-
-                        //清空填制记录
-                       
-                        clearDate();
-
-                        //再次调用新增事件
-
-                        this.tsb_add.PerformClick();
-                    }
+                    MessageBox.Show("数据保存错误:" + e.Message + e.InnerException, "数据保存提示");
+                    return;
                 }
 
-                //查询之后修改并保存
-                if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.query.ToString())
-                {
-                    using (var db = new ItContext())
-                    {
-                        PrWeakCurrentModel m = db.PrWeakCurrent.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
+                //提供dataGridView的数据源
+                mList.Add(m);
 
-                        m.id = Convert.ToInt32(txt_cusCode.Text);
+                this.bind_gv_dateSource();
 
-                        m.projectContent = txtPrContent.Text;
-                        m.PrDate = dtpPrDate.Value;
-                        m.PrPerson = txbPrPerson.Text;
+                //清空填制记录
 
-                        db.SaveChanges();
-                        this.bind_gv_dateSource();
-
-                        //清空修改记录
-                        clearDate();
-                    }
-                }
-            };
+                clearDate();
 
 
 
 
+            }
         }
-        
-        
+
+        /// <summary>
+        /// 更新数据
+        /// </summary>
+        private void update()
+        {
+          
+                using (var db = new ItContext())
+                {
+                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(c => c.PrVoucherNo.ToString() == txtPrVoucherNo.Text).FirstOrDefault();
+
+
+
+                    m.projectContent = txtPrContent.Text;
+                    m.PrDate = dtpPrDate.Value;
+                    m.PrPerson = txbPrPerson.Text;
+
+                    db.SaveChanges();
+                    this.bind_gv_dateSource();
+
+                    //清空修改记录
+                    clearDate();
+                }
+            
+                    
+        }
+
+
+
+
         #endregion
 
         #region 供外部调用方法
@@ -444,31 +367,11 @@ namespace ITtools.UI
         private void bind_gv_dateSource()
         {
             this.dgv_list.DataSource = null;
-            //使用EF速度很慢,不使用默认的DBContext连接字符串后，效率有提升???
-            //查询状态的数据源
-            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.query.ToString())
-            {
-                //dictionary也支持linq 查询
-                var query = from q in new WebURLService().GetWebURLs()
-                            join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
-                            select new { q.id, q.url, q.introduction, d.Value };
+           
+                
+                this.dgv_list.DataSource =new AppPurService().getAppPur("asuser");
 
-
-
-                this.dgv_list.DataSource = query.ToList();
-
-            }
-            //新增状态的数据源
-            else
-            {
-                //var query = from q in mList
-                //            join d in new EnumService().GetITenum() on q.ResourceClass equals d.Key
-                //            select new { q.id, q.url, q.introduction, d.Value };
-                //this.dgv_list.DataSource = query.ToList();
-            }
-
-
-            //cmb_class.ValueMember
+          
 
 
         }
@@ -478,18 +381,7 @@ namespace ITtools.UI
         /// </summary>
         private void clearDate()
         {
-            foreach (Control item in this.tlp_record.Controls)
-            {
-
-                //if (item.Name.Substring(0, 3) != "lbl")
-                if (item.GetType() != typeof(Label))
-                {
-                    item.Text = "";
-                }
-
-
-
-            }
+          
         }
 
 
@@ -504,7 +396,7 @@ namespace ITtools.UI
             clearDate();
             if (e.RowIndex > -1)
             {
-                this.txt_cusCode.Text = this.dgv_list.Rows[e.RowIndex].Cells[0].Value.ToString();
+             
              
                 this.txtPrContent.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
                 this.txtPrVoucherNo.Text = this.dgv_list.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -552,7 +444,7 @@ namespace ITtools.UI
         private void FrmWeakCurrence_Shown(object sender, EventArgs e)
         {
             //请购内容框的右边距
-            txtPrContent.Width = this.tbdSettleDate.Location.X - txtPrContent.Location.X + this.tbdSettleDate.Width;
+            //txtPrContent.Width = this.tbdSettleDate.Location.X - txtPrContent.Location.X + this.tbdSettleDate.Width;
         }
 
         #endregion
@@ -610,6 +502,25 @@ namespace ITtools.UI
         {
             FrmAppPurRef f = new FrmAppPurRef();
             f.Show();
+            //f.transferData(transferData);
+            f.actionAppVoucher = transferData;
+
+            tsb_save.Enabled = true;
+            
+            
+        }
+
+        void transferData(AppPurVmodel refAppPur)
+        {
+          
+            txtPrVoucherNo.Text = refAppPur.cCode;
+            txtPrContent.Text = refAppPur.cInvCode + " " + refAppPur.cInvName + " " + refAppPur.cInvStd;
+            txbPrPerson.Text = refAppPur.cPersonName;
+            dtpPrDate.Value =Convert.ToDateTime( refAppPur.dDate);
+           
+            
+
+            
         }
     }
 }

@@ -55,7 +55,7 @@ namespace ITtools.UI
             {
                 using (var db = new ItContext())
                 {
-                    DiretoryModle m = new DiretoryModle();
+                    DiretoryModel m = new DiretoryModel();
                     m.directoryID = txt_dierctoryID.Text;
                     m.diretory = txt_directory.Text;
                     m.directoryType = cbType.Text;

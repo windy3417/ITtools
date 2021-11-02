@@ -12,7 +12,7 @@ namespace ITtools.Model
 {
     [Serializable]
     [Table("Directory")]
-  public  class DiretoryModle
+  public  class DiretoryModel
     {
         [Key]
         public string directoryID { get; set; }
