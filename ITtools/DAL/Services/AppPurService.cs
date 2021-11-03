@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,30 @@ namespace ITtools.DAL.Services
                          join i in db.Inventory on p.cInvCode equals i.cInvCode
                          select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd };
 
+                db.Database.Log = (s) =>
+                {
+
+                    string path = Environment.CurrentDirectory + "\\MyTest.txt";
+                    if (!File.Exists(path))
+                    {
+                        // Create a file to write to.
+                        using (StreamWriter sw = File.CreateText(path))
+                        {
+                            sw.Write(s);
+
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter sw =File.AppendText(path))
+                        {
+                            sw.Write(s);
+                        }
+                    }
+
+
+
+                };
 
                 foreach (var item in q)
                 {
@@ -41,6 +66,7 @@ namespace ITtools.DAL.Services
                     appPurList.Add(m);
                 }
 
+             
 
                 return appPurList;
             }

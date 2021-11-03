@@ -80,37 +80,7 @@ namespace ITtools.UI
 
         #region 增删改查
 
-        /// <summary>
-        /// 新增档案并自动生成客户编号
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Tsb_add_Click(object sender, EventArgs e)
-        {
 
-            lbl_voucherStatus.Text = "档案状态：新增";
-            lbl_voucherStatus.Visible = true;
-
-            //先清空查询时绑定的数据
-            clearDate();
-            //故增加数据源判定,否则连续增加时就无法在DataGridView中显示增加的记录
-            if (saveOrModifQueryFlag != saveOrChangeOrQueryMolde.save.ToString())
-            {
-                saveOrModifQueryFlag = saveOrChangeOrQueryMolde.save.ToString();
-                this.dgv_list.DataSource = null;
-            }
-
-            this.tsb_save.Enabled = true;
-            tsb_abandon.Enabled = true;
-
-            //新增与查询功能中的dataGridView数据源不同，且该数据源标记通过功能键触发选择
-            //tsb_query.Enabled = false;
-            tsb_modify.Enabled = false;
-          
-
-
-
-        }
 
 
         /// <summary>
@@ -121,9 +91,9 @@ namespace ITtools.UI
         private void tsb_delete_Click(object sender, EventArgs e)
         {
 
-            if (dgv_list.Rows.Count > 0)
+            if (dataGridView1.Rows.Count > 0)
             {
-                string selected =dgv_list.SelectedRows[0].Cells[0].Value.ToString();
+                string selected =dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 if (DialogResult.Yes == MessageBox.Show("是否确定删除", "删除提醒", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                 {
 
@@ -217,10 +187,7 @@ namespace ITtools.UI
             this.bind_gv_dateSource();
 
 
-            if (dgv_list.Rows.Count > 0)
-            {
-                this.dgv_list.Rows[0].Selected = true;
-            }
+         
 
 
         }
@@ -339,8 +306,7 @@ namespace ITtools.UI
                         select new { q.id, q.url, q.introduction, d.Value };
 
 
-            this.dgv_list.DataSource = query.ToList();
-            dgv_list.SelectAll();
+       
 
 
 
@@ -349,27 +315,17 @@ namespace ITtools.UI
         #endregion
 
         #region dataGridView数据处理与绑定
-        /// <summary>
-        /// 处理dataGridView中button列的单击事件,跳转到网页
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dgv_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.ColumnIndex !=
-           dgv_list.Columns["navigate"].Index) return;
-            NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[3].Value.ToString());
-        }
+     
 
         /// <summary>
         /// 绑定dataGridView的数据源
         /// </summary>
         private void bind_gv_dateSource()
         {
-            this.dgv_list.DataSource = null;
-           
-                
-                this.dgv_list.DataSource =new AppPurService().getAppPur("asuser");
+            this.dataGridView1.DataSource = null;
+
+
+            this.dataGridView1.DataSource = new ProjectSettleService().getProject();
 
           
 
@@ -385,29 +341,6 @@ namespace ITtools.UI
         }
 
 
-        /// <summary>
-        /// 选择当前行数据进行处理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            clearDate();
-            if (e.RowIndex > -1)
-            {
-             
-             
-                this.txtPrContent.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
-                this.txtPrVoucherNo.Text = this.dgv_list.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-
-
-
-            }
-
-
-        }
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {

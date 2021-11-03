@@ -16,12 +16,12 @@ namespace ITtools.Services
         //    using (var db = new U8Context())
         //    {
         //        var q = (from s in db.PU_AppVouch.Where(s => s.cCode == voucherNo)
-        //                join p in db.PU_AppVouchs on s.ID equals p.ID
-        //                join n in db.Person on s.cPersonCode equals n.cPersonCode
-        //                join i in db.Inventory on p.cInvCode equals i.cInvCode
-        //                select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd }).ToList();
+        //                 join p in db.PU_AppVouchs on s.ID equals p.ID
+        //                 join n in db.Person on s.cPersonCode equals n.cPersonCode
+        //                 join i in db.Inventory on p.cInvCode equals i.cInvCode
+        //                 select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd }).ToList();
 
-               
+
         //    }
         //}
     }

@@ -131,7 +131,9 @@
     <Compile Include="DAL\DiretoryService.cs" />
     <Compile Include="DAL\EnumService.cs" />
     <Compile Include="DAL\Services\AppPurService.cs" />
+    <Compile Include="DAL\Services\ProjectSettleService.cs" />
     <Compile Include="DAL\VModel\AppPurVmodel.cs" />
+    <Compile Include="DAL\VModel\ProjectSettleVmodel.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

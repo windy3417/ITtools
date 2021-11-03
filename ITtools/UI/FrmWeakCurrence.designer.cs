@@ -30,22 +30,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWeakCurrence));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pRecordRegion = new System.Windows.Forms.Panel();
+            this.txtPrVoucherNo = new System.Windows.Forms.TextBox();
             this.lbl_url = new System.Windows.Forms.Label();
-            this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.dtpPrDate = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txbPrPerson = new System.Windows.Forms.TextBox();
-            this.dgv_list = new System.Windows.Forms.DataGridView();
-            this.lbl_customer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPrContent = new System.Windows.Forms.TextBox();
-            this.txtPrVoucherNo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_content = new System.Windows.Forms.Label();
+            this.txbPrPerson = new System.Windows.Forms.TextBox();
+            this.lbl_voucherStatus = new System.Windows.Forms.Label();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lbl_customer = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbRef = new System.Windows.Forms.ToolStripButton();
             this.tsb_abandon = new System.Windows.Forms.ToolStripButton();
@@ -54,13 +52,12 @@
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.pRecordRegion = new System.Windows.Forms.Panel();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.pRecordRegion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,14 +65,40 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.pRecordRegion);
             this.panel1.Controls.Add(this.lbl_voucherStatus);
-            this.panel1.Controls.Add(this.dgv_list);
             this.panel1.Controls.Add(this.lbl_customer);
             this.panel1.Location = new System.Drawing.Point(27, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(744, 410);
             this.panel1.TabIndex = 0;
+            // 
+            // pRecordRegion
+            // 
+            this.pRecordRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pRecordRegion.Controls.Add(this.txtPrVoucherNo);
+            this.pRecordRegion.Controls.Add(this.lbl_url);
+            this.pRecordRegion.Controls.Add(this.dtpPrDate);
+            this.pRecordRegion.Controls.Add(this.label1);
+            this.pRecordRegion.Controls.Add(this.txtPrContent);
+            this.pRecordRegion.Controls.Add(this.label3);
+            this.pRecordRegion.Controls.Add(this.lbl_content);
+            this.pRecordRegion.Controls.Add(this.txbPrPerson);
+            this.pRecordRegion.Location = new System.Drawing.Point(3, 56);
+            this.pRecordRegion.Name = "pRecordRegion";
+            this.pRecordRegion.Size = new System.Drawing.Size(741, 90);
+            this.pRecordRegion.TabIndex = 6;
+            // 
+            // txtPrVoucherNo
+            // 
+            this.txtPrVoucherNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtPrVoucherNo.Location = new System.Drawing.Point(103, 20);
+            this.txtPrVoucherNo.Name = "txtPrVoucherNo";
+            this.txtPrVoucherNo.Size = new System.Drawing.Size(132, 21);
+            this.txtPrVoucherNo.TabIndex = 3;
+            this.txtPrVoucherNo.Tag = "客户名称";
             // 
             // lbl_url
             // 
@@ -88,19 +111,6 @@
             this.lbl_url.Tag = "客户名称标签";
             this.lbl_url.Text = "请购单号：";
             // 
-            // lbl_voucherStatus
-            // 
-            this.lbl_voucherStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_voucherStatus.AutoSize = true;
-            this.lbl_voucherStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl_voucherStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_voucherStatus.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbl_voucherStatus.Location = new System.Drawing.Point(642, 4);
-            this.lbl_voucherStatus.Name = "lbl_voucherStatus";
-            this.lbl_voucherStatus.Size = new System.Drawing.Size(72, 14);
-            this.lbl_voucherStatus.TabIndex = 3;
-            this.lbl_voucherStatus.Text = "档案状态：";
-            // 
             // dtpPrDate
             // 
             this.dtpPrDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -108,83 +118,6 @@
             this.dtpPrDate.Name = "dtpPrDate";
             this.dtpPrDate.Size = new System.Drawing.Size(125, 21);
             this.dtpPrDate.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(506, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Tag = "客户名称标签";
-            this.label3.Text = "请购日期:";
-            // 
-            // txbPrPerson
-            // 
-            this.txbPrPerson.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txbPrPerson.Location = new System.Drawing.Point(334, 20);
-            this.txbPrPerson.Name = "txbPrPerson";
-            this.txbPrPerson.Size = new System.Drawing.Size(138, 21);
-            this.txbPrPerson.TabIndex = 3;
-            this.txbPrPerson.Tag = "客户名称";
-            // 
-            // dgv_list
-            // 
-            this.dgv_list.AllowUserToAddRows = false;
-            this.dgv_list.AllowUserToDeleteRows = false;
-            this.dgv_list.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_list.AutoGenerateColumns = false;
-            this.dgv_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_list.DataSource = this.webURLServiceBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_list.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_list.Location = new System.Drawing.Point(3, 172);
-            this.dgv_list.Name = "dgv_list";
-            this.dgv_list.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_list.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_list.RowTemplate.Height = 23;
-            this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_list.Size = new System.Drawing.Size(738, 235);
-            this.dgv_list.TabIndex = 2;
-            this.dgv_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
-            this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
-            this.dgv_list.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
-            // 
-            // lbl_customer
-            // 
-            this.lbl_customer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbl_customer.AutoSize = true;
-            this.lbl_customer.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_customer.Location = new System.Drawing.Point(313, 32);
-            this.lbl_customer.Name = "lbl_customer";
-            this.lbl_customer.Size = new System.Drawing.Size(142, 21);
-            this.lbl_customer.TabIndex = 1;
-            this.lbl_customer.Text = "弱电工程登记";
             // 
             // label1
             // 
@@ -207,14 +140,16 @@
             this.txtPrContent.Tag = "内容介绍";
             this.txtPrContent.Validating += new System.ComponentModel.CancelEventHandler(this.regValidating);
             // 
-            // txtPrVoucherNo
+            // label3
             // 
-            this.txtPrVoucherNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPrVoucherNo.Location = new System.Drawing.Point(103, 20);
-            this.txtPrVoucherNo.Name = "txtPrVoucherNo";
-            this.txtPrVoucherNo.Size = new System.Drawing.Size(132, 21);
-            this.txtPrVoucherNo.TabIndex = 3;
-            this.txtPrVoucherNo.Tag = "客户名称";
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(506, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Tag = "客户名称标签";
+            this.label3.Text = "请购日期:";
             // 
             // lbl_content
             // 
@@ -226,6 +161,43 @@
             this.lbl_content.TabIndex = 0;
             this.lbl_content.Tag = "网页内容标签";
             this.lbl_content.Text = "请购内容：";
+            // 
+            // txbPrPerson
+            // 
+            this.txbPrPerson.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txbPrPerson.Location = new System.Drawing.Point(334, 20);
+            this.txbPrPerson.Name = "txbPrPerson";
+            this.txbPrPerson.Size = new System.Drawing.Size(138, 21);
+            this.txbPrPerson.TabIndex = 3;
+            this.txbPrPerson.Tag = "客户名称";
+            // 
+            // lbl_voucherStatus
+            // 
+            this.lbl_voucherStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_voucherStatus.AutoSize = true;
+            this.lbl_voucherStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_voucherStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_voucherStatus.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl_voucherStatus.Location = new System.Drawing.Point(642, 4);
+            this.lbl_voucherStatus.Name = "lbl_voucherStatus";
+            this.lbl_voucherStatus.Size = new System.Drawing.Size(72, 14);
+            this.lbl_voucherStatus.TabIndex = 3;
+            this.lbl_voucherStatus.Text = "档案状态：";
+            // 
+            // webURLServiceBindingSource
+            // 
+            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            // 
+            // lbl_customer
+            // 
+            this.lbl_customer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_customer.AutoSize = true;
+            this.lbl_customer.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbl_customer.Location = new System.Drawing.Point(313, 32);
+            this.lbl_customer.Name = "lbl_customer";
+            this.lbl_customer.Size = new System.Drawing.Size(142, 21);
+            this.lbl_customer.TabIndex = 1;
+            this.lbl_customer.Text = "弱电工程登记";
             // 
             // toolStrip1
             // 
@@ -306,26 +278,17 @@
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
             // 
-            // pRecordRegion
+            // dataGridView1
             // 
-            this.pRecordRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pRecordRegion.Controls.Add(this.txtPrVoucherNo);
-            this.pRecordRegion.Controls.Add(this.lbl_url);
-            this.pRecordRegion.Controls.Add(this.dtpPrDate);
-            this.pRecordRegion.Controls.Add(this.label1);
-            this.pRecordRegion.Controls.Add(this.txtPrContent);
-            this.pRecordRegion.Controls.Add(this.label3);
-            this.pRecordRegion.Controls.Add(this.lbl_content);
-            this.pRecordRegion.Controls.Add(this.txbPrPerson);
-            this.pRecordRegion.Location = new System.Drawing.Point(3, 56);
-            this.pRecordRegion.Name = "pRecordRegion";
-            this.pRecordRegion.Size = new System.Drawing.Size(741, 90);
-            this.pRecordRegion.TabIndex = 6;
-            // 
-            // webURLServiceBindingSource
-            // 
-            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 166);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(738, 241);
+            this.dataGridView1.TabIndex = 7;
             // 
             // FrmWeakCurrence
             // 
@@ -342,12 +305,12 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Frm_customer_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.pRecordRegion.ResumeLayout(false);
             this.pRecordRegion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,7 +326,6 @@
         private System.Windows.Forms.ToolStripButton tsb_save;
         private System.Windows.Forms.ToolStripButton tsb_close;
         private System.Windows.Forms.Label lbl_content;
-        private System.Windows.Forms.DataGridView dgv_list;
 
         public System.Windows.Forms.ToolStripButton tsb_modify;
 
@@ -380,5 +342,6 @@
         private System.Windows.Forms.DateTimePicker dtpPrDate;
         private System.Windows.Forms.ToolStripButton tsbRef;
         private System.Windows.Forms.Panel pRecordRegion;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
