@@ -117,29 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="webURLServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>127, 17</value>
+  <metadata name="ccode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cAuditDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cPersonName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cInvCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cInvName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cInvStd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="settleFlag.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="settleDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="IsClose.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tsb_abandon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI2SURBVDhPlZFdSFNhHMbfm26CwG6CriJpUCFj0CywzIsF
-        XRTRLqwIawgzI0p0LMrAmaNYI6MsWfYNog5ltq0RS8mVTKa1IiMY1TQlFuk2XeXX5s56Ov+3o5s2Ah/4
-        wXnf5+PAOSybLMYKZCJdZ9ew46Rv9JkexPLichZy1JHqjH15WoWY/xJSKQH2h9fg73FkhTzKUJY6Up2x
-        oPMMYq/qQMr21kxIlA06T6cHPtrKMdlv4GZS+P1fSJSljlRnLGAtxWRfNTfj86klhIJv8KRuO7pNO/iZ
-        RNlAW2l64ENzCSZ6z3JzJi4s8vWTn5cTU2E+QHckylJHqjM2+OAQop5Kbv6aTXJGAgPorMlHYjoC4VuP
-        +KwUx5Sw126DrXYnvJbi9MDbJjUi3af4QGwqwWk9r8S8VM5k6rMTrzvOiX4+7Gb1BT7gb9yPiLuMD0R/
-        xjn3K/Iw1LQL0+2qJcy6NYj7DAi9vIp7RYqU/bomhw3c2IuwS8MHxmNzHL/XjVsntmD4zt+RBq0MDWUy
-        NFduhdugwMjdQrRVF8BqPGBjvnoVxh1H+cD3iTlOKDwtjnTBfHwTRsXwlZKN6Pe44HmkR4tODvOxXLTr
-        81CvlUdZn7kIY53FiM/84CMLEgQBQ4O9MB7JhW7fen6ORccQbDkIV00BLFpZ18XDG5LMayrEWIca7xv3
-        /MO7myq8MO3G88uFi3eUpY74+XJul29uZdYqefSxToGVQB1xYI3IavoRa0XWrRDqrGKMsT8wlHdXgkBm
-        wQAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="tsb_save.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -210,6 +221,9 @@
         VwrA/Rtn/QiKfADckGXYsnwKqAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="webURLServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>127, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>42</value>
   </metadata>

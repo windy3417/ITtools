@@ -57,8 +57,8 @@ namespace ITtools.DAL.Services
                 {
                     AppPurVmodel m = new AppPurVmodel();
                     m.cCode = item.cCode;
-                    m.dDate = item.dDate.ToString();
-                    m.cAuditDate = item.cAuditDate.ToString();
+                    m.dDate = item.dDate;
+                    m.cAuditDate = (DateTime)item.cAuditDate;
                     m.cPersonName = item.cPersonName;
                     m.cInvCode = item.cInvCode;
                     m.cInvName = item.cInvName;

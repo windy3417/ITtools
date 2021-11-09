@@ -72,12 +72,12 @@ namespace ITtools.UI.RefForm
         {
             AppPurVmodel refAppPur = new AppPurVmodel();
             refAppPur.cCode = dataGridView1.CurrentRow.Cells["cCode"].Value.ToString();
-            refAppPur.dDate = dataGridView1.CurrentRow.Cells["dDate"].Value.ToString();
+            refAppPur.dDate =(DateTime) dataGridView1.CurrentRow.Cells["dDate"].Value;
             refAppPur.cPersonName = dataGridView1.CurrentRow.Cells["cPersonName"].Value.ToString();
             refAppPur.cInvCode = dataGridView1.CurrentRow.Cells["cInvCode"].Value.ToString();
             refAppPur.cInvName = dataGridView1.CurrentRow.Cells["cInvName"].Value.ToString();
-            refAppPur.cInvStd = dataGridView1.CurrentRow.Cells["cInvStd"].Value.ToString(); 
-            refAppPur.cAuditDate = dataGridView1.CurrentRow.Cells["cAuditDate"].Value.ToString();
+            refAppPur.cInvStd = dataGridView1.CurrentRow.Cells["cInvStd"].Value is null ? "" : dataGridView1.CurrentRow.Cells["cInvStd"].Value.ToString() ; 
+            refAppPur.cAuditDate =(DateTime) dataGridView1.CurrentRow.Cells["cAuditDate"].Value;
            
 
 

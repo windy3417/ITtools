@@ -42,6 +42,8 @@
             this.资源列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.弱电管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据修正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVocherDigestModify = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompress = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,7 @@
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.数据修正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmVocherDigestModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.person = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +78,7 @@
             // 基础设置ToolStripMenuItem
             // 
             this.基础设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.person,
             this.数据库设置ToolStripMenuItem,
             this.常用备份路径ToolStripMenuItem});
             this.基础设置ToolStripMenuItem.Name = "基础设置ToolStripMenuItem";
@@ -86,14 +88,14 @@
             // 数据库设置ToolStripMenuItem
             // 
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
             this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // 常用备份路径ToolStripMenuItem
             // 
             this.常用备份路径ToolStripMenuItem.Name = "常用备份路径ToolStripMenuItem";
-            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.常用备份路径ToolStripMenuItem.Text = "常用文件路径";
             this.常用备份路径ToolStripMenuItem.Click += new System.EventHandler(this.常用备份路径ToolStripMenuItem_Click);
             // 
@@ -110,21 +112,21 @@
             // 数据库备份ToolStripMenuItem
             // 
             this.数据库备份ToolStripMenuItem.Name = "数据库备份ToolStripMenuItem";
-            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.数据库备份ToolStripMenuItem.Text = "数据库备份";
             this.数据库备份ToolStripMenuItem.Click += new System.EventHandler(this.数据库备份ToolStripMenuItem_Click);
             // 
             // 文件夹备份ToolStripMenuItem
             // 
             this.文件夹备份ToolStripMenuItem.Name = "文件夹备份ToolStripMenuItem";
-            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.文件夹备份ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.文件夹备份ToolStripMenuItem.Text = "文件夹备份";
             this.文件夹备份ToolStripMenuItem.Click += new System.EventHandler(this.文件夹备份ToolStripMenuItem_Click);
             // 
             // 删除文件ToolStripMenuItem
             // 
             this.删除文件ToolStripMenuItem.Name = "删除文件ToolStripMenuItem";
-            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除文件ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.删除文件ToolStripMenuItem.Text = "删除文件";
             this.删除文件ToolStripMenuItem.Click += new System.EventHandler(this.删除文件ToolStripMenuItem_Click);
             // 
@@ -166,6 +168,21 @@
             this.tsmProjectRegister.Text = "工程登记";
             this.tsmProjectRegister.Click += new System.EventHandler(this.tsmProjectRegister_Click);
             // 
+            // 数据修正ToolStripMenuItem
+            // 
+            this.数据修正ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmVocherDigestModify});
+            this.数据修正ToolStripMenuItem.Name = "数据修正ToolStripMenuItem";
+            this.数据修正ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.数据修正ToolStripMenuItem.Text = "数据修正";
+            // 
+            // tsmVocherDigestModify
+            // 
+            this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
+            this.tsmVocherDigestModify.Size = new System.Drawing.Size(148, 22);
+            this.tsmVocherDigestModify.Text = "凭证摘要修改";
+            this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
+            // 
             // 工具ToolStripMenuItem
             // 
             this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -180,28 +197,28 @@
             // TsmCompress
             // 
             this.TsmCompress.Name = "TsmCompress";
-            this.TsmCompress.Size = new System.Drawing.Size(180, 22);
+            this.TsmCompress.Size = new System.Drawing.Size(124, 22);
             this.TsmCompress.Text = "图片压缩";
             this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
             // 
             // TsbDecrypt
             // 
             this.TsbDecrypt.Name = "TsbDecrypt";
-            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
+            this.TsbDecrypt.Size = new System.Drawing.Size(124, 22);
             this.TsbDecrypt.Text = "加密解密";
             this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
             // 
             // tsmImportDefinite
             // 
             this.tsmImportDefinite.Name = "tsmImportDefinite";
-            this.tsmImportDefinite.Size = new System.Drawing.Size(180, 22);
+            this.tsmImportDefinite.Size = new System.Drawing.Size(124, 22);
             this.tsmImportDefinite.Text = "导入定义";
             this.tsmImportDefinite.Click += new System.EventHandler(this.tsmImportDefinite_Click);
             // 
             // TsmImportData
             // 
             this.TsmImportData.Name = "TsmImportData";
-            this.TsmImportData.Size = new System.Drawing.Size(180, 22);
+            this.TsmImportData.Size = new System.Drawing.Size(124, 22);
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
@@ -245,20 +262,12 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // 数据修正ToolStripMenuItem
+            // person
             // 
-            this.数据修正ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmVocherDigestModify});
-            this.数据修正ToolStripMenuItem.Name = "数据修正ToolStripMenuItem";
-            this.数据修正ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.数据修正ToolStripMenuItem.Text = "数据修正";
-            // 
-            // tsmVocherDigestModify
-            // 
-            this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
-            this.tsmVocherDigestModify.Size = new System.Drawing.Size(180, 22);
-            this.tsmVocherDigestModify.Text = "凭证摘要修改";
-            this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
+            this.person.Name = "person";
+            this.person.Size = new System.Drawing.Size(180, 22);
+            this.person.Text = "人员档案";
+            this.person.Click += new System.EventHandler(this.person_Click);
             // 
             // FrmMain
             // 
@@ -306,6 +315,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmProjectRegister;
         private System.Windows.Forms.ToolStripMenuItem 数据修正ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmVocherDigestModify;
+        private System.Windows.Forms.ToolStripMenuItem person;
     }
 }
 

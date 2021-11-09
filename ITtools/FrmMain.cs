@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utility;
 using Utility.UI;
+using Utility.UI.Authority;
 using ITtools.UI;
 using ITtools.UI.U8mantinance;
+
 
 namespace ITtools
 {
@@ -110,6 +112,12 @@ namespace ITtools
         private void tsmVocherDigestModify_Click(object sender, EventArgs e)
         {
             FrmGlvouch f = new FrmGlvouch();
+            embedForm(f);
+        }
+
+        private void person_Click(object sender, EventArgs e)
+        {
+            FrmPerson f = new FrmPerson();
             embedForm(f);
         }
     }

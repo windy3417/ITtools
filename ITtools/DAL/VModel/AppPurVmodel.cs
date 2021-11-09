@@ -9,8 +9,8 @@ namespace ITtools.DAL.VModel
     public class AppPurVmodel
     {
         public string cCode { get; set; }
-        public string dDate { get; set; }
-        public string cAuditDate { get; set; }
+        public DateTime dDate { get; set; }
+        public DateTime cAuditDate { get; set; }
         public string cPersonName { get; set; }
 
         public string cInvCode { get; set; }

@@ -19,5 +19,7 @@ namespace ITtools.DAL.VModel
         public string cInvStd { get; set; }
         public Nullable< bool> settleFlag { get; set; }
         public Nullable< DateTime> settleDate { get; set; }
+
+        public string IsClose { get; set; }
     }
 }

@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationRevision>34</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -93,6 +93,9 @@
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.7.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCifs.Core, Version=0.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCifs.Core.0.2.3\lib\net40\SharpCifs.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -245,6 +248,12 @@
     <Compile Include="UI\MasteData\FrmDirectory.Designer.cs">
       <DependentUpon>FrmDirectory.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\MasteData\FrmUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MasteData\FrmUpload.Designer.cs">
+      <DependentUpon>FrmUpload.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\RefForm\FrmAppPurRef.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +278,9 @@
     <EmbeddedResource Include="Migrations\202111020712266_m1.resx">
       <DependentUpon>202111020712266_m1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\MasteData\FrmUpload.resx">
+      <DependentUpon>FrmUpload.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\RefForm\FrmAppPurRef.resx">
       <DependentUpon>FrmAppPurRef.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +302,9 @@
     <None Include="Resources\Key.png" />
     <None Include="Resources\Modify.png" />
     <None Include="Resources\enable.bmp" />
+    <None Include="Resources\settleaccounts.png" />
+    <None Include="Resources\up_nav.gif" />
+    <None Include="Resources\giveUpAudit.gif" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

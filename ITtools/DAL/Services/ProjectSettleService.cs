@@ -24,13 +24,28 @@ namespace ITtools.DAL.Services
                              join p in u8.PU_AppVouchs on s.ID equals p.ID
                              join n in u8.Person on s.cPersonCode equals n.cPersonCode
                              join i in u8.Inventory on p.cInvCode equals i.cInvCode
-                             select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, i.cInvCode, i.cInvName, i.cInvStd })
+                             select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, i.cInvCode, i.cInvName, i.cInvStd, p.cbcloser})
                              .ToArray();
 
-                    var q1= from s in q 
-                            join w in db.PrWeakCurrent on s.cCode equals w.PrVoucherNo
-                            select new { s.cCode, s.dDate, s.cAuditDate, s.cPersonName, s.cInvCode, s.cInvName, 
-                                s.cInvStd, w.isSettle, w.settleDate };
+                    var q1 = from s in q
+                             join w in db.PrWeakCurrent on s.cCode equals w.PrVoucherNo
+                             orderby s.dDate
+                             select new
+                             {
+                                 s.cCode,
+                                 s.dDate,
+                                 s.cAuditDate,
+                                 s.cPersonName,
+                                 s.cInvCode,
+                                 s.cInvName,
+                                 s.cInvStd,
+                                 w.isSettle,
+                                 w.settleDate,
+                                 s.cbcloser
+                                 
+                             };
+                            
+                             
 
 
                     foreach (var item in q1)
@@ -45,6 +60,7 @@ namespace ITtools.DAL.Services
                         m.cInvStd = item.cInvStd;
                         m.settleFlag = item.isSettle;
                         m.settleDate = item.settleDate;
+                        m.IsClose = item.cbcloser is null ? "" : item.cbcloser;
                         projectList.Add(m);
                     }
 

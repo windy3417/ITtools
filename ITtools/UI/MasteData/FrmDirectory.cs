@@ -19,7 +19,13 @@ namespace ITtools.UI
         {
             InitializeComponent();
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
+          
         }
+
+        #region 变量
+
+        string addOrUpdate;
+        #endregion
 
         private void btn_openFileDirectory_Click(object sender, EventArgs e)
         {
@@ -53,16 +59,37 @@ namespace ITtools.UI
             
             if (Utility.Validate.Validate.inputVlidate(tableLayoutPanel1))
             {
-                using (var db = new ItContext())
+
+                if (addOrUpdate=="add")
                 {
-                    DiretoryModel m = new DiretoryModel();
-                    m.directoryID = txt_dierctoryID.Text;
-                    m.diretory = txt_directory.Text;
-                    m.directoryType = cbType.Text;
-                    db.Diretory.Add(m);
-                    db.SaveChanges();
-                    MessageBox.Show("数据保存成功！", "保存提示");
+                    using (var db = new ItContext())
+                    {
+                        DiretoryModel m = new DiretoryModel();
+                        m.directoryID = txt_dierctoryID.Text;
+                        m.diretory = txt_directory.Text;
+                        m.directoryType = cmbClass.Text;
+                        db.Diretory.Add(m);
+                        db.SaveChanges();
+                        MessageBox.Show("数据保存成功！", "保存提示");
+                    }
                 }
+
+                if (addOrUpdate=="update")
+                {
+                    using (var db=new ItContext())
+                    {
+                        DiretoryModel m = db.Diretory.Where(s => s.directoryID == txt_dierctoryID.Text).FirstOrDefault();
+                    
+                        m.diretory = txt_directory.Text;
+                        m.directoryType = cmbClass.Text;
+
+                        db.SaveChanges();
+
+                        MessageBox.Show("数据修改成功");
+
+                    }
+                }
+                
             }
         }
 
@@ -77,11 +104,33 @@ namespace ITtools.UI
             {
                 var query = db.Diretory.ToList();
                 dgv_list.DataSource = query;
+
+
+                dgv_list.AutoResizeColumns();
             }
         }
 
+
         #endregion
 
+        private void tsbModify_Click(object sender, EventArgs e)
+        {
+            if (dgv_list.CurrentRow !=null)
+            {
+                addOrUpdate = "update";
+                txt_dierctoryID.Enabled = false;
+                
+                txt_dierctoryID.Text = dgv_list.CurrentRow.Cells[0].Value.ToString();
+                txt_directory.Text = dgv_list.CurrentRow.Cells[2].Value.ToString();
+                cmbClass.Text= dgv_list.CurrentRow.Cells[1].Value.ToString();
 
+            }
+        }
+
+        private void tsb_add_Click(object sender, EventArgs e)
+        {
+            addOrUpdate = "add";
+            txt_dierctoryID.Enabled = true;
+        }
     }
 }
