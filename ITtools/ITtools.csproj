@@ -75,6 +75,12 @@
   <PropertyGroup>
     <ApplicationIcon>crashdump.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -156,6 +162,8 @@
     <Compile Include="Model\IT\DiretoryModel.cs" />
     <Compile Include="Model\IT\EnumModel.cs" />
     <Compile Include="Model\IT\PrWeakCurrentModel.cs" />
+    <Compile Include="Model\Scrap\ScrapContext.cs" />
+    <Compile Include="Model\Scrap\WeighingSettlementModels.cs" />
     <Compile Include="Model\U8Context.cs" />
     <Compile Include="Model\ItContext.cs" />
     <Compile Include="Model\IT\MaxKeyModel.cs" />
@@ -260,6 +268,18 @@
     <Compile Include="UI\RefForm\FrmAppPurRef.Designer.cs">
       <DependentUpon>FrmAppPurRef.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ScrapMantinance\FrmScrapList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ScrapMantinance\FrmScrapList.Designer.cs">
+      <DependentUpon>FrmScrapList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ScrapMantinance\FrmScrapUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ScrapMantinance\FrmScrapUpdate.Designer.cs">
+      <DependentUpon>FrmScrapUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\U8mantinance\FrmGlvouch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +303,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RefForm\FrmAppPurRef.resx">
       <DependentUpon>FrmAppPurRef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ScrapMantinance\FrmScrapList.resx">
+      <DependentUpon>FrmScrapList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ScrapMantinance\FrmScrapUpdate.resx">
+      <DependentUpon>FrmScrapUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\U8mantinance\FrmGlvouch.resx">
       <DependentUpon>FrmGlvouch.cs</DependentUpon>

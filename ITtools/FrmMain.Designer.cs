@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.基础设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.person = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.常用备份路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,7 @@
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.person = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmWeightUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,17 +86,24 @@
             this.基础设置ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.基础设置ToolStripMenuItem.Text = "基础设置";
             // 
+            // person
+            // 
+            this.person.Name = "person";
+            this.person.Size = new System.Drawing.Size(148, 22);
+            this.person.Text = "人员档案";
+            this.person.Click += new System.EventHandler(this.person_Click);
+            // 
             // 数据库设置ToolStripMenuItem
             // 
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
             this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // 常用备份路径ToolStripMenuItem
             // 
             this.常用备份路径ToolStripMenuItem.Name = "常用备份路径ToolStripMenuItem";
-            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.常用备份路径ToolStripMenuItem.Text = "常用文件路径";
             this.常用备份路径ToolStripMenuItem.Click += new System.EventHandler(this.常用备份路径ToolStripMenuItem_Click);
             // 
@@ -171,7 +179,8 @@
             // 数据修正ToolStripMenuItem
             // 
             this.数据修正ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmVocherDigestModify});
+            this.tsmVocherDigestModify,
+            this.tsmWeightUpdate});
             this.数据修正ToolStripMenuItem.Name = "数据修正ToolStripMenuItem";
             this.数据修正ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.数据修正ToolStripMenuItem.Text = "数据修正";
@@ -179,7 +188,7 @@
             // tsmVocherDigestModify
             // 
             this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
-            this.tsmVocherDigestModify.Size = new System.Drawing.Size(148, 22);
+            this.tsmVocherDigestModify.Size = new System.Drawing.Size(180, 22);
             this.tsmVocherDigestModify.Text = "凭证摘要修改";
             this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
             // 
@@ -262,12 +271,12 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // person
+            // tsmWeightUpdate
             // 
-            this.person.Name = "person";
-            this.person.Size = new System.Drawing.Size(180, 22);
-            this.person.Text = "人员档案";
-            this.person.Click += new System.EventHandler(this.person_Click);
+            this.tsmWeightUpdate.Name = "tsmWeightUpdate";
+            this.tsmWeightUpdate.Size = new System.Drawing.Size(180, 22);
+            this.tsmWeightUpdate.Text = "过磅单修改";
+            this.tsmWeightUpdate.Click += new System.EventHandler(this.tsmWeightUpdate_Click);
             // 
             // FrmMain
             // 
@@ -316,6 +325,7 @@
         private System.Windows.Forms.ToolStripMenuItem 数据修正ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmVocherDigestModify;
         private System.Windows.Forms.ToolStripMenuItem person;
+        private System.Windows.Forms.ToolStripMenuItem tsmWeightUpdate;
     }
 }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Utility;
+using ITtools.UI.ScrapMantinance;
 using Utility.UI;
 using Utility.UI.Authority;
 using ITtools.UI;
@@ -118,6 +118,12 @@ namespace ITtools
         private void person_Click(object sender, EventArgs e)
         {
             FrmPerson f = new FrmPerson();
+            embedForm(f);
+        }
+
+        private void tsmWeightUpdate_Click(object sender, EventArgs e)
+        {
+            FrmScrapList f = new FrmScrapList();
             embedForm(f);
         }
     }

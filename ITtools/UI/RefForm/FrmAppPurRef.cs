@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITtools.DAL.VModel;
+using System.IO;
 
 namespace ITtools.UI.RefForm
 {
@@ -38,7 +39,13 @@ namespace ITtools.UI.RefForm
                          select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd }).ToList();
            
                 dataGridView1.DataSource = q;
+                db.Database.Log = s =>
+                {
+                    FileStream fs = File.Create(Environment.CurrentDirectory + "\\test.txt");
 
+                    fs.Write(System.Text.Encoding.Default.GetBytes(s), 0, Encoding.Default.GetByteCount(s));
+                    fs.Close();
+                };
                 dataGridView1.AutoResizeColumns();
                 
 
