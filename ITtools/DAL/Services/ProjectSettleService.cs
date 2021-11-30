@@ -26,7 +26,7 @@ namespace ITtools.DAL.Services
                              join i in u8.Inventory on p.cInvCode equals i.cInvCode
                              select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, i.cInvCode, i.cInvName, i.cInvStd, p.cbcloser})
                              .ToArray();
-
+                    
                     var q1 = from s in q
                              join w in db.PrWeakCurrent on s.cCode equals w.PrVoucherNo
                              orderby s.dDate

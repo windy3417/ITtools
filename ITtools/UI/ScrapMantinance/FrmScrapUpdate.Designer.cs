@@ -33,13 +33,18 @@ namespace ITtools.UI.ScrapMantinance
             this.txtVoucherNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMemo = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtNetWeight = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.TsbSave = new System.Windows.Forms.ToolStripButton();
+            this.TsbUpdateNetWeight = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 43);
+            this.label1.Location = new System.Drawing.Point(36, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
@@ -47,7 +52,7 @@ namespace ITtools.UI.ScrapMantinance
             // 
             // txtVoucherNo
             // 
-            this.txtVoucherNo.Location = new System.Drawing.Point(128, 40);
+            this.txtVoucherNo.Location = new System.Drawing.Point(107, 62);
             this.txtVoucherNo.Name = "txtVoucherNo";
             this.txtVoucherNo.Size = new System.Drawing.Size(160, 21);
             this.txtVoucherNo.TabIndex = 1;
@@ -55,7 +60,7 @@ namespace ITtools.UI.ScrapMantinance
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 103);
+            this.label2.Location = new System.Drawing.Point(36, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 0;
@@ -63,34 +68,73 @@ namespace ITtools.UI.ScrapMantinance
             // 
             // txtMemo
             // 
-            this.txtMemo.Location = new System.Drawing.Point(128, 100);
+            this.txtMemo.Location = new System.Drawing.Point(107, 122);
             this.txtMemo.Name = "txtMemo";
             this.txtMemo.Size = new System.Drawing.Size(160, 21);
             this.txtMemo.TabIndex = 1;
             // 
-            // btnSave
+            // label3
             // 
-            this.btnSave.Location = new System.Drawing.Point(227, 224);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 186);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "净重：";
+            // 
+            // TxtNetWeight
+            // 
+            this.TxtNetWeight.Location = new System.Drawing.Point(107, 182);
+            this.TxtNetWeight.Name = "TxtNetWeight";
+            this.TxtNetWeight.Size = new System.Drawing.Size(160, 21);
+            this.TxtNetWeight.TabIndex = 1;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsbSave,
+            this.TsbUpdateNetWeight});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(556, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // TsbSave
+            // 
+            this.TsbSave.Image = global::ITtools.Properties.Resources.save;
+            this.TsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbSave.Name = "TsbSave";
+            this.TsbSave.Size = new System.Drawing.Size(52, 22);
+            this.TsbSave.Text = "保存";
+            this.TsbSave.Click += new System.EventHandler(this.TsbSave_Click);
+            // 
+            // TsbUpdateNetWeight
+            // 
+            this.TsbUpdateNetWeight.Image = global::ITtools.Properties.Resources.Modify;
+            this.TsbUpdateNetWeight.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbUpdateNetWeight.Name = "TsbUpdateNetWeight";
+            this.TsbUpdateNetWeight.Size = new System.Drawing.Size(76, 22);
+            this.TsbUpdateNetWeight.Text = "修改净重";
+            this.TsbUpdateNetWeight.Click += new System.EventHandler(this.TsbUpdateNetWeight_Click);
             // 
             // FrmScrapUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 373);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.TxtNetWeight);
             this.Controls.Add(this.txtMemo);
             this.Controls.Add(this.txtVoucherNo);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmScrapUpdate";
             this.Text = "过磅单修改";
             this.Load += new System.EventHandler(this.FrmScrapUpdate_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,6 +146,10 @@ namespace ITtools.UI.ScrapMantinance
         private System.Windows.Forms.TextBox txtVoucherNo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMemo;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TxtNetWeight;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton TsbSave;
+        private System.Windows.Forms.ToolStripButton TsbUpdateNetWeight;
     }
 }

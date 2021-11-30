@@ -32,7 +32,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWeakCurrence));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pRecordRegion = new System.Windows.Forms.Panel();
             this.txtPrVoucherNo = new System.Windows.Forms.TextBox();
             this.lbl_url = new System.Windows.Forms.Label();
@@ -44,17 +43,7 @@
             this.txbPrPerson = new System.Windows.Forms.TextBox();
             this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.lbl_customer = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbRef = new System.Windows.Forms.ToolStripButton();
-            this.tsb_save = new System.Windows.Forms.ToolStripButton();
-            this.tsb_modify = new System.Windows.Forms.ToolStripButton();
-            this.tsb_query = new System.Windows.Forms.ToolStripButton();
-            this.tsbSettle = new System.Windows.Forms.ToolStripButton();
-            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
-            this.tsbExport = new System.Windows.Forms.ToolStripButton();
-            this.tsbCancel = new System.Windows.Forms.ToolStripButton();
-            this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ccode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAuditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,9 +54,20 @@
             this.settleFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.settleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsClose = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbRef = new System.Windows.Forms.ToolStripButton();
+            this.tsb_save = new System.Windows.Forms.ToolStripButton();
+            this.tsb_modify = new System.Windows.Forms.ToolStripButton();
+            this.tsb_query = new System.Windows.Forms.ToolStripButton();
+            this.tsbSettle = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancel = new System.Windows.Forms.ToolStripButton();
+            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
+            this.tsbExport = new System.Windows.Forms.ToolStripButton();
+            this.tsb_close = new System.Windows.Forms.ToolStripButton();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pRecordRegion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -85,36 +85,8 @@
             this.panel1.Size = new System.Drawing.Size(744, 410);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ccode,
-            this.dDate,
-            this.cAuditDate,
-            this.cPersonName,
-            this.cInvCode,
-            this.cInvName,
-            this.cInvStd,
-            this.settleFlag,
-            this.settleDate,
-            this.IsClose});
-            this.dataGridView1.Location = new System.Drawing.Point(33, 194);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 241);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseDoubleClick);
-            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
-            // 
             // pRecordRegion
             // 
-            this.pRecordRegion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pRecordRegion.Controls.Add(this.txtPrVoucherNo);
             this.pRecordRegion.Controls.Add(this.lbl_url);
             this.pRecordRegion.Controls.Add(this.dtpPrDate);
@@ -232,6 +204,92 @@
             this.lbl_customer.TabIndex = 1;
             this.lbl_customer.Text = "弱电工程登记";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ccode,
+            this.dDate,
+            this.cAuditDate,
+            this.cPersonName,
+            this.cInvCode,
+            this.cInvName,
+            this.cInvStd,
+            this.settleFlag,
+            this.settleDate,
+            this.IsClose});
+            this.dataGridView1.Location = new System.Drawing.Point(33, 194);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(738, 241);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseDoubleClick);
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+            // 
+            // ccode
+            // 
+            this.ccode.DataPropertyName = "ccode";
+            this.ccode.HeaderText = "请购单号";
+            this.ccode.Name = "ccode";
+            // 
+            // dDate
+            // 
+            this.dDate.DataPropertyName = "dDate";
+            this.dDate.HeaderText = "请购日期";
+            this.dDate.Name = "dDate";
+            // 
+            // cAuditDate
+            // 
+            this.cAuditDate.DataPropertyName = "cAuditDate";
+            this.cAuditDate.HeaderText = "审核日期";
+            this.cAuditDate.Name = "cAuditDate";
+            // 
+            // cPersonName
+            // 
+            this.cPersonName.DataPropertyName = "cPersonName";
+            this.cPersonName.HeaderText = "请购人员";
+            this.cPersonName.Name = "cPersonName";
+            // 
+            // cInvCode
+            // 
+            this.cInvCode.DataPropertyName = "cInvCode";
+            this.cInvCode.HeaderText = "服务编码";
+            this.cInvCode.Name = "cInvCode";
+            // 
+            // cInvName
+            // 
+            this.cInvName.DataPropertyName = "cInvName";
+            this.cInvName.HeaderText = "服务名称";
+            this.cInvName.Name = "cInvName";
+            // 
+            // cInvStd
+            // 
+            this.cInvStd.DataPropertyName = "cInvStd";
+            this.cInvStd.HeaderText = "服务描述";
+            this.cInvStd.Name = "cInvStd";
+            // 
+            // settleFlag
+            // 
+            this.settleFlag.DataPropertyName = "settleFlag";
+            this.settleFlag.HeaderText = "是否验收";
+            this.settleFlag.Name = "settleFlag";
+            // 
+            // settleDate
+            // 
+            this.settleDate.DataPropertyName = "settleDate";
+            this.settleDate.HeaderText = "验收日期";
+            this.settleDate.Name = "settleDate";
+            // 
+            // IsClose
+            // 
+            this.IsClose.DataPropertyName = "IsClose";
+            this.IsClose.HeaderText = "关闭人";
+            this.IsClose.Name = "IsClose";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -295,6 +353,15 @@
             this.tsbSettle.Text = "验收结算";
             this.tsbSettle.Click += new System.EventHandler(this.tsbSettle_Click);
             // 
+            // tsbCancel
+            // 
+            this.tsbCancel.Image = global::ITtools.Properties.Resources.giveUpAudit;
+            this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCancel.Name = "tsbCancel";
+            this.tsbCancel.Size = new System.Drawing.Size(76, 22);
+            this.tsbCancel.Text = "撤销验收";
+            this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
+            // 
             // tsb_delete
             // 
             this.tsb_delete.Image = ((System.Drawing.Image)(resources.GetObject("tsb_delete.Image")));
@@ -313,15 +380,6 @@
             this.tsbExport.Text = "输出EXCEL";
             this.tsbExport.Click += new System.EventHandler(this.tsbExport_Click);
             // 
-            // tsbCancel
-            // 
-            this.tsbCancel.Image = global::ITtools.Properties.Resources.giveUpAudit;
-            this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(76, 22);
-            this.tsbCancel.Text = "撤销验收";
-            this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
-            // 
             // tsb_close
             // 
             this.tsb_close.Image = ((System.Drawing.Image)(resources.GetObject("tsb_close.Image")));
@@ -334,66 +392,6 @@
             // webURLServiceBindingSource
             // 
             this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
-            // 
-            // ccode
-            // 
-            this.ccode.DataPropertyName = "ccode";
-            this.ccode.HeaderText = "请购单号";
-            this.ccode.Name = "ccode";
-            // 
-            // dDate
-            // 
-            this.dDate.DataPropertyName = "dDate";
-            this.dDate.HeaderText = "请购日期";
-            this.dDate.Name = "dDate";
-            // 
-            // cAuditDate
-            // 
-            this.cAuditDate.DataPropertyName = "cAuditDate";
-            this.cAuditDate.HeaderText = "审核日期";
-            this.cAuditDate.Name = "cAuditDate";
-            // 
-            // cPersonName
-            // 
-            this.cPersonName.DataPropertyName = "cPersonName";
-            this.cPersonName.HeaderText = "请购人员";
-            this.cPersonName.Name = "cPersonName";
-            // 
-            // cInvCode
-            // 
-            this.cInvCode.DataPropertyName = "cInvCode";
-            this.cInvCode.HeaderText = "服务编码";
-            this.cInvCode.Name = "cInvCode";
-            // 
-            // cInvName
-            // 
-            this.cInvName.DataPropertyName = "cInvName";
-            this.cInvName.HeaderText = "服务名称";
-            this.cInvName.Name = "cInvName";
-            // 
-            // cInvStd
-            // 
-            this.cInvStd.DataPropertyName = "cInvStd";
-            this.cInvStd.HeaderText = "服务描述";
-            this.cInvStd.Name = "cInvStd";
-            // 
-            // settleFlag
-            // 
-            this.settleFlag.DataPropertyName = "settleFlag";
-            this.settleFlag.HeaderText = "是否验收";
-            this.settleFlag.Name = "settleFlag";
-            // 
-            // settleDate
-            // 
-            this.settleDate.DataPropertyName = "settleDate";
-            this.settleDate.HeaderText = "验收日期";
-            this.settleDate.Name = "settleDate";
-            // 
-            // IsClose
-            // 
-            this.IsClose.DataPropertyName = "IsClose";
-            this.IsClose.HeaderText = "关闭人";
-            this.IsClose.Name = "IsClose";
             // 
             // FrmWeakCurrence
             // 
@@ -411,9 +409,9 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Frm_customer_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pRecordRegion.ResumeLayout(false);
             this.pRecordRegion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webURLServiceBindingSource)).EndInit();
