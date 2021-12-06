@@ -132,5 +132,12 @@ namespace ITtools
             FrmAddressBook f = new FrmAddressBook();
             embedForm(f);
         }
+
+        private void TsmDepartment_Click(object sender, EventArgs e)
+        {
+
+            FrmDepartment f = new FrmDepartment();
+            embedForm(f);
+        }
     }
 }

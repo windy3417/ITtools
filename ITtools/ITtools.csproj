@@ -166,6 +166,7 @@
     <Compile Include="Model\IT\DiretoryModel.cs" />
     <Compile Include="Model\IT\EnumModel.cs" />
     <Compile Include="Model\IT\PrWeakCurrentModel.cs" />
+    <Compile Include="DAL\Services\QueryService.cs" />
     <Compile Include="Model\Scrap\ScrapContext.cs" />
     <Compile Include="Model\Scrap\WeighingSettlementModels.cs" />
     <Compile Include="Model\U8Context.cs" />
@@ -193,6 +194,12 @@
     </Compile>
     <Compile Include="UI\AddressBook\FrmAddressBook.Designer.cs">
       <DependentUpon>FrmAddressBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddressBook\FrmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AddressBook\FrmDepartment.Designer.cs">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmCompress.cs">
       <SubType>Form</SubType>
@@ -310,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddressBook.resx">
       <DependentUpon>FrmAddressBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AddressBook\FrmDepartment.resx">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MasteData\FrmUpload.resx">
       <DependentUpon>FrmUpload.cs</DependentUpon>
