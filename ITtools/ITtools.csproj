@@ -139,6 +139,8 @@
     <Compile Include="Common\NetHelper.cs" />
     <Compile Include="DAL\DiretoryService.cs" />
     <Compile Include="DAL\EnumService.cs" />
+    <Compile Include="DAL\Services\AddressBook\AddressBookServce.cs" />
+    <Compile Include="DAL\Services\AddressBook\DepartmentService.cs" />
     <Compile Include="DAL\Services\AppPurService.cs" />
     <Compile Include="DAL\Services\ProjectSettleService.cs" />
     <Compile Include="DAL\VModel\AppPurVmodel.cs" />
@@ -158,6 +160,8 @@
       <DependentUpon>202111020712266_m1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\IT\addressBook.cs" />
+    <Compile Include="Model\IT\department.cs" />
     <Compile Include="Model\IT\DiretoryItemModel.cs" />
     <Compile Include="Model\IT\DiretoryModel.cs" />
     <Compile Include="Model\IT\EnumModel.cs" />
@@ -184,6 +188,12 @@
     <Compile Include="Services\AppPurVouchService.cs" />
     <Compile Include="Services\DataBaseListService.cs" />
     <Compile Include="Services\WebURLService.cs" />
+    <Compile Include="UI\AddressBook\FrmAddressBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AddressBook\FrmAddressBook.Designer.cs">
+      <DependentUpon>FrmAddressBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmCompress.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111020712266_m1.resx">
       <DependentUpon>202111020712266_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AddressBook\FrmAddressBook.resx">
+      <DependentUpon>FrmAddressBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MasteData\FrmUpload.resx">
       <DependentUpon>FrmUpload.cs</DependentUpon>

@@ -45,6 +45,7 @@
             this.tsmProjectRegister = new System.Windows.Forms.ToolStripMenuItem();
             this.数据修正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVocherDigestModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmWeightUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompress = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,8 @@
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tsmWeightUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.通讯录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmQueryAddressBook = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +71,8 @@
             this.弱电管理ToolStripMenuItem,
             this.数据修正ToolStripMenuItem,
             this.工具ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
+            this.帮助ToolStripMenuItem,
+            this.通讯录ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
@@ -188,9 +191,16 @@
             // tsmVocherDigestModify
             // 
             this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
-            this.tsmVocherDigestModify.Size = new System.Drawing.Size(180, 22);
+            this.tsmVocherDigestModify.Size = new System.Drawing.Size(148, 22);
             this.tsmVocherDigestModify.Text = "凭证摘要修改";
             this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
+            // 
+            // tsmWeightUpdate
+            // 
+            this.tsmWeightUpdate.Name = "tsmWeightUpdate";
+            this.tsmWeightUpdate.Size = new System.Drawing.Size(148, 22);
+            this.tsmWeightUpdate.Text = "过磅单修改";
+            this.tsmWeightUpdate.Click += new System.EventHandler(this.tsmWeightUpdate_Click);
             // 
             // 工具ToolStripMenuItem
             // 
@@ -271,12 +281,20 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // tsmWeightUpdate
+            // 通讯录ToolStripMenuItem
             // 
-            this.tsmWeightUpdate.Name = "tsmWeightUpdate";
-            this.tsmWeightUpdate.Size = new System.Drawing.Size(180, 22);
-            this.tsmWeightUpdate.Text = "过磅单修改";
-            this.tsmWeightUpdate.Click += new System.EventHandler(this.tsmWeightUpdate_Click);
+            this.通讯录ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmQueryAddressBook});
+            this.通讯录ToolStripMenuItem.Name = "通讯录ToolStripMenuItem";
+            this.通讯录ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.通讯录ToolStripMenuItem.Text = "通讯录";
+            // 
+            // TsmQueryAddressBook
+            // 
+            this.TsmQueryAddressBook.Name = "TsmQueryAddressBook";
+            this.TsmQueryAddressBook.Size = new System.Drawing.Size(180, 22);
+            this.TsmQueryAddressBook.Text = "查询";
+            this.TsmQueryAddressBook.Click += new System.EventHandler(this.TsmQueryAddressBook_Click);
             // 
             // FrmMain
             // 
@@ -326,6 +344,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmVocherDigestModify;
         private System.Windows.Forms.ToolStripMenuItem person;
         private System.Windows.Forms.ToolStripMenuItem tsmWeightUpdate;
+        private System.Windows.Forms.ToolStripMenuItem 通讯录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TsmQueryAddressBook;
     }
 }
 

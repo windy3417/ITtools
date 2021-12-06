@@ -25,6 +25,9 @@
 
         public virtual DbSet<MaxKeyModel> MaxKeys { get; set; }
         public virtual DbSet<PrWeakCurrentModel>  PrWeakCurrent {get;set;  }
+
+        public virtual DbSet<addressBook> AddressBook { get; set; }
+        public virtual DbSet<department> Department { get; set; }
     }
 
    

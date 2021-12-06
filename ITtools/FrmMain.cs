@@ -12,7 +12,7 @@ using Utility.UI;
 using Utility.UI.Authority;
 using ITtools.UI;
 using ITtools.UI.U8mantinance;
-
+using ITtools.UI.AddressBook;
 
 namespace ITtools
 {
@@ -124,6 +124,12 @@ namespace ITtools
         private void tsmWeightUpdate_Click(object sender, EventArgs e)
         {
             FrmScrapList f = new FrmScrapList();
+            embedForm(f);
+        }
+
+        private void TsmQueryAddressBook_Click(object sender, EventArgs e)
+        {
+            FrmAddressBook f = new FrmAddressBook();
             embedForm(f);
         }
     }
