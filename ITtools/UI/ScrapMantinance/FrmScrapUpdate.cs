@@ -94,6 +94,7 @@ namespace ITtools.UI.ScrapMantinance
         private void TsbUpdateNetWeight_Click(object sender, EventArgs e)
         {
             TxtNetWeight.Enabled = true;
+            updateNetWeight = true;
         }
     }
     }

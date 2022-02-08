@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.基础设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.person = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmDepartment = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.常用备份路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,14 +52,14 @@
             this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmImportDefinite = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmImportData = new System.Windows.Forms.ToolStripMenuItem();
+            this.通讯录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmQueryAddressBook = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.程序文档ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
-            this.通讯录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmQueryAddressBook = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.TsmDepartment = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmAddressBookAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,8 +73,8 @@
             this.弱电管理ToolStripMenuItem,
             this.数据修正ToolStripMenuItem,
             this.工具ToolStripMenuItem,
-            this.帮助ToolStripMenuItem,
-            this.通讯录ToolStripMenuItem});
+            this.通讯录ToolStripMenuItem,
+            this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
@@ -94,21 +95,28 @@
             // person
             // 
             this.person.Name = "person";
-            this.person.Size = new System.Drawing.Size(180, 22);
+            this.person.Size = new System.Drawing.Size(148, 22);
             this.person.Text = "人员档案";
             this.person.Click += new System.EventHandler(this.person_Click);
+            // 
+            // TsmDepartment
+            // 
+            this.TsmDepartment.Name = "TsmDepartment";
+            this.TsmDepartment.Size = new System.Drawing.Size(148, 22);
+            this.TsmDepartment.Text = "部门档案";
+            this.TsmDepartment.Click += new System.EventHandler(this.TsmDepartment_Click);
             // 
             // 数据库设置ToolStripMenuItem
             // 
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
             this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // 常用备份路径ToolStripMenuItem
             // 
             this.常用备份路径ToolStripMenuItem.Name = "常用备份路径ToolStripMenuItem";
-            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.常用备份路径ToolStripMenuItem.Text = "常用文件路径";
             this.常用备份路径ToolStripMenuItem.Click += new System.EventHandler(this.常用备份路径ToolStripMenuItem_Click);
             // 
@@ -243,6 +251,22 @@
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
+            // 通讯录ToolStripMenuItem
+            // 
+            this.通讯录ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmAddressBookAdd,
+            this.TsmQueryAddressBook});
+            this.通讯录ToolStripMenuItem.Name = "通讯录ToolStripMenuItem";
+            this.通讯录ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.通讯录ToolStripMenuItem.Text = "通讯录";
+            // 
+            // TsmQueryAddressBook
+            // 
+            this.TsmQueryAddressBook.Name = "TsmQueryAddressBook";
+            this.TsmQueryAddressBook.Size = new System.Drawing.Size(180, 22);
+            this.TsmQueryAddressBook.Text = "查询";
+            this.TsmQueryAddressBook.Click += new System.EventHandler(this.TsmQueryAddressBook_Click);
+            // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -265,21 +289,6 @@
             this.tsmVersionInformation.Text = "版本信息";
             this.tsmVersionInformation.Click += new System.EventHandler(this.tsmVersionInformation_Click);
             // 
-            // 通讯录ToolStripMenuItem
-            // 
-            this.通讯录ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmQueryAddressBook});
-            this.通讯录ToolStripMenuItem.Name = "通讯录ToolStripMenuItem";
-            this.通讯录ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
-            this.通讯录ToolStripMenuItem.Text = "通讯录";
-            // 
-            // TsmQueryAddressBook
-            // 
-            this.TsmQueryAddressBook.Name = "TsmQueryAddressBook";
-            this.TsmQueryAddressBook.Size = new System.Drawing.Size(180, 22);
-            this.TsmQueryAddressBook.Text = "查询";
-            this.TsmQueryAddressBook.Click += new System.EventHandler(this.TsmQueryAddressBook_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tabControl1);
@@ -298,12 +307,12 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // TsmDepartment
+            // TsmAddressBookAdd
             // 
-            this.TsmDepartment.Name = "TsmDepartment";
-            this.TsmDepartment.Size = new System.Drawing.Size(180, 22);
-            this.TsmDepartment.Text = "部门档案";
-            this.TsmDepartment.Click += new System.EventHandler(this.TsmDepartment_Click);
+            this.TsmAddressBookAdd.Name = "TsmAddressBookAdd";
+            this.TsmAddressBookAdd.Size = new System.Drawing.Size(180, 22);
+            this.TsmAddressBookAdd.Text = "增加";
+            this.TsmAddressBookAdd.Click += new System.EventHandler(this.TsmAddressBookAdd_Click);
             // 
             // FrmMain
             // 
@@ -356,6 +365,7 @@
         private System.Windows.Forms.ToolStripMenuItem 通讯录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TsmQueryAddressBook;
         private System.Windows.Forms.ToolStripMenuItem TsmDepartment;
+        private System.Windows.Forms.ToolStripMenuItem TsmAddressBookAdd;
     }
 }
 

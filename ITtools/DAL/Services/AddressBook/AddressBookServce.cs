@@ -12,9 +12,9 @@ namespace ITtools.DAL.Services.AddressBook
 {
   public  class AddressBookServce
     {
-        public List<addressBook> GetAddresBook(SqlParameter[] sqlParameters)
+        public List<Model.IT.AddressBookModel> GetAddresBook(SqlParameter[] sqlParameters)
         {
-            List<addressBook> addressBookList = new List<addressBook>();
+            List<Model.IT.AddressBookModel> addressBookList = new List<Model.IT.AddressBookModel>();
 
             StringBuilder sql = new StringBuilder();
               sql.Append(  "select * from addressBook where  1=1 ");
@@ -34,7 +34,7 @@ namespace ITtools.DAL.Services.AddressBook
 
             while (sqlDataReader.Read())
             {
-                addressBook m = new addressBook();
+                Model.IT.AddressBookModel m = new Model.IT.AddressBookModel();
                 m.chinessName = sqlDataReader["chinessName"].ToString();
                 m.department= sqlDataReader["department"].ToString();
                 m.Ext =Convert.ToDouble( sqlDataReader["Ext"]);

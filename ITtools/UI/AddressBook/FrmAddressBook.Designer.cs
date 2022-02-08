@@ -38,6 +38,7 @@ namespace ITtools.UI.AddressBook
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TsbAddressBookUpdate = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -47,6 +48,7 @@ namespace ITtools.UI.AddressBook
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbQuery,
+            this.TsbAddressBookUpdate,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -132,6 +134,15 @@ namespace ITtools.UI.AddressBook
             this.dataGridView1.Size = new System.Drawing.Size(776, 289);
             this.dataGridView1.TabIndex = 2;
             // 
+            // TsbAddressBookUpdate
+            // 
+            this.TsbAddressBookUpdate.Image = global::ITtools.Properties.Resources.Modify;
+            this.TsbAddressBookUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbAddressBookUpdate.Name = "TsbAddressBookUpdate";
+            this.TsbAddressBookUpdate.Size = new System.Drawing.Size(52, 22);
+            this.TsbAddressBookUpdate.Text = "修改";
+            this.TsbAddressBookUpdate.Click += new System.EventHandler(this.TsbAddressBookUpdate_Click);
+            // 
             // FrmAddressBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -163,5 +174,6 @@ namespace ITtools.UI.AddressBook
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripButton TsbAddressBookUpdate;
     }
 }

@@ -53,9 +53,21 @@ namespace ITtools.UI.AddressBook
             AddressBookServce addressBook = new AddressBookServce();
 
             SqlParameter[] sqlparameters = {
-                new  SqlParameter("@department", CmbDept.Text.ToString()) };
+                new  SqlParameter("@deptID", CmbDept.SelectedValue.ToString()) };
             
             dataGridView1.DataSource = addressBook.GetAddresBookInDataTable(sqlparameters);
+        }
+
+        private void TsbAddressBookUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow !=null)
+            {
+                FrmAddresBookAddUpdate f = new FrmAddresBookAddUpdate();
+                f.Text = "通讯录修改";
+                f.update(Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value));
+                f.Show();
+                
+            }
         }
     }
 }

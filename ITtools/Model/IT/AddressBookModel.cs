@@ -7,7 +7,7 @@ namespace ITtools.Model.IT
     using System.Data.Entity.Spatial;
 
     [Table("addressBook")]
-    public partial class addressBook
+    public partial class AddressBookModel
     {
         [StringLength(255)]
         public string department { get; set; }

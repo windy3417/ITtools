@@ -20,7 +20,7 @@ namespace ITtools.DAL.Services
                 {
 
                     //不能同时实例化两个上下文，所以分开查询，再合并，注意ToArray()方法以实现避免联合查询
-                    var q = (from s in u8.PU_AppVouch.Where(s => s.cMaker == "luojing（罗璟）")
+                    var q = (from s in u8.PU_AppVouch
                              join p in u8.PU_AppVouchs on s.ID equals p.ID
                              join n in u8.Person on s.cPersonCode equals n.cPersonCode
                              join i in u8.Inventory on p.cInvCode equals i.cInvCode

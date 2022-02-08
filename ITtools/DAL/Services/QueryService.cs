@@ -9,6 +9,11 @@ using Utility.Sql;
 
 namespace ITtools.Model.DAL.Services
 {
+
+    /// <summary>
+    /// 通用单表查询方法
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public class QueryService<TEntity> where TEntity : class, new()
     {
         public List<TEntity> GetDataList()
@@ -39,6 +44,8 @@ namespace ITtools.Model.DAL.Services
 
         }
     }
+
+
 
 
 

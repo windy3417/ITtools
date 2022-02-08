@@ -8,7 +8,7 @@ namespace ITtools.Model.Scrap
     public partial class ScrapContext : DbContext
     {
         public ScrapContext()
-            : base("name=Model1")
+            : base(Utility.Sql.Sqlhelper.sqlConnection(Utility.Sql.Sqlhelper.DataSourceType.business), true)
         {
         }
 
