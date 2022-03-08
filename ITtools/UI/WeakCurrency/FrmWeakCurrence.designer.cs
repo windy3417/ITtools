@@ -44,16 +44,6 @@
             this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.lbl_customer = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ccode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cAuditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cInvCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cInvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cInvStd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.settleFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.settleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsClose = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbRef = new System.Windows.Forms.ToolStripButton();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
@@ -65,6 +55,17 @@
             this.tsbExport = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ccode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cAuditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cInvCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cInvName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cInvStd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.settleFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.settleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsClose = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Attachment = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.pRecordRegion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -123,6 +124,7 @@
             // dtpPrDate
             // 
             this.dtpPrDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dtpPrDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPrDate.Location = new System.Drawing.Point(586, 20);
             this.dtpPrDate.Name = "dtpPrDate";
             this.dtpPrDate.Size = new System.Drawing.Size(125, 21);
@@ -220,7 +222,8 @@
             this.cInvStd,
             this.settleFlag,
             this.settleDate,
-            this.IsClose});
+            this.IsClose,
+            this.Attachment});
             this.dataGridView1.Location = new System.Drawing.Point(33, 194);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -229,6 +232,109 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseDoubleClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbRef,
+            this.tsb_save,
+            this.tsb_modify,
+            this.tsb_query,
+            this.tsbSettle,
+            this.tsbCancel,
+            this.tsb_delete,
+            this.tsbExport,
+            this.tsb_close});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbRef
+            // 
+            this.tsbRef.Image = global::ITtools.Properties.Resources.add;
+            this.tsbRef.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRef.Name = "tsbRef";
+            this.tsbRef.Size = new System.Drawing.Size(53, 22);
+            this.tsbRef.Text = "参照";
+            this.tsbRef.Click += new System.EventHandler(this.tsbRef_Click);
+            // 
+            // tsb_save
+            // 
+            this.tsb_save.Image = ((System.Drawing.Image)(resources.GetObject("tsb_save.Image")));
+            this.tsb_save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_save.Name = "tsb_save";
+            this.tsb_save.Size = new System.Drawing.Size(53, 22);
+            this.tsb_save.Text = "保存";
+            this.tsb_save.Click += new System.EventHandler(this.Tsb_save_Click);
+            // 
+            // tsb_modify
+            // 
+            this.tsb_modify.Image = ((System.Drawing.Image)(resources.GetObject("tsb_modify.Image")));
+            this.tsb_modify.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_modify.Name = "tsb_modify";
+            this.tsb_modify.Size = new System.Drawing.Size(53, 22);
+            this.tsb_modify.Text = "修改";
+            this.tsb_modify.Click += new System.EventHandler(this.Tsb_modify_Click);
+            // 
+            // tsb_query
+            // 
+            this.tsb_query.Image = ((System.Drawing.Image)(resources.GetObject("tsb_query.Image")));
+            this.tsb_query.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_query.Name = "tsb_query";
+            this.tsb_query.Size = new System.Drawing.Size(53, 22);
+            this.tsb_query.Text = "查询";
+            this.tsb_query.Click += new System.EventHandler(this.tsb_query_Click);
+            // 
+            // tsbSettle
+            // 
+            this.tsbSettle.Image = global::ITtools.Properties.Resources.settleaccounts;
+            this.tsbSettle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSettle.Name = "tsbSettle";
+            this.tsbSettle.Size = new System.Drawing.Size(79, 22);
+            this.tsbSettle.Text = "验收结算";
+            this.tsbSettle.Click += new System.EventHandler(this.tsbSettle_Click);
+            // 
+            // tsbCancel
+            // 
+            this.tsbCancel.Image = global::ITtools.Properties.Resources.giveUpAudit;
+            this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCancel.Name = "tsbCancel";
+            this.tsbCancel.Size = new System.Drawing.Size(79, 22);
+            this.tsbCancel.Text = "撤销验收";
+            this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
+            // 
+            // tsb_delete
+            // 
+            this.tsb_delete.Image = ((System.Drawing.Image)(resources.GetObject("tsb_delete.Image")));
+            this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_delete.Name = "tsb_delete";
+            this.tsb_delete.Size = new System.Drawing.Size(53, 22);
+            this.tsb_delete.Text = "删除";
+            this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
+            // 
+            // tsbExport
+            // 
+            this.tsbExport.Image = global::ITtools.Properties.Resources.export;
+            this.tsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExport.Name = "tsbExport";
+            this.tsbExport.Size = new System.Drawing.Size(86, 22);
+            this.tsbExport.Text = "输出EXCEL";
+            this.tsbExport.Click += new System.EventHandler(this.tsbExport_Click);
+            // 
+            // tsb_close
+            // 
+            this.tsb_close.Image = ((System.Drawing.Image)(resources.GetObject("tsb_close.Image")));
+            this.tsb_close.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_close.Name = "tsb_close";
+            this.tsb_close.Size = new System.Drawing.Size(53, 22);
+            this.tsb_close.Text = "关闭";
+            this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
+            // 
+            // webURLServiceBindingSource
+            // 
+            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
             // 
             // ccode
             // 
@@ -290,108 +396,11 @@
             this.IsClose.HeaderText = "关闭人";
             this.IsClose.Name = "IsClose";
             // 
-            // toolStrip1
+            // Attachment
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbRef,
-            this.tsb_save,
-            this.tsb_modify,
-            this.tsb_query,
-            this.tsbSettle,
-            this.tsbCancel,
-            this.tsb_delete,
-            this.tsbExport,
-            this.tsb_close});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbRef
-            // 
-            this.tsbRef.Image = global::ITtools.Properties.Resources.add;
-            this.tsbRef.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRef.Name = "tsbRef";
-            this.tsbRef.Size = new System.Drawing.Size(52, 22);
-            this.tsbRef.Text = "参照";
-            this.tsbRef.Click += new System.EventHandler(this.tsbRef_Click);
-            // 
-            // tsb_save
-            // 
-            this.tsb_save.Image = ((System.Drawing.Image)(resources.GetObject("tsb_save.Image")));
-            this.tsb_save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_save.Name = "tsb_save";
-            this.tsb_save.Size = new System.Drawing.Size(52, 22);
-            this.tsb_save.Text = "保存";
-            this.tsb_save.Click += new System.EventHandler(this.Tsb_save_Click);
-            // 
-            // tsb_modify
-            // 
-            this.tsb_modify.Image = ((System.Drawing.Image)(resources.GetObject("tsb_modify.Image")));
-            this.tsb_modify.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_modify.Name = "tsb_modify";
-            this.tsb_modify.Size = new System.Drawing.Size(52, 22);
-            this.tsb_modify.Text = "修改";
-            this.tsb_modify.Click += new System.EventHandler(this.Tsb_modify_Click);
-            // 
-            // tsb_query
-            // 
-            this.tsb_query.Image = ((System.Drawing.Image)(resources.GetObject("tsb_query.Image")));
-            this.tsb_query.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_query.Name = "tsb_query";
-            this.tsb_query.Size = new System.Drawing.Size(52, 22);
-            this.tsb_query.Text = "查询";
-            this.tsb_query.Click += new System.EventHandler(this.tsb_query_Click);
-            // 
-            // tsbSettle
-            // 
-            this.tsbSettle.Image = global::ITtools.Properties.Resources.settleaccounts;
-            this.tsbSettle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSettle.Name = "tsbSettle";
-            this.tsbSettle.Size = new System.Drawing.Size(76, 22);
-            this.tsbSettle.Text = "验收结算";
-            this.tsbSettle.Click += new System.EventHandler(this.tsbSettle_Click);
-            // 
-            // tsbCancel
-            // 
-            this.tsbCancel.Image = global::ITtools.Properties.Resources.giveUpAudit;
-            this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(76, 22);
-            this.tsbCancel.Text = "撤销验收";
-            this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
-            // 
-            // tsb_delete
-            // 
-            this.tsb_delete.Image = ((System.Drawing.Image)(resources.GetObject("tsb_delete.Image")));
-            this.tsb_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_delete.Name = "tsb_delete";
-            this.tsb_delete.Size = new System.Drawing.Size(52, 22);
-            this.tsb_delete.Text = "删除";
-            this.tsb_delete.Click += new System.EventHandler(this.tsb_delete_Click);
-            // 
-            // tsbExport
-            // 
-            this.tsbExport.Image = global::ITtools.Properties.Resources.export;
-            this.tsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbExport.Name = "tsbExport";
-            this.tsbExport.Size = new System.Drawing.Size(88, 22);
-            this.tsbExport.Text = "输出EXCEL";
-            this.tsbExport.Click += new System.EventHandler(this.tsbExport_Click);
-            // 
-            // tsb_close
-            // 
-            this.tsb_close.Image = ((System.Drawing.Image)(resources.GetObject("tsb_close.Image")));
-            this.tsb_close.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_close.Name = "tsb_close";
-            this.tsb_close.Size = new System.Drawing.Size(52, 22);
-            this.tsb_close.Text = "关闭";
-            this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
-            // 
-            // webURLServiceBindingSource
-            // 
-            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
+            this.Attachment.HeaderText = "附件";
+            this.Attachment.Name = "Attachment";
+            this.Attachment.Text = "上传/查询";
             // 
             // FrmWeakCurrence
             // 
@@ -459,5 +468,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn settleFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn settleDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsClose;
+        private System.Windows.Forms.DataGridViewButtonColumn Attachment;
     }
 }

@@ -31,12 +31,19 @@ namespace ITtools
             embedForm(frm_DataBaseBac);
         }
 
+        #region internal method
+
+
         private void embedForm(Form form)
         {
             EmbedForm embedForm = new EmbedForm();
-            
+
             embedForm.openForm(form, form.Text, tabControl1, panel1);
         }
+
+        #endregion
+
+        #region menu handle
 
         private void 文件夹备份ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -145,5 +152,8 @@ namespace ITtools
             FrmAddresBookAddUpdate f = new FrmAddresBookAddUpdate();
             embedForm(f);
         }
+
+        #endregion
+
     }
 }

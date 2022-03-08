@@ -28,7 +28,7 @@ namespace ITtools.UI
         public FrmWeakCurrence()
         {
             InitializeComponent();
-            this.initialize();
+            this.Initialize();
 
 
         }
@@ -50,7 +50,7 @@ namespace ITtools.UI
         /// <summary>
         /// 初始化控件状态
         /// </summary>
-        private void initialize()
+        private void Initialize()
         {
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
             dataGridView1.AutoGenerateColumns = false;
@@ -59,7 +59,6 @@ namespace ITtools.UI
 
 
         }
-
 
 
         #region 菜单事件处理
@@ -397,6 +396,7 @@ namespace ITtools.UI
                     db.SaveChanges();
 
                     MessageBox.Show("您所选择的项目已经验收完成");
+                    bind_gv_dateSource();
 
 
 
@@ -405,7 +405,7 @@ namespace ITtools.UI
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message + ex.InnerException);
+                MessageBox.Show("请选择所要验收的行"+ex.Message + ex.InnerException);
             }
         }
 
@@ -442,15 +442,15 @@ namespace ITtools.UI
             this.dataGridView1.DataSource = new ProjectSettleService().getProject();
             dataGridView1.AutoResizeColumns();
 
-            if (dataGridView1.Columns["attachment"] is null)
-            {
-                DataGridViewButtonColumn dgvButton = new DataGridViewButtonColumn();
-                dgvButton.HeaderText = "附件";
-                dgvButton.Name = "attachment";
-                dgvButton.Text = "查询";
+            //if (dataGridView1.Columns["attachment"] is null)
+            //{
+            //    DataGridViewButtonColumn dgvButton = new DataGridViewButtonColumn();
+            //    dgvButton.HeaderText = "附件";
+            //    dgvButton.Name = "attachment";
+            //    dgvButton.Text = "查询";
 
-                dataGridView1.Columns.Add(dgvButton);
-            }
+            //    dataGridView1.Columns.Add(dgvButton);
+            //}
 
           
 
