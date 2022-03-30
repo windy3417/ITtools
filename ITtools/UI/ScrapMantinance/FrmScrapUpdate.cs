@@ -18,6 +18,7 @@ namespace ITtools.UI.ScrapMantinance
             InitializeComponent();
             txtVoucherNo.Enabled = false;
             TxtNetWeight.Enabled = false;
+            txtSkinWeight.Enabled = false;
             
         }
 
@@ -46,6 +47,7 @@ namespace ITtools.UI.ScrapMantinance
 
                         m.note = txtMemo.Text;
                         m.netWeight = Convert.ToDouble(TxtNetWeight.Text);
+                        m.Tare= Convert.ToDouble(txtSkinWeight.Text);
 
                         db.SaveChanges();
 
@@ -94,6 +96,7 @@ namespace ITtools.UI.ScrapMantinance
         private void TsbUpdateNetWeight_Click(object sender, EventArgs e)
         {
             TxtNetWeight.Enabled = true;
+            txtSkinWeight.Enabled = true;
             updateNetWeight = true;
         }
     }

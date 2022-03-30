@@ -23,6 +23,7 @@ namespace ITtools.Model.Scrap
 
         public double GrossWeght { get; set; }
 
+        //ЦЄжи
         public double Tare { get; set; }
 
         public string VehicleBrand { get; set; }

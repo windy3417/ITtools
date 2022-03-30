@@ -34,11 +34,11 @@ namespace ITtools.UI.ScrapMantinance
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,7 +61,7 @@ namespace ITtools.UI.ScrapMantinance
             this.tsbQuery.Image = global::ITtools.Properties.Resources.Search;
             this.tsbQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbQuery.Name = "tsbQuery";
-            this.tsbQuery.Size = new System.Drawing.Size(52, 22);
+            this.tsbQuery.Size = new System.Drawing.Size(53, 22);
             this.tsbQuery.Text = "查询";
             this.tsbQuery.Click += new System.EventHandler(this.tsbQuery_Click);
             // 
@@ -70,7 +70,7 @@ namespace ITtools.UI.ScrapMantinance
             this.tsbUpdate.Image = global::ITtools.Properties.Resources.Modify;
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(52, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(53, 22);
             this.tsbUpdate.Text = "修改";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -79,7 +79,7 @@ namespace ITtools.UI.ScrapMantinance
             this.tsbClose.Image = global::ITtools.Properties.Resources.icon_quit;
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(52, 22);
+            this.tsbClose.Size = new System.Drawing.Size(53, 22);
             this.tsbClose.Text = "关闭";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -98,6 +98,40 @@ namespace ITtools.UI.ScrapMantinance
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
             // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDate.Location = new System.Drawing.Point(341, 34);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(126, 21);
+            this.dtpEndDate.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(259, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "结束日期：";
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(104, 34);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(126, 21);
+            this.dtpStartDate.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "开始日期：";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -109,38 +143,6 @@ namespace ITtools.UI.ScrapMantinance
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(776, 303);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "开始日期：";
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Location = new System.Drawing.Point(104, 34);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(126, 21);
-            this.dtpStartDate.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(259, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "结束日期：";
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Location = new System.Drawing.Point(341, 34);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(126, 21);
-            this.dtpEndDate.TabIndex = 1;
             // 
             // FrmScrapList
             // 

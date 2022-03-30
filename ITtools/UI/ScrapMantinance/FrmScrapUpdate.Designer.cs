@@ -38,6 +38,8 @@ namespace ITtools.UI.ScrapMantinance
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.TsbSave = new System.Windows.Forms.ToolStripButton();
             this.TsbUpdateNetWeight = new System.Windows.Forms.ToolStripButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSkinWeight = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +107,7 @@ namespace ITtools.UI.ScrapMantinance
             this.TsbSave.Image = global::ITtools.Properties.Resources.save;
             this.TsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbSave.Name = "TsbSave";
-            this.TsbSave.Size = new System.Drawing.Size(52, 22);
+            this.TsbSave.Size = new System.Drawing.Size(53, 22);
             this.TsbSave.Text = "保存";
             this.TsbSave.Click += new System.EventHandler(this.TsbSave_Click);
             // 
@@ -114,9 +116,25 @@ namespace ITtools.UI.ScrapMantinance
             this.TsbUpdateNetWeight.Image = global::ITtools.Properties.Resources.Modify;
             this.TsbUpdateNetWeight.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbUpdateNetWeight.Name = "TsbUpdateNetWeight";
-            this.TsbUpdateNetWeight.Size = new System.Drawing.Size(76, 22);
-            this.TsbUpdateNetWeight.Text = "修改净重";
+            this.TsbUpdateNetWeight.Size = new System.Drawing.Size(79, 22);
+            this.TsbUpdateNetWeight.Text = "修改重量";
             this.TsbUpdateNetWeight.Click += new System.EventHandler(this.TsbUpdateNetWeight_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(305, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "皮重：";
+            // 
+            // txtSkinWeight
+            // 
+            this.txtSkinWeight.Location = new System.Drawing.Point(352, 122);
+            this.txtSkinWeight.Name = "txtSkinWeight";
+            this.txtSkinWeight.Size = new System.Drawing.Size(160, 21);
+            this.txtSkinWeight.TabIndex = 1;
             // 
             // FrmScrapUpdate
             // 
@@ -124,9 +142,11 @@ namespace ITtools.UI.ScrapMantinance
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 373);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.txtSkinWeight);
             this.Controls.Add(this.TxtNetWeight);
             this.Controls.Add(this.txtMemo);
             this.Controls.Add(this.txtVoucherNo);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -151,5 +171,7 @@ namespace ITtools.UI.ScrapMantinance
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton TsbSave;
         private System.Windows.Forms.ToolStripButton TsbUpdateNetWeight;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSkinWeight;
     }
 }

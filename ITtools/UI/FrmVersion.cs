@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,9 @@ namespace ITtools.UI
 
             Content.Text += "文件版本：" + Application.ProductVersion.ToString() + "\n";
             //显示click once 部署的版本信息，只有在部署成功后才能正确显示，调试时会报异常
-            Content.Text += "部署版本：" + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            Content.Text += "部署版本：" + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString() + "\n";
+
+            Content.Text += "发布时间：" + File.GetLastWriteTime(this.GetType().Assembly.Location); ;
         }
     }
 }
