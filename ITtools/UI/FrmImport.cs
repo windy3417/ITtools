@@ -45,7 +45,7 @@ namespace ITtools.UI
 
         private void tsmChooseFile_Click(object sender, EventArgs e)
         {
-            Utility.Files.ImportFromExcel importFromExcel = new Utility.Files.ImportFromExcel();
+            Utility.Excel.ImportFromExcel importFromExcel = new Utility.Excel.ImportFromExcel();
             //importFromExcel.OpenExcelFile();
             importFromExcel.ImportFileFromExcel(DgvImport, dt);
         }

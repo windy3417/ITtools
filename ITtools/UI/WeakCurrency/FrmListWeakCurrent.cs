@@ -20,6 +20,7 @@ using ITtools.UI.RefForm;
 using ITtools.DAL.Services;
 using ITtools.DAL.VModel;
 using ITtools.UI.MasteData;
+using ITtools.UI.FilterForm;
 
 namespace ITtools.UI
 {
@@ -28,7 +29,7 @@ namespace ITtools.UI
         public FrmWeakCurrence()
         {
             InitializeComponent();
-            this.Initialize();
+            this.InitializeControlsState();
 
 
         }
@@ -46,19 +47,7 @@ namespace ITtools.UI
 
         #endregion
 
-
-        /// <summary>
-        /// 初始化控件状态
-        /// </summary>
-        private void Initialize()
-        {
-            this.FormClosed += new FormClosedEventHandler(this.closeParent);
-            dataGridView1.AutoGenerateColumns = false;
-            
-
-
-
-        }
+          
 
 
         #region 菜单事件处理
@@ -69,7 +58,7 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void Tsb_abandon_Click(object sender, EventArgs e)
         {
-            tsb_save.Enabled = false;
+            tsbSave.Enabled = false;
             tsb_modify.Enabled = false;
             tsb_delete.Enabled = false;
             tsb_query.Enabled = true;
@@ -95,7 +84,7 @@ namespace ITtools.UI
             //f.transferData(transferData);
             f.actionAppVoucher = transferData;
 
-            tsb_save.Enabled = true;
+            tsbSave.Enabled = true;
 
 
         }
@@ -144,7 +133,7 @@ namespace ITtools.UI
 
 
 
-                bind_gv_dateSource();
+               
 
             }
 
@@ -165,7 +154,6 @@ namespace ITtools.UI
             {
                 save();
             }
-
 
 
             //修改数据
@@ -189,33 +177,13 @@ namespace ITtools.UI
             lbl_voucherStatus.Visible = true;
 
 
-            tsb_save.Enabled = true;
+            tsbSave.Enabled = true;
 
         }
 
-        /// <summary>
-        /// 查询档案
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsb_query_Click(object sender, EventArgs e)
-        {
-            clearDate();
-            lbl_voucherStatus.Text = "状态：查询";
-            lbl_voucherStatus.Visible = true;
 
-           
-            this.tsb_save.Enabled = false;
-            this.tsb_modify.Enabled = true;
-            this.tsb_delete.Enabled = true;
+       
 
-            this.bind_gv_dateSource();
-
-
-
-
-
-        }
 
 
         #endregion
@@ -240,7 +208,54 @@ namespace ITtools.UI
 
         #endregion
 
-        #region 内部方法
+        #region crud
+
+        #region get data
+
+        /// <summary>
+        /// 查询档案
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_query_Click(object sender, EventArgs e)
+        {
+            clearDate();
+            lbl_voucherStatus.Text = "状态：查询";
+            lbl_voucherStatus.Visible = true;
+
+
+            this.tsbSave.Enabled = false;
+            this.tsb_modify.Enabled = true;
+            this.tsb_delete.Enabled = true;
+
+            FrmFilterWeakCurrent f = new FrmFilterWeakCurrent();
+            f.ActionListProject = bind_gv_dateSource;
+            f.StartPosition = FormStartPosition.CenterScreen;
+            
+            f.ShowDialog();
+           
+            
+
+
+
+        }
+
+        /// <summary>
+        /// 绑定dataGridView的数据源
+        /// </summary>
+        private void bind_gv_dateSource(List<ProjectSettleVmodel> list)
+        {
+            this.dataGridView1.DataSource = null;
+
+            this.dataGridView1.DataSource = list;
+            dataGridView1.AutoResizeColumns();
+
+         
+
+        }
+
+
+        #endregion
 
         /// <summary>
         /// 新增数据
@@ -263,7 +278,7 @@ namespace ITtools.UI
                 {
                     db.SaveChanges();
                     MessageBox.Show("save success");
-                    this.tsb_save.Enabled = false;
+                    this.tsbSave.Enabled = false;
                 }
                 catch (Exception e)
                 {
@@ -275,7 +290,7 @@ namespace ITtools.UI
                 //提供dataGridView的数据源
                 mList.Add(m);
 
-                this.bind_gv_dateSource();
+                this.tsbSave.Enabled = false;
 
                 //清空填制记录
 
@@ -306,7 +321,7 @@ namespace ITtools.UI
                     db.SaveChanges();
                     MessageBox.Show("撤销验收成功！");
 
-                   bind_gv_dateSource();
+                 
                 }
             }
         }
@@ -328,7 +343,7 @@ namespace ITtools.UI
                 m.PrPerson = txbPrPerson.Text;
 
                 db.SaveChanges();
-                this.bind_gv_dateSource();
+              
 
                 //清空修改记录
                 clearDate();
@@ -396,8 +411,7 @@ namespace ITtools.UI
                     db.SaveChanges();
 
                     MessageBox.Show("您所选择的项目已经验收完成");
-                    bind_gv_dateSource();
-
+                  
 
 
                 }
@@ -431,33 +445,7 @@ namespace ITtools.UI
 
         }
 
-        /// <summary>
-        /// 绑定dataGridView的数据源
-        /// </summary>
-        private void bind_gv_dateSource()
-        {
-            this.dataGridView1.DataSource = null;
-
-
-            this.dataGridView1.DataSource = new ProjectSettleService().getProject();
-            dataGridView1.AutoResizeColumns();
-
-            //if (dataGridView1.Columns["attachment"] is null)
-            //{
-            //    DataGridViewButtonColumn dgvButton = new DataGridViewButtonColumn();
-            //    dgvButton.HeaderText = "附件";
-            //    dgvButton.Name = "attachment";
-            //    dgvButton.Text = "查询";
-
-            //    dataGridView1.Columns.Add(dgvButton);
-            //}
-
-          
-
-
-
-
-        }
+      
 
         /// <summary>
         /// 清除录入或查询出的数据
@@ -535,7 +523,7 @@ namespace ITtools.UI
             // if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.S)
             if (e.KeyCode == Keys.S && e.Control)
             {
-                tsb_save.PerformClick(); //执行单击button1的动作      
+                tsbSave.PerformClick(); //执行单击button1的动作      
             }
             if (e.KeyCode == Keys.Delete)
             {
@@ -560,6 +548,21 @@ namespace ITtools.UI
 
         #endregion
 
+        #region style
+        /// <summary>
+        /// 初始化控件状态
+        /// </summary>
+        private void InitializeControlsState()
+        {
+            this.FormClosed += new FormClosedEventHandler(this.closeParent);
+            dataGridView1.AutoGenerateColumns = false;
+
+
+        }
+
+        #endregion
+
+      
 
         void transferData(AppPurVmodel refAppPur)
         {
@@ -573,7 +576,6 @@ namespace ITtools.UI
 
 
         }
-
 
 
         private void tsbCancel_Click(object sender, EventArgs e)
@@ -595,8 +597,7 @@ namespace ITtools.UI
            
         }
 
-   
-
+        
         private void dataGridView1_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dataGridView1.Columns[e.ColumnIndex].SortMode = DataGridViewColumnSortMode.Automatic;

@@ -13,6 +13,8 @@ using Utility.UI.Authority;
 using ITtools.UI;
 using ITtools.UI.U8mantinance;
 using ITtools.UI.AddressBook;
+using ITtools.UI.Tools;
+using ITtools.UI.SetUp;
 
 namespace ITtools
 {
@@ -155,5 +157,17 @@ namespace ITtools
 
         #endregion
 
+        private void tsmDownLoad_Click(object sender, EventArgs e)
+        {
+            FrmDownload f = new FrmDownload();
+            embedForm(f);
+        }
+
+        private void tsmSmbConnectiongString_Click(object sender, EventArgs e)
+        {
+            FrmSmbConfig f = new FrmSmbConfig();
+            embedForm(f);
+        }
     }
-}
+    }
+

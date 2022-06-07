@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ITtools.DAL.VModel;
 using ITtools.Model;
+using ITtools.Model.U8;
 
 namespace ITtools.DAL.Services
 {
     public class ProjectSettleService
     {
-        public List<ProjectSettleVmodel> getProject()
+        public List<ProjectSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter)
         {
             using (var db = new ItContext())
             {
@@ -20,15 +22,18 @@ namespace ITtools.DAL.Services
                 {
 
                     //不能同时实例化两个上下文，所以分开查询，再合并，注意ToArray()方法以实现避免联合查询
-                    var q = (from s in u8.PU_AppVouch
+                    //u8 database
+                    var q = (from s in u8.PU_AppVouch.Where(filter.Compile())
                              join p in u8.PU_AppVouchs on s.ID equals p.ID
                              join n in u8.Person on s.cPersonCode equals n.cPersonCode
                              join i in u8.Inventory on p.cInvCode equals i.cInvCode
                              select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, i.cInvCode, i.cInvName, i.cInvStd, p.cbcloser})
                              .ToArray();
                     
+                    //business database
                     var q1 = from s in q
-                             join w in db.PrWeakCurrent on s.cCode equals w.PrVoucherNo
+                             join w in db.PrWeakCurrent
+                             on s.cCode equals w.PrVoucherNo
                              orderby s.dDate
                              select new
                              {

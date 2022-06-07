@@ -12,7 +12,8 @@ using Utility.Model;
 using static Utility.Sql.Sqlhelper;
 using Utility.Files;
 
-namespace ITtools.UI
+namespace ITtools.UI.SetUp
+
 {
     public partial class FrmConfig : Form
     {
@@ -41,7 +42,7 @@ namespace ITtools.UI
             m.UserName = this.DbIT.TxtUser.Text;
             m.Pwd = this.DbIT.TxtPWD.Text;
 
-            Utility.DAL.DbConnect dbConnect = new Utility.DAL.DbConnect();
+            Utility.DAL.ConnectString dbConnect = new Utility.DAL.ConnectString();
             dbConnect.DbConnectTest(m);
         }
 
@@ -60,7 +61,7 @@ namespace ITtools.UI
             m.Pwd = this.DbIT.TxtPWD.Text;
 
             //存储到AppConfig文件中
-            DbConnect dbConnect = new DbConnect();
+            ConnectString dbConnect = new ConnectString();
             dbConnect.DbConnectStringSave(m, DataSourceType.it.ToString());
 
             //存储为Json文件
@@ -79,7 +80,7 @@ namespace ITtools.UI
         {
             string itFileName = Environment.CurrentDirectory + "\\" + DataSourceType.it.ToString() + "DBConfig.txt";
             string u8FileName = Environment.CurrentDirectory + "\\" + DataSourceType.u8.ToString() + "DBConfig.txt";
-            Utility.DAL.DbConnect dbConnect = new DbConnect();
+            Utility.DAL.ConnectString dbConnect = new ConnectString();
             dbConnect.ReadConfig(itFileName, this.lblStatus);
             dbConnect.ReadConfig(u8FileName, this.lblU8status);
         }
@@ -93,7 +94,7 @@ namespace ITtools.UI
             m.UserName = this.DBU8.TxtUser.Text;
             m.Pwd = this.DBU8.TxtPWD.Text;
 
-            Utility.DAL.DbConnect dbConnect = new Utility.DAL.DbConnect();
+            Utility.DAL.ConnectString dbConnect = new Utility.DAL.ConnectString();
             dbConnect.DbConnectTest(m);
         }
 
@@ -107,7 +108,7 @@ namespace ITtools.UI
             m.Pwd = this.DBU8.TxtPWD.Text;
 
             //存储到AppConfig文件中
-            DbConnect dbConnect = new DbConnect();
+            ConnectString dbConnect = new ConnectString();
             dbConnect.DbConnectStringSave(m, DataSourceType.u8.ToString());
 
             //存储为Json文件

@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationRevision>43</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -219,16 +219,22 @@
     <Compile Include="UI\AddressBook\FrmDepartment.Designer.cs">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FilterForm\FrmFilterWeakCurrence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FilterForm\FrmFilterWeakCurrence.Designer.cs">
+      <DependentUpon>FrmFilterWeakCurrence.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmCompress.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FrmCompress.Designer.cs">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmConfig.cs">
+    <Compile Include="UI\SetUp\FrmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmConfig.Designer.cs">
+    <Compile Include="UI\SetUp\FrmConfig.Designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmDecrypt.cs">
@@ -273,11 +279,29 @@
     <Compile Include="UI\InternetResource\FrmInternetResource.designer.cs">
       <DependentUpon>FrmInternetResource.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\WeakCurrency\FrmWeakCurrence.cs">
+    <Compile Include="UI\SetUp\FrmSmbConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\WeakCurrency\FrmWeakCurrence.designer.cs">
-      <DependentUpon>FrmWeakCurrence.cs</DependentUpon>
+    <Compile Include="UI\SetUp\FrmSmbConfig.Designer.cs">
+      <DependentUpon>FrmSmbConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Tools\FrmDownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Tools\FrmDownload.Designer.cs">
+      <DependentUpon>FrmDownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\U8Query\FrmU8Attachment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\U8Query\FrmU8Attachment.Designer.cs">
+      <DependentUpon>FrmU8Attachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WeakCurrency\FrmListWeakCurrent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\WeakCurrency\FrmListWeakCurrent.designer.cs">
+      <DependentUpon>FrmListWeakCurrent.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Frm_dataBaseBac.cs">
       <SubType>Form</SubType>
@@ -345,6 +369,9 @@
     <EmbeddedResource Include="UI\AddressBook\FrmDepartment.resx">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FilterForm\FrmFilterWeakCurrence.resx">
+      <DependentUpon>FrmFilterWeakCurrence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MasteData\FrmUpload.resx">
       <DependentUpon>FrmUpload.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +383,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ScrapMantinance\FrmScrapUpdate.resx">
       <DependentUpon>FrmScrapUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SetUp\FrmSmbConfig.resx">
+      <DependentUpon>FrmSmbConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Tools\FrmDownload.resx">
+      <DependentUpon>FrmDownload.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\U8mantinance\FrmGlvouch.resx">
       <DependentUpon>FrmGlvouch.cs</DependentUpon>
@@ -395,7 +428,7 @@
     <EmbeddedResource Include="UI\FrmCompress.resx">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmConfig.resx">
+    <EmbeddedResource Include="UI\SetUp\FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmDecrypt.resx">
@@ -419,8 +452,8 @@
     <EmbeddedResource Include="UI\InternetResource\FrmInternetResource.resx">
       <DependentUpon>FrmInternetResource.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\WeakCurrency\FrmWeakCurrence.resx">
-      <DependentUpon>FrmWeakCurrence.cs</DependentUpon>
+    <EmbeddedResource Include="UI\WeakCurrency\FrmListWeakCurrent.resx">
+      <DependentUpon>FrmListWeakCurrent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_dataBaseBac.resx">
       <DependentUpon>Frm_dataBaseBac.cs</DependentUpon>
@@ -472,9 +505,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\U8Query\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

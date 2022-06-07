@@ -44,17 +44,6 @@
             this.lbl_voucherStatus = new System.Windows.Forms.Label();
             this.lbl_customer = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbRef = new System.Windows.Forms.ToolStripButton();
-            this.tsb_save = new System.Windows.Forms.ToolStripButton();
-            this.tsb_modify = new System.Windows.Forms.ToolStripButton();
-            this.tsb_query = new System.Windows.Forms.ToolStripButton();
-            this.tsbSettle = new System.Windows.Forms.ToolStripButton();
-            this.tsbCancel = new System.Windows.Forms.ToolStripButton();
-            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
-            this.tsbExport = new System.Windows.Forms.ToolStripButton();
-            this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ccode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAuditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +55,17 @@
             this.settleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsClose = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Attachment = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbRef = new System.Windows.Forms.ToolStripButton();
+            this.tsbSave = new System.Windows.Forms.ToolStripButton();
+            this.tsb_modify = new System.Windows.Forms.ToolStripButton();
+            this.tsb_query = new System.Windows.Forms.ToolStripButton();
+            this.tsbSettle = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancel = new System.Windows.Forms.ToolStripButton();
+            this.tsb_delete = new System.Windows.Forms.ToolStripButton();
+            this.tsbExport = new System.Windows.Forms.ToolStripButton();
+            this.tsb_close = new System.Windows.Forms.ToolStripButton();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.pRecordRegion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -233,11 +233,77 @@
             this.dataGridView1.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseDoubleClick);
             this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
+            // ccode
+            // 
+            this.ccode.DataPropertyName = "ccode";
+            this.ccode.HeaderText = "请购单号";
+            this.ccode.Name = "ccode";
+            // 
+            // dDate
+            // 
+            this.dDate.DataPropertyName = "dDate";
+            this.dDate.HeaderText = "请购日期";
+            this.dDate.Name = "dDate";
+            // 
+            // cAuditDate
+            // 
+            this.cAuditDate.DataPropertyName = "cAuditDate";
+            this.cAuditDate.HeaderText = "审核日期";
+            this.cAuditDate.Name = "cAuditDate";
+            // 
+            // cPersonName
+            // 
+            this.cPersonName.DataPropertyName = "cPersonName";
+            this.cPersonName.HeaderText = "请购人员";
+            this.cPersonName.Name = "cPersonName";
+            // 
+            // cInvCode
+            // 
+            this.cInvCode.DataPropertyName = "cInvCode";
+            this.cInvCode.HeaderText = "服务编码";
+            this.cInvCode.Name = "cInvCode";
+            // 
+            // cInvName
+            // 
+            this.cInvName.DataPropertyName = "cInvName";
+            this.cInvName.HeaderText = "服务名称";
+            this.cInvName.Name = "cInvName";
+            // 
+            // cInvStd
+            // 
+            this.cInvStd.DataPropertyName = "cInvStd";
+            this.cInvStd.HeaderText = "服务描述";
+            this.cInvStd.Name = "cInvStd";
+            // 
+            // settleFlag
+            // 
+            this.settleFlag.DataPropertyName = "settleFlag";
+            this.settleFlag.HeaderText = "是否验收";
+            this.settleFlag.Name = "settleFlag";
+            // 
+            // settleDate
+            // 
+            this.settleDate.DataPropertyName = "settleDate";
+            this.settleDate.HeaderText = "验收日期";
+            this.settleDate.Name = "settleDate";
+            // 
+            // IsClose
+            // 
+            this.IsClose.DataPropertyName = "IsClose";
+            this.IsClose.HeaderText = "关闭人";
+            this.IsClose.Name = "IsClose";
+            // 
+            // Attachment
+            // 
+            this.Attachment.HeaderText = "附件";
+            this.Attachment.Name = "Attachment";
+            this.Attachment.Text = "上传/查询";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbRef,
-            this.tsb_save,
+            this.tsbSave,
             this.tsb_modify,
             this.tsb_query,
             this.tsbSettle,
@@ -260,14 +326,14 @@
             this.tsbRef.Text = "参照";
             this.tsbRef.Click += new System.EventHandler(this.tsbRef_Click);
             // 
-            // tsb_save
+            // tsbSave
             // 
-            this.tsb_save.Image = ((System.Drawing.Image)(resources.GetObject("tsb_save.Image")));
-            this.tsb_save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_save.Name = "tsb_save";
-            this.tsb_save.Size = new System.Drawing.Size(53, 22);
-            this.tsb_save.Text = "保存";
-            this.tsb_save.Click += new System.EventHandler(this.Tsb_save_Click);
+            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
+            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSave.Name = "tsbSave";
+            this.tsbSave.Size = new System.Drawing.Size(53, 22);
+            this.tsbSave.Text = "保存";
+            this.tsbSave.Click += new System.EventHandler(this.Tsb_save_Click);
             // 
             // tsb_modify
             // 
@@ -336,72 +402,6 @@
             // 
             this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
             // 
-            // ccode
-            // 
-            this.ccode.DataPropertyName = "ccode";
-            this.ccode.HeaderText = "请购单号";
-            this.ccode.Name = "ccode";
-            // 
-            // dDate
-            // 
-            this.dDate.DataPropertyName = "dDate";
-            this.dDate.HeaderText = "请购日期";
-            this.dDate.Name = "dDate";
-            // 
-            // cAuditDate
-            // 
-            this.cAuditDate.DataPropertyName = "cAuditDate";
-            this.cAuditDate.HeaderText = "审核日期";
-            this.cAuditDate.Name = "cAuditDate";
-            // 
-            // cPersonName
-            // 
-            this.cPersonName.DataPropertyName = "cPersonName";
-            this.cPersonName.HeaderText = "请购人员";
-            this.cPersonName.Name = "cPersonName";
-            // 
-            // cInvCode
-            // 
-            this.cInvCode.DataPropertyName = "cInvCode";
-            this.cInvCode.HeaderText = "服务编码";
-            this.cInvCode.Name = "cInvCode";
-            // 
-            // cInvName
-            // 
-            this.cInvName.DataPropertyName = "cInvName";
-            this.cInvName.HeaderText = "服务名称";
-            this.cInvName.Name = "cInvName";
-            // 
-            // cInvStd
-            // 
-            this.cInvStd.DataPropertyName = "cInvStd";
-            this.cInvStd.HeaderText = "服务描述";
-            this.cInvStd.Name = "cInvStd";
-            // 
-            // settleFlag
-            // 
-            this.settleFlag.DataPropertyName = "settleFlag";
-            this.settleFlag.HeaderText = "是否验收";
-            this.settleFlag.Name = "settleFlag";
-            // 
-            // settleDate
-            // 
-            this.settleDate.DataPropertyName = "settleDate";
-            this.settleDate.HeaderText = "验收日期";
-            this.settleDate.Name = "settleDate";
-            // 
-            // IsClose
-            // 
-            this.IsClose.DataPropertyName = "IsClose";
-            this.IsClose.HeaderText = "关闭人";
-            this.IsClose.Name = "IsClose";
-            // 
-            // Attachment
-            // 
-            this.Attachment.HeaderText = "附件";
-            this.Attachment.Name = "Attachment";
-            this.Attachment.Text = "上传/查询";
-            // 
             // FrmWeakCurrence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -436,7 +436,7 @@
         private System.Windows.Forms.Label lbl_url;
         private System.Windows.Forms.TextBox txtPrVoucherNo;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsb_save;
+        private System.Windows.Forms.ToolStripButton tsbSave;
         private System.Windows.Forms.ToolStripButton tsb_close;
         private System.Windows.Forms.Label lbl_content;
 

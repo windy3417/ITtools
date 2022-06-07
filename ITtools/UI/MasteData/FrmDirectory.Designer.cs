@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.tsb_add = new System.Windows.Forms.ToolStripButton();
-            this.tsb_save = new System.Windows.Forms.ToolStripButton();
-            this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_openFileDirectory = new System.Windows.Forms.Button();
             this.lbl_item = new System.Windows.Forms.Label();
@@ -44,7 +40,11 @@
             this.dgv_list = new System.Windows.Forms.DataGridView();
             this.lbl_titel = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.tsb_add = new System.Windows.Forms.ToolStripButton();
+            this.tsb_save = new System.Windows.Forms.ToolStripButton();
             this.tsbModify = new System.Windows.Forms.ToolStripButton();
+            this.tsb_query = new System.Windows.Forms.ToolStripButton();
+            this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
@@ -64,42 +64,6 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsb_close
-            // 
-            this.tsb_close.Image = global::ITtools.Properties.Resources.icon_quit;
-            this.tsb_close.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_close.Name = "tsb_close";
-            this.tsb_close.Size = new System.Drawing.Size(52, 22);
-            this.tsb_close.Text = "关闭";
-            this.tsb_close.Click += new System.EventHandler(this.tsb_close_Click);
-            // 
-            // tsb_add
-            // 
-            this.tsb_add.Image = global::ITtools.Properties.Resources.add;
-            this.tsb_add.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_add.Name = "tsb_add";
-            this.tsb_add.Size = new System.Drawing.Size(52, 22);
-            this.tsb_add.Text = "增加";
-            this.tsb_add.Click += new System.EventHandler(this.tsb_add_Click);
-            // 
-            // tsb_save
-            // 
-            this.tsb_save.Image = global::ITtools.Properties.Resources.save;
-            this.tsb_save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_save.Name = "tsb_save";
-            this.tsb_save.Size = new System.Drawing.Size(52, 22);
-            this.tsb_save.Text = "保存";
-            this.tsb_save.Click += new System.EventHandler(this.tsb_save_Click);
-            // 
-            // tsb_query
-            // 
-            this.tsb_query.Image = global::ITtools.Properties.Resources.Search;
-            this.tsb_query.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_query.Name = "tsb_query";
-            this.tsb_query.Size = new System.Drawing.Size(52, 22);
-            this.tsb_query.Text = "查询";
-            this.tsb_query.Click += new System.EventHandler(this.tsb_query_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
@@ -107,7 +71,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.57143F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 194F));
             this.tableLayoutPanel1.Controls.Add(this.btn_openFileDirectory, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_item, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -126,7 +90,7 @@
             // btn_openFileDirectory
             // 
             this.btn_openFileDirectory.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_openFileDirectory.Location = new System.Drawing.Point(322, 64);
+            this.btn_openFileDirectory.Location = new System.Drawing.Point(320, 64);
             this.btn_openFileDirectory.Name = "btn_openFileDirectory";
             this.btn_openFileDirectory.Size = new System.Drawing.Size(35, 21);
             this.btn_openFileDirectory.TabIndex = 4;
@@ -165,7 +129,7 @@
             // txt_directory
             // 
             this.txt_directory.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txt_directory.Location = new System.Drawing.Point(74, 64);
+            this.txt_directory.Location = new System.Drawing.Point(72, 64);
             this.txt_directory.Name = "txt_directory";
             this.txt_directory.Size = new System.Drawing.Size(242, 21);
             this.txt_directory.TabIndex = 1;
@@ -174,7 +138,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(322, 19);
+            this.label1.Location = new System.Drawing.Point(320, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
@@ -190,7 +154,7 @@
             "弱电验收单附件",
             "备份",
             "删除"});
-            this.cmbClass.Location = new System.Drawing.Point(369, 15);
+            this.cmbClass.Location = new System.Drawing.Point(367, 15);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(183, 20);
             this.cmbClass.TabIndex = 5;
@@ -221,14 +185,50 @@
             this.lbl_titel.TabIndex = 3;
             this.lbl_titel.Text = "常 用 文 件 路 径";
             // 
+            // tsb_add
+            // 
+            this.tsb_add.Image = global::ITtools.Properties.Resources.add;
+            this.tsb_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_add.Name = "tsb_add";
+            this.tsb_add.Size = new System.Drawing.Size(53, 22);
+            this.tsb_add.Text = "增加";
+            this.tsb_add.Click += new System.EventHandler(this.tsb_add_Click);
+            // 
+            // tsb_save
+            // 
+            this.tsb_save.Image = global::ITtools.Properties.Resources.save;
+            this.tsb_save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_save.Name = "tsb_save";
+            this.tsb_save.Size = new System.Drawing.Size(53, 22);
+            this.tsb_save.Text = "保存";
+            this.tsb_save.Click += new System.EventHandler(this.tsb_save_Click);
+            // 
             // tsbModify
             // 
             this.tsbModify.Image = global::ITtools.Properties.Resources.Modify;
             this.tsbModify.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbModify.Name = "tsbModify";
-            this.tsbModify.Size = new System.Drawing.Size(52, 22);
+            this.tsbModify.Size = new System.Drawing.Size(53, 22);
             this.tsbModify.Text = "修改";
             this.tsbModify.Click += new System.EventHandler(this.tsbModify_Click);
+            // 
+            // tsb_query
+            // 
+            this.tsb_query.Image = global::ITtools.Properties.Resources.Search;
+            this.tsb_query.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_query.Name = "tsb_query";
+            this.tsb_query.Size = new System.Drawing.Size(53, 22);
+            this.tsb_query.Text = "查询";
+            this.tsb_query.Click += new System.EventHandler(this.tsb_query_Click);
+            // 
+            // tsb_close
+            // 
+            this.tsb_close.Image = global::ITtools.Properties.Resources.icon_quit;
+            this.tsb_close.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_close.Name = "tsb_close";
+            this.tsb_close.Size = new System.Drawing.Size(53, 22);
+            this.tsb_close.Text = "关闭";
+            this.tsb_close.Click += new System.EventHandler(this.tsb_close_Click);
             // 
             // FrmDirectory
             // 

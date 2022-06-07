@@ -23,7 +23,7 @@ namespace ITtools.UI
         {
             
             InitializeComponent();
-            this.initialize();
+            this.InitializeControlState();
             initializeControlDataSource();
 
         }
@@ -54,82 +54,27 @@ namespace ITtools.UI
 
         #endregion
 
-        #region 初始化控件
+      
+        #region style
 
-        /// <summary>
-        /// 初始化控件状态
-        /// </summary>
-        private void initialize()
+        private void InitializeControlState()
         {
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
 
-
-
             this.dgv_list.AutoGenerateColumns = false;
-
 
             navigate.Width = 50;
 
 
         }
 
-        /// <summary>
-        /// 初始化控件数据源
-        /// </summary>
-        void initializeControlDataSource()
-        {
-
-            //不能直接绑定hashTable或dictinary因为会报以下错误
-            //“复杂的 DataBinding 接受 IList 或 IListSource 作为数据源”
-            cmb_class.DataSource = new BindingSource(new EnumService().GetITenum(), null);
-            cmb_class.ValueMember = "key";
-            cmb_class.DisplayMember = "value";
-
-
-        }
-
-
         #endregion
 
 
         #region 菜单事件处理
 
-        /// <summary>
-        /// 以EXCEL格式，导出数据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsb_export_Click(object sender, EventArgs e)
-        {
-            ExportExcel exprort = new ExportExcel();
-            exprort.ExportExcelWithNPOI(dgv_list, "资源列表");
-        }
+      
 
-        #region 查询
-
-
-
-        /// <summary>
-        /// 查询列表
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsb_query_Click(object sender, EventArgs e)
-        {
-
-            this.bind_gv_dateSource();
-
-
-            if (dgv_list.Rows.Count > 0)
-            {
-                this.dgv_list.Rows[0].Selected = true;
-            }
-
-
-        }
-
-
-        #endregion
 
         #endregion
 
@@ -282,19 +227,103 @@ namespace ITtools.UI
 
         #endregion
 
-        #region dataGridView数据处理与绑定
+
+        #region data handle
+
         /// <summary>
-        /// 处理dataGridView中button列的单击事件,跳转到网页
+        /// 选择当前行数据进行处理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgv_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex !=
-           dgv_list.Columns["navigate"].Index) return;
-            NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[3].Value.ToString());
+
+            clearDate();
+            if (e.RowIndex > -1)
+            {
+
+                cmb_class.Text = dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+
+            }
+
+
         }
 
+        /// <summary>
+        /// 以EXCEL格式，导出数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_export_Click(object sender, EventArgs e)
+        {
+            ExportExcel exprort = new ExportExcel();
+            exprort.ExportExcelWithNPOI(dgv_list, "资源列表");
+        }
+
+        #endregion
+
+    
+        #region get data
+
+
+        /// <summary>
+        /// 初始化控件数据源
+        /// </summary>
+        void initializeControlDataSource()
+        {
+
+            //不能直接绑定hashTable或dictinary因为会报以下错误
+            //“复杂的 DataBinding 接受 IList 或 IListSource 作为数据源”
+            cmb_class.DataSource = new BindingSource(new EnumService().GetITenum(), null);
+            cmb_class.ValueMember = "key";
+            cmb_class.DisplayMember = "value";
+
+
+        }
+
+        /// <summary>
+        /// 查询列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_query_Click(object sender, EventArgs e)
+        {
+
+            this.bind_gv_dateSource();
+
+
+            if (dgv_list.Rows.Count > 0)
+            {
+                this.dgv_list.Rows[0].Selected = true;
+            }
+
+
+        }
+
+
+
+        /// <summary>
+        /// 内容模糊查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsb_contentSerch_Click(object sender, EventArgs e)
+        {
+            var query = from q in new WebURLService().GetWebURLs().
+                //toLower后比较时可忽略大小写，因为是都转为小写后比较的
+                Where(s => s.introduction.ToLower().Contains(this.txt_content.Text.ToLower()))
+                        join d in new EnumService().GetITenum()
+
+                        on q.ResourceClass equals d.Key
+
+                        select new { q.id, q.url, q.introduction, d.Value };
+
+            this.dgv_list.DataSource = query.ToList();
+
+
+        }
 
         /// <summary>
         /// 穿透查询到单据
@@ -322,36 +351,19 @@ namespace ITtools.UI
             }
         }
 
-      
-
-
         /// <summary>
-        /// 选择当前行数据进行处理
+        /// 处理dataGridView中button列的单击事件,跳转到网页
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            clearDate();
-            if (e.RowIndex > -1)
-            {
-              
-                cmb_class.Text= dgv_list.Rows[e.RowIndex].Cells[1].Value.ToString();
-                this.txt_content.Text = this.dgv_list.Rows[e.RowIndex].Cells[2].Value.ToString();
-                
-                
-                
-            }
-
-
+            if (e.RowIndex < 0 || e.ColumnIndex !=
+           dgv_list.Columns["navigate"].Index) return;
+            NetHelper.OpenEdge(dgv_list.SelectedRows[0].Cells[3].Value.ToString());
         }
-
-
         #endregion
 
-                 
-     
         #region 主窗体事件处理
 
         #region 窗体操作
@@ -402,8 +414,8 @@ namespace ITtools.UI
             {
                 tsb_contentSerch.PerformClick(); //执行单击button1的动作      
             }
-          
-            
+
+
         }
 
 
@@ -420,26 +432,5 @@ namespace ITtools.UI
         #endregion
 
         #endregion
-
-        /// <summary>
-        /// 内容模糊查询
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsb_contentSerch_Click(object sender, EventArgs e)
-        {
-            var query = from q in new WebURLService().GetWebURLs().
-                        //toLower后比较时可忽略大小写，因为是都转为小写后比较的
-                Where(s => s.introduction.ToLower().Contains(this.txt_content.Text.ToLower()))
-                        join d in new EnumService().GetITenum()
-                        
-                        on q.ResourceClass equals d.Key
-
-                        select new { q.id, q.url, q.introduction, d.Value };
-                        
-            this.dgv_list.DataSource = query.ToList();
-
-            
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ITtools.UI
+﻿namespace ITtools.UI.SetUp
 {
     partial class FrmConfig
     {
