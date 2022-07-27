@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>43</ApplicationRevision>
+    <ApplicationRevision>45</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -170,6 +170,10 @@
     <Compile Include="Migrations\202112130632380_InitialCreate.cs" />
     <Compile Include="Migrations\202112130632380_InitialCreate.designer.cs">
       <DependentUpon>202112130632380_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206290858246_m2.cs" />
+    <Compile Include="Migrations\202206290858246_m2.designer.cs">
+      <DependentUpon>202206290858246_m2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IT\AddressBookModel.cs" />
@@ -360,6 +364,9 @@
     <EmbeddedResource Include="Migrations\202112130632380_InitialCreate.resx">
       <DependentUpon>202112130632380_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206290858246_m2.resx">
+      <DependentUpon>202206290858246_m2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddresBookAddUpdate.resx">
       <DependentUpon>FrmAddresBookAddUpdate.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +418,7 @@
     <None Include="Resources\settleaccounts.png" />
     <None Include="Resources\up_nav.gif" />
     <None Include="Resources\giveUpAudit.gif" />
+    <None Include="Resources\update.gif" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

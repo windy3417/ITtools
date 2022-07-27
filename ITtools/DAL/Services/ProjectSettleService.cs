@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using ITtools.DAL.VModel;
 using ITtools.Model;
+using ITtools.Model.IT;
 using ITtools.Model.U8;
 
 namespace ITtools.DAL.Services
 {
     public class ProjectSettleService
     {
-        public List<ProjectSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter)
+        public List<ProjectSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter1, Expression<Func<PrWeakCurrentModel, bool>> filter2)
         {
             using (var db = new ItContext())
             {
@@ -23,7 +24,7 @@ namespace ITtools.DAL.Services
 
                     //不能同时实例化两个上下文，所以分开查询，再合并，注意ToArray()方法以实现避免联合查询
                     //u8 database
-                    var q = (from s in u8.PU_AppVouch.Where(filter.Compile())
+                    var q = (from s in u8.PU_AppVouch.Where(filter1.Compile())
                              join p in u8.PU_AppVouchs on s.ID equals p.ID
                              join n in u8.Person on s.cPersonCode equals n.cPersonCode
                              join i in u8.Inventory on p.cInvCode equals i.cInvCode
@@ -32,7 +33,7 @@ namespace ITtools.DAL.Services
                     
                     //business database
                     var q1 = from s in q
-                             join w in db.PrWeakCurrent
+                             join w in db.PrWeakCurrent.Where(filter2.Compile())
                              on s.cCode equals w.PrVoucherNo
                              orderby s.dDate
                              select new

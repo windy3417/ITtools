@@ -64,6 +64,7 @@
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
             this.tsb_delete = new System.Windows.Forms.ToolStripButton();
             this.tsbExport = new System.Windows.Forms.ToolStripButton();
+            this.tsbUpload = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
@@ -83,7 +84,7 @@
             this.panel1.Controls.Add(this.lbl_customer);
             this.panel1.Location = new System.Drawing.Point(27, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(744, 410);
+            this.panel1.Size = new System.Drawing.Size(1025, 571);
             this.panel1.TabIndex = 0;
             // 
             // pRecordRegion
@@ -189,7 +190,7 @@
             this.lbl_voucherStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_voucherStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbl_voucherStatus.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbl_voucherStatus.Location = new System.Drawing.Point(642, 4);
+            this.lbl_voucherStatus.Location = new System.Drawing.Point(923, 4);
             this.lbl_voucherStatus.Name = "lbl_voucherStatus";
             this.lbl_voucherStatus.Size = new System.Drawing.Size(72, 14);
             this.lbl_voucherStatus.TabIndex = 3;
@@ -200,7 +201,7 @@
             this.lbl_customer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_customer.AutoSize = true;
             this.lbl_customer.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbl_customer.Location = new System.Drawing.Point(313, 32);
+            this.lbl_customer.Location = new System.Drawing.Point(453, 32);
             this.lbl_customer.Name = "lbl_customer";
             this.lbl_customer.Size = new System.Drawing.Size(142, 21);
             this.lbl_customer.TabIndex = 1;
@@ -227,7 +228,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(33, 194);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(1019, 402);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseDoubleClick);
@@ -310,10 +311,11 @@
             this.tsbCancel,
             this.tsb_delete,
             this.tsbExport,
+            this.tsbUpload,
             this.tsb_close});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1081, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -389,6 +391,15 @@
             this.tsbExport.Text = "输出EXCEL";
             this.tsbExport.Click += new System.EventHandler(this.tsbExport_Click);
             // 
+            // tsbUpload
+            // 
+            this.tsbUpload.Image = global::ITtools.Properties.Resources.update;
+            this.tsbUpload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbUpload.Name = "tsbUpload";
+            this.tsbUpload.Size = new System.Drawing.Size(53, 22);
+            this.tsbUpload.Text = "上传";
+            this.tsbUpload.Click += new System.EventHandler(this.tsbUpload_Click);
+            // 
             // tsb_close
             // 
             this.tsb_close.Image = ((System.Drawing.Image)(resources.GetObject("tsb_close.Image")));
@@ -406,7 +417,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1081, 611);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
@@ -469,5 +480,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn settleDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsClose;
         private System.Windows.Forms.DataGridViewButtonColumn Attachment;
+        private System.Windows.Forms.ToolStripButton tsbUpload;
     }
 }

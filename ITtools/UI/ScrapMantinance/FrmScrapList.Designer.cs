@@ -39,6 +39,7 @@ namespace ITtools.UI.ScrapMantinance
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tsbExport = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -49,6 +50,7 @@ namespace ITtools.UI.ScrapMantinance
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbQuery,
             this.tsbUpdate,
+            this.tsbExport,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -144,6 +146,15 @@ namespace ITtools.UI.ScrapMantinance
             this.dataGridView1.Size = new System.Drawing.Size(776, 303);
             this.dataGridView1.TabIndex = 2;
             // 
+            // tsbExport
+            // 
+            this.tsbExport.Image = global::ITtools.Properties.Resources.export;
+            this.tsbExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExport.Name = "tsbExport";
+            this.tsbExport.Size = new System.Drawing.Size(86, 22);
+            this.tsbExport.Text = "导出EXCEL";
+            this.tsbExport.Click += new System.EventHandler(this.tsbExport_Click);
+            // 
             // FrmScrapList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -176,5 +187,6 @@ namespace ITtools.UI.ScrapMantinance
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton tsbExport;
     }
 }

@@ -38,6 +38,8 @@ namespace ITtools.UI.FilterForm
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtInvCode = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbProjectPocesss = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +75,7 @@ namespace ITtools.UI.FilterForm
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 92);
+            this.label2.Location = new System.Drawing.Point(26, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 0;
@@ -81,7 +83,7 @@ namespace ITtools.UI.FilterForm
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(97, 87);
+            this.dtpStartDate.Location = new System.Drawing.Point(97, 119);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(120, 21);
             this.dtpStartDate.TabIndex = 3;
@@ -89,7 +91,7 @@ namespace ITtools.UI.FilterForm
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(272, 92);
+            this.label3.Location = new System.Drawing.Point(272, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 0;
@@ -97,7 +99,7 @@ namespace ITtools.UI.FilterForm
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(349, 87);
+            this.dtpEndDate.Location = new System.Drawing.Point(349, 119);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(120, 21);
             this.dtpEndDate.TabIndex = 3;
@@ -118,6 +120,26 @@ namespace ITtools.UI.FilterForm
             this.txtInvCode.Size = new System.Drawing.Size(120, 21);
             this.txtInvCode.TabIndex = 4;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 83);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "项目状态：";
+            // 
+            // cmbProjectPocesss
+            // 
+            this.cmbProjectPocesss.FormattingEnabled = true;
+            this.cmbProjectPocesss.Items.AddRange(new object[] {
+            "验收",
+            "开立"});
+            this.cmbProjectPocesss.Location = new System.Drawing.Point(97, 80);
+            this.cmbProjectPocesss.Name = "cmbProjectPocesss";
+            this.cmbProjectPocesss.Size = new System.Drawing.Size(121, 20);
+            this.cmbProjectPocesss.TabIndex = 1;
+            // 
             // FrmFilterWeakCurrent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -127,10 +149,12 @@ namespace ITtools.UI.FilterForm
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.tsbCertain);
+            this.Controls.Add(this.cmbProjectPocesss);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Name = "FrmFilterWeakCurrent";
             this.Text = "弱电工程查询条件";
@@ -150,5 +174,7 @@ namespace ITtools.UI.FilterForm
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtInvCode;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbProjectPocesss;
     }
 }

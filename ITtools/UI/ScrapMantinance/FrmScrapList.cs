@@ -80,7 +80,8 @@ namespace ITtools.UI.ScrapMantinance
                 f.m.vocherNO = dataGridView1.CurrentRow.Cells["vocherNo"].Value.ToString();
                 f.m.note = dataGridView1.CurrentRow.Cells["note"].Value.ToString();
                 f.m.netWeight=Convert.ToDouble( dataGridView1.CurrentRow.Cells["netWeight"].Value);
-                
+                f.m.Tare= Convert.ToDouble(dataGridView1.CurrentRow.Cells["Tare"].Value);
+
                 f.Show();
 
             }
@@ -119,5 +120,11 @@ namespace ITtools.UI.ScrapMantinance
         }
 
         #endregion
+
+        private void tsbExport_Click(object sender, EventArgs e)
+        {
+            Utility.Excel.ExportExcel exportExcel = new Utility.Excel.ExportExcel();
+            exportExcel.ExportExcelWithNPOI(this.dataGridView1, "过磅单列表");
+        }
     }
 }

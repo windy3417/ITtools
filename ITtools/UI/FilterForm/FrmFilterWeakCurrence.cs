@@ -1,5 +1,6 @@
 ﻿using ITtools.DAL.Services;
 using ITtools.DAL.VModel;
+using ITtools.Model.IT;
 using ITtools.Model.U8;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace ITtools.UI.FilterForm
         public FrmFilterWeakCurrent()
         {
             InitializeComponent();
+            SetDefaultValue();
         }
 
 
@@ -27,6 +29,7 @@ namespace ITtools.UI.FilterForm
        public Action<List<ProjectSettleVmodel>> ActionListProject;
         #endregion
 
+
         /// <summary>
         /// return data to form
         /// </summary>
@@ -34,13 +37,15 @@ namespace ITtools.UI.FilterForm
         /// <param name="e"></param>
         private void tsbCertain_Click(object sender, EventArgs e)
         {
-            Expression<Func<PU_AppVouch, bool>> exp = s => Filter(s);
+            Expression<Func<PU_AppVouch, bool>> exp1 = s => Filter(s); 
+            Expression<Func<PrWeakCurrentModel, bool>> exp2 = s => Filter(s);
             this.Cursor = Cursors.WaitCursor;
-            ActionListProject?.Invoke(new ProjectSettleService().getProject(exp));
+            ActionListProject?.Invoke(new ProjectSettleService().getProject(exp1,exp2));
             this.Close();
             
         }
 
+        #region filter
 
         bool Filter(PU_AppVouch m)
         {
@@ -60,18 +65,59 @@ namespace ITtools.UI.FilterForm
 
                 switch (cmbStatus.Text)
                 {
-                  case  "关闭"  :  result &= m.cCloser != null;
-                break;
-                    case "审核": result &= m.cCloser == null;
+                    case "关闭":
+                        result &= m.cCloser != null;
+                        break;
+                    case "审核":
+                        result &= m.cCloser == null;
                         break;
 
                 }
-             
-               
+
+
             }
 
             return result;
 
+        }
+
+
+        bool Filter(PrWeakCurrentModel m)
+        {
+            bool result = true;
+        
+
+            if (!String.IsNullOrEmpty(cmbProjectPocesss.Text?.ToString()))
+            {
+
+                switch (cmbProjectPocesss.Text)
+                {
+                    case "验收":
+                        result &= m.isSettle ==true;
+                        break;
+                    case "开立":
+                        result &= m.isSettle == false ;
+                        break;
+
+                }
+
+
+            }
+
+            return result;
+
+        }
+
+        #endregion
+
+
+
+        void SetDefaultValue()
+        {
+            dtpStartDate.Value = DateTime.Now.AddMonths(-DateTime.Now.Month + 1).AddDays(-DateTime.Now.Day + 1);
+            cmbProjectPocesss.Text = "开立";
+            cmbStatus.Text = "";
+            //cmbStatus.Text=
         }
     }
 }

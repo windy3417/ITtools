@@ -562,7 +562,20 @@ namespace ITtools.UI
 
         #endregion
 
-      
+
+        #region data handle
+
+        /// <summary>
+        /// upload data to wx-mini-program 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbUpload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
 
         void transferData(AppPurVmodel refAppPur)
         {
@@ -581,7 +594,7 @@ namespace ITtools.UI
         private void tsbCancel_Click(object sender, EventArgs e)
         {
 
-            if ((bool)dataGridView1.CurrentRow.Cells["settleFfag"].Value!=true)
+            if ((bool)dataGridView1.CurrentRow.Cells["settleFlag"].Value!=true)
             {
                 MessageBox.Show("你所要撤销的项目还未验收");
                 return;
@@ -602,5 +615,6 @@ namespace ITtools.UI
         {
             dataGridView1.Columns[e.ColumnIndex].SortMode = DataGridViewColumnSortMode.Automatic;
         }
+
     }
 }

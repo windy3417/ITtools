@@ -18,6 +18,7 @@ namespace ITtools.Model.IT
         public string PrPerson { get; set; }
         public Nullable<bool> isSettle { get; set; }
         public Nullable<DateTime> settleDate { get; set; }
+        public Nullable<bool> UpLoadFlag { get; set; }
 
     }
 }
