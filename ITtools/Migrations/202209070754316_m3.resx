@@ -117,65 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Modify" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modify.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
   </data>
-  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeleteRow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeleteRow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="up_nav" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\up_nav.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settleaccounts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settleaccounts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Key" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Key.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_quit.ICO;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="importdir_wiz" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\importdir_wiz.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LoginForm_password_hi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LoginForm_password_hi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_voice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-voice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="export" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\export.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="giveUpAudit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\giveUpAudit.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Search.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="预览" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\预览.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enable.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="send" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\send.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

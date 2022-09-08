@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>45</ApplicationRevision>
+    <ApplicationRevision>47</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -88,6 +88,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentEmail.Core, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentEmail.Core.3.0.2\lib\netstandard2.0\FluentEmail.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentEmail.Smtp, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentEmail.Smtp.3.0.2\lib\netstandard2.0\FluentEmail.Smtp.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -97,6 +103,9 @@
     </Reference>
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -174,6 +183,14 @@
     <Compile Include="Migrations\202206290858246_m2.cs" />
     <Compile Include="Migrations\202206290858246_m2.designer.cs">
       <DependentUpon>202206290858246_m2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209070754316_m3.cs" />
+    <Compile Include="Migrations\202209070754316_m3.designer.cs">
+      <DependentUpon>202209070754316_m3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209080248300_m4.cs" />
+    <Compile Include="Migrations\202209080248300_m4.designer.cs">
+      <DependentUpon>202209080248300_m4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IT\AddressBookModel.cs" />
@@ -367,6 +384,12 @@
     <EmbeddedResource Include="Migrations\202206290858246_m2.resx">
       <DependentUpon>202206290858246_m2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209070754316_m3.resx">
+      <DependentUpon>202209070754316_m3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209080248300_m4.resx">
+      <DependentUpon>202209080248300_m4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddresBookAddUpdate.resx">
       <DependentUpon>FrmAddresBookAddUpdate.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,6 +442,7 @@
     <None Include="Resources\up_nav.gif" />
     <None Include="Resources\giveUpAudit.gif" />
     <None Include="Resources\update.gif" />
+    <None Include="Resources\send.gif" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

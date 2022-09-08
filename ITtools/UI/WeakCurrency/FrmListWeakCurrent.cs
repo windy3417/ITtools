@@ -21,6 +21,10 @@ using ITtools.DAL.Services;
 using ITtools.DAL.VModel;
 using ITtools.UI.MasteData;
 using ITtools.UI.FilterForm;
+using FluentEmail.Core;
+using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net;
 
 namespace ITtools.UI
 {
@@ -47,7 +51,45 @@ namespace ITtools.UI
 
         #endregion
 
-          
+        #region get data
+
+        /// <summary>
+        /// referece form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbRef_Click(object sender, EventArgs e)
+        {
+            FrmAppPurRef f = new FrmAppPurRef();
+            f.Show();
+            //f.transferData(transferData);
+            f.actionAppVoucher = transferData;
+
+            tsbSave.Enabled = true;
+
+
+        }
+
+
+        /// <summary>
+        /// display data in current form
+        /// </summary>
+        /// <param name="refAppPur"></param>
+        void transferData(AppPurVmodel refAppPur)
+        {
+
+            txtPrVoucherNo.Text = refAppPur.cCode;
+            txtPrContent.Text = refAppPur.cInvCode + " " + refAppPur.cInvName + " " + refAppPur.cInvStd;
+            txbPrPerson.Text = refAppPur.cPersonName;
+            dtpPrDate.Value = Convert.ToDateTime(refAppPur.dDate);
+
+
+
+
+        }
+
+
+        #endregion
 
 
         #region 菜单事件处理
@@ -69,25 +111,7 @@ namespace ITtools.UI
         }
 
 
-        private void tsbExport_Click(object sender, EventArgs e)
-        {
-            Utility.Excel.ExportExcel exportExcel = new Utility.Excel.ExportExcel();
-            exportExcel.ExportExcelWithNPOI(dataGridView1, "未验收结算弱电工程项目清单");
 
-
-        }
-
-        private void tsbRef_Click(object sender, EventArgs e)
-        {
-            FrmAppPurRef f = new FrmAppPurRef();
-            f.Show();
-            //f.transferData(transferData);
-            f.actionAppVoucher = transferData;
-
-            tsbSave.Enabled = true;
-
-
-        }
 
         #region 增删改查
 
@@ -112,7 +136,7 @@ namespace ITtools.UI
                 List<PrWeakCurrentModel> d = (from del in db.PrWeakCurrent
                                               where del.PrVoucherNo == selected
                                               select del).ToList<PrWeakCurrentModel>();
-                if (d[0].isSettle is null || (bool)d[0].isSettle ==false)
+                if (d[0].isSettle is null || (bool)d[0].isSettle == false)
                 {
                     if (DialogResult.Yes == MessageBox.Show("是否确定删除", "删除提醒", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                     {
@@ -133,7 +157,7 @@ namespace ITtools.UI
 
 
 
-               
+
 
             }
 
@@ -182,7 +206,7 @@ namespace ITtools.UI
         }
 
 
-       
+
 
 
 
@@ -231,10 +255,10 @@ namespace ITtools.UI
             FrmFilterWeakCurrent f = new FrmFilterWeakCurrent();
             f.ActionListProject = bind_gv_dateSource;
             f.StartPosition = FormStartPosition.CenterScreen;
-            
+
             f.ShowDialog();
-           
-            
+
+
 
 
 
@@ -250,7 +274,7 @@ namespace ITtools.UI
             this.dataGridView1.DataSource = list;
             dataGridView1.AutoResizeColumns();
 
-         
+
 
         }
 
@@ -272,6 +296,7 @@ namespace ITtools.UI
                 m.PrDate = dtpPrDate.Value;
                 m.PrPerson = txbPrPerson.Text;
                 m.PrVoucherNo = txtPrVoucherNo.Text;
+                m.isSettle = false;
 
                 db.PrWeakCurrent.Add(m);
                 try
@@ -321,7 +346,7 @@ namespace ITtools.UI
                     db.SaveChanges();
                     MessageBox.Show("撤销验收成功！");
 
-                 
+
                 }
             }
         }
@@ -343,7 +368,7 @@ namespace ITtools.UI
                 m.PrPerson = txbPrPerson.Text;
 
                 db.SaveChanges();
-              
+
 
                 //清空修改记录
                 clearDate();
@@ -387,41 +412,6 @@ namespace ITtools.UI
             style.DisplayRowNo(e, dataGridView1);
         }
 
-        private void tsbSettle_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dataGridView1.Rows.Count > 0)
-                {
-                    string selected = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-
-
-                    var db = new ItContext();
-
-                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
-
-                    if (m.isSettle is true)
-                    {
-                        MessageBox.Show("您所选择的项目已经验收，不能两次验收！", "验收提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                    m.isSettle = true;
-                    m.settleDate = DateTime.Now.Date;
-
-                    db.SaveChanges();
-
-                    MessageBox.Show("您所选择的项目已经验收完成");
-                  
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("请选择所要验收的行"+ex.Message + ex.InnerException);
-            }
-        }
 
         /// <summary>
         /// 附件查询
@@ -430,7 +420,7 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ( e.ColumnIndex ==
+            if (e.ColumnIndex ==
           dataGridView1.Columns["attachment"].Index)
             {
                 FrmUpload f = new FrmUpload();
@@ -445,7 +435,7 @@ namespace ITtools.UI
 
         }
 
-      
+
 
         /// <summary>
         /// 清除录入或查询出的数据
@@ -548,6 +538,147 @@ namespace ITtools.UI
 
         #endregion
 
+
+
+        #region data handle
+
+
+        /// <summary>
+        /// settle project
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbSettle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    string selected = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+
+                    var db = new ItContext();
+
+                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
+
+                    if (m.isSettle is true)
+                    {
+                        MessageBox.Show("您所选择的项目已经验收，不能两次验收！", "验收提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    m.isSettle = true;
+                    m.settleDate = DateTime.Now.Date;
+
+                    db.SaveChanges();
+
+                    MessageBox.Show("您所选择的项目已经验收完成");
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("请选择所要验收的行" + ex.Message + ex.InnerException);
+            }
+        }
+
+        /// <summary>
+        /// export to excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbExport_Click(object sender, EventArgs e)
+        {
+            Utility.Excel.ExportExcel exportExcel = new Utility.Excel.ExportExcel();
+            exportExcel.ExportExcelWithNPOI(dataGridView1, "未验收结算弱电工程项目清单");
+
+
+        }
+
+
+        /// <summary>
+        /// sort by date 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dataGridView1.Columns[e.ColumnIndex].SortMode = DataGridViewColumnSortMode.Automatic;
+        }
+
+        /// <summary>
+        /// send messages with email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbEmail_Click(object sender, EventArgs e)
+        {
+
+            this.Cursor=Cursors.WaitCursor;
+
+            try
+            {
+                if (dataGridView1.Rows.Count > 0)
+                {
+                    string selected = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+
+                    var db = new ItContext();
+
+                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
+
+
+                    using (var message = new MailMessage())
+                    {
+                        message.To.Add(new MailAddress("57456236@qq.com", "susan"));
+                        message.From = new MailAddress("jing.luo@csximai.com", "windy");
+                        message.Subject = m.PrDate + m.projectContent + m.PrPerson;
+                        message.Body =m.PrDate+ m.projectContent+m.PrPerson;
+                        message.IsBodyHtml = true;
+
+                        using (var client = new SmtpClient("smtp.exmail.qq.com"))
+                        {
+                            client.UseDefaultCredentials = false;
+                            client.Port = 587;
+                            client.Credentials = new NetworkCredential("jing.luo@csximai.com", "Lj2016");
+                            client.EnableSsl = true;
+                            client.Send(message);
+                        }
+                    }
+
+                    m.SendEmailAmount += 1;
+
+                    db.SaveChanges();
+
+                    this.dataGridView1.SelectedRows[0].Cells["Email"].Value = m.SendEmailAmount;
+                    this.Cursor = Cursors.Default;
+                    MessageBox.Show("邮件发送成功");
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Cursor = Cursors.Default;
+                MessageBox.Show("邮件发送出错" + ex.Message + ex.InnerException);
+            }
+        }
+
+        /// <summary>
+        /// upload data to wx-mini-program 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbUpload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
         #region style
         /// <summary>
         /// 初始化控件状态
@@ -563,38 +694,12 @@ namespace ITtools.UI
         #endregion
 
 
-        #region data handle
-
-        /// <summary>
-        /// upload data to wx-mini-program 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tsbUpload_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        #endregion
-
-        void transferData(AppPurVmodel refAppPur)
-        {
-
-            txtPrVoucherNo.Text = refAppPur.cCode;
-            txtPrContent.Text = refAppPur.cInvCode + " " + refAppPur.cInvName + " " + refAppPur.cInvStd;
-            txbPrPerson.Text = refAppPur.cPersonName;
-            dtpPrDate.Value = Convert.ToDateTime(refAppPur.dDate);
-
-
-
-
-        }
 
 
         private void tsbCancel_Click(object sender, EventArgs e)
         {
 
-            if ((bool)dataGridView1.CurrentRow.Cells["settleFlag"].Value!=true)
+            if ((bool)dataGridView1.CurrentRow.Cells["settleFlag"].Value != true)
             {
                 MessageBox.Show("你所要撤销的项目还未验收");
                 return;
@@ -607,13 +712,7 @@ namespace ITtools.UI
                 f.authorizPass += Oppsite;
                 f.ShowDialog();
             }
-           
-        }
 
-        
-        private void dataGridView1_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            dataGridView1.Columns[e.ColumnIndex].SortMode = DataGridViewColumnSortMode.Automatic;
         }
 
     }

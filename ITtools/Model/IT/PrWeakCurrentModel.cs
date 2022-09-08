@@ -20,5 +20,7 @@ namespace ITtools.Model.IT
         public Nullable<DateTime> settleDate { get; set; }
         public Nullable<bool> UpLoadFlag { get; set; }
 
+        public Nullable<int> SendEmailAmount { get; set; }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITtools.DAL.VModel
 {
-  public  class ProjectSettleVmodel
+    public class ProjectSettleVmodel
     {
 
         public string cCode { get; set; }
@@ -17,9 +17,11 @@ namespace ITtools.DAL.VModel
         public string cInvCode { get; set; }
         public string cInvName { get; set; }
         public string cInvStd { get; set; }
-        public Nullable< bool> settleFlag { get; set; }
-        public Nullable< DateTime> settleDate { get; set; }
+        public Nullable<bool> settleFlag { get; set; }
+        public Nullable<DateTime> settleDate { get; set; }
 
         public string IsClose { get; set; }
+
+        public Nullable<int> SendEmailAmount {get;set;}
     }
 }

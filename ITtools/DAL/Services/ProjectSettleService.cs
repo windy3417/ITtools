@@ -47,7 +47,8 @@ namespace ITtools.DAL.Services
                                  s.cInvStd,
                                  w.isSettle,
                                  w.settleDate,
-                                 s.cbcloser
+                                 s.cbcloser,
+                                 w.SendEmailAmount
                                  
                              };
                             
@@ -67,6 +68,7 @@ namespace ITtools.DAL.Services
                         m.settleFlag = item.isSettle;
                         m.settleDate = item.settleDate;
                         m.IsClose = item.cbcloser is null ? "" : item.cbcloser;
+                        m.SendEmailAmount = item.SendEmailAmount is null ? 0 : item.SendEmailAmount;
                         projectList.Add(m);
                     }
 
