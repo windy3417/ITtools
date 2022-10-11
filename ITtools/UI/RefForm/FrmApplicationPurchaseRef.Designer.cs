@@ -1,7 +1,7 @@
 ﻿
 namespace ITtools.UI.RefForm
 {
-    partial class FrmAppPurRef
+    partial class FrmApplicationPurchaseRef
     {
         /// <summary>
         /// Required designer variable.

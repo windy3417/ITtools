@@ -11,13 +11,13 @@ using ITtools.Model.U8;
 
 namespace ITtools.DAL.Services
 {
-    public class ProjectSettleService
+    public class WeakCurrenceSettleService
     {
-        public List<ProjectSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter1, Expression<Func<PrWeakCurrentModel, bool>> filter2)
+        public List<WeakCurrentSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter1, Expression<Func<PrWeakCurrentModel, bool>> filter2)
         {
             using (var db = new ItContext())
             {
-                List<ProjectSettleVmodel> projectList = new List<ProjectSettleVmodel>();
+                List<WeakCurrentSettleVmodel> projectList = new List<WeakCurrentSettleVmodel>();
 
                 using (var u8 = new U8Context())
                 {
@@ -28,13 +28,14 @@ namespace ITtools.DAL.Services
                              join p in u8.PU_AppVouchs on s.ID equals p.ID
                              join n in u8.Person on s.cPersonCode equals n.cPersonCode
                              join i in u8.Inventory on p.cInvCode equals i.cInvCode
-                             select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, i.cInvCode, i.cInvName, i.cInvStd, p.cbcloser})
+                             select new { s.cCode,p.AutoID, s.dDate, s.cAuditDate, n.cPersonName, i.cInvCode, i.cInvName, i.cInvStd, p.cbcloser})
                              .ToArray();
                     
                     //business database
                     var q1 = from s in q
                              join w in db.PrWeakCurrent.Where(filter2.Compile())
-                             on s.cCode equals w.PrVoucherNo
+                             on  s.cCode equals w.PrVoucherNo
+                             where s.AutoID == w.RowID
                              orderby s.dDate
                              select new
                              {
@@ -57,7 +58,7 @@ namespace ITtools.DAL.Services
 
                     foreach (var item in q1)
                     {
-                        ProjectSettleVmodel m = new ProjectSettleVmodel();
+                        WeakCurrentSettleVmodel m = new WeakCurrentSettleVmodel();
                         m.cCode = item.cCode;
                         m.dDate = item.dDate.ToString();
                         m.cAuditDate = item.cAuditDate.ToString();

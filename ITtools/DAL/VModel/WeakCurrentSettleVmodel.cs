@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace ITtools.DAL.VModel
 {
-    public class AppPurVmodel
+    public class WeakCurrentSettleVmodel
     {
+
         public string cCode { get; set; }
-        public DateTime dDate { get; set; }
-        public DateTime cAuditDate { get; set; }
+        public string dDate { get; set; }
+        public string cAuditDate { get; set; }
         public string cPersonName { get; set; }
 
         public string cInvCode { get; set; }
         public string cInvName { get; set; }
         public string cInvStd { get; set; }
+        public Nullable<bool> settleFlag { get; set; }
+        public Nullable<DateTime> settleDate { get; set; }
 
+        public string IsClose { get; set; }
+
+        public Nullable<int> SendEmailAmount {get;set;}
     }
 }

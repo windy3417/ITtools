@@ -39,6 +39,9 @@ namespace ITtools.UI
         }
 
         #region 变量
+
+        //temply save data from reference form
+        PrWeakCurrentModel vm = new PrWeakCurrentModel();
         //新增时,dataGridview绑定的数据源，以体现新增的结果
         List<PrWeakCurrentModel> mList = new List<PrWeakCurrentModel>();
 
@@ -60,10 +63,10 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void tsbRef_Click(object sender, EventArgs e)
         {
-            FrmAppPurRef f = new FrmAppPurRef();
+            FrmApplicationPurchaseRef f = new FrmApplicationPurchaseRef();
             f.Show();
-            //f.transferData(transferData);
-            f.actionAppVoucher = transferData;
+       
+            f.ActionApplicationPurchaseVoucher = transferData;
 
             tsbSave.Enabled = true;
 
@@ -75,13 +78,14 @@ namespace ITtools.UI
         /// display data in current form
         /// </summary>
         /// <param name="refAppPur"></param>
-        void transferData(AppPurVmodel refAppPur)
+        void transferData(ApplycationPurchaceVmodel refAppPur)
         {
 
             txtPrVoucherNo.Text = refAppPur.cCode;
             txtPrContent.Text = refAppPur.cInvCode + " " + refAppPur.cInvName + " " + refAppPur.cInvStd;
             txbPrPerson.Text = refAppPur.cPersonName;
             dtpPrDate.Value = Convert.ToDateTime(refAppPur.dDate);
+            vm.RowID = refAppPur.RowID;
 
 
 
@@ -145,6 +149,9 @@ namespace ITtools.UI
                             .Remove(d[0]);
                         db.SaveChanges();
                         clearDate();
+
+                        MessageBox.Show("数据已删除！");
+                        this.tsb_query.PerformClick();
 
                     }
                 }
@@ -267,12 +274,13 @@ namespace ITtools.UI
         /// <summary>
         /// 绑定dataGridView的数据源
         /// </summary>
-        private void bind_gv_dateSource(List<ProjectSettleVmodel> list)
+        private void bind_gv_dateSource(List<WeakCurrentSettleVmodel> list)
         {
             this.dataGridView1.DataSource = null;
 
             this.dataGridView1.DataSource = list;
             dataGridView1.AutoResizeColumns();
+            
 
 
 
@@ -297,6 +305,7 @@ namespace ITtools.UI
                 m.PrPerson = txbPrPerson.Text;
                 m.PrVoucherNo = txtPrVoucherNo.Text;
                 m.isSettle = false;
+                m.RowID = vm.RowID;
 
                 db.PrWeakCurrent.Add(m);
                 try
@@ -632,10 +641,10 @@ namespace ITtools.UI
 
                     using (var message = new MailMessage())
                     {
-                        message.To.Add(new MailAddress("57456236@qq.com", "susan"));
+                        message.To.Add(new MailAddress("344205610@qq.com", "庄明睿"));
                         message.From = new MailAddress("jing.luo@csximai.com", "windy");
-                        message.Subject = m.PrDate + m.projectContent + m.PrPerson;
-                        message.Body =m.PrDate+ m.projectContent+m.PrPerson;
+                        message.Subject =m.projectContent ;
+                        message.Body = m.PrVoucherNo + "/"+  m.PrDate.ToShortDateString() +"/" + m.PrPerson + "/" +m.projectContent  ;
                         message.IsBodyHtml = true;
 
                         using (var client = new SmtpClient("smtp.exmail.qq.com"))

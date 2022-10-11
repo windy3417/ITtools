@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_openFileDirectory = new System.Windows.Forms.Button();
@@ -71,7 +74,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.57143F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 194F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
             this.tableLayoutPanel1.Controls.Add(this.btn_openFileDirectory, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_item, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -90,7 +93,7 @@
             // btn_openFileDirectory
             // 
             this.btn_openFileDirectory.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_openFileDirectory.Location = new System.Drawing.Point(320, 64);
+            this.btn_openFileDirectory.Location = new System.Drawing.Point(318, 64);
             this.btn_openFileDirectory.Name = "btn_openFileDirectory";
             this.btn_openFileDirectory.Size = new System.Drawing.Size(35, 21);
             this.btn_openFileDirectory.TabIndex = 4;
@@ -121,7 +124,7 @@
             // txt_dierctoryID
             // 
             this.txt_dierctoryID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_dierctoryID.Location = new System.Drawing.Point(71, 14);
+            this.txt_dierctoryID.Location = new System.Drawing.Point(70, 14);
             this.txt_dierctoryID.Name = "txt_dierctoryID";
             this.txt_dierctoryID.Size = new System.Drawing.Size(242, 21);
             this.txt_dierctoryID.TabIndex = 1;
@@ -129,7 +132,7 @@
             // txt_directory
             // 
             this.txt_directory.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txt_directory.Location = new System.Drawing.Point(72, 64);
+            this.txt_directory.Location = new System.Drawing.Point(70, 64);
             this.txt_directory.Name = "txt_directory";
             this.txt_directory.Size = new System.Drawing.Size(242, 21);
             this.txt_directory.TabIndex = 1;
@@ -138,7 +141,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(320, 19);
+            this.label1.Location = new System.Drawing.Point(318, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
@@ -154,7 +157,7 @@
             "弱电验收单附件",
             "备份",
             "删除"});
-            this.cmbClass.Location = new System.Drawing.Point(367, 15);
+            this.cmbClass.Location = new System.Drawing.Point(365, 15);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(183, 20);
             this.cmbClass.TabIndex = 5;
@@ -166,10 +169,34 @@
             this.dgv_list.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_list.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_list.Location = new System.Drawing.Point(102, 231);
             this.dgv_list.Name = "dgv_list";
             this.dgv_list.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_list.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_list.RowTemplate.Height = 23;
             this.dgv_list.Size = new System.Drawing.Size(559, 150);
             this.dgv_list.TabIndex = 2;

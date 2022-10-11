@@ -9,24 +9,24 @@ using ITtools.Model;
 
 namespace ITtools.DAL.Services
 {
-  public  class AppPurService
+  public  class ApplicationPurchaseService
 
     {
         /// <summary>
         /// 获取请购单
         /// </summary>
         /// <returns></returns>
-        public List<AppPurVmodel> getAppPur(string closeStutas)
+        public List<ApplycationPurchaceVmodel> getAppPur(string closeStutas)
         {
             using (var db =new U8Context())
             {
-                List<AppPurVmodel> appPurList = new List<AppPurVmodel>();
+                List<ApplycationPurchaceVmodel> appPurList = new List<ApplycationPurchaceVmodel>();
 
                 var q = from s in db.PU_AppVouch.Where(s => s.cMaker == "luojing（罗璟）" & s.cCloser == closeStutas)
                          join p in db.PU_AppVouchs on s.ID equals p.ID
                          join n in db.Person on s.cPersonCode equals n.cPersonCode
                          join i in db.Inventory on p.cInvCode equals i.cInvCode
-                         select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd };
+                         select new { s.cCode, p.AutoID, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd };
 
                 db.Database.Log = (s) =>
                 {
@@ -55,7 +55,7 @@ namespace ITtools.DAL.Services
 
                 foreach (var item in q)
                 {
-                    AppPurVmodel m = new AppPurVmodel();
+                    ApplycationPurchaceVmodel m = new ApplycationPurchaceVmodel();
                     m.cCode = item.cCode;
                     m.dDate = item.dDate;
                     m.cAuditDate = (DateTime)item.cAuditDate;
@@ -63,6 +63,7 @@ namespace ITtools.DAL.Services
                     m.cInvCode = item.cInvCode;
                     m.cInvName = item.cInvName;
                     m.cInvStd = item.cInvStd;
+                    m.RowID = item.AutoID;
                     appPurList.Add(m);
                 }
 

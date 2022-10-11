@@ -13,9 +13,9 @@ using System.IO;
 
 namespace ITtools.UI.RefForm
 {
-    public partial class FrmAppPurRef : Form
+    public partial class FrmApplicationPurchaseRef : Form
     {
-        public FrmAppPurRef()
+        public FrmApplicationPurchaseRef()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -26,7 +26,7 @@ namespace ITtools.UI.RefForm
         #region delegate
 
         //委托、传递数据给主调用窗体
-        public Action<AppPurVmodel> actionAppVoucher = null;
+        public Action<ApplycationPurchaceVmodel> ActionApplicationPurchaseVoucher = null;
 
 
         #endregion
@@ -42,7 +42,7 @@ namespace ITtools.UI.RefForm
                          join p in db.PU_AppVouchs on s.ID equals p.ID
                          join n in db.Person on s.cPersonCode equals n.cPersonCode
                          join i in db.Inventory.Where(s => s.cInvCCode.StartsWith("A8")) on p.cInvCode equals i.cInvCode
-                         select new { s.cCode, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd })
+                         select new { s.cCode,p.AutoID, s.dDate, s.cAuditDate, n.cPersonName, p.cInvCode, i.cInvName, i.cInvStd })
                          .OrderBy(s => s.dDate).ToList();
 
                 dataGridView1.DataSource = q;
@@ -73,7 +73,7 @@ namespace ITtools.UI.RefForm
         /// <param name="e"></param>
         private void tsbCertain_Click(object sender, EventArgs e)
         {
-            AppPurVmodel refAppPur = new AppPurVmodel();
+            ApplycationPurchaceVmodel refAppPur = new ApplycationPurchaceVmodel();
             refAppPur.cCode = dataGridView1.CurrentRow.Cells["cCode"].Value.ToString();
             refAppPur.dDate = (DateTime)dataGridView1.CurrentRow.Cells["dDate"].Value;
             refAppPur.cPersonName = dataGridView1.CurrentRow.Cells["cPersonName"].Value.ToString();
@@ -81,12 +81,13 @@ namespace ITtools.UI.RefForm
             refAppPur.cInvName = dataGridView1.CurrentRow.Cells["cInvName"].Value.ToString();
             refAppPur.cInvStd = dataGridView1.CurrentRow.Cells["cInvStd"].Value is null ? "" : dataGridView1.CurrentRow.Cells["cInvStd"].Value.ToString();
             refAppPur.cAuditDate = (DateTime)dataGridView1.CurrentRow.Cells["cAuditDate"].Value;
+            refAppPur.RowID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["AutoID"].Value);
 
 
 
-            if (actionAppVoucher != null)
+            if (ActionApplicationPurchaseVoucher != null)
             {
-                actionAppVoucher.Invoke(refAppPur);
+                ActionApplicationPurchaseVoucher.Invoke(refAppPur);
             }
             this.Close();
         }
@@ -94,27 +95,7 @@ namespace ITtools.UI.RefForm
 
         #endregion
 
-        #region 内部方法
-
-        void writeLog(string log)
-        {
-            NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-            logger.Info(log);
-        }
-
-      public  void transferData(Action<AppPurVmodel> actionAppVoucher)
-        {
-            AppPurVmodel refAppPur = new AppPurVmodel();
-            refAppPur.cCode = dataGridView1.CurrentRow.Cells["cCode"].Value.ToString();
-
-            if (actionAppVoucher != null)
-            {
-                actionAppVoucher.Invoke(refAppPur);
-            }
-        }
-
-
-        #endregion
+      
 
         #region ui handle
 
@@ -132,6 +113,18 @@ namespace ITtools.UI.RefForm
 
         #endregion
 
-        
+        #region data monitor
+
+        void writeLog(string log)
+        {
+            NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+            logger.Info(log);
+        }
+
+
+
+        #endregion
+
+
     }
 }

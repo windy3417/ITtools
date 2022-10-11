@@ -13,6 +13,7 @@ namespace ITtools.Model.IT
     {
         [Key]
         public string PrVoucherNo { get; set; }
+        public int RowID { get; set; }
         public string projectContent { get; set; }
         public DateTime PrDate { get; set; }
         public string PrPerson { get; set; }

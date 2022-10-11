@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>47</ApplicationRevision>
+    <ApplicationRevision>48</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -158,10 +158,10 @@
     <Compile Include="DAL\SaveService.cs" />
     <Compile Include="DAL\Services\AddressBook\AddressBookServce.cs" />
     <Compile Include="DAL\Services\AddressBook\DepartmentService.cs" />
-    <Compile Include="DAL\Services\AppPurService.cs" />
-    <Compile Include="DAL\Services\ProjectSettleService.cs" />
-    <Compile Include="DAL\VModel\AppPurVmodel.cs" />
-    <Compile Include="DAL\VModel\ProjectSettleVmodel.cs" />
+    <Compile Include="DAL\Services\ApplicationPurchaseService.cs" />
+    <Compile Include="DAL\Services\WeakCurrenceSettleService.cs" />
+    <Compile Include="DAL\VModel\ApplycationPurchaceVmodel.cs" />
+    <Compile Include="DAL\VModel\WeakCurrentSettleVmodel.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202209080248300_m4.cs" />
     <Compile Include="Migrations\202209080248300_m4.designer.cs">
       <DependentUpon>202209080248300_m4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210110234136_m5.cs" />
+    <Compile Include="Migrations\202210110234136_m5.designer.cs">
+      <DependentUpon>202210110234136_m5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IT\AddressBookModel.cs" />
@@ -318,11 +322,11 @@
     <Compile Include="UI\U8Query\FrmU8Attachment.Designer.cs">
       <DependentUpon>FrmU8Attachment.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\WeakCurrency\FrmListWeakCurrent.cs">
+    <Compile Include="UI\WeakCurrency\FrmWeakCurrentList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\WeakCurrency\FrmListWeakCurrent.designer.cs">
-      <DependentUpon>FrmListWeakCurrent.cs</DependentUpon>
+    <Compile Include="UI\WeakCurrency\FrmWeakCurrentList.designer.cs">
+      <DependentUpon>FrmWeakCurrentList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Frm_dataBaseBac.cs">
       <SubType>Form</SubType>
@@ -342,11 +346,11 @@
     <Compile Include="UI\MasteData\FrmUpload.Designer.cs">
       <DependentUpon>FrmUpload.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\RefForm\FrmAppPurRef.cs">
+    <Compile Include="UI\RefForm\FrmApplicationPurchaseRef.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\RefForm\FrmAppPurRef.Designer.cs">
-      <DependentUpon>FrmAppPurRef.cs</DependentUpon>
+    <Compile Include="UI\RefForm\FrmApplicationPurchaseRef.Designer.cs">
+      <DependentUpon>FrmApplicationPurchaseRef.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ScrapMantinance\FrmScrapList.cs">
       <SubType>Form</SubType>
@@ -390,6 +394,9 @@
     <EmbeddedResource Include="Migrations\202209080248300_m4.resx">
       <DependentUpon>202209080248300_m4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210110234136_m5.resx">
+      <DependentUpon>202210110234136_m5.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddresBookAddUpdate.resx">
       <DependentUpon>FrmAddresBookAddUpdate.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,8 +412,8 @@
     <EmbeddedResource Include="UI\MasteData\FrmUpload.resx">
       <DependentUpon>FrmUpload.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\RefForm\FrmAppPurRef.resx">
-      <DependentUpon>FrmAppPurRef.cs</DependentUpon>
+    <EmbeddedResource Include="UI\RefForm\FrmApplicationPurchaseRef.resx">
+      <DependentUpon>FrmApplicationPurchaseRef.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ScrapMantinance\FrmScrapList.resx">
       <DependentUpon>FrmScrapList.cs</DependentUpon>
@@ -484,8 +491,8 @@
     <EmbeddedResource Include="UI\InternetResource\FrmInternetResource.resx">
       <DependentUpon>FrmInternetResource.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\WeakCurrency\FrmListWeakCurrent.resx">
-      <DependentUpon>FrmListWeakCurrent.cs</DependentUpon>
+    <EmbeddedResource Include="UI\WeakCurrency\FrmWeakCurrentList.resx">
+      <DependentUpon>FrmWeakCurrentList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Frm_dataBaseBac.resx">
       <DependentUpon>Frm_dataBaseBac.cs</DependentUpon>
