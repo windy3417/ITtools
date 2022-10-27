@@ -657,11 +657,12 @@ namespace ITtools.UI
                         }
                     }
 
-                    m.SendEmailAmount += 1;
+                  var i=  m.SendEmailAmount is null  ? 1 : m.SendEmailAmount+1;
 
+                    m.SendEmailAmount = i;
                     db.SaveChanges();
 
-                    this.dataGridView1.SelectedRows[0].Cells["Email"].Value = m.SendEmailAmount;
+                    this.dataGridView1.SelectedRows[0].Cells["Email"].Value = i;
                     this.Cursor = Cursors.Default;
                     MessageBox.Show("邮件发送成功");
 

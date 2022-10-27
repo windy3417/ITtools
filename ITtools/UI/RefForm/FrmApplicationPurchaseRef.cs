@@ -38,7 +38,7 @@ namespace ITtools.UI.RefForm
         {
             using (var db = new U8Context())
             {
-                var q = (from s in db.PU_AppVouch.Where(s => s.cCloser == null)
+                var q = (from s in db.PU_AppVouch.Where(s => s.cCloser == null & s.cAuditDate!=null)
                          join p in db.PU_AppVouchs on s.ID equals p.ID
                          join n in db.Person on s.cPersonCode equals n.cPersonCode
                          join i in db.Inventory.Where(s => s.cInvCCode.StartsWith("A8")) on p.cInvCode equals i.cInvCode

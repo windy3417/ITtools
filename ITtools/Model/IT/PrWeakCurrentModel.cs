@@ -11,8 +11,12 @@ namespace ITtools.Model.IT
     [Table("PrWeakCurrent")]
   public  class PrWeakCurrentModel
     {
+
         [Key]
+        [Column(Order =1)]
         public string PrVoucherNo { get; set; }
+        [Key]
+        [Column(Order =2)]
         public int RowID { get; set; }
         public string projectContent { get; set; }
         public DateTime PrDate { get; set; }
