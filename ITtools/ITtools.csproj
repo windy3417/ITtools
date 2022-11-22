@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -148,7 +148,7 @@
     </Reference>
     <Reference Include="Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\code\Utility\bin\Debug\Utility.dll</HintPath>
+      <HintPath>..\..\..\Utility\bin\Debug\Utility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +200,10 @@
     <Compile Include="Migrations\202210260549562_m6.designer.cs">
       <DependentUpon>202210260549562_m6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202211210213325_m7.cs" />
+    <Compile Include="Migrations\202211210213325_m7.designer.cs">
+      <DependentUpon>202211210213325_m7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IT\AddressBookModel.cs" />
     <Compile Include="Model\IT\department.cs" />
@@ -227,14 +231,14 @@
     <Compile Include="Model\IT\WebURLModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AppPurVouchService.cs" />
-    <Compile Include="Services\DataBaseListService.cs" />
-    <Compile Include="Services\WebURLService.cs" />
-    <Compile Include="UI\AddressBook\FrmAddresBookAddUpdate.cs">
+    <Compile Include="DAL\Services\AppPurVouchService.cs" />
+    <Compile Include="DAL\Services\DataBaseListService.cs" />
+    <Compile Include="DAL\Services\WebURLService.cs" />
+    <Compile Include="UI\AddressBook\FrmAddUpdateAddresBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\AddressBook\FrmAddresBookAddUpdate.Designer.cs">
-      <DependentUpon>FrmAddresBookAddUpdate.cs</DependentUpon>
+    <Compile Include="UI\AddressBook\FrmAddUpdateAddresBook.Designer.cs">
+      <DependentUpon>FrmAddUpdateAddresBook.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AddressBook\FrmAddressBook.cs">
       <SubType>Form</SubType>
@@ -254,10 +258,10 @@
     <Compile Include="UI\FilterForm\FrmFilterWeakCurrence.Designer.cs">
       <DependentUpon>FrmFilterWeakCurrence.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmCompress.cs">
+    <Compile Include="UI\Common\FrmCompress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmCompress.Designer.cs">
+    <Compile Include="UI\Common\FrmCompress.Designer.cs">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SetUp\FrmConfig.cs">
@@ -266,28 +270,28 @@
     <Compile Include="UI\SetUp\FrmConfig.Designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmDecrypt.cs">
+    <Compile Include="UI\Common\FrmDecrypt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmDecrypt.Designer.cs">
+    <Compile Include="UI\Common\FrmDecrypt.Designer.cs">
       <DependentUpon>FrmDecrypt.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmFileDelete.cs">
+    <Compile Include="UI\Common\FrmFileDelete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmFileDelete.Designer.cs">
+    <Compile Include="UI\Common\FrmFileDelete.Designer.cs">
       <DependentUpon>FrmFileDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmImport.cs">
+    <Compile Include="UI\Common\FrmImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmImport.Designer.cs">
+    <Compile Include="UI\Common\FrmImport.Designer.cs">
       <DependentUpon>FrmImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmImportMeta.cs">
+    <Compile Include="UI\Common\FrmImportMeta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmImportMeta.Designer.cs">
+    <Compile Include="UI\Common\FrmImportMeta.Designer.cs">
       <DependentUpon>FrmImportMeta.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\InternetResource\FrmQueryResources.cs">
@@ -296,10 +300,10 @@
     <Compile Include="UI\InternetResource\FrmQueryResources.designer.cs">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmVersion.cs">
+    <Compile Include="UI\Common\FrmVersion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmVersion.Designer.cs">
+    <Compile Include="UI\Common\FrmVersion.Designer.cs">
       <DependentUpon>FrmVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\InternetResource\FrmInternetResource.cs">
@@ -332,10 +336,10 @@
     <Compile Include="UI\WeakCurrency\FrmWeakCurrentList.designer.cs">
       <DependentUpon>FrmWeakCurrentList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Frm_dataBaseBac.cs">
+    <Compile Include="UI\Common\Frm_dataBaseBac.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Frm_dataBaseBac.Designer.cs">
+    <Compile Include="UI\Common\Frm_dataBaseBac.Designer.cs">
       <DependentUpon>Frm_dataBaseBac.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\MasteData\FrmDirectory.cs">
@@ -404,8 +408,11 @@
     <EmbeddedResource Include="Migrations\202210260549562_m6.resx">
       <DependentUpon>202210260549562_m6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\AddressBook\FrmAddresBookAddUpdate.resx">
-      <DependentUpon>FrmAddresBookAddUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202211210213325_m7.resx">
+      <DependentUpon>202211210213325_m7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AddressBook\FrmAddUpdateAddresBook.resx">
+      <DependentUpon>FrmAddUpdateAddresBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddressBook.resx">
       <DependentUpon>FrmAddressBook.cs</DependentUpon>
@@ -471,28 +478,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\FrmCompress.resx">
+    <EmbeddedResource Include="UI\Common\FrmCompress.resx">
       <DependentUpon>FrmCompress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SetUp\FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmDecrypt.resx">
+    <EmbeddedResource Include="UI\Common\FrmDecrypt.resx">
       <DependentUpon>FrmDecrypt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmFileDelete.resx">
+    <EmbeddedResource Include="UI\Common\FrmFileDelete.resx">
       <DependentUpon>FrmFileDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmImport.resx">
+    <EmbeddedResource Include="UI\Common\FrmImport.resx">
       <DependentUpon>FrmImport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmImportMeta.resx">
+    <EmbeddedResource Include="UI\Common\FrmImportMeta.resx">
       <DependentUpon>FrmImportMeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InternetResource\FrmQueryResources.resx">
       <DependentUpon>FrmQueryResources.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmVersion.resx">
+    <EmbeddedResource Include="UI\Common\FrmVersion.resx">
       <DependentUpon>FrmVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InternetResource\FrmInternetResource.resx">
@@ -501,7 +508,7 @@
     <EmbeddedResource Include="UI\WeakCurrency\FrmWeakCurrentList.resx">
       <DependentUpon>FrmWeakCurrentList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Frm_dataBaseBac.resx">
+    <EmbeddedResource Include="UI\Common\Frm_dataBaseBac.resx">
       <DependentUpon>Frm_dataBaseBac.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="crashdump.ico" />

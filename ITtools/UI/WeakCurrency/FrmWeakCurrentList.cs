@@ -25,6 +25,7 @@ using FluentEmail.Core;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
+using ITtools.Model.U8;
 
 namespace ITtools.UI
 {
@@ -184,6 +185,8 @@ namespace ITtools.UI
             if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
             {
                 save();
+               
+              this.dataGridView1.DataSource=  new WeakCurrenceSettleService().getProject();
             }
 
 
@@ -313,6 +316,7 @@ namespace ITtools.UI
                     db.SaveChanges();
                     MessageBox.Show("save success");
                     this.tsbSave.Enabled = false;
+                    
                 }
                 catch (Exception e)
                 {
@@ -581,6 +585,7 @@ namespace ITtools.UI
                     db.SaveChanges();
 
                     MessageBox.Show("您所选择的项目已经验收完成");
+                    dataGridView1.SelectedRows[0].Cells["settleFlag"].Value = true;
 
 
 

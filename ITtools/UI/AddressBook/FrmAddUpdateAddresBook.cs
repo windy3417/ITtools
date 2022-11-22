@@ -15,12 +15,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utility.DAL;
 using Utility.Sql;
+using System.Data.SqlClient;
 
 namespace ITtools.UI.AddressBook
 {
-    public partial class FrmAddresBookAddUpdate : Form
+    public partial class FrmAddUpdateAddresBook : Form
     {
-        public FrmAddresBookAddUpdate()
+        public FrmAddUpdateAddresBook()
         {
             InitializeComponent();
             this.FormClosed += CloseParentForm;
@@ -48,11 +49,14 @@ namespace ITtools.UI.AddressBook
             m.memoryCode = TinyPinyin.Core.PinyinHelper.GetPinyinInitials(TxtName.Text);
 
             Utility.DAL.SaveService saveService = new Utility.DAL.SaveService();
-            saveService.SaveSingleDate<AddressBookModel, ItContext>(m);
+            saveService.SaveSingleRowDate<AddressBookModel, ItContext>(m);
 
         }
 
         #endregion
+
+        #region style and form
+
         private void CloseParentForm(object sender, FormClosedEventArgs e)
         {
             this.Parent.Dispose();
@@ -63,14 +67,16 @@ namespace ITtools.UI.AddressBook
             this.Close();
         }
 
-  
+
+        #endregion
 
         #region update data
 
+        //Row number of the data to be modified
         int id;
         
         /// <summary>
-        /// 被主窗体调用
+        /// called by main form
         /// </summary>
         /// <param name="id"></param>
       public  void update(int id)
@@ -84,13 +90,26 @@ namespace ITtools.UI.AddressBook
 
             btnUpdate.Click += BtnUpdate_Click;
 
-            Expression<Func<AddressBookModel, bool>> expression = s => s.emailAddress == "test";
-          var sql=  new JQ.Expressions.SqlServerVisitor().GetSqlWhere(expression);
- 
+            SqlParameter[] ps = { new SqlParameter("@id", id) };
+            
+            AddressBookModel m=  QueryService.GetEntity<AddressBookModel>(ps, Sqlhelper.DataSourceType.it);
+
+            this.txtDepartmentEnglishName.Text= m.engDepartment;
+            this.TxtEmail.Text = m.emailAddress;
+            this.TxtEnglishName.Text = m.englishName;
+            this.TxtName.Text = m.chinessName;
+            this.TxtExt.Text = m.Ext.ToString();
+            this.TxtTel.Text = m.mobilePhoneNumber.ToString();
+            this.CmbDept.SelectedItem = m.deptID;
 
 
         }
 
+        /// <summary>
+        /// save data after change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             AddressBookModel m = new AddressBookModel();

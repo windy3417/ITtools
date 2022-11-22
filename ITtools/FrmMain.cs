@@ -151,7 +151,7 @@ namespace ITtools
 
         private void TsmAddressBookAdd_Click(object sender, EventArgs e)
         {
-            FrmAddresBookAddUpdate f = new FrmAddresBookAddUpdate();
+            FrmAddUpdateAddresBook f = new FrmAddUpdateAddresBook();
             embedForm(f);
         }
 

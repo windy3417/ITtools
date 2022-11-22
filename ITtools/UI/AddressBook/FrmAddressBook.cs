@@ -62,7 +62,7 @@ namespace ITtools.UI.AddressBook
         {
             if (dataGridView1.CurrentRow !=null)
             {
-                FrmAddresBookAddUpdate f = new FrmAddresBookAddUpdate();
+                FrmAddUpdateAddresBook f = new FrmAddUpdateAddresBook();
                 f.Text = "通讯录修改";
                 f.update(Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value));
                 f.Show();

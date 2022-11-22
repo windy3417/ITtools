@@ -16,5 +16,6 @@ namespace ITtools.Model.IT
         [Required]
         [StringLength(50)]
         public string deptName { get; set; }
+        public string EnglishName { get; set; }
     }
 }
