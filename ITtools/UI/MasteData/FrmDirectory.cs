@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utility.Validate;
 using ITtools.Model;
+using ITtools.Model.IT;
 
 namespace ITtools.UI
 {
@@ -64,11 +65,11 @@ namespace ITtools.UI
                 {
                     using (var db = new ItContext())
                     {
-                        DiretoryModel m = new DiretoryModel();
+                        Directory m = new Directory();
                         m.directoryID = txt_dierctoryID.Text;
                         m.diretory = txt_directory.Text;
                         m.directoryType = cmbClass.Text;
-                        db.Diretory.Add(m);
+                        db.Directory.Add(m);
                         db.SaveChanges();
                         MessageBox.Show("数据保存成功！", "保存提示");
                     }
@@ -78,7 +79,7 @@ namespace ITtools.UI
                 {
                     using (var db=new ItContext())
                     {
-                        DiretoryModel m = db.Diretory.Where(s => s.directoryID == txt_dierctoryID.Text).FirstOrDefault();
+                        Directory m = db.Directory.Where(s => s.directoryID == txt_dierctoryID.Text).FirstOrDefault();
                     
                         m.diretory = txt_directory.Text;
                         m.directoryType = cmbClass.Text;
@@ -102,7 +103,7 @@ namespace ITtools.UI
         {
             using (var db = new ItContext())
             {
-                var query = db.Diretory.ToList();
+                var query = db.Directory.ToList();
                 dgv_list.DataSource = query;
 
 

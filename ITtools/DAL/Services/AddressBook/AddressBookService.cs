@@ -10,11 +10,11 @@ using Utility.Sql;
 
 namespace ITtools.DAL.Services.AddressBook
 {
-  public  class AddressBookServce
+  public  class AddressBookService
     {
-        public List<Model.IT.AddressBookModel> GetAddresBook(SqlParameter[] sqlParameters)
+        public List<Model.IT.addressBook> GetAddresBook(SqlParameter[] sqlParameters)
         {
-            List<Model.IT.AddressBookModel> addressBookList = new List<Model.IT.AddressBookModel>();
+            List<Model.IT.addressBook> addressBookList = new List<Model.IT.addressBook>();
 
             StringBuilder sql = new StringBuilder();
               sql.Append(  "select * from addressBook where  1=1 ");
@@ -34,7 +34,7 @@ namespace ITtools.DAL.Services.AddressBook
 
             while (sqlDataReader.Read())
             {
-                Model.IT.AddressBookModel m = new Model.IT.AddressBookModel();
+                Model.IT.addressBook m = new Model.IT.addressBook();
                 m.chinessName = sqlDataReader["chinessName"].ToString();
                 m.department= sqlDataReader["department"].ToString();
                 m.Ext =Convert.ToDouble( sqlDataReader["Ext"]);
@@ -48,7 +48,7 @@ namespace ITtools.DAL.Services.AddressBook
          
         }
 
-        public DataTable GetAddresBookInDataTable(SqlParameter[] sqlParameters )
+        public DataTable GetAddresBookAsDataTable(SqlParameter[] sqlParameters )
         {
             
             StringBuilder sql = new StringBuilder();
@@ -77,5 +77,7 @@ namespace ITtools.DAL.Services.AddressBook
           
            
         }
+
+
     }
 }

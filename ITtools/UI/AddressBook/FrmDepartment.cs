@@ -47,18 +47,18 @@ namespace ITtools.UI.AddressBook
         private void TsbQuery_Click(object sender, EventArgs e)
         {
 
-            dataGridView1.DataSource = Utility.DAL.QueryService.GetDataList<department>(Sqlhelper.DataSourceType.it);
+            dataGridView1.DataSource = Utility.DAL.QueryService.GetDataList<Department>(Sqlhelper.DataSourceType.it);
         }
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
             Utility.DAL.SaveService saveService = new Utility.DAL.SaveService();
-            department m = new department();
+            Department m = new Department();
             m.deptID = txtDepartmentCode.Text;
             m.deptName = txtDepartmentName.Text;
             m.EnglishName = txtDepartmentEnglishName.Text;
             
-            saveService.SaveSingleRowDate<department, ItContext>(m);
+            saveService.SaveSingleRowDate<Department, ItContext>(m);
         }
 
         /// <summary>
@@ -69,13 +69,13 @@ namespace ITtools.UI.AddressBook
         private void SaveForChang(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            department m = new department();
+            Department m = new Department();
             m.deptName = txtDepartmentName.Text;
             m.EnglishName = txtDepartmentEnglishName.Text;
 
-            Expression<Func<department, bool>> expression = s => s.deptID == this.txtDepartmentCode.Text;
+            Expression<Func<Department, bool>> expression = s => s.deptID == this.txtDepartmentCode.Text;
 
-            new UpdateService().Upadate<department, ItContext>
+            new UpdateService().Update<Department, ItContext>
             (expression, m);
             this.Cursor = Cursors.Default;
 
@@ -116,7 +116,7 @@ namespace ITtools.UI.AddressBook
 
             SqlParameter[] ps = { new SqlParameter("@deptID", txtDepartmentCode.Text) };
 
-            department m = QueryService.GetEntity<department>(ps, Sqlhelper.DataSourceType.it);
+            Department m = QueryService.GetEntity<Department>(ps, Sqlhelper.DataSourceType.it);
 
             this.txtDepartmentName.Text = m.deptName;
             this.txtDepartmentEnglishName.Text = m.EnglishName;
@@ -133,9 +133,10 @@ namespace ITtools.UI.AddressBook
 
                 this.Cursor = Cursors.WaitCursor;
                 this.txtDepartmentCode.Text = dataGridView1.SelectedRows[0].Cells["deptID"].Value.ToString();
-                Expression<Func<department, bool>> expression = s => s.deptID == this.txtDepartmentCode.Text;
+
+                Expression<Func<Department, bool>> expression = s => s.deptID == this.txtDepartmentCode.Text;
                 DeleteService d = new DeleteService();
-                d.DeletSingleRow<department, ItContext>(dataGridView1, expression);
+                d.DeletSingleRow<Department, ItContext>(dataGridView1, expression);
 
                 this.Cursor = Cursors.Default;
 

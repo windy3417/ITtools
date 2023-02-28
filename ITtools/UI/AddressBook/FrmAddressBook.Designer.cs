@@ -31,14 +31,14 @@ namespace ITtools.UI.AddressBook
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.TsbQuery = new System.Windows.Forms.ToolStripButton();
+            this.TsbAddressBookUpdate = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CmbDept = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPersonName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TsbAddressBookUpdate = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,16 +61,25 @@ namespace ITtools.UI.AddressBook
             this.TsbQuery.Image = global::ITtools.Properties.Resources.Search;
             this.TsbQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsbQuery.Name = "TsbQuery";
-            this.TsbQuery.Size = new System.Drawing.Size(52, 22);
+            this.TsbQuery.Size = new System.Drawing.Size(53, 22);
             this.TsbQuery.Text = "查询";
             this.TsbQuery.Click += new System.EventHandler(this.TsbQuery_Click);
+            // 
+            // TsbAddressBookUpdate
+            // 
+            this.TsbAddressBookUpdate.Image = global::ITtools.Properties.Resources.Modify;
+            this.TsbAddressBookUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsbAddressBookUpdate.Name = "TsbAddressBookUpdate";
+            this.TsbAddressBookUpdate.Size = new System.Drawing.Size(53, 22);
+            this.TsbAddressBookUpdate.Text = "修改";
+            this.TsbAddressBookUpdate.Click += new System.EventHandler(this.TsbAddressBookUpdate_Click);
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = global::ITtools.Properties.Resources.exit;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(53, 22);
             this.toolStripButton1.Text = "关闭";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -79,7 +88,7 @@ namespace ITtools.UI.AddressBook
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.CmbDept);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPersonName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
@@ -97,12 +106,12 @@ namespace ITtools.UI.AddressBook
             this.CmbDept.Size = new System.Drawing.Size(121, 20);
             this.CmbDept.TabIndex = 2;
             // 
-            // textBox1
+            // txtPersonName
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtPersonName.Location = new System.Drawing.Point(94, 37);
+            this.txtPersonName.Name = "txtPersonName";
+            this.txtPersonName.Size = new System.Drawing.Size(100, 21);
+            this.txtPersonName.TabIndex = 1;
             // 
             // label2
             // 
@@ -134,15 +143,6 @@ namespace ITtools.UI.AddressBook
             this.dataGridView1.Size = new System.Drawing.Size(776, 289);
             this.dataGridView1.TabIndex = 2;
             // 
-            // TsbAddressBookUpdate
-            // 
-            this.TsbAddressBookUpdate.Image = global::ITtools.Properties.Resources.Modify;
-            this.TsbAddressBookUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsbAddressBookUpdate.Name = "TsbAddressBookUpdate";
-            this.TsbAddressBookUpdate.Size = new System.Drawing.Size(52, 22);
-            this.TsbAddressBookUpdate.Text = "修改";
-            this.TsbAddressBookUpdate.Click += new System.EventHandler(this.TsbAddressBookUpdate_Click);
-            // 
             // FrmAddressBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -170,7 +170,7 @@ namespace ITtools.UI.AddressBook
         private System.Windows.Forms.ToolStripButton TsbQuery;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ComboBox CmbDept;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPersonName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;

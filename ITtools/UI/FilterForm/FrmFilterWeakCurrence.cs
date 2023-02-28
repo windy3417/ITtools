@@ -38,7 +38,7 @@ namespace ITtools.UI.FilterForm
         private void tsbCertain_Click(object sender, EventArgs e)
         {
             Expression<Func<PU_AppVouch, bool>> exp1 = s => Filter(s); 
-            Expression<Func<PrWeakCurrentModel, bool>> exp2 = s => Filter(s);
+            Expression<Func<PrWeakCurrent, bool>> exp2 = s => Filter(s);
             this.Cursor = Cursors.WaitCursor;
             ActionListProject?.Invoke(new WeakCurrenceSettleService().getProject(exp1,exp2));
             this.Close();
@@ -82,7 +82,7 @@ namespace ITtools.UI.FilterForm
         }
 
 
-        bool Filter(PrWeakCurrentModel m)
+        bool Filter(PrWeakCurrent m)
         {
             bool result = true;
         

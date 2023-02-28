@@ -13,7 +13,7 @@ namespace ITtools.DAL.Services
 {
     public class WeakCurrenceSettleService
     {
-        public List<WeakCurrentSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter1, Expression<Func<PrWeakCurrentModel, bool>> filter2)
+        public List<WeakCurrentSettleVmodel> getProject(Expression<Func<PU_AppVouch,bool>>filter1, Expression<Func<PrWeakCurrent, bool>> filter2)
         {
             using (var db = new ItContext())
             {

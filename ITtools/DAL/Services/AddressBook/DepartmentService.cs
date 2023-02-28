@@ -22,9 +22,9 @@ namespace ITtools.DAL.Services.AddressBook
 
         }
 
-        public List<department> GetDepanrtmentList()
+        public List<Department> GetDepanrtmentList()
         {
-            List<department> departmentList = new List<department>();
+            List<Department> departmentList = new List<Department>();
 
             string sql = "select * from department";
         
@@ -34,7 +34,7 @@ namespace ITtools.DAL.Services.AddressBook
 
             while (sqlDataReader.Read())
             {
-                department m = new department();
+                Department m = new Department();
                 m.deptID = sqlDataReader["deptID"].ToString();
                 m.deptName = sqlDataReader["deptName"].ToString();
              

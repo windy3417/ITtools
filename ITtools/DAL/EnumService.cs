@@ -15,9 +15,9 @@ namespace ITtools.DAL
         {
             Dictionary<int, String> keyValuePairs = new Dictionary<int, string>();
         
-            foreach (string value in Enum.GetNames(typeof(EnumModle.ITenum)))
+            foreach (string value in System.Enum.GetNames(typeof(Model.Enum.ITenum)))
             {
-                int key = (int)Enum.Parse(typeof(EnumModle.ITenum), value);
+                int key = (int)System.Enum.Parse(typeof(Model.Enum.ITenum), value);
                 keyValuePairs.Add(key, value); //添加keyvalue键值对
               
               

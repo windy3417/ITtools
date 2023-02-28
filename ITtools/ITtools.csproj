@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>51</ApplicationRevision>
+    <ApplicationRevision>54</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -130,6 +130,9 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.2.25.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.2.25\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -152,71 +155,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AddressBookManage.cs" />
     <Compile Include="Common\NetHelper.cs" />
     <Compile Include="DAL\DiretoryService.cs" />
     <Compile Include="DAL\EnumService.cs" />
     <Compile Include="DAL\SaveService.cs" />
-    <Compile Include="DAL\Services\AddressBook\AddressBookServce.cs" />
+    <Compile Include="DAL\Services\AddressBook\AddressBookService.cs" />
     <Compile Include="DAL\Services\AddressBook\DepartmentService.cs" />
     <Compile Include="DAL\Services\ApplicationPurchaseService.cs" />
     <Compile Include="DAL\Services\WeakCurrenceSettleService.cs" />
-    <Compile Include="DAL\VModel\ApplycationPurchaceVmodel.cs" />
-    <Compile Include="DAL\VModel\WeakCurrentSettleVmodel.cs" />
+    <Compile Include="Model\DirectoryItem.cs" />
+    <Compile Include="Model\Enum.cs" />
+    <Compile Include="Model\IT\addressBook.cs" />
+    <Compile Include="Model\IT\Department.cs" />
+    <Compile Include="Model\IT\Directory.cs" />
+    <Compile Include="Model\IT\MaxKeys.cs" />
+    <Compile Include="Model\IT\ItContext.cs" />
+    <Compile Include="Model\IT\PrWeakCurrent.cs" />
+    <Compile Include="Model\IT\V_Addressbook.cs" />
+    <Compile Include="Model\IT\WebUrl.cs" />
+    <Compile Include="Model\VModel\AddressBookVModel.cs" />
+    <Compile Include="Model\VModel\ApplycationPurchaceVmodel.cs" />
+    <Compile Include="Model\VModel\V_Addressbook.cs" />
+    <Compile Include="Model\VModel\WeakCurrentSettleVmodel.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111020630464_m.cs" />
-    <Compile Include="Migrations\202111020630464_m.designer.cs">
-      <DependentUpon>202111020630464_m.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111020712266_m1.cs" />
-    <Compile Include="Migrations\202111020712266_m1.designer.cs">
-      <DependentUpon>202111020712266_m1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112130632380_InitialCreate.cs" />
-    <Compile Include="Migrations\202112130632380_InitialCreate.designer.cs">
-      <DependentUpon>202112130632380_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206290858246_m2.cs" />
-    <Compile Include="Migrations\202206290858246_m2.designer.cs">
-      <DependentUpon>202206290858246_m2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209070754316_m3.cs" />
-    <Compile Include="Migrations\202209070754316_m3.designer.cs">
-      <DependentUpon>202209070754316_m3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209080248300_m4.cs" />
-    <Compile Include="Migrations\202209080248300_m4.designer.cs">
-      <DependentUpon>202209080248300_m4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210110234136_m5.cs" />
-    <Compile Include="Migrations\202210110234136_m5.designer.cs">
-      <DependentUpon>202210110234136_m5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202210260549562_m6.cs" />
-    <Compile Include="Migrations\202210260549562_m6.designer.cs">
-      <DependentUpon>202210260549562_m6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202211210213325_m7.cs" />
-    <Compile Include="Migrations\202211210213325_m7.designer.cs">
-      <DependentUpon>202211210213325_m7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\IT\AddressBookModel.cs" />
-    <Compile Include="Model\IT\department.cs" />
-    <Compile Include="Model\IT\DiretoryItemModel.cs" />
-    <Compile Include="Model\IT\DiretoryModel.cs" />
-    <Compile Include="Model\IT\EnumModel.cs" />
-    <Compile Include="Model\IT\PrWeakCurrentModel.cs" />
     <Compile Include="DAL\Services\QueryService.cs" />
     <Compile Include="Model\Scrap\ScrapContext.cs" />
     <Compile Include="Model\Scrap\WeighingSettlementModels.cs" />
     <Compile Include="Model\U8Context.cs" />
-    <Compile Include="Model\ItContext.cs" />
-    <Compile Include="Model\IT\MaxKeyModel.cs" />
     <Compile Include="Model\U8\code.cs" />
     <Compile Include="Model\U8\GL_accvouch.cs" />
     <Compile Include="Model\U8\Inventory.cs" />
@@ -228,7 +199,6 @@
     <Compile Include="Model\U8\U8CUSTDEF_0058_E002.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0061_E001.cs" />
     <Compile Include="Model\U8\U8CUSTDEF_0061_E002.cs" />
-    <Compile Include="Model\IT\WebURLModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAL\Services\AppPurVouchService.cs" />
@@ -384,33 +354,6 @@
     <Compile Include="UI\U8mantinance\FrmGlvouchModify.Designer.cs">
       <DependentUpon>FrmGlvouchModify.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202111020630464_m.resx">
-      <DependentUpon>202111020630464_m.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111020712266_m1.resx">
-      <DependentUpon>202111020712266_m1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112130632380_InitialCreate.resx">
-      <DependentUpon>202112130632380_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206290858246_m2.resx">
-      <DependentUpon>202206290858246_m2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209070754316_m3.resx">
-      <DependentUpon>202209070754316_m3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209080248300_m4.resx">
-      <DependentUpon>202209080248300_m4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210110234136_m5.resx">
-      <DependentUpon>202210110234136_m5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210260549562_m6.resx">
-      <DependentUpon>202210260549562_m6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202211210213325_m7.resx">
-      <DependentUpon>202211210213325_m7.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddUpdateAddresBook.resx">
       <DependentUpon>FrmAddUpdateAddresBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -464,6 +407,9 @@
     <None Include="Resources\giveUpAudit.gif" />
     <None Include="Resources\update.gif" />
     <None Include="Resources\send.gif" />
+    <None Include="Resources\transfer.jfif" />
+    <Content Include="SQL\sp_addressBook.sql" />
+    <Content Include="SQL\V_Addressbook.sql" />
     <Content Include="程序说明.txt" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -558,7 +504,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DAL\Tools\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

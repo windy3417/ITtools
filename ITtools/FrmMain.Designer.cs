@@ -35,6 +35,7 @@
             this.TsmDepartment = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.常用备份路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSmbConnectiongString = new System.Windows.Forms.ToolStripMenuItem();
             this.数据备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件夹备份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tsmSmbConnectiongString = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -98,30 +98,37 @@
             // person
             // 
             this.person.Name = "person";
-            this.person.Size = new System.Drawing.Size(180, 22);
+            this.person.Size = new System.Drawing.Size(163, 22);
             this.person.Text = "人员档案";
             this.person.Click += new System.EventHandler(this.person_Click);
             // 
             // TsmDepartment
             // 
             this.TsmDepartment.Name = "TsmDepartment";
-            this.TsmDepartment.Size = new System.Drawing.Size(180, 22);
+            this.TsmDepartment.Size = new System.Drawing.Size(163, 22);
             this.TsmDepartment.Text = "部门档案";
             this.TsmDepartment.Click += new System.EventHandler(this.TsmDepartment_Click);
             // 
             // 数据库设置ToolStripMenuItem
             // 
             this.数据库设置ToolStripMenuItem.Name = "数据库设置ToolStripMenuItem";
-            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库设置ToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.数据库设置ToolStripMenuItem.Text = "数据库设置";
             this.数据库设置ToolStripMenuItem.Click += new System.EventHandler(this.数据库设置ToolStripMenuItem_Click);
             // 
             // 常用备份路径ToolStripMenuItem
             // 
             this.常用备份路径ToolStripMenuItem.Name = "常用备份路径ToolStripMenuItem";
-            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.常用备份路径ToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.常用备份路径ToolStripMenuItem.Text = "常用文件路径";
             this.常用备份路径ToolStripMenuItem.Click += new System.EventHandler(this.常用备份路径ToolStripMenuItem_Click);
+            // 
+            // tsmSmbConnectiongString
+            // 
+            this.tsmSmbConnectiongString.Name = "tsmSmbConnectiongString";
+            this.tsmSmbConnectiongString.Size = new System.Drawing.Size(163, 22);
+            this.tsmSmbConnectiongString.Text = "SMB连接字符串";
+            this.tsmSmbConnectiongString.Click += new System.EventHandler(this.tsmSmbConnectiongString_Click);
             // 
             // 数据备份ToolStripMenuItem
             // 
@@ -230,35 +237,35 @@
             // TsmCompress
             // 
             this.TsmCompress.Name = "TsmCompress";
-            this.TsmCompress.Size = new System.Drawing.Size(126, 22);
+            this.TsmCompress.Size = new System.Drawing.Size(180, 22);
             this.TsmCompress.Text = "图片压缩";
             this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
             // 
             // TsbDecrypt
             // 
             this.TsbDecrypt.Name = "TsbDecrypt";
-            this.TsbDecrypt.Size = new System.Drawing.Size(126, 22);
+            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
             this.TsbDecrypt.Text = "加密解密";
             this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
             // 
             // tsmImportDefinite
             // 
             this.tsmImportDefinite.Name = "tsmImportDefinite";
-            this.tsmImportDefinite.Size = new System.Drawing.Size(126, 22);
+            this.tsmImportDefinite.Size = new System.Drawing.Size(180, 22);
             this.tsmImportDefinite.Text = "导入定义";
             this.tsmImportDefinite.Click += new System.EventHandler(this.tsmImportDefinite_Click);
             // 
             // TsmImportData
             // 
             this.TsmImportData.Name = "TsmImportData";
-            this.TsmImportData.Size = new System.Drawing.Size(126, 22);
+            this.TsmImportData.Size = new System.Drawing.Size(180, 22);
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
             // tsmDownLoad
             // 
             this.tsmDownLoad.Name = "tsmDownLoad";
-            this.tsmDownLoad.Size = new System.Drawing.Size(126, 22);
+            this.tsmDownLoad.Size = new System.Drawing.Size(180, 22);
             this.tsmDownLoad.Text = "文档下载";
             this.tsmDownLoad.Click += new System.EventHandler(this.tsmDownLoad_Click);
             // 
@@ -324,13 +331,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 426);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tsmSmbConnectiongString
-            // 
-            this.tsmSmbConnectiongString.Name = "tsmSmbConnectiongString";
-            this.tsmSmbConnectiongString.Size = new System.Drawing.Size(180, 22);
-            this.tsmSmbConnectiongString.Text = "SMB连接字符串";
-            this.tsmSmbConnectiongString.Click += new System.EventHandler(this.tsmSmbConnectiongString_Click);
             // 
             // FrmMain
             // 

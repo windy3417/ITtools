@@ -6,18 +6,14 @@ namespace ITtools.Model.IT
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Department")]
-    public partial class Department
+    public partial class MaxKeys
     {
         public int id { get; set; }
 
-        [StringLength(4)]
-        public string deptID { get; set; }
+        public int VoucherCode { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string deptName { get; set; }
+        public string VoucherName { get; set; }
 
-        public string EnglishName { get; set; }
+        public int CurrentKeyValue { get; set; }
     }
 }

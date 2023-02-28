@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ITtools.Model
 {
-    class DiretoryItemModel:IEquatable<DiretoryItemModel>
+    class DiretoryItem : IEquatable<DiretoryItem>
     {
         public string path;
-        public DiretoryItemModel(string path)
+        public DiretoryItem(string path)
         {
             this.path = path;
         }
 
-        public bool Equals(DiretoryItemModel other)
+        public bool Equals(DiretoryItem other)
         {
-            if (other==null)
+            if (other == null)
             {
                 return false;
             }

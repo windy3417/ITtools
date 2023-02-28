@@ -46,12 +46,14 @@ namespace ITtools.UI.AddressBook
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDepartmentEnglishName = new System.Windows.Forms.TextBox();
+            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAdd,
             this.TsbSave,
             this.TsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -191,6 +193,15 @@ namespace ITtools.UI.AddressBook
             this.txtDepartmentEnglishName.Size = new System.Drawing.Size(121, 21);
             this.txtDepartmentEnglishName.TabIndex = 3;
             // 
+            // tsbAdd
+            // 
+            this.tsbAdd.Image = global::ITtools.Properties.Resources.add;
+            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdd.Name = "tsbAdd";
+            this.tsbAdd.Size = new System.Drawing.Size(53, 22);
+            this.tsbAdd.Text = "增加";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
+            // 
             // FrmAddUpdateAddresBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -239,5 +250,6 @@ namespace ITtools.UI.AddressBook
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDepartmentEnglishName;
+        private System.Windows.Forms.ToolStripButton tsbAdd;
     }
 }

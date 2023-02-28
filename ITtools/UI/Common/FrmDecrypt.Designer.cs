@@ -36,6 +36,7 @@
             this.tsbEncrypt = new System.Windows.Forms.ToolStripButton();
             this.tsbDecrypt = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
+            this.tsbByteToChar = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +83,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbEncrypt,
             this.tsbDecrypt,
+            this.tsbByteToChar,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -94,7 +96,7 @@
             this.tsbEncrypt.Image = global::ITtools.Properties.Resources.LoginForm_password_hi;
             this.tsbEncrypt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEncrypt.Name = "tsbEncrypt";
-            this.tsbEncrypt.Size = new System.Drawing.Size(52, 22);
+            this.tsbEncrypt.Size = new System.Drawing.Size(53, 22);
             this.tsbEncrypt.Text = "加密";
             this.tsbEncrypt.Click += new System.EventHandler(this.tsbEncrypt_Click);
             // 
@@ -103,7 +105,7 @@
             this.tsbDecrypt.Image = global::ITtools.Properties.Resources.Key;
             this.tsbDecrypt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDecrypt.Name = "tsbDecrypt";
-            this.tsbDecrypt.Size = new System.Drawing.Size(52, 22);
+            this.tsbDecrypt.Size = new System.Drawing.Size(53, 22);
             this.tsbDecrypt.Text = "解密";
             this.tsbDecrypt.Click += new System.EventHandler(this.tsbDecrypt_Click);
             // 
@@ -116,6 +118,15 @@
             this.tsbClose.Size = new System.Drawing.Size(23, 22);
             this.tsbClose.Text = "关闭";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
+            // tsbByteToChar
+            // 
+            this.tsbByteToChar.Image = global::ITtools.Properties.Resources.transfer;
+            this.tsbByteToChar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbByteToChar.Name = "tsbByteToChar";
+            this.tsbByteToChar.Size = new System.Drawing.Size(89, 22);
+            this.tsbByteToChar.Text = "Byte转字符";
+            this.tsbByteToChar.Click += new System.EventHandler(this.tsbByteToChar_Click);
             // 
             // FrmDecrypt
             // 
@@ -146,5 +157,6 @@
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.ToolStripButton tsbEncrypt;
         private System.Windows.Forms.ToolStripButton tsbDecrypt;
+        private System.Windows.Forms.ToolStripButton tsbByteToChar;
     }
 }

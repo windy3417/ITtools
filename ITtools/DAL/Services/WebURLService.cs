@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ITtools.Model;
+using ITtools.Model.IT;
 
 namespace ITtools.Services
 {
    public class WebURLService
     {
-        public List<WebURLModel> GetWebURLs()
+        public List<WebUrl> GetWebURLs()
         {
             using (var db =new ItContext())
             {
-                return db.WebURLs.ToList();
+                return db.WebUrl.ToList();
             }
         }
     }

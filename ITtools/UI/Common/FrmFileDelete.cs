@@ -14,6 +14,7 @@ using Utility.Files;
 using ITtools.Services;
 using ITtools.DAL;
 using ITtools.Model;
+using ITtools.Model.IT;
 
 namespace ITtools.UI
 {
@@ -55,7 +56,7 @@ namespace ITtools.UI
         {
             using (var db =new ItContext())
             {
-                var q = db.Diretory.Where(s => s.directoryType == "删除").Select(s =>s.diretory);
+                var q = db.Directory.Where(s => s.directoryType == "删除").Select(s =>s.diretory);
                 cmb_fileFolderDerectory.DataSource = q.ToArray();
             }
                                  

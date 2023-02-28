@@ -6,18 +6,15 @@ namespace ITtools.Model.IT
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Department")]
-    public partial class Department
+    [Table("WebUrl")]
+    public partial class WebUrl
     {
         public int id { get; set; }
 
-        [StringLength(4)]
-        public string deptID { get; set; }
+        public string introduction { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string deptName { get; set; }
+        public string url { get; set; }
 
-        public string EnglishName { get; set; }
+        public int ResourceClass { get; set; }
     }
 }

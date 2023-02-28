@@ -14,6 +14,7 @@ using ITtools.Common;
 using System.Collections;
 using ITtools.DAL;
 using ITtools.Services;
+using ITtools.Model.IT;
 
 namespace ITtools.UI
 {
@@ -30,7 +31,7 @@ namespace ITtools.UI
 
         #region 变量
         //新增时,dataGridview绑定的数据源，以体现新增的结果
-        List<WebURLModel> customerList = new List<WebURLModel>();
+        List<WebUrl> customerList = new List<WebUrl>();
         //最大客户编号
         int maxCusCode;
 
@@ -94,14 +95,14 @@ namespace ITtools.UI
                     using (var db = new ItContext())
                     {
 
-                        WebURLModel m = new WebURLModel();
+                        WebUrl m = new WebUrl();
                   
                         m.introduction = txt_content.Text;
                        
                         m.ResourceClass = (int)cmb_class.SelectedValue;
 
 
-                        db.WebURLs.Add(m);
+                        db.WebUrl.Add(m);
                         try
                         {
                             db.SaveChanges();

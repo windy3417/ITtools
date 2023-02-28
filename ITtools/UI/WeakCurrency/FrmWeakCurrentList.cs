@@ -15,7 +15,7 @@ using System.Collections;
 using ITtools.DAL;
 using ITtools.Services;
 using ITtools.Model.IT;
-using static ITtools.Model.EnumModle;
+
 using ITtools.UI.RefForm;
 using ITtools.DAL.Services;
 using ITtools.DAL.VModel;
@@ -26,6 +26,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using ITtools.Model.U8;
+using static ITtools.Model.Enum;
 
 namespace ITtools.UI
 {
@@ -42,9 +43,9 @@ namespace ITtools.UI
         #region 变量
 
         //temply save data from reference form
-        PrWeakCurrentModel vm = new PrWeakCurrentModel();
+        PrWeakCurrent vm = new PrWeakCurrent();
         //新增时,dataGridview绑定的数据源，以体现新增的结果
-        List<PrWeakCurrentModel> mList = new List<PrWeakCurrentModel>();
+        List<PrWeakCurrent> mList = new List<PrWeakCurrent>();
 
 
 
@@ -138,9 +139,9 @@ namespace ITtools.UI
 
                 var db = new ItContext();
 
-                List<PrWeakCurrentModel> d = (from del in db.PrWeakCurrent
+                List<PrWeakCurrent> d = (from del in db.PrWeakCurrent
                                               where del.PrVoucherNo == selected
-                                              select del).ToList<PrWeakCurrentModel>();
+                                              select del).ToList<PrWeakCurrent>();
                 if (d[0].isSettle is null || (bool)d[0].isSettle == false)
                 {
                     if (DialogResult.Yes == MessageBox.Show("是否确定删除", "删除提醒", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
@@ -300,7 +301,7 @@ namespace ITtools.UI
             using (var db = new ItContext())
             {
 
-                PrWeakCurrentModel m = new PrWeakCurrentModel();
+                PrWeakCurrent m = new PrWeakCurrent();
 
 
                 m.projectContent = txtPrContent.Text;
@@ -352,7 +353,7 @@ namespace ITtools.UI
                 using (var db = new ItContext())
                 {
                     string ccode = dataGridView1.CurrentRow.Cells["ccode"].Value.ToString();
-                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == ccode).FirstOrDefault();
+                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == ccode).FirstOrDefault();
                     m.isSettle = false;
                     m.settleDate = null;
 
@@ -372,7 +373,7 @@ namespace ITtools.UI
 
             using (var db = new ItContext())
             {
-                PrWeakCurrentModel m = db.PrWeakCurrent.Where(c => c.PrVoucherNo.ToString() == txtPrVoucherNo.Text).FirstOrDefault();
+                PrWeakCurrent m = db.PrWeakCurrent.Where(c => c.PrVoucherNo.ToString() == txtPrVoucherNo.Text).FirstOrDefault();
 
 
 
@@ -572,7 +573,7 @@ namespace ITtools.UI
 
                     var db = new ItContext();
 
-                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
+                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
 
                     if (m.isSettle is true)
                     {
@@ -641,7 +642,7 @@ namespace ITtools.UI
 
                     var db = new ItContext();
 
-                    PrWeakCurrentModel m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
+                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
 
 
                     using (var message = new MailMessage())

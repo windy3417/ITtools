@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ITtools.Model;
+using ITtools.Model.IT;
 
 namespace ITtools.UI
 {
@@ -31,7 +32,7 @@ namespace ITtools.UI
             {
                 try
                 {
-                    MaxKeyModel m = new MaxKeyModel();
+                    MaxKeys m = new MaxKeys();
                     m.VoucherCode = System.Convert.ToInt32(this.txtVoucherCode.Text);
                     m.VoucherName = this.txtVoucherName.Text;
                     m.CurrentKeyValue = Convert.ToInt32(this.txtMaxID.Text);

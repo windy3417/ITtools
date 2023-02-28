@@ -13,7 +13,8 @@ using ITtools.Common;
 using System.Collections;
 using ITtools.DAL;
 using ITtools.Services;
-using static ITtools.Model.EnumModle;
+using static ITtools.Model.Enum;
+using ITtools.Model.IT;
 
 namespace ITtools.UI
 {
@@ -29,7 +30,7 @@ namespace ITtools.UI
 
         #region 变量
         //新增时,dataGridview绑定的数据源，以体现新增的结果
-        List<WebURLModel> mList = new List<WebURLModel>();
+        List<WebUrl> mList = new List<WebUrl>();
         //最大客户编号
         int maxCusCode;
 
@@ -135,9 +136,9 @@ namespace ITtools.UI
             //取最大编号时速度太慢，三秒左右，同时最大号算法有误，取到第10号则不向上递增了???。
             using (var db = new ItContext())
             {
-                WebURLModel m = new WebURLModel();
+                WebUrl m = new WebUrl();
 
-                var custQuery = from r in db.WebURLs.AsNoTracking()
+                var custQuery = from r in db.WebUrl.AsNoTracking()
 
                                 select r.id;
                 if (custQuery.Count() == 0)
@@ -176,11 +177,11 @@ namespace ITtools.UI
 
                     var db = new ItContext();
 
-                    List<WebURLModel> d = (from del in db.WebURLs
-                                           where del.id == selected
-                                           select del).ToList<WebURLModel>();
+                    List<WebUrl> d = (from del in db.WebUrl
+                                      where del.id == selected
+                                           select del).ToList<WebUrl>();
                     //移除数据库的数据
-                    db.WebURLs.Remove(d[0]);
+                    db.WebUrl.Remove(d[0]);
                     db.SaveChanges();
                     clearDate();
 
@@ -191,7 +192,7 @@ namespace ITtools.UI
                     if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
                     {
 
-                        List<WebURLModel> customer = mList.Where(c => c.id == selected).ToList<WebURLModel>();
+                        List<WebUrl> customer = mList.Where(c => c.id == selected).ToList<WebUrl>();
                         mList.Remove(customer[0]);
 
                     }
@@ -339,14 +340,14 @@ namespace ITtools.UI
                     using (var db = new ItContext())
                     {
 
-                        WebURLModel m = new WebURLModel();
+                        WebUrl m = new WebUrl();
                         m.id = Convert.ToInt32(txt_cusCode.Text);
                         
                         m.introduction = txt_content.Text;
                         m.url = txt_url.Text;
                         m.ResourceClass = (int)cmb_class.SelectedValue;
 
-                        db.WebURLs.Add(m);
+                        db.WebUrl.Add(m);
                         try
                         {
                             db.SaveChanges();
@@ -378,7 +379,7 @@ namespace ITtools.UI
                 {
                     using (var db = new ItContext())
                     {
-                        WebURLModel m = db.WebURLs.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
+                        WebUrl m = db.WebUrl.Where(c => c.id.ToString() == txt_cusCode.Text).FirstOrDefault();
 
                         m.id = System.Convert.ToInt32(txt_cusCode.Text);
 
