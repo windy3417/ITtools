@@ -39,6 +39,11 @@ namespace ITtools.UI.AddressBook
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.departmanetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -49,6 +54,7 @@ namespace ITtools.UI.AddressBook
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbQuery,
             this.TsbAddressBookUpdate,
+            this.tsbDelete,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -137,11 +143,45 @@ namespace ITtools.UI.AddressBook
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.departmanetName,
+            this.personName,
+            this.ExNo,
+            this.email});
             this.dataGridView1.Location = new System.Drawing.Point(12, 149);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(776, 289);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // departmanetName
+            // 
+            this.departmanetName.HeaderText = "部门名称";
+            this.departmanetName.Name = "departmanetName";
+            // 
+            // personName
+            // 
+            this.personName.HeaderText = "人员姓名";
+            this.personName.Name = "personName";
+            // 
+            // ExNo
+            // 
+            this.ExNo.HeaderText = "分机号";
+            this.ExNo.Name = "ExNo";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "邮箱地址";
+            this.email.Name = "email";
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.Image = global::ITtools.Properties.Resources.DeleteRow;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(53, 22);
+            this.tsbDelete.Text = "删除";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // FrmAddressBook
             // 
@@ -175,5 +215,10 @@ namespace ITtools.UI.AddressBook
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton TsbAddressBookUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departmanetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn personName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
     }
 }

@@ -23,5 +23,6 @@ namespace ITtools.DAL.VModel
         public string IsClose { get; set; }
 
         public Nullable<int> SendEmailAmount {get;set;}
+        public int RowId { get; set; }
     }
 }

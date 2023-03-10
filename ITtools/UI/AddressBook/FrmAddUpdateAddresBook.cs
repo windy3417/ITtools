@@ -28,8 +28,12 @@ namespace ITtools.UI.AddressBook
              InitialContolsData();
         }
 
-      
-       void InitialContolsData()
+        #region vary
+
+        ToolStripButton btnUpdate;
+        #endregion
+
+        void InitialContolsData()
         {
             CmbDept.DataSource = new DepartmentService().GetDepanrtmentList();
 
@@ -108,18 +112,19 @@ namespace ITtools.UI.AddressBook
         {
             this.TsbSave.Visible = false;
             this.id = id;
-            ToolStripButton btnUpdate = new ToolStripButton();
+            btnUpdate = new ToolStripButton();
             btnUpdate.Text = "保存";
             btnUpdate.Image = Properties.Resources.save;
 
             toolStrip1.Items.Insert(toolStrip1.Items.IndexOf(TsbSave), btnUpdate);
 
-            btnUpdate.Click += SaveAfterChange;
+            btnUpdate.Click += SaveChanged;
 
             SqlParameter[] ps = { new SqlParameter("@id", id) };
             
             addressBook m=  QueryService.GetEntity<addressBook>(ps, Sqlhelper.DataSourceType.it);
 
+            this.CmbDept.SelectedValue = m.department;
             this.txtDepartmentEnglishName.Text= m.engDepartment;
             this.TxtEmail.Text = m.emailAddress;
             this.TxtEnglishName.Text = m.englishName;
@@ -138,7 +143,7 @@ namespace ITtools.UI.AddressBook
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SaveAfterChange(object sender, EventArgs e)
+        private void SaveChanged(object sender, EventArgs e)
         {
             addressBook m = new addressBook();
 
@@ -147,11 +152,14 @@ namespace ITtools.UI.AddressBook
             m.deptID = CmbDept.SelectedValue.ToString();
             m.Ext =TxtExt.Text==""? (Nullable<double>) null : Convert.ToDouble( TxtExt.Text);
             m.mobilePhoneNumber = TxtTel.Text == "" ? (Nullable<double>)null : Convert.ToDouble(TxtTel.Text);
+            m.emailAddress = TxtEmail.Text;
 
             Expression<Func<addressBook, bool>> expression = s => s.ID == this.id;
             //new UpdateService().Upadate<AddressBookModel, ItContext>
                 new UpdateService().Update<addressBook,ItContext>
             (expression , m);
+            this.btnUpdate.Enabled = false;
+           
         }
 
         #endregion

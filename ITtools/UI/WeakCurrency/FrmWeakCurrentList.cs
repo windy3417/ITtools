@@ -631,18 +631,20 @@ namespace ITtools.UI
         private void tsbEmail_Click(object sender, EventArgs e)
         {
 
+            
             this.Cursor=Cursors.WaitCursor;
 
             try
             {
                 if (dataGridView1.Rows.Count > 0)
                 {
-                    string selected = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                   
+                    var selected =Convert.ToInt32( dataGridView1.SelectedRows[0].Cells[1].Value);
 
 
                     var db = new ItContext();
 
-                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
+                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.RowID == selected).FirstOrDefault();
 
 
                     using (var message = new MailMessage())

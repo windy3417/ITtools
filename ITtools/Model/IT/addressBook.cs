@@ -30,7 +30,7 @@ namespace ITtools.Model.IT
 
         [StringLength(255)]
         public string emailAddress { get; set; }
-
+        [Key]
         public int ID { get; set; }
 
         [StringLength(10)]

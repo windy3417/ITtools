@@ -58,6 +58,7 @@
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
             this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ccode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cAuditDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -217,6 +218,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ccode,
+            this.RowId,
             this.dDate,
             this.cAuditDate,
             this.cPersonName,
@@ -366,6 +368,13 @@
             this.ccode.HeaderText = "请购单号";
             this.ccode.Name = "ccode";
             // 
+            // RowId
+            // 
+            this.RowId.DataPropertyName = "RowId";
+            this.RowId.HeaderText = "数据ID";
+            this.RowId.Name = "RowId";
+            this.RowId.Visible = false;
+            // 
             // dDate
             // 
             this.dDate.DataPropertyName = "dDate";
@@ -491,6 +500,7 @@
         private System.Windows.Forms.ToolStripButton tsbUpload;
         private System.Windows.Forms.ToolStripButton tsbEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn ccode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn cAuditDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPersonName;

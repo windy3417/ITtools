@@ -72,7 +72,7 @@ namespace ITtools.UI.AddressBook
             using (var db = new ItContext())
             {
                 var address = from s in db.addressBook
-                              select new { s.department,s.memoryCode, s.chinessName, s.Ext, s.emailAddress };
+                              select new {s.ID,s.deptID, s.department,s.memoryCode, s.chinessName, s.Ext, s.emailAddress };
 
                 var query = address.AsQueryable();
 
@@ -92,6 +92,11 @@ namespace ITtools.UI.AddressBook
                     }
                 }
 
+                this.departmanetName.DataPropertyName = "department";
+                this.personName.DataPropertyName = "chinessName";
+                this.ExNo.DataPropertyName = "Ext";
+                this.email.DataPropertyName = "emailAddress";
+
                 dataGridView1.DataSource = query.ToList();
 
 
@@ -106,6 +111,7 @@ namespace ITtools.UI.AddressBook
 
         private void TsbAddressBookUpdate_Click(object sender, EventArgs e)
         {
+            
             if (dataGridView1.CurrentRow != null)
             {
                 FrmAddUpdateAddresBook f = new FrmAddUpdateAddresBook();
@@ -133,6 +139,12 @@ namespace ITtools.UI.AddressBook
             }
 
             return boolResult;
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            Expression<Func<addressBook, bool>> expression = i => i.ID == Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+            new Utility.DAL.DeleteService().DeletSingleRow<addressBook, ItContext>(dataGridView1,expression);
         }
     }
 }
