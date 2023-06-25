@@ -25,8 +25,8 @@ namespace ITtools.UI
 
         private void displayRowNo(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            Utility.Style.StyleDataGridView styleDataGridView = new Utility.Style.StyleDataGridView();
-            styleDataGridView.DisplayRowNo(e, this.DgvImport);
+            Utility.Style.DataGridViewStyle styleDataGridView = new Utility.Style.DataGridViewStyle();
+            styleDataGridView.DisplayRowNo(e, this.DgvImport,false);
         }
 
         private void closeParentForm(object sender, FormClosedEventArgs e)

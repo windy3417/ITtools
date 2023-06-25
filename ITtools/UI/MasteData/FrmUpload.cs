@@ -30,7 +30,7 @@ namespace ITtools.UI.MasteData
                 string fileName = openFileDialog.SafeFileName;
 
                 //Get the SmbFile specifying the file name to be created.
-                var file = new SmbFile("smb://jing.luo:ximai_2016@192.168.10.200/software/"+ fileName);
+                var file = new SmbFile("smb://jing.luo:ximai_2016@192.168.10.200/software/Attachment/weakCurrent" + fileName);
 
                 //Create file.
                 file.CreateNewFile();

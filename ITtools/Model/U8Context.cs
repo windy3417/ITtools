@@ -36,7 +36,15 @@
         public virtual DbSet<Person> Person { get; set; }
 
         public virtual DbSet<Inventory> Inventory { get; set; }
+
+        #region boxCode
+        public virtual DbSet<Xm_BoxCode> Xm_BoxCode { get; set; }
+        public virtual DbSet<Xm_BoxCodeItem> Xm_BoxCodeItem { get; set; }
+        public virtual DbSet<Xm_InvComparison> Xm_InvComparison { get; set; }
+        public virtual DbSet<Xm_AccInformation> Xm_AccInformation { get; set; }
+        public virtual DbSet<Xm_InvComparisons> Xm_InvComparisons { get; set; }
+        #endregion
     }
 
-   
+
 }

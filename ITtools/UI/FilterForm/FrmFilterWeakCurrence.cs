@@ -26,7 +26,7 @@ namespace ITtools.UI.FilterForm
 
         #region delegate
 
-       public Action<List<WeakCurrentSettleVmodel>> ActionListProject;
+       public Action<List<WeakCurrentSettleVmodel>> ActionProjectList;
         #endregion
 
 
@@ -40,7 +40,7 @@ namespace ITtools.UI.FilterForm
             Expression<Func<PU_AppVouch, bool>> exp1 = s => Filter(s); 
             Expression<Func<PrWeakCurrent, bool>> exp2 = s => Filter(s);
             this.Cursor = Cursors.WaitCursor;
-            ActionListProject?.Invoke(new WeakCurrenceSettleService().getProject(exp1,exp2));
+            ActionProjectList?.Invoke(new WeakCurrenceSettleService().getProject(exp1,exp2));
             this.Close();
             
         }

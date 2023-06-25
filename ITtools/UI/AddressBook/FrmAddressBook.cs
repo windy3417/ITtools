@@ -24,10 +24,30 @@ namespace ITtools.UI.AddressBook
         public FrmAddressBook()
         {
             InitializeComponent();
+            InitialControls();
             InitialContolDataSource();
             this.FormClosed += CloseParentForm;
 
         }
+
+        #region style
+
+        void InitialControls()
+        {
+           new Utility.Style.DataGridViewStyle().DataGridViewColumnHeaderStyle(dataGridView1);
+           Utility.Style.DataGridViewDoubleBuffer.DoubleBuffered(dataGridView1, true);
+        }
+
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var s = new Utility.Style.DataGridViewStyle();
+
+            s.DisplayRowNo(e, dataGridView1,false);
+
+        }
+
+        #endregion
 
         void InitialContolDataSource()
         {
@@ -72,7 +92,9 @@ namespace ITtools.UI.AddressBook
             using (var db = new ItContext())
             {
                 var address = from s in db.addressBook
-                              select new {s.ID,s.deptID, s.department,s.memoryCode, s.chinessName, s.Ext, s.emailAddress };
+                              join b in db.Department
+                              on s.deptID equals b.deptID
+                              select new {s.ID,s.deptID, b.deptName,s.memoryCode, s.chinessName, s.Ext,s.mobilePhoneNumber, s.emailAddress };
 
                 var query = address.AsQueryable();
 
@@ -92,10 +114,11 @@ namespace ITtools.UI.AddressBook
                     }
                 }
 
-                this.departmanetName.DataPropertyName = "department";
+                this.departmanetName.DataPropertyName = "deptName";
                 this.personName.DataPropertyName = "chinessName";
                 this.ExNo.DataPropertyName = "Ext";
                 this.email.DataPropertyName = "emailAddress";
+                this.cellPhone.DataPropertyName = "mobilePhoneNumber";
 
                 dataGridView1.DataSource = query.ToList();
 
@@ -144,8 +167,9 @@ namespace ITtools.UI.AddressBook
         private void tsbDelete_Click(object sender, EventArgs e)
         {
             Expression<Func<addressBook, bool>> expression = i => i.ID == Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-            new Utility.DAL.DeleteService().DeletSingleRow<addressBook, ItContext>(dataGridView1,expression);
+            Utility.DAL.DeleteService.DeletSingleRow<addressBook, ItContext>(dataGridView1,expression);
         }
+
     }
 }
 

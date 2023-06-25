@@ -69,7 +69,7 @@ namespace ITtools.UI.AddressBook
             m.memoryCode = TinyPinyin.Core.PinyinHelper.GetPinyinInitials(TxtName.Text);
 
             Utility.DAL.SaveService saveService = new Utility.DAL.SaveService();
-            saveService.SaveSingleRowDate<addressBook, ItContext>(m);
+            saveService.SaveRowData<addressBook, ItContext>(m);
 
             TsbSave.Enabled = false;
 
@@ -156,8 +156,7 @@ namespace ITtools.UI.AddressBook
 
             Expression<Func<addressBook, bool>> expression = s => s.ID == this.id;
             //new UpdateService().Upadate<AddressBookModel, ItContext>
-                new UpdateService().Update<addressBook,ItContext>
-            (expression , m);
+                UpdateService.Update<addressBook,ItContext> (expression , m);
             this.btnUpdate.Enabled = false;
            
         }

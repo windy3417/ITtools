@@ -15,6 +15,7 @@ using ITtools.UI.U8mantinance;
 using ITtools.UI.AddressBook;
 using ITtools.UI.Tools;
 using ITtools.UI.SetUp;
+using ITtools.UI.BoxCode;
 
 namespace ITtools
 {
@@ -166,6 +167,12 @@ namespace ITtools
         private void tsmSmbConnectiongString_Click(object sender, EventArgs e)
         {
             FrmSmbConfig f = new FrmSmbConfig();
+            embedForm(f);
+        }
+
+        private void 装箱单修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBoxCodeList f = new FrmBoxCodeList();
             embedForm(f);
         }
     }

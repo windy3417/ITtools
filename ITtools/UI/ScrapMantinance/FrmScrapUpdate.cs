@@ -24,7 +24,7 @@ namespace ITtools.UI.ScrapMantinance
 
         bool updateNetWeight=false;
 
-        public WeighingSettlementModels m= new WeighingSettlementModels();
+        public WeighingSettlement m= new WeighingSettlement();
 
 
 
@@ -43,7 +43,7 @@ namespace ITtools.UI.ScrapMantinance
                 {
                     using (var db = new ScrapContext())
                     {
-                        WeighingSettlementModels m = db.WeighingSettlementModels.Where(s => s.vocherNO == txtVoucherNo.Text).FirstOrDefault();
+                        WeighingSettlement m = db.WeighingSettlement.Where(s => s.vocherNO == txtVoucherNo.Text).FirstOrDefault();
 
                         m.note = txtMemo.Text;
                         m.netWeight = Convert.ToDouble(TxtNetWeight.Text);
@@ -71,7 +71,7 @@ namespace ITtools.UI.ScrapMantinance
                 {
                     using (var db = new ScrapContext())
                     {
-                        WeighingSettlementModels m = db.WeighingSettlementModels.Where(s => s.vocherNO == txtVoucherNo.Text).FirstOrDefault();
+                        WeighingSettlement m = db.WeighingSettlement.Where(s => s.vocherNO == txtVoucherNo.Text).FirstOrDefault();
 
                         m.note = txtMemo.Text;
                        

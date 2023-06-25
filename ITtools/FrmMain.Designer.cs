@@ -62,6 +62,7 @@
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.装箱单修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -203,7 +204,8 @@
             // 
             this.数据修正ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmVocherDigestModify,
-            this.tsmWeightUpdate});
+            this.tsmWeightUpdate,
+            this.装箱单修改ToolStripMenuItem});
             this.数据修正ToolStripMenuItem.Name = "数据修正ToolStripMenuItem";
             this.数据修正ToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.数据修正ToolStripMenuItem.Text = "数据修正";
@@ -211,14 +213,14 @@
             // tsmVocherDigestModify
             // 
             this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
-            this.tsmVocherDigestModify.Size = new System.Drawing.Size(152, 22);
+            this.tsmVocherDigestModify.Size = new System.Drawing.Size(180, 22);
             this.tsmVocherDigestModify.Text = "凭证摘要修改";
             this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
             // 
             // tsmWeightUpdate
             // 
             this.tsmWeightUpdate.Name = "tsmWeightUpdate";
-            this.tsmWeightUpdate.Size = new System.Drawing.Size(152, 22);
+            this.tsmWeightUpdate.Size = new System.Drawing.Size(180, 22);
             this.tsmWeightUpdate.Text = "过磅单修改";
             this.tsmWeightUpdate.Click += new System.EventHandler(this.tsmWeightUpdate_Click);
             // 
@@ -237,35 +239,35 @@
             // TsmCompress
             // 
             this.TsmCompress.Name = "TsmCompress";
-            this.TsmCompress.Size = new System.Drawing.Size(180, 22);
+            this.TsmCompress.Size = new System.Drawing.Size(126, 22);
             this.TsmCompress.Text = "图片压缩";
             this.TsmCompress.Click += new System.EventHandler(this.TsmCompress_Click);
             // 
             // TsbDecrypt
             // 
             this.TsbDecrypt.Name = "TsbDecrypt";
-            this.TsbDecrypt.Size = new System.Drawing.Size(180, 22);
+            this.TsbDecrypt.Size = new System.Drawing.Size(126, 22);
             this.TsbDecrypt.Text = "加密解密";
             this.TsbDecrypt.Click += new System.EventHandler(this.TsbDecrypt_Click);
             // 
             // tsmImportDefinite
             // 
             this.tsmImportDefinite.Name = "tsmImportDefinite";
-            this.tsmImportDefinite.Size = new System.Drawing.Size(180, 22);
+            this.tsmImportDefinite.Size = new System.Drawing.Size(126, 22);
             this.tsmImportDefinite.Text = "导入定义";
             this.tsmImportDefinite.Click += new System.EventHandler(this.tsmImportDefinite_Click);
             // 
             // TsmImportData
             // 
             this.TsmImportData.Name = "TsmImportData";
-            this.TsmImportData.Size = new System.Drawing.Size(180, 22);
+            this.TsmImportData.Size = new System.Drawing.Size(126, 22);
             this.TsmImportData.Text = "数据导入";
             this.TsmImportData.Click += new System.EventHandler(this.TsmImportData_Click);
             // 
             // tsmDownLoad
             // 
             this.tsmDownLoad.Name = "tsmDownLoad";
-            this.tsmDownLoad.Size = new System.Drawing.Size(180, 22);
+            this.tsmDownLoad.Size = new System.Drawing.Size(126, 22);
             this.tsmDownLoad.Text = "文档下载";
             this.tsmDownLoad.Click += new System.EventHandler(this.tsmDownLoad_Click);
             // 
@@ -332,6 +334,13 @@
             this.tabControl1.Size = new System.Drawing.Size(800, 426);
             this.tabControl1.TabIndex = 0;
             // 
+            // 装箱单修改ToolStripMenuItem
+            // 
+            this.装箱单修改ToolStripMenuItem.Name = "装箱单修改ToolStripMenuItem";
+            this.装箱单修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.装箱单修改ToolStripMenuItem.Text = "装箱单修改";
+            this.装箱单修改ToolStripMenuItem.Click += new System.EventHandler(this.装箱单修改ToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -386,6 +395,7 @@
         private System.Windows.Forms.ToolStripMenuItem TsmAddressBookAdd;
         private System.Windows.Forms.ToolStripMenuItem tsmDownLoad;
         private System.Windows.Forms.ToolStripMenuItem tsmSmbConnectiongString;
+        private System.Windows.Forms.ToolStripMenuItem 装箱单修改ToolStripMenuItem;
     }
 }
 

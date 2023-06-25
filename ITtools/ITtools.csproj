@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>57</ApplicationRevision>
+    <ApplicationRevision>59</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -174,6 +174,11 @@
     <Compile Include="Model\IT\PrWeakCurrent.cs" />
     <Compile Include="Model\IT\V_Addressbook.cs" />
     <Compile Include="Model\IT\WebUrl.cs" />
+    <Compile Include="Model\U8\Xm_AccInformation.cs" />
+    <Compile Include="Model\U8\Xm_BoxCode.cs" />
+    <Compile Include="Model\U8\Xm_BoxCodeItem.cs" />
+    <Compile Include="Model\U8\Xm_InvComparison.cs" />
+    <Compile Include="Model\U8\Xm_InvComparisons.cs" />
     <Compile Include="Model\VModel\AddressBookVModel.cs" />
     <Compile Include="Model\VModel\ApplycationPurchaceVmodel.cs" />
     <Compile Include="Model\VModel\V_Addressbook.cs" />
@@ -186,7 +191,7 @@
     </Compile>
     <Compile Include="DAL\Services\QueryService.cs" />
     <Compile Include="Model\Scrap\ScrapContext.cs" />
-    <Compile Include="Model\Scrap\WeighingSettlementModels.cs" />
+    <Compile Include="Model\Scrap\WeighingSettlement.cs" />
     <Compile Include="Model\U8Context.cs" />
     <Compile Include="Model\U8\code.cs" />
     <Compile Include="Model\U8\GL_accvouch.cs" />
@@ -221,6 +226,12 @@
     </Compile>
     <Compile Include="UI\AddressBook\FrmDepartment.Designer.cs">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BoxCode\FrmBoxCodeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BoxCode\FrmBoxCodeList.Designer.cs">
+      <DependentUpon>FrmBoxCodeList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FilterForm\FrmFilterWeakCurrence.cs">
       <SubType>Form</SubType>
@@ -362,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmDepartment.resx">
       <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BoxCode\FrmBoxCodeList.resx">
+      <DependentUpon>FrmBoxCodeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FilterForm\FrmFilterWeakCurrence.resx">
       <DependentUpon>FrmFilterWeakCurrence.cs</DependentUpon>

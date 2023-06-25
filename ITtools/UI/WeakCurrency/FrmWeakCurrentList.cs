@@ -264,7 +264,7 @@ namespace ITtools.UI
             this.tsb_delete.Enabled = true;
 
             FrmFilterWeakCurrent f = new FrmFilterWeakCurrent();
-            f.ActionListProject = bind_gv_dateSource;
+            f.ActionProjectList = bind_gv_dateSource;
             f.StartPosition = FormStartPosition.CenterScreen;
 
             f.ShowDialog();
@@ -421,9 +421,9 @@ namespace ITtools.UI
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            Utility.Style.StyleDataGridView style = new Utility.Style.StyleDataGridView();
+            Utility.Style.DataGridViewStyle style = new Utility.Style.DataGridViewStyle();
             style.DataGridViewColumnHeaderStyle(dataGridView1);
-            style.DisplayRowNo(e, dataGridView1);
+            style.DisplayRowNo(e, dataGridView1,false);
         }
 
 
@@ -568,12 +568,12 @@ namespace ITtools.UI
             {
                 if (dataGridView1.Rows.Count > 0)
                 {
-                    string selected = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    var selected = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value);
 
 
                     var db = new ItContext();
 
-                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.PrVoucherNo == selected).FirstOrDefault();
+                    PrWeakCurrent m = db.PrWeakCurrent.Where(s => s.RowID == selected).FirstOrDefault();
 
                     if (m.isSettle is true)
                     {

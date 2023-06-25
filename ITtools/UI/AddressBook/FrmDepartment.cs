@@ -58,7 +58,7 @@ namespace ITtools.UI.AddressBook
             m.deptName = txtDepartmentName.Text;
             m.EnglishName = txtDepartmentEnglishName.Text;
             
-            saveService.SaveSingleRowDate<Department, ItContext>(m);
+            saveService.SaveRowData<Department, ItContext>(m);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace ITtools.UI.AddressBook
 
             Expression<Func<Department, bool>> expression = s => s.deptID == this.txtDepartmentCode.Text;
 
-            new UpdateService().Update<Department, ItContext>
+            UpdateService.Update<Department, ItContext>
             (expression, m);
             this.Cursor = Cursors.Default;
 
@@ -135,8 +135,8 @@ namespace ITtools.UI.AddressBook
                 this.txtDepartmentCode.Text = dataGridView1.SelectedRows[0].Cells["deptID"].Value.ToString();
 
                 Expression<Func<Department, bool>> expression = s => s.deptID == this.txtDepartmentCode.Text;
-                DeleteService d = new DeleteService();
-                d.DeletSingleRow<Department, ItContext>(dataGridView1, expression);
+                
+                Utility.DAL.DeleteService. DeletSingleRow<Department, ItContext>(dataGridView1, expression);
 
                 this.Cursor = Cursors.Default;
 
@@ -151,8 +151,8 @@ namespace ITtools.UI.AddressBook
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            Utility.Style.StyleDataGridView styleDataGridView = new Utility.Style.StyleDataGridView();
-            styleDataGridView.DisplayRowNo(e, dataGridView1);
+            Utility.Style.DataGridViewStyle styleDataGridView = new Utility.Style.DataGridViewStyle();
+            styleDataGridView.DisplayRowNo(e, dataGridView1,false);
         }
 
         #endregion

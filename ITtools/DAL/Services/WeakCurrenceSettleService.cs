@@ -122,7 +122,8 @@ namespace ITtools.DAL.Services
                                  w.isSettle,
                                  w.settleDate,
                                  s.cbcloser,
-                                 w.SendEmailAmount
+                                 w.SendEmailAmount,
+                                 w.RowID
 
                              };
 
@@ -143,6 +144,7 @@ namespace ITtools.DAL.Services
                         m.settleDate = item.settleDate;
                         m.IsClose = item.cbcloser is null ? "" : item.cbcloser;
                         m.SendEmailAmount = item.SendEmailAmount is null ? 0 : item.SendEmailAmount;
+                        m.RowId = item.RowID;
                         projectList.Add(m);
                     }
 

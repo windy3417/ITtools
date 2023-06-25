@@ -6,7 +6,7 @@ namespace ITtools.Model.Scrap
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class WeighingSettlementModels
+    public partial class WeighingSettlement
     {
         [Key]
         public string vocherNO { get; set; }

@@ -31,7 +31,7 @@ namespace ITtools.UI.ScrapMantinance
         private void tsbQuery_Click(object sender, EventArgs e)
         {
             //动态查询表达式树
-            Expression<Func<WeighingSettlementModels, bool>> expr =
+            Expression<Func<WeighingSettlement, bool>> expr =
                 n => GetCondition(n, dtpStartDate.Value.Date, dtpEndDate.Value.Date//必须取日期，否则做比较时会加入当前查询时间，而不准确
               );
 
@@ -40,20 +40,20 @@ namespace ITtools.UI.ScrapMantinance
                 using (var db=new ScrapContext())
                 {
 
-                    //db.Database.Log = s =>
-                    //{
-                    //    using (StreamWriter sw = File.CreateText(Environment.CurrentDirectory + "\\test.txt"))
-                    //    {
-                    //       //File.AppendAllLines(Environment.CurrentDirectory + "\\test.txt", System.Text.Encoding.Default.GetBytes(s));
-                    //        sw.WriteLine(s);
-                    //        //sw.Write(System.Text.Encoding.Default.GetBytes(s), 0, Encoding.Default.GetByteCount(s));
+                    db.Database.Log = s =>
+                    {
+                        using (StreamWriter sw = File.CreateText(Environment.CurrentDirectory + "\\test.txt"))
+                        {
+                            //File.AppendAllLines(Environment.CurrentDirectory + "\\test.txt", System.Text.Encoding.Default.GetBytes(s));
+                            sw.WriteLine(s);
+                            //sw.Write(System.Text.Encoding.Default.GetBytes(s), 0, Encoding.Default.GetByteCount(s));
 
-                    //    } 
+                        }
 
-                       
-                    //};
-                    //db.Database.Log = Console.Write;
-                    var q = from s in db.WeighingSettlementModels.Where(expr.Compile())
+
+                    };
+                    db.Database.Log = Console.Write;
+                    var q = from s in db.WeighingSettlement.Where(expr.Compile())
                             select s;
                    
                     dataGridView1.DataSource = q.ToList();
@@ -102,7 +102,7 @@ namespace ITtools.UI.ScrapMantinance
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <returns></returns>
-        private bool GetCondition(WeighingSettlementModels m, DateTime startDate, DateTime endDate)
+        private bool GetCondition(WeighingSettlement m, DateTime startDate, DateTime endDate)
            
         {
             bool boolResult = true;
