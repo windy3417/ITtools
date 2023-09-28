@@ -40,6 +40,9 @@ namespace ITtools.UI.ScrapMantinance
             this.TsbUpdateNetWeight = new System.Windows.Forms.ToolStripButton();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSkinWeight = new System.Windows.Forms.TextBox();
+            this.tsbModifySpecies = new System.Windows.Forms.ToolStripButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbSpecies = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +98,8 @@ namespace ITtools.UI.ScrapMantinance
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsbSave,
-            this.TsbUpdateNetWeight});
+            this.TsbUpdateNetWeight,
+            this.tsbModifySpecies});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(556, 25);
@@ -136,16 +140,44 @@ namespace ITtools.UI.ScrapMantinance
             this.txtSkinWeight.Size = new System.Drawing.Size(160, 21);
             this.txtSkinWeight.TabIndex = 1;
             // 
+            // tsbModifySpecies
+            // 
+            this.tsbModifySpecies.Image = global::ITtools.Properties.Resources.Modify;
+            this.tsbModifySpecies.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModifySpecies.Name = "tsbModifySpecies";
+            this.tsbModifySpecies.Size = new System.Drawing.Size(79, 22);
+            this.tsbModifySpecies.Text = "修改品种";
+            this.tsbModifySpecies.Click += new System.EventHandler(this.tsbModifySpecies_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(305, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "品种：";
+            // 
+            // cmbSpecies
+            // 
+            this.cmbSpecies.FormattingEnabled = true;
+            this.cmbSpecies.Location = new System.Drawing.Point(353, 63);
+            this.cmbSpecies.Name = "cmbSpecies";
+            this.cmbSpecies.Size = new System.Drawing.Size(159, 20);
+            this.cmbSpecies.TabIndex = 4;
+            // 
             // FrmScrapUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 373);
+            this.Controls.Add(this.cmbSpecies);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtSkinWeight);
             this.Controls.Add(this.TxtNetWeight);
             this.Controls.Add(this.txtMemo);
             this.Controls.Add(this.txtVoucherNo);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -173,5 +205,8 @@ namespace ITtools.UI.ScrapMantinance
         private System.Windows.Forms.ToolStripButton TsbUpdateNetWeight;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSkinWeight;
+        private System.Windows.Forms.ToolStripButton tsbModifySpecies;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbSpecies;
     }
 }

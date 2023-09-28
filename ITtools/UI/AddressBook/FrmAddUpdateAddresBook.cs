@@ -69,7 +69,7 @@ namespace ITtools.UI.AddressBook
             m.memoryCode = TinyPinyin.Core.PinyinHelper.GetPinyinInitials(TxtName.Text);
 
             Utility.DAL.SaveService saveService = new Utility.DAL.SaveService();
-            saveService.SaveRowData<addressBook, ItContext>(m);
+            saveService.SaveRow<addressBook, ItContext>(m);
 
             TsbSave.Enabled = false;
 

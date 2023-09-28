@@ -65,7 +65,7 @@ namespace ITtools.UI
         /// <param name="e"></param>
         private void tsbRef_Click(object sender, EventArgs e)
         {
-            FrmApplicationPurchaseRef f = new FrmApplicationPurchaseRef();
+            FrmRefPR f = new FrmRefPR();
             f.Show();
        
             f.ActionApplicationPurchaseVoucher = transferData;
@@ -163,8 +163,6 @@ namespace ITtools.UI
                     MessageBox.Show("您当前选择的单据已经结算，不能删除!");
                     return;
                 }
-
-
 
 
 
@@ -705,7 +703,7 @@ namespace ITtools.UI
         {
             this.FormClosed += new FormClosedEventHandler(this.closeParent);
             dataGridView1.AutoGenerateColumns = false;
-
+            tsbSave.Enabled = false;
 
         }
 

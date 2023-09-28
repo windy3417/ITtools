@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>59</ApplicationRevision>
+    <ApplicationRevision>61</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -174,6 +174,8 @@
     <Compile Include="Model\IT\PrWeakCurrent.cs" />
     <Compile Include="Model\IT\V_Addressbook.cs" />
     <Compile Include="Model\IT\WebUrl.cs" />
+    <Compile Include="Model\Scrap\Scrap.cs" />
+    <Compile Include="Model\Scrap\WeighingSettlement.cs" />
     <Compile Include="Model\U8\Xm_AccInformation.cs" />
     <Compile Include="Model\U8\Xm_BoxCode.cs" />
     <Compile Include="Model\U8\Xm_BoxCodeItem.cs" />
@@ -191,7 +193,6 @@
     </Compile>
     <Compile Include="DAL\Services\QueryService.cs" />
     <Compile Include="Model\Scrap\ScrapContext.cs" />
-    <Compile Include="Model\Scrap\WeighingSettlement.cs" />
     <Compile Include="Model\U8Context.cs" />
     <Compile Include="Model\U8\code.cs" />
     <Compile Include="Model\U8\GL_accvouch.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="DAL\Services\AppPurVouchService.cs" />
     <Compile Include="DAL\Services\DataBaseListService.cs" />
     <Compile Include="DAL\Services\WebURLService.cs" />
+    <Compile Include="Test\UpdateService.cs" />
     <Compile Include="UI\AddressBook\FrmAddUpdateAddresBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +234,12 @@
     </Compile>
     <Compile Include="UI\BoxCode\FrmBoxCodeList.Designer.cs">
       <DependentUpon>FrmBoxCodeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BoxCode\FrmRefInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BoxCode\FrmRefInventory.Designer.cs">
+      <DependentUpon>FrmRefInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FilterForm\FrmFilterWeakCurrence.cs">
       <SubType>Form</SubType>
@@ -335,11 +343,11 @@
     <Compile Include="UI\MasteData\FrmUpload.Designer.cs">
       <DependentUpon>FrmUpload.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\RefForm\FrmApplicationPurchaseRef.cs">
+    <Compile Include="UI\RefForm\FrmRefPR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\RefForm\FrmApplicationPurchaseRef.Designer.cs">
-      <DependentUpon>FrmApplicationPurchaseRef.cs</DependentUpon>
+    <Compile Include="UI\RefForm\FrmRefPR.Designer.cs">
+      <DependentUpon>FrmRefPR.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ScrapMantinance\FrmScrapList.cs">
       <SubType>Form</SubType>
@@ -377,14 +385,17 @@
     <EmbeddedResource Include="UI\BoxCode\FrmBoxCodeList.resx">
       <DependentUpon>FrmBoxCodeList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\BoxCode\FrmRefInventory.resx">
+      <DependentUpon>FrmRefInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FilterForm\FrmFilterWeakCurrence.resx">
       <DependentUpon>FrmFilterWeakCurrence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MasteData\FrmUpload.resx">
       <DependentUpon>FrmUpload.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\RefForm\FrmApplicationPurchaseRef.resx">
-      <DependentUpon>FrmApplicationPurchaseRef.cs</DependentUpon>
+    <EmbeddedResource Include="UI\RefForm\FrmRefPR.resx">
+      <DependentUpon>FrmRefPR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ScrapMantinance\FrmScrapList.resx">
       <DependentUpon>FrmScrapList.cs</DependentUpon>
@@ -422,6 +433,7 @@
     <None Include="Resources\update.gif" />
     <None Include="Resources\send.gif" />
     <None Include="Resources\transfer.jfif" />
+    <None Include="Resources\Confirm.gif" />
     <Content Include="SQL\sp_addressBook.sql" />
     <Content Include="SQL\V_Addressbook.sql" />
     <Content Include="程序说明.txt" />

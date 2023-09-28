@@ -58,7 +58,7 @@ namespace ITtools.UI.AddressBook
             m.deptName = txtDepartmentName.Text;
             m.EnglishName = txtDepartmentEnglishName.Text;
             
-            saveService.SaveRowData<Department, ItContext>(m);
+            saveService.SaveRow<Department, ItContext>(m);
         }
 
         /// <summary>

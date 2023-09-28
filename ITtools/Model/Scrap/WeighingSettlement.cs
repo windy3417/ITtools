@@ -6,6 +6,7 @@ namespace ITtools.Model.Scrap
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+
     public partial class WeighingSettlement
     {
         [Key]
@@ -15,6 +16,8 @@ namespace ITtools.Model.Scrap
 
         public DateTime WeighingDate { get; set; }
 
+        public string WeightingTime { get; set; }
+
         public string CustmerCode { get; set; }
 
         public string personCode { get; set; }
@@ -23,7 +26,6 @@ namespace ITtools.Model.Scrap
 
         public double GrossWeght { get; set; }
 
-        //ЦЄжи
         public double Tare { get; set; }
 
         public string VehicleBrand { get; set; }
@@ -38,10 +40,16 @@ namespace ITtools.Model.Scrap
 
         public double settleAmount { get; set; }
 
-        public string WeightingTime { get; set; }
-
         public int auditFlag { get; set; }
 
         public string note { get; set; }
+
+        public string Maker { get; set; }
+
+        public bool? Deleted { get; set; }
+
+        public DateTime? DeletedTime { get; set; }
+
+        public string Deleter { get; set; }
     }
 }

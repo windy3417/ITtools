@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ITtools.Model.Scrap;
 using System.Data.Entity.Core.Objects;
 using System.Diagnostics;
+using Utility.DAL;
 
 namespace ITtools.UI.ScrapMantinance
 {
@@ -39,21 +40,10 @@ namespace ITtools.UI.ScrapMantinance
             {
                 using (var db=new ScrapContext())
                 {
-
-                    db.Database.Log = s =>
-                    {
-                        using (StreamWriter sw = File.CreateText(Environment.CurrentDirectory + "\\test.txt"))
-                        {
-                            //File.AppendAllLines(Environment.CurrentDirectory + "\\test.txt", System.Text.Encoding.Default.GetBytes(s));
-                            sw.WriteLine(s);
-                            //sw.Write(System.Text.Encoding.Default.GetBytes(s), 0, Encoding.Default.GetByteCount(s));
-
-                        }
-
-
-                    };
-                    db.Database.Log = Console.Write;
-                    var q = from s in db.WeighingSettlement.Where(expr.Compile())
+                  var rawData=  QueryService.GetDataList<WeighingSettlement>(Utility.Sql.Sqlhelper.DataSourceType.business);
+                  
+                  
+                    var q = from s in rawData.Where(expr.Compile())
                             select s;
                    
                     dataGridView1.DataSource = q.ToList();
@@ -81,6 +71,7 @@ namespace ITtools.UI.ScrapMantinance
                 f.m.note = dataGridView1.CurrentRow.Cells["note"].Value.ToString();
                 f.m.netWeight=Convert.ToDouble( dataGridView1.CurrentRow.Cells["netWeight"].Value);
                 f.m.Tare= Convert.ToDouble(dataGridView1.CurrentRow.Cells["Tare"].Value);
+                f.m.scrapCode= dataGridView1.CurrentRow.Cells["ScrapCode"].Value.ToString();
 
                 f.Show();
 

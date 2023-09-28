@@ -21,7 +21,7 @@ namespace ITtools.UI.BoxCode
 
        void InitialControlDataSource()
         {
-            dataGridView1.AutoGenerateColumns = false;
+            dgv.AutoGenerateColumns = false;
             
             boxCode.DataPropertyName = "BoxCode";
             makeDate.DataPropertyName = "MakeDate";
@@ -42,12 +42,33 @@ namespace ITtools.UI.BoxCode
                 var list = from s in db.Xm_BoxCode
                            join i in db.Xm_BoxCodeItem on s.BoxCode equals i.BoxCode
                            where s.InvCode == txtInvCode.Text
-                           select new {i.ID, s.MakeDate, s.InvCode, s.InvName, s.InvStd, s.BoxCode,i.DateFlowCode,i.NaturalFlowCode, s.CreateUserCode, s.CreateUserName };
+                           select new {i.ID, s.MakeDate, s.InvCode, s.InvName, s.InvStd, s.BoxCode,
+                               i.DateFlowCode,i.NaturalFlowCode, s.CreateUserCode, s.CreateUserName };
                 
-                dataGridView1.DataSource = list.ToList();
+                dgv.DataSource = list.ToList();
             }
 
             this.Cursor = Cursors.Default;
+        }
+
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            FrmRefInventory f = new FrmRefInventory();
+            f.ActionGetInventory = RefInvetory;
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Show();
+        }
+
+        private void RefInvetory(string invCode)
+        {
+            txtInvCode.Text = invCode;
+        }
+
+        private void dgv_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Utility.Style.DataGridViewStyle s = new Utility.Style.DataGridViewStyle();
+            s.DisplayRowNo(e,dgv,false);
+            s.DataGridViewColumnHeaderStyle(dgv);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ITtools.Model.Scrap
         }
 
         public virtual DbSet<WeighingSettlement> WeighingSettlement { get; set; }
+        public virtual DbSet<Scrap> Scrap { get; set; }
      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
