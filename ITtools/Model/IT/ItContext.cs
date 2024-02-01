@@ -18,6 +18,7 @@ namespace ITtools.Model.IT
         public virtual DbSet<MaxKeys> MaxKeys { get; set; }
         public virtual DbSet<PrWeakCurrent> PrWeakCurrent { get; set; }
         public virtual DbSet<WebUrl> WebUrl { get; set; }
+        public virtual DbSet<AttachFiles> AttachFiles { get; set; }
         public virtual DbSet<V_Addressbook> V_Addressbook { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

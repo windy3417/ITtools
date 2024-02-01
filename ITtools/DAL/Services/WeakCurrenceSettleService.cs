@@ -50,7 +50,9 @@ namespace ITtools.DAL.Services
                                  w.settleDate,
                                  s.cbcloser,
                                  w.SendEmailAmount,
-                                 w.RowID
+                                 w.RowID,
+                                 w.UpLoadFlag
+                                 
                                  
                              };
                             
@@ -72,6 +74,7 @@ namespace ITtools.DAL.Services
                         m.IsClose = item.cbcloser is null ? "" : item.cbcloser;
                         m.SendEmailAmount = item.SendEmailAmount is null ? 0 : item.SendEmailAmount;
                         m.RowId = item.RowID;
+                        m.UploadFlag = item.UpLoadFlag is null || false ? "请上传" : "查询";
                         projectList.Add(m);
                     }
 
@@ -123,7 +126,8 @@ namespace ITtools.DAL.Services
                                  w.settleDate,
                                  s.cbcloser,
                                  w.SendEmailAmount,
-                                 w.RowID
+                                 w.RowID,
+                                 w.UpLoadFlag
 
                              };
 
@@ -145,6 +149,7 @@ namespace ITtools.DAL.Services
                         m.IsClose = item.cbcloser is null ? "" : item.cbcloser;
                         m.SendEmailAmount = item.SendEmailAmount is null ? 0 : item.SendEmailAmount;
                         m.RowId = item.RowID;
+                        m.UploadFlag=item.UpLoadFlag is true ? "查询" : "请上传";
                         projectList.Add(m);
                     }
 

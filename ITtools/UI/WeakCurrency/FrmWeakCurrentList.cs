@@ -56,10 +56,10 @@ namespace ITtools.UI
 
         #endregion
 
-        #region get data
+        #region add voucher
 
         /// <summary>
-        /// referece form
+        /// referece form for adding data
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -77,7 +77,7 @@ namespace ITtools.UI
 
 
         /// <summary>
-        /// display data in current form
+        /// receive data for displaying data in current form
         /// </summary>
         /// <param name="refAppPur"></param>
         void transferData(ApplycationPurchaceVmodel refAppPur)
@@ -172,30 +172,6 @@ namespace ITtools.UI
 
         }
 
-        /// <summary>
-        /// 保存工程项目信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Tsb_save_Click(object sender, EventArgs e)
-        {
-
-            //新增后保存
-            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
-            {
-                save();
-               
-              this.dataGridView1.DataSource=  new WeakCurrenceSettleService().getProject();
-            }
-
-
-            //修改数据
-            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.change.ToString())
-            {
-                update();
-            }
-
-        }
 
 
 
@@ -243,7 +219,33 @@ namespace ITtools.UI
 
         #region crud
 
-        #region get data
+
+        /// <summary>
+        /// respond for saveing button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Tsb_save_Click(object sender, EventArgs e)
+        {
+
+            //新增后保存
+            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.save.ToString())
+            {
+                save();
+
+                this.dataGridView1.DataSource = new WeakCurrenceSettleService().getProject();
+            }
+
+
+            //修改数据
+            if (saveOrModifQueryFlag == saveOrChangeOrQueryMolde.change.ToString())
+            {
+                update();
+            }
+
+        }
+
+        #region read data
 
         /// <summary>
         /// 查询档案
@@ -285,14 +287,13 @@ namespace ITtools.UI
             
 
 
-
         }
 
 
         #endregion
 
         /// <summary>
-        /// 新增数据
+        /// save data
         /// </summary>
         void save()
         {
@@ -324,7 +325,7 @@ namespace ITtools.UI
                     return;
                 }
 
-                //提供dataGridView的数据源
+                //brush datasource of datagridview
                 mList.Add(m);
 
                 this.tsbSave.Enabled = false;
@@ -415,14 +416,7 @@ namespace ITtools.UI
 
         #endregion
 
-        #region dataGridView数据处理与绑定
-
-        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            Utility.Style.DataGridViewStyle style = new Utility.Style.DataGridViewStyle();
-            style.DataGridViewColumnHeaderStyle(dataGridView1);
-            style.DisplayRowNo(e, dataGridView1,false);
-        }
+        #region attachment operation of uploading and query
 
 
         /// <summary>
@@ -436,6 +430,8 @@ namespace ITtools.UI
           dataGridView1.Columns["attachment"].Index)
             {
                 FrmUpload f = new FrmUpload();
+                f.ActionUploadSuccessFlag = RefreshAttachmentStatus;
+                f.VoucherId = dataGridView1.CurrentRow.Cells["ccode"].Value.ToString()+"-"+ dataGridView1.CurrentRow.Cells["RowId"].Value.ToString();
                 f.ShowDialog();
             }
 
@@ -446,6 +442,40 @@ namespace ITtools.UI
             }
 
         }
+
+
+        private void RefreshAttachmentStatus(bool uploadSuccess)
+        {
+            if (uploadSuccess)
+            {
+                dataGridView1.CurrentCell.Value = "查询";
+                using (ItContext db = new ItContext())
+                {
+                    int rowId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["RowId"].Value);
+                    PrWeakCurrent m = db.PrWeakCurrent.Where(w => w.RowID ==rowId).FirstOrDefault();
+                    m.UpLoadFlag = true;
+
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        #endregion
+
+
+
+        #region dataGridView数据处理与绑定
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            Utility.Style.DataGridViewStyle style = new Utility.Style.DataGridViewStyle();
+            style.DataGridViewColumnHeaderStyle(dataGridView1);
+            style.DisplayRowNo(e, dataGridView1,false);
+        }
+
+
+     
+
 
 
 

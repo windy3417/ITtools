@@ -24,5 +24,6 @@ namespace ITtools.DAL.VModel
 
         public Nullable<int> SendEmailAmount {get;set;}
         public int RowId { get; set; }
+        public string UploadFlag { get; set; }
     }
 }

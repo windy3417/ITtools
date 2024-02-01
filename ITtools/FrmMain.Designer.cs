@@ -48,6 +48,8 @@
             this.数据修正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVocherDigestModify = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmWeightUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.装箱单修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.审批流维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmCompress = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbDecrypt = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +64,6 @@
             this.tsmVersionInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.装箱单修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -205,7 +206,8 @@
             this.数据修正ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmVocherDigestModify,
             this.tsmWeightUpdate,
-            this.装箱单修改ToolStripMenuItem});
+            this.装箱单修改ToolStripMenuItem,
+            this.审批流维护ToolStripMenuItem});
             this.数据修正ToolStripMenuItem.Name = "数据修正ToolStripMenuItem";
             this.数据修正ToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.数据修正ToolStripMenuItem.Text = "数据修正";
@@ -213,16 +215,31 @@
             // tsmVocherDigestModify
             // 
             this.tsmVocherDigestModify.Name = "tsmVocherDigestModify";
-            this.tsmVocherDigestModify.Size = new System.Drawing.Size(180, 22);
+            this.tsmVocherDigestModify.Size = new System.Drawing.Size(152, 22);
             this.tsmVocherDigestModify.Text = "凭证摘要修改";
             this.tsmVocherDigestModify.Click += new System.EventHandler(this.tsmVocherDigestModify_Click);
             // 
             // tsmWeightUpdate
             // 
             this.tsmWeightUpdate.Name = "tsmWeightUpdate";
-            this.tsmWeightUpdate.Size = new System.Drawing.Size(180, 22);
+            this.tsmWeightUpdate.Size = new System.Drawing.Size(152, 22);
             this.tsmWeightUpdate.Text = "过磅单修改";
             this.tsmWeightUpdate.Click += new System.EventHandler(this.tsmWeightUpdate_Click);
+            // 
+            // 装箱单修改ToolStripMenuItem
+            // 
+            this.装箱单修改ToolStripMenuItem.Name = "装箱单修改ToolStripMenuItem";
+            this.装箱单修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.装箱单修改ToolStripMenuItem.Text = "装箱单修改";
+            this.装箱单修改ToolStripMenuItem.Click += new System.EventHandler(this.装箱单修改ToolStripMenuItem_Click);
+            // 
+            // 审批流维护ToolStripMenuItem
+            // 
+            this.审批流维护ToolStripMenuItem.Name = "审批流维护ToolStripMenuItem";
+            this.审批流维护ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.审批流维护ToolStripMenuItem.Tag = "ITtools.UI.U8mantinance.FrmAuditFlowModify";
+            this.审批流维护ToolStripMenuItem.Text = "审批流维护";
+            this.审批流维护ToolStripMenuItem.Click += new System.EventHandler(this.MenuItemClick);
             // 
             // 工具ToolStripMenuItem
             // 
@@ -328,18 +345,14 @@
             // tabControl1
             // 
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 426);
             this.tabControl1.TabIndex = 0;
-            // 
-            // 装箱单修改ToolStripMenuItem
-            // 
-            this.装箱单修改ToolStripMenuItem.Name = "装箱单修改ToolStripMenuItem";
-            this.装箱单修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.装箱单修改ToolStripMenuItem.Text = "装箱单修改";
-            this.装箱单修改ToolStripMenuItem.Click += new System.EventHandler(this.装箱单修改ToolStripMenuItem_Click);
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseClick);
             // 
             // FrmMain
             // 
@@ -396,6 +409,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmDownLoad;
         private System.Windows.Forms.ToolStripMenuItem tsmSmbConnectiongString;
         private System.Windows.Forms.ToolStripMenuItem 装箱单修改ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 审批流维护ToolStripMenuItem;
     }
 }
 

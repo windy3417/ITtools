@@ -56,7 +56,6 @@
             this.tsbUpload = new System.Windows.Forms.ToolStripButton();
             this.tsbEmail = new System.Windows.Forms.ToolStripButton();
             this.tsb_close = new System.Windows.Forms.ToolStripButton();
-            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ccode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +69,7 @@
             this.settleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsClose = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Attachment = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.webURLServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.pRecordRegion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -212,9 +212,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ccode,
@@ -232,6 +235,7 @@
             this.Attachment});
             this.dataGridView1.Location = new System.Drawing.Point(33, 194);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1019, 402);
             this.dataGridView1.TabIndex = 7;
@@ -358,21 +362,19 @@
             this.tsb_close.Text = "关闭";
             this.tsb_close.Click += new System.EventHandler(this.Tsb_close_Click);
             // 
-            // webURLServiceBindingSource
-            // 
-            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
-            // 
             // ccode
             // 
             this.ccode.DataPropertyName = "ccode";
             this.ccode.HeaderText = "请购单号";
             this.ccode.Name = "ccode";
+            this.ccode.ReadOnly = true;
             // 
             // RowId
             // 
             this.RowId.DataPropertyName = "RowId";
             this.RowId.HeaderText = "数据ID";
             this.RowId.Name = "RowId";
+            this.RowId.ReadOnly = true;
             this.RowId.Visible = false;
             // 
             // dDate
@@ -380,66 +382,82 @@
             this.dDate.DataPropertyName = "dDate";
             this.dDate.HeaderText = "请购日期";
             this.dDate.Name = "dDate";
+            this.dDate.ReadOnly = true;
             // 
             // cAuditDate
             // 
             this.cAuditDate.DataPropertyName = "cAuditDate";
             this.cAuditDate.HeaderText = "审核日期";
             this.cAuditDate.Name = "cAuditDate";
+            this.cAuditDate.ReadOnly = true;
             // 
             // cPersonName
             // 
             this.cPersonName.DataPropertyName = "cPersonName";
             this.cPersonName.HeaderText = "请购人员";
             this.cPersonName.Name = "cPersonName";
+            this.cPersonName.ReadOnly = true;
             // 
             // cInvCode
             // 
             this.cInvCode.DataPropertyName = "cInvCode";
             this.cInvCode.HeaderText = "服务编码";
             this.cInvCode.Name = "cInvCode";
+            this.cInvCode.ReadOnly = true;
             // 
             // cInvName
             // 
             this.cInvName.DataPropertyName = "cInvName";
             this.cInvName.HeaderText = "服务名称";
             this.cInvName.Name = "cInvName";
+            this.cInvName.ReadOnly = true;
             // 
             // cInvStd
             // 
             this.cInvStd.DataPropertyName = "cInvStd";
             this.cInvStd.HeaderText = "服务描述";
             this.cInvStd.Name = "cInvStd";
+            this.cInvStd.ReadOnly = true;
             // 
             // email
             // 
             this.email.DataPropertyName = "SendEmailAmount";
             this.email.HeaderText = "邮件发送次数";
             this.email.Name = "email";
+            this.email.ReadOnly = true;
             // 
             // settleFlag
             // 
             this.settleFlag.DataPropertyName = "settleFlag";
             this.settleFlag.HeaderText = "是否验收";
             this.settleFlag.Name = "settleFlag";
+            this.settleFlag.ReadOnly = true;
             // 
             // settleDate
             // 
             this.settleDate.DataPropertyName = "settleDate";
             this.settleDate.HeaderText = "验收日期";
             this.settleDate.Name = "settleDate";
+            this.settleDate.ReadOnly = true;
             // 
             // IsClose
             // 
             this.IsClose.DataPropertyName = "IsClose";
             this.IsClose.HeaderText = "关闭人";
             this.IsClose.Name = "IsClose";
+            this.IsClose.ReadOnly = true;
             // 
             // Attachment
             // 
+            this.Attachment.DataPropertyName = "upLoadFlag";
             this.Attachment.HeaderText = "附件";
             this.Attachment.Name = "Attachment";
+            this.Attachment.ReadOnly = true;
             this.Attachment.Text = "上传/查询";
+            // 
+            // webURLServiceBindingSource
+            // 
+            this.webURLServiceBindingSource.DataSource = typeof(ITtools.Services.WebURLService);
             // 
             // FrmWeakCurrence
             // 

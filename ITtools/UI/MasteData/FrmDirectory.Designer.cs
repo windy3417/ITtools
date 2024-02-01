@@ -74,7 +74,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.57143F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 198F));
             this.tableLayoutPanel1.Controls.Add(this.btn_openFileDirectory, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_item, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -93,7 +93,7 @@
             // btn_openFileDirectory
             // 
             this.btn_openFileDirectory.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_openFileDirectory.Location = new System.Drawing.Point(318, 64);
+            this.btn_openFileDirectory.Location = new System.Drawing.Point(316, 64);
             this.btn_openFileDirectory.Name = "btn_openFileDirectory";
             this.btn_openFileDirectory.Size = new System.Drawing.Size(35, 21);
             this.btn_openFileDirectory.TabIndex = 4;
@@ -126,7 +126,7 @@
             this.txt_dierctoryID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txt_dierctoryID.Location = new System.Drawing.Point(70, 14);
             this.txt_dierctoryID.Name = "txt_dierctoryID";
-            this.txt_dierctoryID.Size = new System.Drawing.Size(242, 21);
+            this.txt_dierctoryID.Size = new System.Drawing.Size(240, 21);
             this.txt_dierctoryID.TabIndex = 1;
             // 
             // txt_directory
@@ -134,14 +134,14 @@
             this.txt_directory.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_directory.Location = new System.Drawing.Point(70, 64);
             this.txt_directory.Name = "txt_directory";
-            this.txt_directory.Size = new System.Drawing.Size(242, 21);
+            this.txt_directory.Size = new System.Drawing.Size(240, 21);
             this.txt_directory.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(318, 19);
+            this.label1.Location = new System.Drawing.Point(316, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
@@ -157,7 +157,7 @@
             "弱电验收单附件",
             "备份",
             "删除"});
-            this.cmbClass.Location = new System.Drawing.Point(365, 15);
+            this.cmbClass.Location = new System.Drawing.Point(363, 15);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(183, 20);
             this.cmbClass.TabIndex = 5;

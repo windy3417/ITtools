@@ -32,7 +32,7 @@
     <SuiteName>运维管理</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationRevision>62</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -50,6 +50,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -96,10 +98,6 @@
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="JQ.Expressions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\JQ.Expressions.dll</HintPath>
     </Reference>
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
@@ -149,7 +147,10 @@
     <Reference Include="TinyPinyin.Core, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TinyPinyin.Core.0.1.0\lib\net452\TinyPinyin.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="U8services">
+      <HintPath>..\..\..\U8services\U8services\bin\Debug\U8services.dll</HintPath>
+    </Reference>
+    <Reference Include="Utility, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Utility\bin\Debug\Utility.dll</HintPath>
     </Reference>
@@ -164,9 +165,19 @@
     <Compile Include="DAL\Services\AddressBook\DepartmentService.cs" />
     <Compile Include="DAL\Services\ApplicationPurchaseService.cs" />
     <Compile Include="DAL\Services\WeakCurrenceSettleService.cs" />
+    <Compile Include="Migrations\202401290312079_m.cs" />
+    <Compile Include="Migrations\202401290312079_m.designer.cs">
+      <DependentUpon>202401290312079_m.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401290546365_m1.cs" />
+    <Compile Include="Migrations\202401290546365_m1.designer.cs">
+      <DependentUpon>202401290546365_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DirectoryItem.cs" />
     <Compile Include="Model\Enum.cs" />
     <Compile Include="Model\IT\addressBook.cs" />
+    <Compile Include="Model\IT\AttachFiles.cs" />
     <Compile Include="Model\IT\Department.cs" />
     <Compile Include="Model\IT\Directory.cs" />
     <Compile Include="Model\IT\MaxKeys.cs" />
@@ -313,6 +324,12 @@
     <Compile Include="UI\Tools\FrmDownload.Designer.cs">
       <DependentUpon>FrmDownload.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\U8mantinance\FrmAuditFlowModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\U8mantinance\FrmAuditFlowModify.Designer.cs">
+      <DependentUpon>FrmAuditFlowModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\U8Query\FrmU8Attachment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -373,6 +390,12 @@
     <Compile Include="UI\U8mantinance\FrmGlvouchModify.Designer.cs">
       <DependentUpon>FrmGlvouchModify.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202401290312079_m.resx">
+      <DependentUpon>202401290312079_m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401290546365_m1.resx">
+      <DependentUpon>202401290546365_m1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AddressBook\FrmAddUpdateAddresBook.resx">
       <DependentUpon>FrmAddUpdateAddresBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Tools\FrmDownload.resx">
       <DependentUpon>FrmDownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\U8mantinance\FrmAuditFlowModify.resx">
+      <DependentUpon>FrmAuditFlowModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\U8mantinance\FrmGlvouch.resx">
       <DependentUpon>FrmGlvouch.cs</DependentUpon>
@@ -539,4 +565,9 @@
   </Target>
   <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>rmdir /S /Q "$(TargetDir)temp" || echo Directory did not exist.
+mkdir "$(TargetDir)temp"
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>
